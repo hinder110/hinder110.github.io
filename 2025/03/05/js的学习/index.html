@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="js的学习分析js js的变量类型只有var这一个，也叫体面量，这个可以代表很多的变量类型  我觉得最特殊的是，他的简单，和方便，  还有一点就是，这个代码是运行在node.js上的，感觉这个语言有Java和c和Python的影子。     1234567891011121314151617181920212223242526&lt;!DOCTYPE html&gt;&lt;html&gt;&amp;lt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js的学习">
+<meta property="og:url" content="http://example.com/2025/03/05/js%E7%9A%84%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="wjjhexo">
+<meta property="og:description" content="js的学习分析js js的变量类型只有var这一个，也叫体面量，这个可以代表很多的变量类型  我觉得最特殊的是，他的简单，和方便，  还有一点就是，这个代码是运行在node.js上的，感觉这个语言有Java和c和Python的影子。     1234567891011121314151617181920212223242526&lt;!DOCTYPE html&gt;&lt;html&gt;&amp;lt">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://scpic2.chinaz.net/files/default/imgs/2024-04-25/cbbebf6b6c217cd2_s.jpg">
+<meta property="og:image" content="https://scpic2.chinaz.net/files/default/imgs/2024-06-13/a036b75814b37fda_s.jpg">
+<meta property="og:image" content="https://scpic2.chinaz.net/files/default/imgs/2024-04-25/eaa23f456b35ca66_s.jpg">
+<meta property="og:image" content="https://scpic2.chinaz.net/files/default/imgs/2024-04-25/478695a295be374f_s.jpg">
+<meta property="article:published_time" content="2025-03-05T02:39:19.000Z">
+<meta property="article:modified_time" content="2025-03-05T03:13:00.332Z">
+<meta property="article:author" content="hinder110-wjj">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://scpic2.chinaz.net/files/default/imgs/2024-04-25/cbbebf6b6c217cd2_s.jpg">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon_1.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>js的学习</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/probberechts">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2025/03/04/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2025/03/05/js%E7%9A%84%E5%AD%A6%E4%B9%A0/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2025/03/05/js%E7%9A%84%E5%AD%A6%E4%B9%A0/&text=js的学习"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2025/03/05/js%E7%9A%84%E5%AD%A6%E4%B9%A0/&title=js的学习"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2025/03/05/js%E7%9A%84%E5%AD%A6%E4%B9%A0/&is_video=false&description=js的学习"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=js的学习&body=Check out this article: http://example.com/2025/03/05/js%E7%9A%84%E5%AD%A6%E4%B9%A0/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2025/03/05/js%E7%9A%84%E5%AD%A6%E4%B9%A0/&title=js的学习"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2025/03/05/js%E7%9A%84%E5%AD%A6%E4%B9%A0/&title=js的学习"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2025/03/05/js%E7%9A%84%E5%AD%A6%E4%B9%A0/&title=js的学习"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2025/03/05/js%E7%9A%84%E5%AD%A6%E4%B9%A0/&title=js的学习"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2025/03/05/js%E7%9A%84%E5%AD%A6%E4%B9%A0/&name=js的学习&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2025/03/05/js%E7%9A%84%E5%AD%A6%E4%B9%A0/&t=js的学习"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#js%E7%9A%84%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.</span> <span class="toc-text">js的学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%9E%90js"><span class="toc-number">1.1.</span> <span class="toc-text">分析js</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E6%AC%A1%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%9C%B0%E6%96%B9"><span class="toc-number">1.1.1.</span> <span class="toc-text">上次学习的地方</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#js%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.1.2.</span> <span class="toc-text">js中对象的实现</span></a></li></ol></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        js的学习
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">hinder110-wjj</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-03-05T02:39:19.000Z" class="dt-published" itemprop="datePublished">2025-03-05</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="js的学习"><a href="#js的学习" class="headerlink" title="js的学习"></a>js的学习</h1><h2 id="分析js"><a href="#分析js" class="headerlink" title="分析js"></a>分析js</h2><blockquote>
+<p>js的变量类型只有var这一个，也叫体面量，这个可以代表很多的变量类型</p>
+<blockquote>
+<p>我觉得最特殊的是，他的简单，和方便，</p>
+<blockquote>
+<p>还有一点就是，这个代码是运行在node.js上的，感觉这个语言有Java和c和Python的影子。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p><img src="https://scpic2.chinaz.net/files/default/imgs/2024-04-25/cbbebf6b6c217cd2_s.jpg"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>菜鸟教程(runoob.com)<span class="tag">&lt;/<span class="name">title</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>我的第一段 JavaScript<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>请输入数字。如果输入值不是数字，浏览器会弹出提示框。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;demo&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">function</span> <span class="title function_">myFunction</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="language-javascript">&#123;</span></span><br><span class="line"><span class="language-javascript">	<span class="keyword">var</span> x=<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;demo&quot;</span>).<span class="property">value</span>;</span></span><br><span class="line"><span class="language-javascript">	<span class="keyword">if</span>(<span class="built_in">isNaN</span>(x)||x.<span class="title function_">replace</span>(<span class="regexp">/(^\s*)|(\s*$)/g</span>,<span class="string">&quot;&quot;</span>)==<span class="string">&quot;&quot;</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">		<span class="title function_">alert</span>(<span class="string">&quot;不是数字&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">	&#125;</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;myFunction()&quot;</span>&gt;</span>点击这里<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="上次学习的地方"><a href="#上次学习的地方" class="headerlink" title="上次学习的地方"></a><a target="_blank" rel="noopener" href="https://www.runoob.com/js/js-datatypes.html">上次学习的地方</a></h3><pre><code>还有就是，这个语言是要在HTML这个模板中运行的，单独也可以运行。
+</code></pre>
+<p>我很喜欢这个语言说的一句话 <em>var就是容器，所有的变量都是容器。</em></p>
+<p><img src="https://scpic2.chinaz.net/files/default/imgs/2024-06-13/a036b75814b37fda_s.jpg"></p>
+<pre><code>其实我们的思考也就像是容器一样，任何信息对于我们来说就只是信息而以。
+</code></pre>
+<h3 id="js中对象的实现"><a href="#js中对象的实现" class="headerlink" title="js中对象的实现"></a>js中对象的实现</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    <span class="attr">firstName</span>:<span class="string">&quot;John&quot;</span>,</span><br><span class="line">    <span class="attr">lastName</span>:<span class="string">&quot;Doe&quot;</span>,</span><br><span class="line">    <span class="attr">age</span>:<span class="number">50</span>,</span><br><span class="line">    <span class="attr">eyeColor</span>:<span class="string">&quot;blue&quot;</span></span><br><span class="line">&#125;; </span><br></pre></td></tr></table></figure>
+<pre><code>学习这么多语言，js中的对象创建是真的简单，首先的话，c语言是面向程序的语言，c++和Java还有Python是面向对象的语言，但是在c++和Java中是比较麻烦的，首先得创建类，然后创建实例对象，由此来使用对象，但是这样的过程很有严谨性，在复杂大的程序中是很有必要的，但是js是一种脚本语言我觉得和Python是很相似的。
+</code></pre>
+<p><img src="https://scpic2.chinaz.net/files/default/imgs/2024-04-25/eaa23f456b35ca66_s.jpg"></p>
+<pre><code>对象属性
+
+可以说 &quot;JavaScript 对象是变量的容器&quot;。
+
+但是，我们通常认为 &quot;JavaScript 对象是键值对的容器&quot;。
+
+键值对通常写法为 name : value (键与值以冒号分割)。
+
+键值对在 JavaScript 对象通常称为 对象属性。
+</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">person.<span class="property">lastName</span>;</span><br><span class="line">name = person.<span class="title function_">fullName</span>();</span><br><span class="line">name = person.<span class="property">fullName</span>;</span><br><span class="line">methodName : <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// 代码 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>这玩意和c++很像，简直一模一样。</em></p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/js/js-functions.html">上次学习的地方</a></p>
+<p><img src="https://scpic2.chinaz.net/files/default/imgs/2024-04-25/478695a295be374f_s.jpg"></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="http://github.com/probberechts">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#js%E7%9A%84%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.</span> <span class="toc-text">js的学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%9E%90js"><span class="toc-number">1.1.</span> <span class="toc-text">分析js</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E6%AC%A1%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%9C%B0%E6%96%B9"><span class="toc-number">1.1.1.</span> <span class="toc-text">上次学习的地方</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#js%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.1.2.</span> <span class="toc-text">js中对象的实现</span></a></li></ol></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2025/03/05/js%E7%9A%84%E5%AD%A6%E4%B9%A0/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2025/03/05/js%E7%9A%84%E5%AD%A6%E4%B9%A0/&text=js的学习"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2025/03/05/js%E7%9A%84%E5%AD%A6%E4%B9%A0/&title=js的学习"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2025/03/05/js%E7%9A%84%E5%AD%A6%E4%B9%A0/&is_video=false&description=js的学习"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=js的学习&body=Check out this article: http://example.com/2025/03/05/js%E7%9A%84%E5%AD%A6%E4%B9%A0/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2025/03/05/js%E7%9A%84%E5%AD%A6%E4%B9%A0/&title=js的学习"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2025/03/05/js%E7%9A%84%E5%AD%A6%E4%B9%A0/&title=js的学习"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2025/03/05/js%E7%9A%84%E5%AD%A6%E4%B9%A0/&title=js的学习"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2025/03/05/js%E7%9A%84%E5%AD%A6%E4%B9%A0/&title=js的学习"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2025/03/05/js%E7%9A%84%E5%AD%A6%E4%B9%A0/&name=js的学习&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2025/03/05/js%E7%9A%84%E5%AD%A6%E4%B9%A0/&t=js的学习"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2025
+    hinder110-wjj
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/probberechts">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
