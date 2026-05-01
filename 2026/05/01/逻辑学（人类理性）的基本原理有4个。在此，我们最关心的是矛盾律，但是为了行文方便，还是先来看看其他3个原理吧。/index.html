@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hinder110.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="逻辑学（人类理性）的基本原理有4个。在此，我们最关心的是矛盾律，但是为了行文方便，还是先来看看其他3个原理吧。 矛盾律是什么？ 同一律 事物只能是其本身（这一点像是尊重客观的物理规律） 排中律 这个有点意思的，说是在一定的情况下不存在中间状态，在一定情况下只存在对与错。 比如说一个事物，苹果只有存在和不存在，只有吃了和没吃，不存在中间那种状态，还有比如说你会开车，和不会开车，也存在排中情况。 充足">
+<meta property="og:type" content="article">
+<meta property="og:title" content="逻辑学（人类理性）的基本原理有4个。在此，我们最关心的是矛盾律，但是为了行文方便，还是先来看看其他3个原理吧。">
+<meta property="og:url" content="https://hinder110.github.io/2026/05/01/%E9%80%BB%E8%BE%91%E5%AD%A6%EF%BC%88%E4%BA%BA%E7%B1%BB%E7%90%86%E6%80%A7%EF%BC%89%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E6%9C%894%E4%B8%AA%E3%80%82%E5%9C%A8%E6%AD%A4%EF%BC%8C%E6%88%91%E4%BB%AC%E6%9C%80%E5%85%B3%E5%BF%83%E7%9A%84%E6%98%AF%E7%9F%9B%E7%9B%BE%E5%BE%8B%EF%BC%8C%E4%BD%86%E6%98%AF%E4%B8%BA%E4%BA%86%E8%A1%8C%E6%96%87%E6%96%B9%E4%BE%BF%EF%BC%8C%E8%BF%98%E6%98%AF%E5%85%88%E6%9D%A5%E7%9C%8B%E7%9C%8B%E5%85%B6%E4%BB%963%E4%B8%AA%E5%8E%9F%E7%90%86%E5%90%A7%E3%80%82/index.html">
+<meta property="og:site_name" content="宇宙纪元">
+<meta property="og:description" content="逻辑学（人类理性）的基本原理有4个。在此，我们最关心的是矛盾律，但是为了行文方便，还是先来看看其他3个原理吧。 矛盾律是什么？ 同一律 事物只能是其本身（这一点像是尊重客观的物理规律） 排中律 这个有点意思的，说是在一定的情况下不存在中间状态，在一定情况下只存在对与错。 比如说一个事物，苹果只有存在和不存在，只有吃了和没吃，不存在中间那种状态，还有比如说你会开车，和不会开车，也存在排中情况。 充足">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-01T10:16:29.000Z">
+<meta property="article:modified_time" content="2026-05-01T10:16:30.006Z">
+<meta property="article:author" content="hinder110">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://hinder110.github.io/2026/05/01/%E9%80%BB%E8%BE%91%E5%AD%A6%EF%BC%88%E4%BA%BA%E7%B1%BB%E7%90%86%E6%80%A7%EF%BC%89%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E6%9C%894%E4%B8%AA%E3%80%82%E5%9C%A8%E6%AD%A4%EF%BC%8C%E6%88%91%E4%BB%AC%E6%9C%80%E5%85%B3%E5%BF%83%E7%9A%84%E6%98%AF%E7%9F%9B%E7%9B%BE%E5%BE%8B%EF%BC%8C%E4%BD%86%E6%98%AF%E4%B8%BA%E4%BA%86%E8%A1%8C%E6%96%87%E6%96%B9%E4%BE%BF%EF%BC%8C%E8%BF%98%E6%98%AF%E5%85%88%E6%9D%A5%E7%9C%8B%E7%9C%8B%E5%85%B6%E4%BB%963%E4%B8%AA%E5%8E%9F%E7%90%86%E5%90%A7%E3%80%82/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>逻辑学（人类理性）的基本原理有4个。在此，我们最关心的是矛盾律，但是为了行文方便，还是先来看看其他3个原理吧。 | 宇宙纪元</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">宇宙纪元</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">hinder110 的博客世界。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hinder110.github.io/2026/05/01/%E9%80%BB%E8%BE%91%E5%AD%A6%EF%BC%88%E4%BA%BA%E7%B1%BB%E7%90%86%E6%80%A7%EF%BC%89%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E6%9C%894%E4%B8%AA%E3%80%82%E5%9C%A8%E6%AD%A4%EF%BC%8C%E6%88%91%E4%BB%AC%E6%9C%80%E5%85%B3%E5%BF%83%E7%9A%84%E6%98%AF%E7%9F%9B%E7%9B%BE%E5%BE%8B%EF%BC%8C%E4%BD%86%E6%98%AF%E4%B8%BA%E4%BA%86%E8%A1%8C%E6%96%87%E6%96%B9%E4%BE%BF%EF%BC%8C%E8%BF%98%E6%98%AF%E5%85%88%E6%9D%A5%E7%9C%8B%E7%9C%8B%E5%85%B6%E4%BB%963%E4%B8%AA%E5%8E%9F%E7%90%86%E5%90%A7%E3%80%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hinder110">
+      <meta itemprop="description" content="我喜欢使用电脑的过程，仅此而已。🐸">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宇宙纪元">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          逻辑学（人类理性）的基本原理有4个。在此，我们最关心的是矛盾律，但是为了行文方便，还是先来看看其他3个原理吧。
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-05-01 18:16:29 / 修改时间：18:16:30" itemprop="dateCreated datePublished" datetime="2026-05-01T18:16:29+08:00">2026-05-01</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>逻辑学（人类理性）的基本原理有4个。在此，我们最关心的是矛盾律，但是为了行文方便，还是先来看看其他3个原理吧。</p>
+<p>矛盾律是什么？</p>
+<p><strong>同一律</strong></p>
+<p>事物只能是其本身（这一点像是尊重客观的物理规律）</p>
+<p><strong>排中律</strong></p>
+<p>这个有点意思的，说是在一定的情况下不存在中间状态，在一定情况下只存在对与错。</p>
+<p>比如说一个事物，苹果只有存在和不存在，只有吃了和没吃，不存在中间那种状态，还有比如说你会开车，和不会开车，也存在排中情况。</p>
+<p><strong>充足理由律</strong></p>
+<p>暗示宇宙不能以自我来解释，但是这又很奇怪，这在一定程度上是反唯心主义的，就我存在即世界存在，但是世界上的一切的存在有其存在的原因。</p>
+<p><strong>矛盾律</strong></p>
+<p>在同一时刻，某个事物不可能在同一方面既是这样又不是这样。</p>
+<p>如果苹果是苹果，那么苹果就不可能是香蕉</p>
+<p><strong>首先，基本原理是不证自明的</strong></p>
+<p><strong>其次，基本原理的另一大特点是，它是不能被证明的</strong></p>
+<p><strong>负面只有在正面已知的情况下才可以被确认为负面。</strong></p>
+<p>这句话很有意思，在法律上来讲，只有确定违法才能确定有罪。</p>
+<p>但这里的意思和这个又不太一样，这里的意思是，只有好被确定，坏才会出现。</p>
+<p>它的动力因是弗莱德，他制造了它；它的质料因是松木、钉子、螺丝和油漆；它的形式因是鸟笼特定的外形，以此来区分文件柜或是窗棂之类的东西；它的目的因是为小鸟提供一个可以栖身的场所。</p>
+<p>这很有意思，在这么看的情况下所有的事件其实都会存在着四个特点原因。</p>
+<p>不是所有的事物都可以按照“四因论”来进行分析。一个数学观念（或其他任何观念）都是没有质料因的，因为思想观念都是非实质的存在。</p>
+<p>一个合格的主要原因，即使配上一个劣质的工具，也可以有所成效；但是一个不合格的主要原因，即便配上一个最好的工具，也永远都达不到目的。</p>
+<p><strong>逻辑上定义术语的过程分为两步：第一步，将要定义的术语放入最相近的类别当中；第二步，确定其与同类中其他事物的不同特性。</strong></p>
+<p>其实这个就是辩论中的定义，其实辩论就是一场关于逻辑的对战。</p>
+<p><strong>最有效的论证，其结论都是直言命题，清楚明确地告诉我们事物的真相是什么。</strong></p>
+<p>切记要谨慎。一个命题可能在形式上是直言命题，但实际上它所表达的内容仍然可能不对。一个人可能会说：“芝加哥棒球队是最好的棒球队。”这是一个直言命题，但它告诉我们的只是讲话者坚定的信念。它描述了一个主观事实，因为它只是讲话者自己的观点，而不反映任何客观情况</p>
+<p>一个普遍命题涵盖的对象非常广，但它并不必然就是不精确的。“马是脊椎动物”和“马是家畜”都是普遍命题，而且没有什么理由怀疑这些命题的正确性。使一个普遍命题成立要满足以下条件：（1）它所陈述的事物是真实的；（2）适用于整个类别。</p>
+<p><strong>普遍命题有两种形式：全称命题和特称命题。</strong></p>
+<p>这个在高中数学中是学到过的。</p>
+<p>逻辑推理的具体表现形式是论证。论证的成败取决于其所包含的推理的好坏。</p>
+<p><strong>每个论证都由两个基本要素组成——两个不同类型的命题：一个“前提”和一个“结论”。</strong></p>
+<p>a-&gt;b</p>
+<p>a就是前提而b则是结论</p>
+<p>世界上有大量的水-&gt;世界上存在海洋。</p>
+<p><strong>最有效的论证总是试着得出最简单明了的结论。</strong></p>
+<p>如果“没有男性是妈妈”成立，那么“一些男性不是妈妈”也必然成立。</p>
+<h5 id="从特称到全称和从全称到特称"><a href="#从特称到全称和从全称到特称" class="headerlink" title="从特称到全称和从全称到特称"></a>从特称到全称和从全称到特称</h5><p>仅仅因为某些特征适合于整体的某个部分，就声称这些特征也必然适合于整体，</p>
+<p>这个就是这句话告诉我们的道理，如果大结论成立，那么位于这个作用域以内的事件必然成立，但是如果小条件成立，而位于作用域以外的事件不一定成立，这就是传统的以偏概全。</p>
+<p><strong>断言是将谓项附着于主项的观念联结过程。</strong>“莱瑞尔是经理助理”，在这个命题中，经理助理是莱瑞尔的谓项。</p>
+<p>在命题“麻疹是传染性的”中，传染性是对麻疹所下的断言。</p>
+<p>断言是有真有假的，比如说wjj是渣男，渣男是有相应的修饰性和归类性的，而wjj这个主项，要被归类到渣男这个谓项中。</p>
+<p>马克·吐温出生在美国</p>
+<hr>
+<p>肯定命题在观念之间搭建桥梁，将不同的观念联结起来；否定命题则相反。</p>
+<p>命题不成立，仅仅是说它是假的。命题的真假与它是肯定的或是否定的没有关系。当我们运用逻辑语言讨论一个命题的性质时，我们所说的就是它是肯定的还是否定的。</p>
+<p><strong>在其他条件相同的情况下，如果肯定命题和否定命题都能同样清晰地说明同一个事物，最好是选择肯定结构的命题。</strong></p>
+<p>人脑善于比较。事实上，没有比较，观念就不可能产生。正是通过比较这种精神活动，我们才能辨别事物的异同。</p>
+<p>当用命题将一个观念（主项）同另一个观念（谓项）相联结时，它是人脑所作出的最基本的比较的语言表达。我们所说的“判断”是一种精神活动，它通过观念的联结使我们可以对所处的客观世界作出连贯的陈述。由于判断是命题的基础，所以我们所说的适用于命题的一切原则，也必然在判断中适用。如果一个判断所揭示的观念之间的联系真实反映了客观世界中的关系，那它就是正确的。</p>
+<p>如果我现在比较鹿和牛，则它们的共性有：它们都是偶蹄的，它们都是食草动物，等等。如果我可以肯定，在所讨论的问题中，所有我所涉及的特性都是重要特性且没有其他重要特性被遗漏，那么我的论证就是合理的，令人信服的。在上例论证中，我趋向于得出“鹿和牛”非常相似的结论。</p>
+<p><strong>为了使论证正确有力，我们必须关注其事实（内容）和形式（结构）。</strong></p>
+<p>关注到真实性和有效性的区别是非常重要的。尽管人们常常将两者混淆，事实上它们差别很大。首先，真实性针对命题的内容，而有效性则针对命题的结构，我们称之为论证。其次，只要命题反映的事实是真相，它就是正确的。但一个论证如果想成立，如前文所述，在前提正确的基础上，它的结构也必须能有效支持它的结论。</p>
+<p>现在我们来讨论三种简单的论证形式：联言论证、选言论证和条件论证。</p>
+<p>联言论证，其实在某种程度上是计算机理论中的and</p>
+<p>选言论证就是说组成这个命题的两个部分是相互排斥的，它们不能同时为真。</p>
+<p>**条件论证的要点是大前提A→B告诉我们如果A（无论它是什么）成立，那么B也必然成立。**此时，我们不能确定知道实际情况会是什么。小前提A，告诉我们大前提中的条件可以满足，然后结论B就随之出现。这是一个有效论证，意味着如果前提成立，则结论必然成立。这是有效论证中的必然结果：真实前提带来真实结论。</p>
+<p>如果路易斯在跑步，那么他一定是在移动。</p>
+<p>A→B</p>
+<p>-B</p>
+<p>所以，-A</p>
+<p>大前提设定条件：“如果路易斯在跑步，那么他一定是在移动。”小前提（-B）是：“路易斯没有移动。”结论：“所以，他没有跑步。”这个论证的逻辑是：由于跑步一定会带来移动（只跑步不移动是不可能的），如果一个人没有移动，显然的，他一定没有跑步。</p>
+<p><strong>条件论证是具有前瞻性的，可靠的预言来自于对过去事实的积累。</strong></p>
+<h2 id="三段论"><a href="#三段论" class="headerlink" title="三段论"></a>三段论</h2><p>每一个M都是P。</p>
+<p>每一个S都是M。</p>
+<p>所以，每一个S都是P。</p>
+<p><strong>三段论推理的根据是，首先确定某一部分是属于整体的，然后得出某一部分的组成成员也是属于整体的。</strong></p>
+<p>前面我们已经说过，一个三段论的论证，或者是任何一个论证，如果想要得到正确的结论，必须达到两个基本的要求：**一是它必须有正确的内容，二是它必须有合理的结构。**正确的内容取决于作为前提的命题真实与否。如果结构合理，但是内容不合理，会产生什么样的后果呢？让我们来看下面这个例子：</p>
+<p>每只狗都有三个头。</p>
+<p>牧羊犬是狗。</p>
+<p>所以，牧羊犬有三个头。</p>
+<p>一个三段论的论证，或者是任何一个论证，如果想要得到正确的结论，必须达到两个基本的要求：<strong>一是它必须有正确的内容，二是它必须有合理的结构。</strong></p>
+<p>虽然前提的真实性是得出正确论证的必要条件，但也不是充分条件。如果前提不能有效地支持结论，它能起到的作用也是寥寥。回想一下，前提的作用是支持结论，给我们可以接受结论的理由。但是，如果前提本身和结论毫不相关，即便它是正确的，也不能起到应有的作用。前提失效的表现之一是不能证明结论。让我们来看下面的例子：</p>
+<p>皮埃尔是个全美闻名的橄榄球运动员。</p>
+<p>皮埃尔不到30岁就赚到第一个100万美元。</p>
+<p>皮埃尔很英俊，笑容迷人。</p>
+<p>所以，皮埃尔应该被选为州长。</p>
+<p>音乐家都是杰出的人。</p>
+<p>塞西莉亚是音乐家。</p>
+<p>所以，塞西莉亚是杰出的人。</p>
+<p>这两个的区别主要是第一个大前提是事实，而第二个则是断论</p>
+<p>这意味着以价值命题为前提的论断，永远不能像以事实为前提的论断那样，有确定的评判标准，因为价值的评估永远会受到挑战。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2026/05/01/%E7%AC%AC%E4%BA%8C%E7%AB%A0/" rel="prev" title="第二章">
+      <i class="fa fa-chevron-left"></i> 第二章
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2026/05/01/%E5%85%B3%E4%BA%8E%E6%84%8F%E8%AF%86%E7%9A%84%E8%AE%A8%E8%AE%BA%E4%BB%A5%E5%8F%8A%E6%84%8F%E8%AF%86%E7%BB%B4%E5%BA%A6%E8%AE%BA%E7%9A%84%E8%AF%81%E4%BC%AA/" rel="next" title="关于意识的讨论以及意识维度论的证伪">
+      关于意识的讨论以及意识维度论的证伪 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%8E%E7%89%B9%E7%A7%B0%E5%88%B0%E5%85%A8%E7%A7%B0%E5%92%8C%E4%BB%8E%E5%85%A8%E7%A7%B0%E5%88%B0%E7%89%B9%E7%A7%B0"><span class="nav-number">1.</span> <span class="nav-text">从特称到全称和从全称到特称</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E6%AE%B5%E8%AE%BA"><span class="nav-number"></span> <span class="nav-text">三段论</span></a></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">hinder110</p>
+  <div class="site-description" itemprop="description">我喜欢使用电脑的过程，仅此而已。🐸</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hinder110</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
