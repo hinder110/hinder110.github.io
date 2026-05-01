@@ -1,197 +1,2132 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>宇宙纪元 - hinder110 的博客世界。</title><meta name="author" content="hinder110"><meta name="copyright" content="hinder110"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="我喜欢使用电脑的过程，仅此而已。🐸">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hinder110.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="我喜欢使用电脑的过程，仅此而已。🐸">
 <meta property="og:type" content="website">
 <meta property="og:title" content="宇宙纪元">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="https://hinder110.github.io/index.html">
 <meta property="og:site_name" content="宇宙纪元">
 <meta property="og:description" content="我喜欢使用电脑的过程，仅此而已。🐸">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/image/wallhaven-gp3qd3.jpg">
 <meta property="article:author" content="hinder110">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/image/wallhaven-gp3qd3.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
-    (() => {
-      
-    const saveToLocal = {
-      set: (key, value, ttl) => {
-        if (!ttl) return
-        const expiry = Date.now() + ttl * 86400000
-        localStorage.setItem(key, JSON.stringify({ value, expiry }))
-      },
-      get: key => {
-        const itemStr = localStorage.getItem(key)
-        if (!itemStr) return undefined
-        const { value, expiry } = JSON.parse(itemStr)
-        if (Date.now() > expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return value
-      }
-    }
 
-    window.btf = {
-      saveToLocal,
-      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
-        const script = document.createElement('script')
-        script.src = url
-        script.async = true
-        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
-        script.onload = script.onreadystatechange = () => {
-          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
-        }
-        script.onerror = reject
-        document.head.appendChild(script)
-      }),
-      getCSS: (url, id) => new Promise((resolve, reject) => {
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = url
-        if (id) link.id = id
-        link.onload = link.onreadystatechange = () => {
-          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
-        }
-        link.onerror = reject
-        document.head.appendChild(link)
-      }),
-      addGlobalFn: (key, fn, name = false, parent = window) => {
-        if (!false && key.startsWith('pjax')) return
-        const globalFn = parent.globalFn || {}
-        globalFn[key] = globalFn[key] || {}
-        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
-        parent.globalFn = globalFn
-      }
-    }
+<link rel="canonical" href="https://hinder110.github.io/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
+  };
+</script>
+
+  <title>宇宙纪元</title>
   
-      
-      const activateDarkMode = () => {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      const activateLightMode = () => {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
 
-      btf.activateDarkMode = activateDarkMode
-      btf.activateLightMode = activateLightMode
 
-      const theme = saveToLocal.get('theme')
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">宇宙纪元</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">hinder110 的博客世界。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
     
-          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
-        
-      
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
-      }
-    
-      
-    const detectApple = () => {
-      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-  
-    })()
-  </script><script>const GLOBAL_CONFIG = {
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
-  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
-  copy: {
-    success: 'Copy Successful',
-    error: 'Copy Failed',
-    noSupport: 'Browser Not Supported'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '',
-  dateSuffix: {
-    just: 'Just now',
-    min: 'minutes ago',
-    hour: 'hours ago',
-    day: 'days ago',
-    month: 'months ago'
-  },
-  copyright: undefined,
-  lightbox: 'null',
-  Snackbar: undefined,
-  infinitegrid: {
-    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
-    buttonText: 'Load More'
-  },
-  isPhotoFigcaption: false,
-  islazyloadPlugin: false,
-  isAnchor: false,
-  percent: {
-    toc: true,
-    rightside: false,
-  },
-  autoDarkmode: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: '宇宙纪元',
-  isHighlightShrink: false,
-  isToc: false,
-  pageType: 'home'
-}</script><link rel="stylesheet" href="/css/custom@1.0.0.css"><link rel="stylesheet" href="/css/color@1.0.0.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/image/wallhaven-gp3qd3.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音樂</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 電影</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/image/wallhaven-gp3qd3.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">宇宙纪元</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音樂</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 電影</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">宇宙纪元</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/05/01/%E7%AC%AC%E4%BA%8C%E7%AB%A0/" title="第二章">第二章</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2026-05-01T07:41:03.000Z" title="Created 2026-05-01 15:41:03">2026-05-01</time></span></div><div class="content">...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/08/13/%E5%85%AB%E6%9C%88%E6%97%A5%E8%AE%B0%E4%B8%A4%E7%AF%87/" title="八月日记两篇">八月日记两篇</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-08-13T08:22:47.000Z" title="Created 2025-08-13 16:22:47">2025-08-13</time></span></div><div class="content">八月十一的日记我最近其实很困扰也很烦恼，这也是为什么我重新开始写日记了，其实我感觉我写的不应该叫日记，主要是我的写作习惯就不符合日记的定义，顶多算是定期写写对自己经历的事情的感想吧， 总体来说用一句话来讲我这一年的变化的话就是...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/08/11/8-11-25-riji/" title="8/11/25--riji">8/11/25--riji</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-08-11T07:08:17.000Z" title="Created 2025-08-11 15:08:17">2025-08-11</time></span></div><div class="content">八月十一的日记我最近其实很困扰也很烦恼，这也是为什么我重新开始写日记了，其实我感觉我写的不应该叫日记，主要是我的写作习惯就不符合日记的定义，顶多算是定期写写对自己经历的事情的感想吧， 总体来说用一句话来讲我这一年的变化的话就是...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/08/04/%E5%A4%A7%E4%B8%80%E6%9C%9F%E9%97%B4%E7%9A%84%E6%97%A5%E8%AE%B0/" title="大一期间的日记">大一期间的日记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-08-04T09:04:18.000Z" title="Created 2025-08-04 17:04:18">2025-08-04</time></span></div><div class="content">...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/08/04/25%E6%9A%91%E5%81%87%E4%B9%8B%E5%89%8D%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="25暑假之前的读书笔记">25暑假之前的读书笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-08-04T08:13:11.000Z" title="Created 2025-08-04 16:13:11">2025-08-04</time></span></div><div class="content">随便写一些内容吧其实第一点想写的是我对于英语的感觉，英语是一个工具这一点必须明确。 其次是什么呢？ 英语听力是十分的重要的，我想说的是，英语是给乐于交流的爱与说话的人准备的。 我最近就在看Harry potter...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/04/25/%E8%BD%BB%E6%9D%BE%E4%B8%BB%E4%B9%89%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="轻松主义读书笔记">轻松主义读书笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-04-25T02:32:30.000Z" title="Created 2025-04-25 10:32:30">2025-04-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/book/">book</a></span></div><div class="content">轻松主义设定行动上限，找到轻松的节奏为什么设定界限，就可以找到轻松的节奏呢？ 因为有了你要努力的界限了，你不是无头苍蝇了。这一点对于人类来所很 重要。 事实证明，她做得也很棒。她决定选出100首歌，讲述每首歌背后的故事。她每星期写两个故事。“这样这件事就是可控的。”她解释说。写完两个故事之后，即便她有精力并且愿意多写，她也会停止这周的工作，因为每周两个故事就是她的上限。当我知道她的书在9个月内写完并送到出版社时，我惊呆了。那时候，我还在断断续续写我的书。当你仍然有精力的时候，用有所保留的方式去完成重要事项看上去可能是反常识的。但事实上，这种克制是在效率方面实现突破的关键。正如著有18部畅销小说的莉萨·朱厄尔（Lisa Jewell）所说：“要调整自己的节奏。如果你写得太多、太快，你就会偏离主题，失**去方向，而如果你不经常写，你会失去势头。**每天写1...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/04/23/prince/" title="prince">prince</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-04-23T14:55:41.000Z" title="Created 2025-04-23 22:55:41">2025-04-23</time></span></div><div class="content">a little princeChapter 6the little prince and the narrator talk about sunsets for the long time you had found your only entertainment in the quite pleasure of looking at the sunset. for the sunset .we must wait until it is time. everybody knows that when it is noon in the United States the sun is setting over France. setting over France in one minute go straight into right from noon too far away France is too far away for that but on your tiny planet all you need do is move your chair a few...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/04/19/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E9%A3%9F%E7%89%A9%E4%B8%AD%E6%AF%92/" title="第二次食物中毒">第二次食物中毒</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-04-19T07:01:57.000Z" title="Created 2025-04-19 15:01:57">2025-04-19</time></span></div><div class="content">第二次食物中毒先说说看经过吧，上午打完羽毛球，去吃了面皮，下午喝了佳得乐，也可能是因为我下午穿的太少了，据我分析来看应该是病毒性的食物中毒导致的病毒性的肠胃炎，应该也是急性的。 在这个过程中我真实的感觉自己的生命可能就到这里了，这种感觉很奇妙，但是出奇的是我并不害怕。 最主要的是第二天开始之后就开始了发烧，发烧持续了一天，我不知道我的温度是多少。 到现在我还是感觉脑袋模糊 这就是背景啦， 思考人类的生命太脆弱了，对于普通人来说就是这样的。 个人遭遇的黑天鹅实践是无法预测的。 与其思考以后的每一天不如过好今天。 脆弱性是人的本质，而反脆弱性则是人格的魅力。 自己要学会照顾好自己，这比学习其他的知识重要的多。  </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/04/16/React%E7%9A%84%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" title="React的基础学习">React的基础学习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-04-16T10:14:57.000Z" title="Created 2025-04-16 18:14:57">2025-04-16</time></span></div><div class="content">工具的介绍实现这一切的第一步是 node.js的实现这个是的下载的，可以在node.js官网去下载，最好的就是下载18 以后的版本，这个和后面的vite有关，vite可以去看vite的文档，是vue的作者写的。 这里需要命令的实现我把命令列在下面。 123$ npm config set registry https://registry.npmmirror.com$ npm install -g cnpm --registry=https://registry.npmmirror.com 这个是npm的换国内的mirror。 接下来是我们的Vite的工具，这个工具是为了高效的创建react框架，这完全不需要自己来弄，因为这些机械的动作现在越来越复杂了，其实完全不需要人来做这些事情。 1$ npm create vite@latest my-vue-app -- --template vue  查看 [create-vite](https://github.com/vitejs/vite/tree/main/packages/create-vite)...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2025/04/15/%E6%88%91%E5%92%8C%E5%A4%A7%E5%B0%8F%E5%A7%90%E7%9A%84%E6%95%85%E4%BA%8B/" title="我和大小姐的故事"><img class="post-bg" src="/image/dxj.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="我和大小姐的故事"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/04/15/%E6%88%91%E5%92%8C%E5%A4%A7%E5%B0%8F%E5%A7%90%E7%9A%84%E6%95%85%E4%BA%8B/" title="我和大小姐的故事">我和大小姐的故事</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-04-15T11:45:11.000Z" title="Created 2025-04-15 19:45:11">2025-04-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/girl/">girl</a></span></div><div class="content">...</div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="page-number" href="/page/3/#content-inner">3</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/image/wallhaven-gp3qd3.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">hinder110</div><div class="author-info-description">我喜欢使用电脑的过程，仅此而已。🐸</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/hinder110/hinder110.github.io"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">祝大家生活愉快</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/05/01/%E7%AC%AC%E4%BA%8C%E7%AB%A0/" title="第二章">第二章</a><time datetime="2026-05-01T07:41:03.000Z" title="Created 2026-05-01 15:41:03">2026-05-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/13/%E5%85%AB%E6%9C%88%E6%97%A5%E8%AE%B0%E4%B8%A4%E7%AF%87/" title="八月日记两篇">八月日记两篇</a><time datetime="2025-08-13T08:22:47.000Z" title="Created 2025-08-13 16:22:47">2025-08-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/11/8-11-25-riji/" title="8/11/25--riji">8/11/25--riji</a><time datetime="2025-08-11T07:08:17.000Z" title="Created 2025-08-11 15:08:17">2025-08-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/04/%E5%A4%A7%E4%B8%80%E6%9C%9F%E9%97%B4%E7%9A%84%E6%97%A5%E8%AE%B0/" title="大一期间的日记">大一期间的日记</a><time datetime="2025-08-04T09:04:18.000Z" title="Created 2025-08-04 17:04:18">2025-08-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/04/25%E6%9A%91%E5%81%87%E4%B9%8B%E5%89%8D%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="25暑假之前的读书笔记">25暑假之前的读书笔记</a><time datetime="2025-08-04T08:13:11.000Z" title="Created 2025-08-04 16:13:11">2025-08-04</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
-            <i class="fas fa-folder-open"></i>
-            <span>Categories</span>
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
             
-          </div>
-          <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/book/"><span class="card-category-list-name">book</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/girl/"><span class="card-category-list-name">girl</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/my-game/"><span class="card-category-list-name">my-game</span><span class="card-category-list-count">1</span></a></li>
-          </ul></div><div class="card-widget card-archives">
-    <div class="item-headline">
-      <i class="fas fa-archive"></i>
-      <span>Archives</span>
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinder110.github.io/2026/05/01/%E7%AC%AC%E4%BA%8C%E7%AB%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hinder110">
+      <meta itemprop="description" content="我喜欢使用电脑的过程，仅此而已。🐸">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宇宙纪元">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/05/01/%E7%AC%AC%E4%BA%8C%E7%AB%A0/" class="post-title-link" itemprop="url">第二章</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2026-05-01 15:41:03" itemprop="dateCreated datePublished" datetime="2026-05-01T15:41:03+08:00">2026-05-01</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <pre><code>我们继续开始苏明的故事
+</code></pre>
+<p>在苏娜的生日的第二天，一切都好像回归到了平静，没有太多的激动，也没有太多的悲伤，一切都会到了，正轨，这天苏明正在接苏娜回家的路上遇见了，领居米彩，这个邻居是最近才搬到苏明家周围的。</p>
+<p>苏娜对于这个新邻居抱有很大的兴趣，怎么说呢，因为国家补贴的五十万的资金，再加上苏明的经商头脑，在这个时期，苏明和苏娜都有很轻松和舒适的生活。而米彩的到来也为苏明和苏娜的生活带来了一抹特殊<br>的色彩。</p>
+<p>苏娜露出虎牙开心的对着米彩说到:“米彩姐，今天也好美啊!”一个大概二十五岁左右的一个性感的女性出现在苏明面前。</p>
+<p>“苏娜今天有好好学习吗？上次姐姐借你的书还喜欢吗。没有给你哥哥添麻烦吧。”米彩的身材很好，但是她的脸长得很显小，如果说以地区划分世界上的美女的话，米彩应该属于日本那类的女生。</p>
+<p>“当然有好好看呀，要不是哥哥非得让我熄灯睡觉，我一定昨天晚上就看完那本书了。”苏娜吐吐舌头，旁边的苏明一脸正色好像两人讨论的不是自己一般。</p>
+<p>“谁叫你白天的时候不看，非得晚上看的，还怪我说你。”苏明边说边拿起左手给了苏娜一巴掌。</p>
+<p>苏娜偷偷的用左手掐了苏明的腰，眼睛贼兮兮的看着苏明。苏明突然接受到暴击，小跳了一步。旁边的米彩看着嬉闹的两人，捂着嘴笑了起来。</p>
+<p>“看来你们兄妹的关系是真的好啊，真羡慕呢，羡慕苏娜有你这样温柔的哥哥呢。”米彩明媚的眼神看向苏明。</p>
+<p>苏明察觉到了这样的眼神中有一种看似喜欢的情绪存在，但是苏明还不确定这种情绪是不是爱情。</p>
+<p>“谁要跟这个傻大粗当好兄妹啊，但是如果他认真的祈求我这个大美女的话，也不是不可以勉勉强强，哈哈哈哈哈哈。”苏娜还没有说完的时候苏明一只手捂着苏娜的嘴。强制打断了，苏娜的魔法攻击。</p>
+<p>“米彩姐姐吃饭了吗，要一起去吃饭吗？”苏明看向捂嘴偷笑的米彩，“如果苏明弟弟认真邀请我的话，我也不是不可以去。”苏明也被米彩皎洁的笑容感染了，顺利的被气笑了。</p>
+<p>“苏娜，你快去家里写作业，我给你带回来。”苏明用命令式的语气和苏娜说到。</p>
+<p>“不要嘛，我也要去嘛，米彩姐姐你快看苏明。”苏娜可怜兮兮的看向米彩，米彩小姐，眼睛中泛着妩媚，和苏娜说道“刚刚还说要好好学习的，姐姐一会儿给你带礼物回来。”</p>
+<p>苏娜的可怜兮兮的独自回家了，像一只失去归家方向的蚂蚁。</p>
+<p>看着苏娜远去，苏明看向米彩，经过刚刚的确认苏明确定，米彩对自己的情感是一种爱慕或者说是羡慕，还有对自己的渴望。</p>
+<p>在这个世界，得到一个人的身体是很简单的，你只需要有一个能力就是有一个可以了解到一个人内心空虚的眼睛，而苏明刚刚好有这样的能力，而米彩确实对苏明有一种喜欢。</p>
+<p>“去吃烤肉怎么样，米彩小姐。”米彩眉头先是紧促又展开，“当然可以，好久没吃烤肉啦。再说有苏明这样的小帅哥，我相信没有哪个女生可以拒绝，是吧苏明帅哥，”米彩嘴角上扬，以一种调戏的口吻对苏明说到。</p>
+<p>苏明没有回答什么，回答米彩的是苏明含情脉脉的眼神，在苏明的注视下，米彩心里痒痒的，在米彩还沉浸在苏明的富含盛情的眼神中时，苏明的右手悄悄的伸向了米彩的左手。轻轻的抚摸着四根手指，用中指轻轻的摩擦米彩的手心，米彩的脸瞬间红了一大片。</p>
+<p>这一刻仿佛时间都开始停止流动了，时间像是护士纤细的手指轻轻的触摸苏明和米彩的脸颊，一颗深蓝色的瞳孔中，是米彩羞红的脸颊。</p>
+<p>米彩愣了片刻，手像是触电了一样麻麻的，她想要把自己的手伸回来，但是她逐渐沉迷于，苏明纤细的手指的触摸的感觉中，这很奇怪，米彩在大学毕业以后很久很久没有这种感觉了。</p>
+<p>米彩在大学的时候，为了追一个男生，或者说是她沉迷于对于男生的追求。她在大学之前一直是一个中国式的好学生，几乎没有任何的和异性相处的经历。这也几乎可以预见的使她无法的正确的在亲密关系中做出对的选择。</p>
+
       
     </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
   
-    <ul class="card-archive-list">
+  
+  
+
       
-        <li class="card-archive-list-item">
-          <a class="card-archive-list-link" href="/archives/2026/05/">
-            <span class="card-archive-list-date">
-              May 2026
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinder110.github.io/2025/08/13/%E5%85%AB%E6%9C%88%E6%97%A5%E8%AE%B0%E4%B8%A4%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hinder110">
+      <meta itemprop="description" content="我喜欢使用电脑的过程，仅此而已。🐸">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宇宙纪元">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/08/13/%E5%85%AB%E6%9C%88%E6%97%A5%E8%AE%B0%E4%B8%A4%E7%AF%87/" class="post-title-link" itemprop="url">八月日记两篇</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-08-13 16:22:47 / Modified: 16:25:34" itemprop="dateCreated datePublished" datetime="2025-08-13T16:22:47+08:00">2025-08-13</time>
             </span>
-            <span class="card-archive-list-count">1</span>
-          </a>
-        </li>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <li class="card-archive-list-item">
-          <a class="card-archive-list-link" href="/archives/2025/08/">
-            <span class="card-archive-list-date">
-              August 2025
+          <h3 id="八月十一的日记"><a href="#八月十一的日记" class="headerlink" title="八月十一的日记"></a>八月十一的日记</h3><p>我最近其实很困扰也很烦恼，这也是为什么我重新开始写日记了，其实我感觉我写的不应该叫日记，主要是我的写作习惯就不符合日记的定义，顶多算是定期写写对自己经历的事情的感想吧，</p>
+<p>总体来说用一句话来讲我这一年的变化的话就是 我小时候架构的世界观被无情的破坏，无力是我这段时间的心境，我开始不断的打破小时候的好习惯比如说是早早睡觉，或者是对于犯错的害怕，这一切都在一个比较混沌的时期，我丢掉了我的坐标，迷失在了大海的中央，</p>
+<p>我何去何从，这到现在想起来也是很头疼，人类是过去可怜的奴隶，我们一直都活在过去，不愿面对现在，联想未来。人们只是被自由所困的自由的狗而已，自由被人类定义，人类穷其一生都在最求自己所谓的自由。一个模糊的自由，一个不为他人所了解的自由。</p>
+<p>我其实很痛苦在这段时间，我没什么可以依靠的地方，父母不可以，家国也不可以。甚至当年那个自己自信乐观的自己也不在了，人类最可悲的是连自己都不能为自己的心灵做找补，让他残缺的保留在这残酷的世界之上。</p>
+<p>这个世界比我想象的要巨大的多，但在某种程度上又是很小的。</p>
+<p>读书会被弃我吗？</p>
+<p>读书会抛弃我吗？我的阅读是为了什么呢？我相信我的回答绝对是有功利性的，我一开始阅读是为了我可以摆脱过去的糟粕，真正的开始一段关于成长的乐章。</p>
+<p>我做的是对的这一点我丝毫不会后悔的 ，阅读给我哭泣的灵魂短暂的看到生命的火花，我也因为这件事再也不会抱怨我现在的处境了。我相信这是fate的安排，我无怨无悔，我不会在否定原先的自己了。这一切好像欣欣向荣，一切的改变在大二的下半学期，最主要的有两件事，这里就不展开讲了。</p>
+<p>不得不说时间过得真快，</p>
+<p>我读很多的书，越到最后越会发现自己的狭隘，以及自己心智或者性格中那难以改变的劣根，从小不断强化的事情，这么可能在我几年或者几个月中改变过来呢？这未免对自己也有点太苛刻了，其实我自己也注意不到这些细节，人对自己的认知永远是最低和最自大的。我也是这样子的，很多的事情都是快思考快速决定的，只有在现在或者其他思考的时候我才可能注意到我的变化，一些不好的变化，但是平时还是比较难的注意到我的不好的习惯。</p>
+<p>读书真的能改变这一切吗？</p>
+<p>我想很难的，读书只能改变我自己，改变自己已经是很苛刻了，别扯了兄弟，我连我的父母都改变不了。</p>
+<p>这个世界是困难模式的，其实也是一种快思考的结果，谁知道这个世界是怎么样子的，有谁来定义了吗？</p>
+<p>我其实时刻在想呢，如果我的生命只有十天或者是只有一年我会怎么选择我的生活呢？</p>
+<p>我其实浪费了太多的时间，我的高中和初中都是这样子的，我现在是大学二年级，我对我的高中生活和初中生活就只剩下一些碎片了，这让我很伤心，我对与很多人的名字也很难的记忆起来了，我很抱歉，我们在当年的生活中没有创造彼此记忆深刻的美好回忆 ， 我们都是如此，我现在的思考完全就是对于过去的缅怀，大家总也是这样子，不愿意面对现在的生活，抱怨过去的生活对自己造成的影响，我很苦恼，我总是在往前走的路上把自己驳倒。</p>
+<p>也是写了有1200字了，今天就这样祝大家生日快乐，</p>
+<p>have a good day !!! my friend !!!😀</p>
+<hr>
+<h3 id="八月十二的日记"><a href="#八月十二的日记" class="headerlink" title="八月十二的日记"></a>八月十二的日记</h3><p>1.我还是没敢邀请大小姐出来玩，这是第一件事情，其实是比较纠结的，因为怕出来会很尴尬，毕竟只有两个人，我几乎很少单独约女生出来，这对我来说也许是种挑战。</p>
+<p>2.arch真的是太好用了，我真的没用过什么系统可以有arch这样子的魅力对我来说。其实呢，到现在来看的话，安装archlinux是比较简单的，尤其是对于旧的电脑更是如此。完全没有后顾之忧，对于windows11这令人发指的恶心行径，各种不需要的功能瞎堆叠，这也太无脑了，他们不会思考bug 的问题，随着系统复杂性的攀升带来系列的浪费。</p>
+<p>3.刚刚尝试安装四个月前的arch Linux的ISO失败了，原因有可能是密钥或者是依赖冲突，其实这是我对于arch和其他发行版最直接的感受，像Ubuntu这样的发行版，绝对是可以安装旧版本，不会有一点点报错的。还有就是我的电脑中没有引导程序，这也很奇怪很困扰我，archinstall脚本进行到了安装mesa 总之就是Intel的开源驱动。</p>
+<p>在这里呢是没有办法安装的。</p>
+<hr>
+<h3 id="八月十三号日记"><a href="#八月十三号日记" class="headerlink" title="八月十三号日记"></a>八月十三号日记</h3><p>又是一个写日记的日子，</p>
+<p>写日记是一种创造吗？</p>
+<p>人类生来就在自证，</p>
+<p>证明自己可以为这个世界创造什么，</p>
+<p>其中大概创造生命是最伟大的。</p>
+<p>刻在基因中最关键的本能了，</p>
+<p>西西弗神话认为，</p>
+<p>创造停止之日是灵魂枯竭之时。</p>
+<p>我很喜欢这句话，</p>
+<p>创造是人类的本能，</p>
+<p>也是人类乐趣最重要的根源所在，</p>
+<p>我很羡慕画家，小说家，个人游戏创作者。</p>
+<p>铁匠，木匠，为这个世界创造，</p>
+<p>是很伟大的事情，</p>
+<p>他们都是一群很类似的人，</p>
+<p>不是这个世界上已经存在的东西，会打消你的创造动力和乐趣。</p>
+<p>任何创造都有抄袭的嫌疑，</p>
+<p>但是在创作真正完成之时，</p>
+<p>他就是只属于你一个人，</p>
+<p>这是关于创造的魔法。</p>
+<hr>
+<p>以上是对于这段时间思考的简短概述</p>
+<p>我在想着要不要把我的话都翻译成英文呢？</p>
+<p>也许会有人真正能看到我的作品。</p>
+<hr>
+<p>我想我单纯是喜欢思考的乐趣，</p>
+<p>我现在在输出我自己的思考结果的过程就很有趣。</p>
+<p>当然我的打字的速度可以跟的上我思考的速度，</p>
+<p>这也很关键。</p>
+<hr>
+<p>下面是我关于习惯的理解</p>
+<p>什么是习惯</p>
+<p>我们为什么养成习惯</p>
+<p>我们如何养成习惯呢？</p>
+<p>习惯大概就是对于长期追求的具体每一天的体现吧，</p>
+<p>我对于习惯在我过去的生活中的体现，</p>
+<p>就拿我自己举例子，</p>
+<p>我在过去很长的一段时间，很害怕晚睡，</p>
+<p>其实就是晚睡带给我的代价很大，</p>
+<p>但是当我上大学之后呢，</p>
+<p>晚睡带给我的代价很小，我不在害怕，</p>
+<p>同时呢我小时有早睡早起，有我起来必须的理由，</p>
+<p>上大学之后呢，这个理由的话很大程度上已经磨灭了，</p>
+<p>我在大一的时候因为每天需要上早自习，</p>
+<p>在很大的程度上，让我i害怕自己明天的状态了。</p>
+<p>那么这种害怕对于习惯到底有什么作用呢？</p>
+<p>说到习惯的执行，我们会想到内驱力，但是这个内驱力是需要一个原因的。</p>
+<p>我在初中高中的时候有这个原因，因此有这个内驱力。</p>
+<p>也许害怕也是一种内驱力的体现，但是这种害怕一旦超过界限。</p>
+<p>便会对人造成伤害，</p>
+<p>这其实让我想起我们的超速学习了，</p>
+<p>超速学习是利用了这种害怕和焦虑，</p>
+<p>这么看下来，利用兴趣学习是很难的。</p>
+<p>因为一旦困难来临的时候，</p>
+<p>兴趣不会带你往前走。</p>
+<p>而是焦虑和害怕。</p>
+<p>了解的越多，对人的不解也就越多，</p>
+<p>人类完全就是一个矛盾体。</p>
+<p>也许正是这种矛盾，才让人类有反脆弱性。</p>
+<p>写完这个日记呢我就去看一下《超速学习》，</p>
+<p>有的书确实很难在一次的过程中完全看明白。</p>
+<p>其实我一直有一个误解就是要一次性的完全看懂一本书。</p>
+<p>这从小的强迫症，和完美主义。</p>
+<p>其实书籍本身是不可能做到完全和作者同文同意的。</p>
+<p>这个话题太宏大了，</p>
+<p>个体的多样性就决定了，自律就是很难总结出一种标准的规律。</p>
+<p>自律的话题呢就先放在这里。</p>
+<hr>
+<p>时间过得真快，</p>
+<p>你说世界上真有时间之神该多好。</p>
+<p>反向来看也不一定，</p>
+<p>如果他把我的时间加快怎么办。</p>
+<p>总之我希望我的时间过得慢一点。</p>
+<p>就当我向上帝许愿怎么样。</p>
+<p>再次祝大家生活愉快，很希望被异国他乡的人看到我的记录。</p>
+<p>为什么不在国内的平台发这些东西呢？</p>
+<p>这个我还没想好哈哈哈，可能我的观点比较犀利。</p>
+<p>会给人造成烦恼，所以不写也罢。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinder110.github.io/2025/08/11/8-11-25-riji/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hinder110">
+      <meta itemprop="description" content="我喜欢使用电脑的过程，仅此而已。🐸">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宇宙纪元">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/08/11/8-11-25-riji/" class="post-title-link" itemprop="url">8/11/25--riji</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-08-11 15:08:17 / Modified: 15:09:07" itemprop="dateCreated datePublished" datetime="2025-08-11T15:08:17+08:00">2025-08-11</time>
             </span>
-            <span class="card-archive-list-count">4</span>
-          </a>
-        </li>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <li class="card-archive-list-item">
-          <a class="card-archive-list-link" href="/archives/2025/04/">
-            <span class="card-archive-list-date">
-              April 2025
+          <h3 id="八月十一的日记"><a href="#八月十一的日记" class="headerlink" title="八月十一的日记"></a>八月十一的日记</h3><p>我最近其实很困扰也很烦恼，这也是为什么我重新开始写日记了，其实我感觉我写的不应该叫日记，主要是我的写作习惯就不符合日记的定义，顶多算是定期写写对自己经历的事情的感想吧，</p>
+<p>总体来说用一句话来讲我这一年的变化的话就是 我小时候架构的世界观被无情的破坏，无力是我这段时间的心境，我开始不断的打破小时候的好习惯比如说是早早睡觉，或者是对于犯错的害怕，这一切都在一个比较混沌的时期，我丢掉了我的坐标，迷失在了大海的中央，</p>
+<p>我何去何从，这到现在想起来也是很头疼，人类是过去可怜的奴隶，我们一直都活在过去，不愿面对现在，联想未来。人们只是被自由所困的自由的狗而已，自由被人类定义，人类穷其一生都在最求自己所谓的自由。一个模糊的自由，一个不为他人所了解的自由。</p>
+<p>我其实很痛苦在这段时间，我没什么可以依靠的地方，父母不可以，家国也不可以。甚至当年那个自己自信乐观的自己也不在了，人类最可悲的是连自己都不能为自己的心灵做找补，让他残缺的保留在这残酷的世界之上。</p>
+<p>这个世界比我想象的要巨大的多，但在某种程度上又是很小的。</p>
+<p>读书会被弃我吗？</p>
+<p>读书会抛弃我吗？我的阅读是为了什么呢？我相信我的回答绝对是有功利性的，我一开始阅读是为了我可以摆脱过去的糟粕，真正的开始一段关于成长的乐章。</p>
+<p>我做的是对的这一点我丝毫不会后悔的 ，阅读给我哭泣的灵魂短暂的看到生命的火花，我也因为这件事再也不会抱怨我现在的处境了。我相信这是fate的安排，我无怨无悔，我不会在否定原先的自己了。这一切好像欣欣向荣，一切的改变在大二的下半学期，最主要的有两件事，这里就不展开讲了。</p>
+<p>不得不说时间过得真快，</p>
+<p>我读很多的书，越到最后越会发现自己的狭隘，以及自己心智或者性格中那难以改变的劣根，从小不断强化的事情，这么可能在我几年或者几个月中改变过来呢？这未免对自己也有点太苛刻了，其实我自己也注意不到这些细节，人对自己的认知永远是最低和最自大的。我也是这样子的，很多的事情都是快思考快速决定的，只有在现在或者其他思考的时候我才可能注意到我的变化，一些不好的变化，但是平时还是比较难的注意到我的不好的习惯。</p>
+<p>读书真的能改变这一切吗？</p>
+<p>我想很难的，读书只能改变我自己，改变自己已经是很苛刻了，别扯了兄弟，我连我的父母都改变不了。</p>
+<p>这个世界是困难模式的，其实也是一种快思考的结果，谁知道这个世界是怎么样子的，有谁来定义了吗？</p>
+<p>我其实时刻在想呢，如果我的生命只有十天或者是只有一年我会怎么选择我的生活呢？</p>
+<p>我其实浪费了太多的时间，我的高中和初中都是这样子的，我现在是大学二年级，我对我的高中生活和初中生活就只剩下一些碎片了，这让我很伤心，我对与很多人的名字也很难的记忆起来了，我很抱歉，我们在当年的生活中没有创造彼此记忆深刻的美好回忆 ， 我们都是如此，我现在的思考完全就是对于过去的缅怀，大家总也是这样子，不愿意面对现在的生活，抱怨过去的生活对自己造成的影响，我很苦恼，我总是在往前走的路上把自己驳倒。</p>
+<p>也是写了有1200字了，今天就这样祝大家生日快乐，</p>
+<p>have a good day !!! my friend !!!😀</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinder110.github.io/2025/08/04/%E5%A4%A7%E4%B8%80%E6%9C%9F%E9%97%B4%E7%9A%84%E6%97%A5%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hinder110">
+      <meta itemprop="description" content="我喜欢使用电脑的过程，仅此而已。🐸">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宇宙纪元">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/08/04/%E5%A4%A7%E4%B8%80%E6%9C%9F%E9%97%B4%E7%9A%84%E6%97%A5%E8%AE%B0/" class="post-title-link" itemprop="url">大一期间的日记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-08-04 17:04:18 / Modified: 17:04:41" itemprop="dateCreated datePublished" datetime="2025-08-04T17:04:18+08:00">2025-08-04</time>
             </span>
-            <span class="card-archive-list-count">8</span>
-          </a>
-        </li>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <li class="card-archive-list-item">
-          <a class="card-archive-list-link" href="/archives/2025/03/">
-            <span class="card-archive-list-date">
-              March 2025
+          <h1 id="大一期间的笔记"><a href="#大一期间的笔记" class="headerlink" title="大一期间的笔记"></a>大一期间的笔记</h1><h3 id="2024-11-05"><a href="#2024-11-05" class="headerlink" title="2024-11-05"></a><strong>2024-11-05</strong></h3><p>很明显，我最近的学习状态是有发生改变的，我的学习哲学任然还是记者学习法，这个方法得配合对应的冥想方法来练习！！！</p>
+<p>还有就是最近的短视频看多了，要节制一点。</p>
+<p>还有就是要限制自己的想法，节约精力。</p>
+<p>还有就是轻松学习还有深度工作，这是可持续的，这一点很重要。</p>
+<p>当然还有就是王阳明的知行合一，这是一个基本准则。（最关键的地方在于警觉）察觉到自己不对的地方，这就是简单的知行合一。</p>
+<h3 id="2024-10-29"><a href="#2024-10-29" class="headerlink" title="2024-10-29"></a><strong>2024-10-29</strong></h3><p>ok这里是了解了css的一些知识，就是可以用在咱Obsidian上，可以改变这些样式。</p>
+<p>还有一点就是对于剑风传奇和最近看的明朝那些事，这两个巨作，我真的很喜欢剑风传奇，很明显这漫画的表现力要超越现在的小说和动漫了，这一点是毋庸置疑的。当你的梦想破灭时会发生什么？&#x3D;&#x3D;历史只有悲剧没有喜剧，我们只能感受着这悲剧&#x3D;&#x3D;</p>
+<p>这里还学到了一点就是ctrl+o可以执行搜索日记的功能哈哈哈哈</p>
+<p>刚刚说到了剑风传奇，我只能说经过明朝的洗礼我觉的剑风传奇的故事也没有那么不真实，也许他们才是真实的，那些不真实的其实已经被历史淘汰了！！！这也许才是最可怕的。</p>
+<h3 id="黑山羊的故事"><a href="#黑山羊的故事" class="headerlink" title="黑山羊的故事"></a><strong>黑山羊的故事</strong></h3><p>第二章 恐怖的黑山羊</p>
+<p>阳光挥洒在苏明的脸庞。</p>
+<p>……</p>
+<p>一个貌似羊头全身长满绿色鳞片的怪物囔囔道：”你出现了，黑，这一切都是宿命啊。”伴随着声音的落幕，幽绿色的能量开始从怪物的身体泵发出来。</p>
+<p>在世界的一处绿色的能量开始化身为一头黑山羊，在绿色的能量的周围不断的有黑山羊出现。</p>
+<p>……</p>
+<p>苏明如约而至，见到A先生在医院门口买糖葫芦。</p>
+<p>“我也要吃，”</p>
+<p>“自己买去，着一根要十块。”</p>
+<p>“切，小气鬼。”</p>
+<p>这里的一切都照常进行着，不会因为任何一个人的离去而伤感。</p>
+<p>“你还有什么想道别的人吗？入学以后回来的的时间就很少了。”</p>
+<p>苏明不说话，只是看着自己小破屋的方向，陷入了沉思。</p>
+<p>接着A拿出了一件蓝色透明的四方体，将能量注入四方体中。</p>
+<p>一条蓝色的通道横跨魔都，A先生一把抓住苏明跳进蓝色通道中。</p>
+<p>温暖的蓝色光芒充斥着苏明的身体。</p>
+<p>“这是通道立方，可以和学院的母体产生时空隧道。”</p>
+<p>学院位于这个世界的错位时空当中，会随着时间变化产生空间变化。</p>
+<p>在隧道中看，外面的空间正在极速压缩，消失。</p>
+<p>一抹幽绿的光芒突然照亮整个隧道，之后隧道立即炸裂开。苏明和 A 先生暴露在天空之上。</p>
+<p>A 先生十分惊恐，从来没有出现过，时空隧道断裂的情况。</p>
+<p>苏明一睁眼便看到了自己的身体在天空中，但是却没有下坠的感觉。</p>
+<p>“怎么个事儿。”不等苏明说完，蓝色的光芒就包裹着苏明，开始了时空穿梭。</p>
+<p>下一刻，苏明从一片蓝光中跌落在绿色的土地上，不等苏明去观察这个地方。</p>
+<p>六根黑色的突触，像黑色巨剑一样穿刺了，苏明色身体。</p>
+<p>强大的痛感疯狂的刺激着苏明的大脑，苏明茫然的看着自己胸口的突刺。</p>
+<p>一只黑色长满绿色鳞片的人型黑山羊充斥着苏明的眼瞳。</p>
+<p>这里是一座黑森林，迷雾笼罩着整座森林。似乎在隔绝着一切力量。</p>
+<p>【检查到宿主死亡，黑帝忏悔室 开始觉醒 1%…………99%，觉醒成功，检查到宿主为一阶觉醒者，赋予一次收纳忏悔者的资格。检测到宿主无法出手，本系统将自动实施该技能。】</p>
+<p> 黑山羊冷漠的看着苏明的尸体，似乎这里死的只是一只爬虫而已。</p>
+<p>一股莫名的力量突然降临此地，黑山羊的力量似乎在一点点消退。</p>
+<p>突然无数的黑色链条从苏明的上方出现，并极速的冲向黑山羊，天空响起【黑色收割】。黑山羊被这诡异的力量拉向了那诡秘的空间。</p>
+<p>“欢迎来到黑帝忏悔室”神秘而沉重的声音从教室前的讲桌传来，穿透整个教室。</p>
+<p>黑山羊突然面目狰狞，嘶吼道，“黑，我要杀了你。”</p>
+<p>这邪恶的疯狂影响着这个空间的三维。</p>
+<p>似乎空间被无限拉长，或者被无限缩小，无限坍塌下去了。</p>
+<p>黑色的神秘力量开始涌现出来，修复整个濒临破坏的空间。</p>
+<p>突然空中出现黑色的链条，响彻长空，深深的刺入黑山羊的体内。</p>
+<p>任凭黑山羊如何疯狂都无法挣脱链条，这时苏明的意识来到这里。</p>
+<p>【身份：校长】</p>
+<p>【名字：苏明】</p>
+<p>【系统：黑帝忏悔室】</p>
+<p>【介绍：这是一个关于黑色世界的故事，在这里会关押无数潜心悔过的神秘。在此期间会剥夺他们的能力，直到他们信仰我们尊贵的校长。】</p>
+<p>一个蓝色的系统介绍框出现在苏明的眼前。同时系统显示，已捕捉名为黑山羊的神秘，为您抽取技能。</p>
+<p>“叮当”恭喜您获得bug技能——来自黑山羊。</p>
+<p>这时苏明脑海中还回顾着自己的身体被穿刺时的画面。</p>
+<p>来不及回味死亡的恐惧，苏明就听见，那莫名的嘶吼声。</p>
+<p>苏明注意到，那是只羊头人身的奇怪生物。苏明看着系统框，陷入了沉思。</p>
+<p>看来是因祸得福了，我觉醒了。这时候的苏明简直开心死了，小时候无数的幻想终于在长大后的一天实现了，这是多么快乐的事情。</p>
+<p>就像是很小时候喜欢的一款游戏，但是因为没钱买不起，但是长大后的自己，实现了儿时的愿望。</p>
+<p>另外就是，苏明对于社会的腐败贪污很敏感，他早已厌烦了这样的世界。</p>
+<p>但是奈何以前的自己没有任何改变这个世界的力量，只能不断的逃避自己。</p>
+<p>无数的幻想充斥着苏明的大脑，似乎已经是武道高手了，是斗破苍穹里的炎帝，完美世界的荒天帝，独断万古，简直是猴急啊。</p>
+<p>这里的一切开始淡化就像没有出现过一样，这时外面的A先生一脸颓废。</p>
+<p>“这可怜的娃，昨天就莫名其妙的遭遇到原始恶魔，今天又被诡异的力量拉走了。”</p>
+<p>颓废的A先生拿起烤肉架子上的兔肉就往嘴里猛的一塞，香香的吃了起来，眼角留下了不争气的泪水。</p>
+<p>“真的好吃，我就好这一口。”</p>
+<h3 id="铭记过往"><a href="#铭记过往" class="headerlink" title="铭记过往"></a><strong>铭记过往</strong></h3><p>铭记过往，我已经成长了很多了，我一直在我的的道路上往前，谨记<a href=""></a>[[王阳明]]心学，我会是自己喜欢的样子的，我一直都这样不是吗？</p>
+<h3 id="迭代器的类型-2024-09-23"><a href="#迭代器的类型-2024-09-23" class="headerlink" title="迭代器的类型_2024-09-23"></a><strong>迭代器的类型_2024-09-23</strong></h3><h4 id="迭代器的类型"><a href="#迭代器的类型" class="headerlink" title="迭代器的类型"></a>迭代器的类型</h4><p>C++标准库（STL）中定义了几种不同类型的迭代器：</p>
+<ol>
+<li><strong>输入迭代器（Input Iterator）</strong>：只读访问，单向移动。</li>
+<li><strong>输出迭代器（Output Iterator）</strong>：只写访问，单向移动。</li>
+<li><strong>前向迭代器（Forward Iterator）</strong>：只读访问，单向移动，可以多次遍历。</li>
+<li><strong>双向迭代器（Bidirectional Iterator）</strong>：只读访问，可以双向移动。</li>
+<li><strong>随机访问迭代器（Random Access Iterator）</strong>：只读访问，可以双向移动，并且支持随机访问。<br>#这里的迭代器很像智能指针，这一点为什么说智能指针要好于野指针呢？</li>
+</ol>
+<p>智能指针（Smart Pointers）优于野指针（Dangling Pointers）有多个原因，主要在于智能指针通过自动化的内存管理和其他安全机制，帮助程序员避免常见的内存管理错误。以下是智能指针优于野指针的详细原因：</p>
+<h3 id="1-自动内存管理"><a href="#1-自动内存管理" class="headerlink" title="1. 自动内存管理"></a>1. 自动内存管理</h3><p><strong>野指针</strong>：野指针是指向已经被释放的内存或者未初始化的指针。如果程序员不小心使用了野指针，会导致未定义行为，可能导致程序崩溃或其他严重错误。</p>
+<p><strong>智能指针</strong>：智能指针通过自动管理对象的生命周期来避免野指针的出现。例如，C++ 标准库提供的 <code>std::unique_ptr</code> 和 <code>std::shared_ptr</code> 可以在不再需要对象时自动释放内存。这样可以避免手动释放内存时的错误。</p>
+<h3 id="2-资源泄漏防护"><a href="#2-资源泄漏防护" class="headerlink" title="2. 资源泄漏防护"></a>2. 资源泄漏防护</h3><p><strong>野指针</strong>：如果程序员忘记释放内存，会导致内存泄漏，进而造成程序占用过多的内存资源。</p>
+<p><strong>智能指针</strong>：智能指针通过 RAII（资源获取即初始化）原则管理资源，确保资源在不再使用时被自动释放。例如，当 <code>std::unique_ptr</code> 离开作用域时，它所管理的对象会被自动删除，避免了资源泄漏。</p>
+<h3 id="3-线程安全"><a href="#3-线程安全" class="headerlink" title="3. 线程安全"></a>3. 线程安全</h3><p><strong>野指针</strong>：在多线程环境中，手动管理内存非常容易出错，多个线程可能会同时访问或修改同一块内存，导致数据竞争和未定义行为。</p>
+<p><strong>智能指针</strong>：<code>std::shared_ptr</code> 提供了线程安全的引用计数机制，多个线程可以安全地共享和管理同一个对象。这有助于避免在多线程环境中出现内存管理问题。</p>
+<h3 id="4-简化代码和减少错误"><a href="#4-简化代码和减少错误" class="headerlink" title="4. 简化代码和减少错误"></a>4. 简化代码和减少错误</h3><p><strong>野指针</strong>：手动内存管理增加了代码的复杂性，容易引入各种错误，如重复释放、未释放内存等。</p>
+<p><strong>智能指针</strong>：智能指针使代码更简洁、更安全。例如，使用 <code>std::unique_ptr</code> 和 <code>std::shared_ptr</code> 可以减少显式的 <code>delete</code> 操作，降低了错误的可能性。</p>
+<p>#那么智能指针和迭代器的关系是什么样子的呢？</p>
+<h3 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h3><p>智能指针是用于自动管理动态内存的指针，它们通过 RAII（资源获取即初始化）原则确保内存资源在不再需要时被自动释放。常见的智能指针包括 <code>std::unique_ptr</code>、<code>std::shared_ptr</code> 和 <code>std::weak_ptr</code>。</p>
+<ul>
+<li><strong>std::unique_ptr</strong>：独占所有权的智能指针，确保同一时间内只有一个指针可以指向对象。</li>
+<li><strong>std::shared_ptr</strong>：共享所有权的智能指针，多个指针可以共享同一个对象。</li>
+<li><strong>std::weak_ptr</strong>：与 <code>std::shared_ptr</code> 配合使用，不增加引用计数，避免循环引用导致的内存泄漏。</li>
+</ul>
+<h3 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h3><p>迭代器是用于遍历容器（如数组、链表、集合等）中的元素的对象。迭代器提供了一种一致的方式来访问容器中的元素，支持多种操作符（如 <code>*</code>、<code>++</code>、<code>--</code>）来进行元素的访问和移动。常见的迭代器类型包括输入迭代器、输出迭代器、前向迭代器、双向迭代器和随机访问迭代器。</p>
+<h3 id="智能指针与迭代器的关系"><a href="#智能指针与迭代器的关系" class="headerlink" title="智能指针与迭代器的关系"></a>智能指针与迭代器的关系</h3><p>虽然智能指针和迭代器在概念上是独立的，但在实践中，它们可以一起使用，特别是在以下场景中：</p>
+<ol>
+<li><p><strong>动态分配的容器元素</strong>：当容器的元素是动态分配的对象时，可以使用智能指针来管理这些对象的内存。</p>
+</li>
+<li><p><strong>自定义容器的迭代器</strong>：如果你实现了一个自定义的容器，并且该容器的元素是通过智能指针来管理的，你可以在迭代器中使用智能指针来安全地访问和操作这些元素。</p>
+</li>
+</ol>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>以下是一个使用 <code>std::shared_ptr</code> 和迭代器的示例，展示了如何在容器中存储动态分配的对象，并通过迭代器访问这些</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;memory&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    MyClass(<span class="type">int</span> value) : value(value) &#123;&#125;</span><br><span class="line">    <span class="type">int</span> <span class="title function_">getValue</span><span class="params">()</span> <span class="type">const</span> &#123; <span class="keyword">return</span> value; &#125;</span><br><span class="line">private:</span><br><span class="line">    <span class="type">int</span> value;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 创建一个存储 std::shared_ptr&lt;MyClass&gt; 的 vector</span></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">shared_ptr</span>&lt;MyClass&gt;&gt; vec;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 向 vector 中添加元素</span></span><br><span class="line">    vec.push_back(<span class="built_in">std</span>::make_shared&lt;MyClass&gt;(<span class="number">10</span>));</span><br><span class="line">    vec.push_back(<span class="built_in">std</span>::make_shared&lt;MyClass&gt;(<span class="number">20</span>));</span><br><span class="line">    vec.push_back(<span class="built_in">std</span>::make_shared&lt;MyClass&gt;(<span class="number">30</span>));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 使用迭代器遍历 vector 中的元素</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> it = vec.begin(); it != vec.end(); ++it) &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Value: &quot;</span> &lt;&lt; (*it)-&gt;getValue() &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>std::shared_ptr 的使用</strong>：<code>std::shared_ptr</code> 用于管理 <code>MyClass</code> 对象的内存，确保在不再使用时自动释放内存。</li>
+<li><strong>std::vector 的使用</strong>：<code>std::vector</code> 存储 <code>std::shared_ptr&lt;MyClass&gt;</code>，可以动态扩展并存储多个对象。</li>
+<li><strong>迭代器的使用</strong>：使用 <code>vector</code> 的迭代器遍历所有元素，通过 <code>(*it)-&gt;getValue()</code> 访问每个 <code>MyClass</code> 对象的值。<br>#std::shared_ptr  自动释放内存在对象不被使用的时候这也是C语言或者说是c++的强大的地方，对于内存的强大的掌控力，这和我的安卓手机的墓碑机制就很像，其实真正的原理就在那里，但是人们能否用在自己的创造中就很可惜！！！</li>
+</ul>
+<p>std::vector(这是容器的意思)这个容器的意思是为了存储动态指针（智能指针）</p>
+<p>（*it）-&gt;getValue()访问每一个std::shared_ptr所指向的对象！！！这里的对象是什么意思，我们可以用这样的方式去掌控很多的对象同一时间，这相当于是一个管理器！！！用来管理对应的对象的，我们知道的是c++是面向对象的编程语言，这和Python很像了，我知道的就是这一点了！！！</p>
+<h3 id="视频养成计划"><a href="#视频养成计划" class="headerlink" title="视频养成计划"></a><strong>视频养成计划</strong></h3><p>第一点就是要有文案，前期可以糊弄着点。</p>
+<p>第二点的话，文字转语音？？视频里是怎么实现的呢？</p>
+<p>第三点的话就是pr，还有就是素材的获取，以及各种的转场的学习，要做到一点就是和别人的不一样，那么这么来看的话就是要有自己原创的东西在，这一点无可厚非，要不就是绘画创作，</p>
+<p>先想一下自己的目标人群是什么人，然后呢去了解他们，最好是自己在这一领域有基础。。。</p>
+<p>电脑录屏，以及各种电影素材，还有就是ai加持，这一点很重要，ai加持，我要做的是利用ai形成一套完整的输出结构，如果自己一天输出一个俩分钟的视频，就是成功了。</p>
+<p>ai 可以生成文本，然后让ai结合文本生成对应的草案</p>
+<p>设计分镜，也就是感情输出，说白的就是要结合文案输出对应的视频。（这部分还要考虑我自己的pr水平），在小红书上也可以发表，就是很简单如果确实想赚第一桶金的话必须大量的产生（这在前期一定是处置蓝藻的！！！）</p>
+<p>还有一点就是得了解对应平台的审核标准！！！（这一点也很重要！！！）</p>
+<p>那么开始吧！！！我可以把一段音乐当成一段文案</p>
+<h3 id="表达"><a href="#表达" class="headerlink" title="表达"></a><strong>表达</strong></h3><p>每天我都想去表达一点什么，这一点很好，我很满足这一点。今天写点什么呢，今天参加了画法几何的考试，我感觉很简单，这一点让我很生气，因为这样就没办法拉开应该出现的差距了。很简单嘛，我就是显现自己的强大但是真的是这样吗？我觉得不一定，我很信奉王阳明的心学，对于传统文化中的内圣而外王，以及无情的解释很是中意了。而且我的人格是[[我的日记&#x2F;INTP]]，所以呢，是我自己的努力没有被证明，我的成果没有照常出现，那么在这里可以看出来，这一点是被科学证明过的，但是有一点是我必须说的，我们不应该把自己的幸福感交给不确定的事情，也就是说我必须把我的快乐交给我能把控的是东西上。我可以交给什么呢，是自己感<a href=""></a><a href="%E5%85%B4%E8%B6%A3">兴趣</a>的事务吗？必然是这样的，因此我们确实应该去找到我们的乐趣。但是为什么大部分的成年人都做不到这一点呢，我想就是被假我锁屏了，因此<a href=""></a>[[致良知]]是我们达到自我乐趣的必须之境。</p>
+<h3 id="王阳明心学（寒假）"><a href="#王阳明心学（寒假）" class="headerlink" title="王阳明心学（寒假）"></a><strong>王阳明心学（寒假）</strong></h3><p> May，拯救我的还得是<a href=""></a>[[王阳明]]心学，知行合一，致良知，知善知恶，我心即理。而致良知的重点就在于，如何知善知恶，这一点就要是我们去学习的内容了。想信很多人做不到知行合一的原因大概就是无法知善知恶了。我相信书籍会给我们答案的。就是这么简单，去完成自我的成长，我可以把我的成长整合在知善知恶的框架下，然后去不断的学习，去满足我的善恶观，以此来判断事物，这一点就好像是我们去构建了一个自己的世界，有着自己建构的规则，我们是规则的主人，然后我们用这里的规则去成为更好的自己。警觉的判断条件就来源于这里。这样来看，王阳明的心学就很简单了，在我的实践上。</p>
+<p>  我们大概一生都在用来构建这样的内在世界规则，但是还是有区别的，王阳明用自己的良知去建立自己的内在规则，而普通人是在社会规则的要求下建立的世界规则，因此后者就更加看中这个社会的质量，这一点无疑是困难的对于任何一个时代来看都是这样的。</p>
+<p>所以王阳明其实早就明白了社会对于人的影响，他不接受这样的影响，其实就是他更加追求符合自己良知的事情，而不是社会的要求，这一点很强。</p>
+<p>  接下来的话就是看看我最近的不符合我的内在规则的事情。</p>
+<p>  第一点：我可以接受自己去进行娱乐，但是绝对不是刷短视频。（轻易的消耗自己的多巴胺，自己的快乐应该放在自我，而不是与自己毫无关联的事物上，这一点，现代人是很可悲的，他们迷茫的将自己的时间花费在与自己毫无关联的人们身上，自己才是，以自己为核心的世界的主体，丢失这个主体，世界会变得<a href=""></a>[[虚无]]，空虚。人能做到最伟大的事情就是接受自己人生的无<a href=""></a>[[意义]]。）</p>
+<p>  第二点：不要轻易否定娱乐，这个世界的人们无数的努力不就是为了在无数年以后的人们会过的更好吗，自由，救赎，难道不是我们毕生的<a href=""></a>[[追求]]吗？</p>
+<h3 id="海贼王的成长"><a href="#海贼王的成长" class="headerlink" title="海贼王的成长"></a><strong>海贼王的成长</strong></h3><p>我就服了，真的好喜欢<a href=""></a>[[海贼王]]啊。尤其是凯多篇，他是我成长的见证，我最快乐最痛苦的时光在此度过，我曾苦恼于我的弱小，我开始喜欢上巨人里的艾伦，他消极的自由深深的吸引着我的心，它可以说是我的疯狂和自由的内心，是我探险家的体现，我很喜欢。而海贼王则是我积极自由的体现，他们好像是一体的，对于每个人来说他们都会存在的。是一个人多元化的体现。我喜欢这样丰富的自己。我在大学，我在现在我是自由的，是消极的还是积极的我都无所谓，我会去追逐我所喜欢的，我会去寻找自我的<a href=""></a>[[救赎]]。我相信我的<a href=""></a>[[青春]]是一篇关于<a href=""></a>[[成长]]的日记。</p>
+<h3 id="新项目-利用队列的原理弄一个号码输入输出的程序。"><a href="#新项目-利用队列的原理弄一个号码输入输出的程序。" class="headerlink" title="新项目_利用队列的原理弄一个号码输入输出的程序。"></a><strong>新项目_利用队列的原理弄一个号码输入输出的程序。</strong></h3><p>思路：俩个队列，<br>一个存储女生<br>一个存储男生</p>
+<p>怎么做到随机的情况呢。</p>
+<p>直接发到群里，让大家随机填，</p>
+<p>好像不需要。哈哈哈</p>
+<p>如果成功的话。</p>
+<p>我把这段代码接入Python里用pyGUI来弄</p>
+<p>大概先就这样</p>
+<h3 id="打字"><a href="#打字" class="headerlink" title="打字"></a><strong>打字</strong></h3><p>在现在<a href=""></a>[[写作]]必学的一项技能是打字这一点很重要，我会去学习这项<a href=""></a>[[技能]]，首先呢就是精准复位和找到合适的键位，我相信只要每天练习就可以达到理想的境界。因此在未来的几天内我会去联系这项技能，以至于我可以很好的完成我得写作任务。慢慢联系吧我觉得是可以的，相信在我的努力下我可以学习到这些知识，因为我知道的是现在在这个<a href=""></a>[[计算机]]发达的年代，我们必须学会使用计算机去输出自己的<a href=""></a>[[观点]]，这样就要求我们需要很快的打字速度，以此才能快速的表达我们的观点，注意自己手指的分工。</p>
+<p>  今天我的键盘回来了，这个是真的太舒服了，哈哈哈。我想这个是<a href=""></a>[[快乐]]的，自己的写作生涯，学习打字的第一步是去熟悉键盘的位置这一点就需要自己去看着键盘去敲击，这是确定自己的肌肉记忆，在自己的肌肉记忆确定后，再去学习着去忙敲键盘上的字母。我明白的知道。</p>
+<p>  我知道写一本小说是练习写作的最好方式，我接下来会去构思一篇短文<a href=""></a>[[小说]]大概是二百章左右吧。毕竟写作是需要付出时间成本的。</p>
+<h3 id="思考的本质是语言"><a href="#思考的本质是语言" class="headerlink" title="思考的本质是语言"></a><strong>思考的本质是语言</strong></h3><p>就是我对于我最近几天的理解，第一点就是我不应该这么频繁的去刷视频，我应该是有什么知识需要再去刷视频。还有就是，我怎么丢弃英语了呢，作为英语爱好者，每天使用<a href=""></a>[[英语]]是很有必要的。</p>
+<p>  还有就是只思考配备了<a href=""></a>[[文字]]才能有系统化的<a href=""></a>[[逻辑]]出现，因此去扩充我们的词库是很重要的，就是语言会承载很多文化，思想的东西。因为语言本身就是一种思想的产物，这也是人和动物的区别。人是可以将<a href=""></a>[[思想]]，用内在逻辑说出来的。</p>
+<p>  对于[[我的日记&#x2F;INTP]]来说，或许英语才是他们的喜爱的语言。所以我现在很想学习英语，你觉得可以吗？哈哈哈我觉得很ok的，切记学习任何事情都要遵循最小学习法，也就是事物的客观发展规律，好像是这样的，就是我们学习到的理科知识为什么能用到现实生活中去，我觉得很重要的一点就是可以用语言去解释很多东西，在解释一些事情发展的时候，这些以语言为单位的知识单元就会出现，像c里的函数一样，去理解事情的发展，所以我们去理解这些知识单元是很重要的，这些单元会极大的简化我们的思维痕迹。所以语言很重要，重要到，我们任何潜移默化的思考都会是以语言的形式产生的。我拥有理科思维，就是我拥有理科解释世界的部分词库，就这么简单。我们的思考方式在很大程度上是取决于我们所有的语言含义词库决定的。</p>
+<h3 id="小说大纲"><a href="#小说大纲" class="headerlink" title="小说大纲"></a><strong>小说大纲</strong></h3><p>今天看到了关于写<a href=""></a>[[小说]]大纲的方法，就是excel表格吧，就是简单的输入吧，先用一句话去描述这个故事讲了什么，在把这个故事扩写开来，然后就是人物的人格，最后还有就是世界观的架构，在excel中先把大故事分开成几个故事阶段，每个阶段用一句话描写，然后每个故事阶段再细化为什么事件，然后每个事件中的人物和地点，然后就是我是这个人物我会去做什么，其实当足够的信息输入的时候这一切好像就这么固定下来了，然后就是在人物互动的时候每个人物他的人格成长的变化，还有就是每个人在活动中的情感变化。做到这一点那么基本的框架就做好了，这就是在构思一个大的故事，而故事的主体就是人物的活动，和背景故事。而其中的人物最难被书写，原因就是每个人的人格是不一样的，除此之外我们还得写一份每个人物在这样的命运下的活动或者说是故事吧，将自己想做是这个人，就是模仿这个人的性格，在此性格下的活动，最后在无数配角构建的故事支链下男主的故事也就开启了。所谓小说灵感—收集资料—写下故事大纲—用专业的用语写出来。只有写作才是提升写作的最好的方法。</p>
+<h3 id="小说养成计划"><a href="#小说养成计划" class="headerlink" title="小说养成计划"></a><strong>小说养成计划</strong></h3><p>这次用到的是直接了当和直觉，以及重复练习。和模仿，<br>以及对于后设学习的理解，因为这与写大纲有很大的关系。ok计划是这样的，先发番茄，番茄签不了就发小红书！！！</p>
+<h3 id="对于深度学习"><a href="#对于深度学习" class="headerlink" title="对于深度学习"></a><strong>对于深度学习</strong></h3><p>#深度学习绝对是我在大学生活中去追求的理想境界</p>
+<pre><code>还有就是我的电脑的使用，我确信在很多时候我的电脑都离不开电源，基本上除了写代码以外，运行专业软件还是得在电源的条件下运行的，就此我的电脑在宿舍的使用场景还是很多的，但这不能妨碍我的深度学习，shijian的过程可以在宿舍拿电脑执行，那么其他关于学习的内容还是得原始化简单化一点的，就是这样的。而且王阳明也说过人要练习在复杂场面保持自己的专注力，ok这也算是一种锻炼吧，但是还是不建议长时间的这样学习，深度学习是我们所追求的aim，既然如此我们就得选择简单易行的方法去刻意执行，电脑的使用先就这样了，请铭记高三最后那段深度学习的时光。保持情绪稳定和专注是我们这一代人成功的秘诀（深度学习）
+进接上文，这里说的深度学习的哲学有四种，第一种：禁欲模式，我其实很想使用这个，但是在学校其实很难做到，于现在而言其实是很难实现的，因为需要不断的去上课和赶在上课的路上，这一点是没办法去解决的，还有一点就是或许我还是得有一些朋友的，毕竟有时候一些和你志同道合的朋友是很幸福的。这里就不讨论了，但是我觉得我作为深度学习者，在未来的一段时间内我一定可以做到这一点的。第二种：双峰模式，就是一段固定的时间去深度学习剩余的时间去浮浅学习。这一点我也很难做到。第三点：习惯模式，这个我是比较好执行的，我也读过掌控习惯，很明白这一点的重要性，ok这个是我可以去坚持的。第四点：快速转化模式，这个模式的要点就是你得很快速的从浮浅模式转化为深度学习状态，这个转化得快速且彻底才ok，但这是一个需要注意力长时间强化后才能达到的一种状态，我高中的最后阶段差不多就是这样一种状态。这可以是我在学校主要追求的状态。
+在这里说一下就是时空桥梁冥想的方法，这样的话就可以锻炼我对于注意力的使用和掌握。这一点对于快速转化模式的作用是非常大的。第三种的本质就是自由的使用自己的专注力和注意力以及意志力，这一点是可以通过这样的方式升级的。
+ok有一点是确定的那就是，高中那段的状态，还有就是我当时十分喜欢费曼和每个牛逼的物理学家。ok那么就是这样的也许但是，他们就是我的信念，那是一种很棒的感觉就像是工匠一样，他们热衷于锻造出与众不同的东西，一种探究自己极限的状态ok，这也是费曼的状态ok，费曼对于荣誉的背弃，他认为不是荣誉在促进他前进的而是他在探究的过程，就像是工匠一样，去探究，，自己的极限，这本身就是一种深度学习的经典案例，他们深度学习中达到心流的状态，什么是心流，那么心理学家叫什么来着，他实验证明，在平时没有任何挑战的时候人其实没有那么快乐，快乐的时候应该是在深度学习和工作的时候，为什么会在这个时候呢，因为心流，这是一个信仰缺失的时代，什么是我们的新信念呢？
+我想说我们都是生活的工匠，我们都在雕刻我们的现在。这一点无可厚非。
+超速学习很重要的一点就是保持热情，因为快速学习一件事本身就十分令人着迷，这也就代表一个很大的任务必须被拆分成很多小的元素才行，这样才能达到快速学习的要求，这里要求任何一个课程都不应该超过一个月的时间期限，但是又不能太短因为这样不利于长时间记忆知识，超速学习本身就分为两部分，学习和记忆，记忆也是很重要的。
+对于学习之后的事情，以前一直也没思路，但是现在来看的话，其实很简单就是去做一些，真正的可以分发在网络上传播的东西，我觉得对于程序来说的话，最简单的方法无非就是去做一款安卓app或者的win端的软件，还有就是我的绘画也可以发在小红书这样的平台上来看，这是一种很好的思路，现在总算是打开思路了。我学的东西再过去一直没有办法变现。这就很难受。现在网络就是一个巨大的变现的方法，
+</code></pre>
+<h3 id="关于运动和睡眠"><a href="#关于运动和睡眠" class="headerlink" title="关于运动和睡眠"></a><strong>关于运动和睡眠</strong></h3><p>这是的，这两点应该是高中时期的一些教训中的内容。最近对于冥想休眠的关注点少了，对于睡眠的关注也变少了，这是正常的，因为现在随眠时间变多了，但是经过今天的熬夜我再次关注到这一点，关于睡眠的有关<a href=""></a>[[科学]]内容我能说很久。况且睡觉是一种幸福的事情。还有就是运动了，冬天也是得去运动的，关于<a href=""></a>[[身体]]和<a href=""></a>[[大脑]]之间的关系我也很了解，这一点也是得被重新提上日程。</p>
+<h3 id="写的小说"><a href="#写的小说" class="headerlink" title="写的小说"></a><strong>写的小说</strong></h3><p>第一章 穿越</p>
+<p>“王小子，你家的房租已经欠费一年了。”在古色古香的四合院中刘大妈骂骂咧咧的说。</p>
+<p>   而在旁边小小的水泥侧房里，王灵蹲坐在银灰色的墙角，用两只手轻轻的塞住耳朵。</p>
+<p>  这里是现代城市中的城中村，与旁边的科技感十足的现代化建筑相比，这里就破旧了很多。</p>
+<p>  声音开始减弱了，王灵拿起牙杯牙刷，呆滞的站在镜子面前，开始了既定的宅男生活。</p>
+<p>  刷完牙后，王灵把身体拖到冰箱前，拿出来提前封装的鸡胸肉片和牛奶。</p>
+<p>  一边吃饭一边打开手机，机器般的打开手机寻找着下饭视频。</p>
+<p>   一篇名为空白的黑色视频吸引了王灵，王灵不加思考的点开了视频。</p>
+<p>  视频中有只狮子头，蓝色鳞片皮肤的生物，他的手放在一个被他绑着的女孩头上。</p>
+<p>  “这视频有点东西。”王灵囔囔的说到，脸上没啊看出恐惧。</p>
+<p>  最近经常在网上看到这种奇怪的视频，还有热心的网友认为，这个世界快毁灭了。</p>
+<p> 下一瞬间女孩的身体开始变异，大面积的皮肤变成蓝色的粘液，大脑和眼球和所有内脏都流了出来。</p>
+<p>  “靠，什么鬼东西。”倆只手紧紧的捂住自己的眼睛，嘴巴扭曲成了一条正弦函数。</p>
+<p>  手机也因此甩飞了出去，手机屏幕上突然出现了一只蓝色的眼睛。同时向外放射出钴蓝色的射线。</p>
+<p>  蓝色的光芒打在王灵的脸上，显得诡异异常甚至妖异。同时王灵的眼睛也变为了亮蓝色。</p>
+<p>  王灵的身体开始粘液化，变成了蓝色的液体。在完全液化时候，手机屏幕上的蓝色眼睛上映照了这一切。</p>
+<p>  下一刻所有的一切都开始消失，包括四周的墙壁。全部化为了蓝色的粘液，看起来很是奇怪。</p>
+<p>  剩下的只有那只钴蓝色的眼睛。</p>
+<p>  “好冷，好冷，好冷!”半昏睡的王灵嘴角微微的抬起喃喃的说到。</p>
+<p>  这时候的王灵整体都是蓝色的粘液，这里是海洋的世界，王灵在海里被蓝色的力量拖着。</p>
+<p>  “苏醒”莫名而神圣。</p>
+<p>  海洋里出现金色的小颗粒，海水开始变得暖和起来。</p>
+<p>感受着这种温暖，王灵在梦中回到了小时候的那座四合院中。</p>
+<p>  一个稍显年迈但是依旧美丽优雅的妇女正在蹲伏在铁盆前默默的揉搓着沾满泡沫的衣服。</p>
+<p>  “是你吗？你去哪了，为什么我再也看不到你们了。”王灵用平静的声音缓缓问道。但是眼角的泪水却不能欺骗。</p>
+<p>  女人好像察觉到有人注视，轻轻的抬头像后面抬眼。</p>
+<p>注视了一会儿后，绵绵的说到，“小灵必须是干干净净的去上学。”</p>
+<p>  “妈，我想你了，别离开我了，好吗？”这时王灵已经不能忍耐思念哭泣的喊道。</p>
+<p>  蓝色开始充斥画面，女人开始模糊。“再让我看一眼好吗？”泣不成声的王灵没办法制止任何事情的发生，就像他小时候一样.</p>
+<p>  蓝色侵占了王灵全部的自由意志，渐渐的王灵开始有了五感，开始可以控制自己的身体。</p>
+<p>  “欢迎回来，王灵。来到这个属于你的世界。”</p>
+<p>  “这里是哪里？”</p>
+<p>  “属于你的世界。”</p>
+<p>  “你是谁？我得回家，我得去寻找我的家人。”</p>
+<p>  “我是这个世界的bug，或许你的家人会在这里的。”</p>
+<p>  “接下来你会接受生存的考验，当你真正的有资格站在这里的时候，你就会得到你所需要的。”</p>
+<p>  海水轻轻抚摸着王灵蓝色的变异皮肤。</p>
+<p>  看来我的身体发生了一些变化。</p>
+<p>  “这是世界同化，世界规则会根据新世界的特性为你不可逆的怪异化。”</p>
+<p>  “这是个充满混乱的世界，相传在很多年以前，这里发生过一场风暴，雷电击碎了农民的房屋，相传那道山之上雷火炼殿，真是让人留念呢。”</p>
+<p>  “你去吧，这个世界会让你找到真正的自己。”</p>
+<p>  流动的七彩光芒包裹着王灵的身体，最后消失在原地。</p>
+<p>  现在仔细看来，这里是一座金色的宫殿，颇有哥特风格的古典建筑。</p>
+<p> 前面有一座蓝色的王座，王座之上有一把紫色的太刀。</p>
+<p>  这个世界充斥着白色的光芒，似乎没有任何的地方有黑暗。</p>
+<p>  而在王灵离开后那奇怪的声音也开始淡化了，最后消失在这恐怖的白色之中。</p>
+<p>  王灵出现在了一个农村，这对于王灵来说或许不陌生了，因为王灵小的时候是由自己的姥姥带大的。但是也因此王灵从小到大很少和父母去玩乐。</p>
+<p>  王灵开始打量这个熟悉的世界，自己的身体也从粘液状变为了，穿越前的样子。</p>
+<p>  “我穿越了，真的假的？这也太爽快了，我早想离开那个没有丝毫乐趣的灰色世界了。”</p>
+<p>  在现代由于个体创造力的空前发达，好像家这一个概念被很多年轻人模糊化了。</p>
+<p>  也正是因为如此王灵好像从小就失去了传统人的人生目标了。</p>
+<p>  这里是农场，前面有大片的玉米地，而在玉米地旁边有一家房屋。</p>
+<p>  王灵很开心，他的十六人格是探险家，好奇驱使着他走向那农屋。</p>
+<p>  “有人吗？有人吗？我是异世界的邪教徒哦，嘿嘿。”</p>
+<p>  见没人回应王灵就干脆打开门直接进入了。</p>
+<p>  “没有人吗？”王灵有点小沮丧。</p>
+<p>  在屋子的中央有一熄灭的座火炉，而在火炉旁边的是用羊皮制作的沙发。</p>
+<p>  王灵很自然的摊在了沙发上，总感觉手里还差点什么。</p>
+<p>  “该死，这地方没有可乐。”王灵悲愤的说到。</p>
+<p>  等着等着王灵就开始睡着了，这是他在家里养成的好习惯，处于这样陌生的环境他同样可以就这么毫无防备的睡着。</p>
+<p>  一抹冰冷刺激着他的喉咙。</p>
+<p>  是一位黑色眼睛，蓝色短发，尖儿的少女，她在现代来说该是叫精灵。</p>
+<p>  感受着这冰冷，王灵冷汗支流，恨不得把房间里的火炉吃掉。</p>
+<p>  这个时候王灵已经被吓得的没办法说话了。</p>
+<p>   “你是什么人，为什么在这里。”的长相非常可耐，黑色的眼睛想黑洞，像是要把人吸进一样。但是语气却十分冰冷。</p>
+<p>  “我是来拯救你的异世界英雄。”</p>
+<h3 id="关于转专业"><a href="#关于转专业" class="headerlink" title="关于转专业"></a><strong>关于转专业</strong></h3><p>从今天的经理可以看出，或许转专业不一定是我<a href=""></a>[[人生]]的最优解，现在看来转专业似乎是最优解，但是从我的人生整个经历来看或许并不一定会给我带来最好的结果。这个是怎么看出来的呢，</p>
+<p>  得先去分析一下现在的情况再去考虑怎么<a href=""></a>[[转专业]]转去哪个专业。刚刚查了一下资料对于计算机科学类的专业确实可以转但是我们学校的计算机的认可度是很低的，那么就是说做出这样的选择就会面临着继续读研究生的道路。你接受吗？我现在还不知道，maybe我会接受这一点，这无非就是一件事情没必要去焦虑的，我们的本质从来就是提升自己的<a href=""></a>[[能力]]，既然<a href=""></a>[[学校]]没办法提供这样的环境那么我必须自己去努力成为 自己想要成为的人，做自己真的<a href=""></a>[[快乐]]的事情</p>
+<h3 id="关于牙齿"><a href="#关于牙齿" class="headerlink" title="关于牙齿"></a><strong>关于牙齿</strong></h3><p>我对昨天晚上的事情做个总结，昨天呢我了解到其实我的嘴突是因为我的鼻炎呼吸决定的，他是可以发生改变的，这也让我对自己的<a href=""></a>[[侧颜]]变相的再次充满希望了</p>
+<p>总结下来，其实就是两点；第一点舌头的位置这一点很重要，因为他决定了你平时的牙齿是不是发生咬合关系，这将决定你的牙齿的寿命。第二点，是面部肌群由于长时间的嘴呼吸导致肌肉发力错误。怎么做，就是重新训练你的肌肉发力感觉。具体动作呢有两套，第一呢就是把自己的舌头放在正确的体位，然后用力抬头，这一点呢可以有效的锻炼自己的关于抬起下巴的那部分肌肉。这才坚持了一天，我会坚持一个月，然后应该就不需要我去刻意地坚持了。</p>
+<h3 id="关于淡漠和冷漠"><a href="#关于淡漠和冷漠" class="headerlink" title="关于淡漠和冷漠"></a><strong>关于淡漠和冷漠</strong></h3><p>要理解的是淡漠和冷漠是不一样的，冷漠是拒绝自己的情绪，逼迫自己对任何事情都不在意。<br>这个是怎么来的呢？其实也很简单，当人受到巨大打击的时候，痛苦会让他感觉多余的情感是无用的，也就是说他不相信情感了，他不相信爱情，不相信亲情。<br>这是巨大的伤痛带来的破坏性的补偿，是为了人躲避伤害而产生的自我保护机制。<br>这本身其实是没有任何错误的，毕竟双方都是受害者。<br>而道家说的淡漠是指在接受人各有命的前提下对他人命运的看淡。就这么简单，这是一种对于自然对于事物发展的尊重。因此细细看来的话，淡漠接受爱但是对于爱的结果不顾。<br>淡漠动情但不深情，不是绝情，亦不深情。这也符合道家说的万事有度。<br>可能在过去的一段时间内我对于冷漠淡漠和深情的理解还不够。贸然的从深情转入冷漠。<br><a href="">淡漠</a>知命，如此而已。</p>
+<h3 id="关于最近的生活吧"><a href="#关于最近的生活吧" class="headerlink" title="关于最近的生活吧"></a><strong>关于最近的生活吧</strong></h3><p>&#x3D;&#x3D;生活方面的理解</p>
+<ol>
+<li>maybe , I am to use most time to pesurd good time and happy,but I dont think that is bed,</li>
+<li>you konw ,i am become powerful in life . you dont warry anything ,only you can brave to fight life ,yous life will belong to you.ok for english ,i am didt to say flaxblely.i will do .place give me some time to prove that says ablility for english .</li>
+<li>my best prove is to truct everyday in this treat.so lowdly right know ,so dont to right right konw.</li>
+</ol>
+<h3 id="关于活着"><a href="#关于活着" class="headerlink" title="关于活着"></a><strong>关于活着</strong></h3><p> 两天就看完了这本书，其实还是很吸引我的，不然我也不可能这么快就看完。说说我的看法吧，这是一本关于富贵活着的一部传奇故事。死亡和活着一直折磨着富贵，再这样的大环境下，身边的亲人不断的<a href=""></a>[[死亡]]，富贵不断的去接受着无奈的现实，一次次的死亡，一次次无奈自嘲的活着，他是富贵，送葬了所有的亲人。他是勇敢的，这是一部关于<a href=""></a>[[勇敢]]者的故事。</p>
+<p>  或许活着本身就是世界上最勇敢的事情。这让我想起了挪威的森林，死亡是生的延续。对活着的人来说接受他人的死亡，并勇敢的活下去，才是对他最大的挑战吧。</p>
+<h3 id="关于我的大学生活"><a href="#关于我的大学生活" class="headerlink" title="关于我的大学生活"></a><strong>关于我的大学生活</strong></h3><p>不要对未来抱有太多的焦虑，我们要做到尽人事，听天命。就好了现在确定了我还是活着的，因此注重现在才是最重要的。对于我在大学混的最差的一种状态就是退学了，哈哈哈无所谓呀，我在这里如果能学习到我以后赖以生存的东西，如果这个东西还是我所喜欢的东西那么再好不过。这也是大学该给我们的交代难道不是吗？如果世界不给我们一个交代，难道我们自己就会放弃自己吗？让我用自己的方式和这个无聊的世界做抗争吧。因为我无时不刻的思考，我才觉得自己活在这个世界上。放手一博吧，现在在这个时间段是完全属于你的，你可以自由的去做你自己想做的事情，没有任何人可以阻止，去最求自我的救赎和成长吧，一切都会变好的，我们要以出世之心态去做入世之事，为什么我拒绝群处，因为他们的话语会让我过度的思考，甚至大脑待机。还有一点就是，他们真的好无语，总是不改变自己，喜欢贬低别人，这一点我属实是忍受不了的。走吧，去走自己的道路。这必然是一条没有玫瑰的沼泽。一切的一切都是为了我自己的<a href=""></a>[[理想]]和信念。</p>
+<h3 id="关于我去学习英语这件事"><a href="#关于我去学习英语这件事" class="headerlink" title="关于我去学习英语这件事"></a><strong>关于我去学习英语这件事</strong></h3><p>还是那句话，学习任何技术都需要输入输出，就是<a href=""></a>[[听力]]和阅读。这是很重要的，那么就是刚刚他在这个基础上，还做出来什么创新，就是关于学习资料的寻找，然后就是在固定时间点，练习听力和学习单词，或者<a href=""></a>[[阅读]]，这就涵盖了输入和输出，所以这本身就是一个客观学习模型。</p>
+<p>  就是还是得有必须使用<a href=""></a>[[最小实验法]]去学习的。</p>
+<h3 id="关于我与地坛"><a href="#关于我与地坛" class="headerlink" title="关于我与地坛"></a><strong>关于我与地坛</strong></h3><p>说实话的话，sts很厉害。<br>“设计好运”哈哈哈，他说的真的很形象。<br>从这一点来看绝望似乎伴随我们出生和死亡。<br>无论你有怎样的好运，似乎在死亡面前都没有那么美好了。<br>死亡就像一颗核弹，在我们一出生就死死束缚在黑暗的背影之中。<br>我们的人生好像就是关于死亡的史诗。<br>不管你跨越多少的绝境，死亡永远是你不可翻越的山，<br>就像西西弗神话中的西西弗一样。<br>那么解决之道在哪里呢？<br>是过程，所谓的绝境无非就是我们生命的最后结果。<br>而我们生的过程是死神也无法干预的。<br>由此来看我们在绝对的死亡面前，有着绝对的自由。<br>不问结果，回看来时路。<br>尽人事，听天命。<br>我们生的如此简单，那就让我们活着简单。<br>还有就是叔本华的钟摆理论。</p>
+<h3 id="关于入团"><a href="#关于入团" class="headerlink" title="关于入团"></a><strong>关于入团</strong></h3><p>又过去了一段时间了，我学会了适度的放松自己，这很有意义，任何道理都会在我的心里，我读的任何一本书都是有意义的，只有在关键时刻他才会出现来帮助我。</p>
+<p>  还有在刚刚看的一个关于入团的视频，他为什么不<a href=""></a>[[入团]]呢，其一在他深入了解后得知，团员和党员是党信念的贯彻者，这就要求团员要有，党的伟大信念，这一点，作者并没有。其二作为理想主义者，按照内心的标准去走自己的道路是这一人格的信念。在此看来就是作者也是有崇高的信念的。最后我认为的一点就是，党员不应该这么普及，如果党员不是党的信念的忠实者，其实是不值得的，反而会造成贪污腐败，要实践中去选择真正能做到为人民服务的人去担任要职。在我看来团员的选拔机制存在严重的问题。还有就是应当减少在学生阶段去选择党员，要在具体的工作和实践中去选择适当的人选。</p>
+<h3 id="关于加缪和《局外人》的故事"><a href="#关于加缪和《局外人》的故事" class="headerlink" title="关于加缪和《局外人》的故事"></a><strong>关于加缪和《局外人》的故事</strong></h3><p>关于加缪和《局外人》的故事，就在刚刚我读完了这本书，整体给我的感觉就是很荒谬。者很符合<a href=""></a>[[加缪]]的<a href=""></a>[[荒谬主义]]，开始于惊讶默尔索在阳光沙滩上射杀阿拉伯人，后来对于他在监狱，和法庭的那种状态其实我是有预期的，对于检察官将默尔索对于母亲的死和他射杀阿拉伯人的事情联系在一起不难预料。荒谬的地方在于，好像检察官对于客观的判断给出的答案好像是事实，但这是客观的事实，仅此而已，如果不读这本书的话，我很容易被检察官的话说服。但是读过这本书以后就发现其中的荒谬所在。我很喜欢神父说的一句话：人类的正义不是真正的正义，上帝的正义才是真正的<a href=""></a>[[正义]]。这里的上帝可以是<a href=""></a>[[王阳明]]心学的本心，无善无恶心之体，大概率就是说的默尔索吧。</p>
+<p>You’ve just finished reading Albert Camus’ “The Stranger” and are reflecting on your experience! It’s great to<br>hear that the book has left you with a sense of absurdity, which is actually quite fitting given its themes!</p>
+<p>I love how you analyzed the book’s use of absurdity, particularly in the courtroom scenes. You’re right; the<br>prosecutor’s attempts to connect Meursault’s mother’s death to his killing of the Arab man can be seen as an<br>attempt to impose meaning on a seemingly meaningless event. And yet, this very effort is what underscores the<br>absurdity of the situation.</p>
+<p>Your appreciation for the priest’s words is also noteworthy: “Human justice is not true justice; only divine<br>justice is.” This resonates with Camus’ philosophical ideas about the human condition and the search for meaning<br>in an apparently indifferent universe. The phrase “divine justice” can be interpreted as a reference to the<br>concept of the Tao or the natural order, which is also reflected in the Confucian philosophy of Wang Yangming.</p>
+<p>Your thoughts on the book are quite insightful! What do you think about the character of Meursault himself? Do you<br>see him as a symbol of existential despair or something else entirely?</p>
+<p>(By the way, I hope you don’t mind if I respond in English. It’s not every day I get to discuss Camus’ works with<br>someone who has just finished reading them!)</p>
+<table>
+<thead>
+<tr>
+<th><strong>Category</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Definition</strong></td>
+<td>A multidisciplinary practice combining art, science, and technology to design and manage</td>
+</tr>
+<tr>
+<td>outdoor spaces.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Disciplines Involved</strong></td>
+<td>Art, Science, Technology, Ecology, Urban Planning, Horticulture, Materials Science</td>
+</tr>
+<tr>
+<td><strong>Project Types</strong></td>
+<td>Urban planning, Park and recreation design, Garden and horticultural design, Waterfront and</td>
+</tr>
+<tr>
+<td>coastal design, Environmental planning</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Key Concepts</strong></td>
+<td>Ecological principles, Urban ecology, Sustainability, Materials science</td>
+</tr>
+<tr>
+<td><strong>Famous Landscape Architects</strong></td>
+<td>Frederick Law Olmsted (Central Park), Andrew Jackson Downing (public parks),</td>
+</tr>
+<tr>
+<td>Dan Kiley (modernist garden design)</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>Let me know if you’d like me to add or modify anything in this table!</p>
+<p><strong>Landscape Architecture</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Node</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Connections</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Ecology</strong></td>
+<td>Understanding natural environments</td>
+<td>→ <strong>Urban Ecology</strong>, → <strong>Sustainability</strong></td>
+</tr>
+<tr>
+<td><strong>Urban Ecology</strong></td>
+<td>Studying human-environment interactions</td>
+<td>→ <strong>Ecology</strong>, → <strong>Sustainability</strong></td>
+</tr>
+<tr>
+<td><strong>Sustainability</strong></td>
+<td>Designing eco-friendly spaces</td>
+<td>← <strong>Ecology</strong>, ← <strong>Urban Ecology</strong></td>
+</tr>
+<tr>
+<td><strong>Materials Science</strong></td>
+<td>Selecting durable, low-maintenance materials</td>
+<td>→ <strong>Landscape Design</strong>, →</td>
+</tr>
+<tr>
+<td><strong>Construction</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Landscape Design</strong></td>
+<td>Creating beautiful and functional outdoor spaces</td>
+<td>→ <strong>Construction</strong>, →</td>
+</tr>
+<tr>
+<td><strong>Maintenance</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Construction</strong></td>
+<td>Building or renovating landscape features</td>
+<td>← <strong>Landscape Design</strong>, ← <strong>Materials Science</strong></td>
+</tr>
+</tbody></table>
+<p>|<br>| <strong>Maintenance</strong> | Ongoing care for landscape features | ← <strong>Landscape Design</strong>, ← <strong>Construction</strong> |</p>
+<p>This graph shows the interconnectedness of various concepts in Landscape Architecture. You can think of it as a<br>flowchart, where each node represents a key idea or discipline, and the arrows represent relationships between<br>these ideas.</p>
+<p>Let me know if you’d like me to create a different type of graph (e.g., bar chart, scatter plot) or modify this<br>one in some way!</p>
+<h3 id="关于写作"><a href="#关于写作" class="headerlink" title="关于写作"></a><strong>关于写作</strong></h3><p>我很明白一点，作者需要严谨的逻辑思维，我想在这一点上我是可以的。那么我在成为作者的路上还得怎么，反思如下，首先一点是作者很看重<a href=""></a>[[灵感]]，如果没有灵感的话，会焦虑，对于我来说是这样的，但是我觉得这和数学是一样的，在我可以熟练之前或许都会这样，我没有形成一条完整的故事链条，简单说就是我不会写作，正是因为我不熟练才会有这样害怕的感觉。所以我在接下来的一段时间会去学习写作的方法，在我看来写作是一种表达方式，真正的我去学习的应该是艺术思维，和审美以及对事物的观察。还是高中那时候的样子，我要成为一名善于观察的学者。或许这一切都是必然，如果这是宿命的话，我乐意至极。</p>
+<p>  在成为作家这一条路上我会用实验学习法去学习和<a href=""></a>[[实践]]。</p>
+<h3 id="关于兴趣很广泛"><a href="#关于兴趣很广泛" class="headerlink" title="关于兴趣很广泛"></a><strong>关于兴趣很广泛</strong></h3><p>  他说<a href=""></a>[[我的日记&#x2F;INTP]]的兴趣很广，但是遇到一个问题就是，现在每个专业的知识都是比较复杂的，你不可能做到像达芬奇一样，对于每个领域都很精通，因此我们去区分主要的兴趣和附加的兴趣，同时对我们的精力去按需分配会好一点。也就是说我们的对于好奇心的满足出现了问题，就像爱因斯坦一样他的兴趣就是探索真理，而他是通过在这条路上越走越远，来获得乐趣的。也很像对于爱情的描写的一句话，就是满足我们好奇心的不是和无数人去相同的地方，而是和相同的人去不同的地方，我虽然可以有无数的兴趣爱好，但是那个可以陪我走不同地方的人只有一个，但是好像也不一定只有一个，我可以结合一下就是，和不同的人去不同的地方。但是主要爱好是不能太多的。这里得探索的就是你对于成功的定义，就是你认为什么才是你想要的生活，对于大多数的intp来说他们的工作更加倾向于自由职业对于大学阶段的我来说我可以发展多种爱好这是没什么不好的，我可以在大学毕业的时候再去做出选择，现在做的就是不断实践去确认自己的爱好到底是什么，这一点就是很《打开心智》了。很像这本书上讲的关于自己的兴趣的获取。没必要焦虑，每本书都不会白看，在必要的时候他们就会出来帮助你去判断问题。</p>
+<h3 id="关于sexy这件事情"><a href="#关于sexy这件事情" class="headerlink" title="关于sexy这件事情"></a><strong>关于sexy这件事情</strong></h3><p>关于<a href=""></a>[[sexy]]这件事情，其实真的很<a href=""></a>[[无聊]]的。其实大多数的sexy都是很简单的就是利用人体的特殊奖励机制，去消耗你你的<a href=""></a>[[精力]]，但我没有说这个东西是没有作用的，任何事物都有其存在的两面性，sexy也不例外。</p>
+<p>  还有就是我最近开始了健身，还有最近的生物钟被打乱了，不要说自己得了睡眠障碍，这是一件很科学的事情，因此要用科学的手段去评估，这是其一，其二是因为人体的生物钟是会改变的，没必要去过度的担忧自己的睡眠问题。还有刚刚说到的<a href=""></a>[[健身]]，我开始喜欢上这种，自由的感觉了，同样的我也很喜欢去骑行 ，跑步，游泳，这会让我感到自由，以及一种自我的掌控感觉。很是舒服。</p>
+<h3 id="关于INTP的破解之迷"><a href="#关于INTP的破解之迷" class="headerlink" title="关于INTP的破解之迷"></a><strong>关于INTP的破解之迷</strong></h3><p>很简单，就是爱自己，你们是世界的观察者，天生的思考者，或许你对任何一个人的研究都超过对自己的研究。你不会爱别人，因为你不会爱自己。你渴望的到他人的爱，并不是应为你爱她，只是因为她爱你。</p>
+<p>你的朋友并不是你想和他们成为<a href=""></a>[[朋友]]，只只是因为他们认为你是他们的朋友，仅此而已。</p>
+<p>  爱自己是自我成长的必经之路。没有任何捷径，或许有的人在自己的原生家庭中会获得这个能力，但是我们去探索再获取不是更美好吗？</p>
+<p>  那么先学会这么<a href=""></a>[[爱自己]]，然后再去爱<a href=""></a>[[自然]]，然后再试着<a href=""></a>[[爱别人]]。</p>
+<p>  最后你的一生可以不爱他人，但是一定得爱自己和自然。</p>
+<h3 id="你😱吗？"><a href="#你😱吗？" class="headerlink" title="你😱吗？"></a><strong>你😱吗？</strong></h3><pre><code>或许过往的一切，让我无法享受闲暇的时光，但现在，在这里我不害怕，我不会乞求上帝救赎我，也许我这类人的归属就是学习本身呢？也许知识的成就感才会使我放松。所以我不害怕这一切。
+比起有人左右情绪的日子，我更喜欢无人问津的日子。
+</code></pre>
+<h3 id="人生价值"><a href="#人生价值" class="headerlink" title="人生价值"></a><strong>人生价值</strong></h3><p>这是我看一个视频的感想，我认为他解释了我现在的<a href=""></a>[[经历]]，我感觉有同类人了。真的真的真的真的，我现在感觉好幸福啊。是的在这个硕大的星球上，我们的精神和人格连接在一起。他说的他的高中不去学习，而是去想自己的生命意义和我真的是太像了。他的解决方法是用虚化的净土来代替现实的贫瘠。这一点是值得肯定的，这就是理想的力量，这更是心学的能量，我很明白这一点，因为我就是这么过来的。我们的人生意义就在这里啊，我们活着的<a href=""></a>[[意义]]难道不大吗？</p>
+<p>  为什么现代年轻人会有这样的困扰呢？这个主要是有两点，第一点，贫富差距的加剧，社会机会减少了。我们有更少的机会去展现自己，也就是说我们的实践意义减少了。第二点，现在年轻人的人生意义不能一概的赋予家庭了，家庭不具有必要性对于一个现代的年轻人，所以我们这一代是被资本主义异化的异教徒，哈哈哈，这个真的很有趣呢。王德峰说过如果一个国家社会的大部分人去研究哲学是不正常的。哈哈哈，但是我就喜欢研究哲学，还喜欢心理学，但是在接触王阳明心学以后我就开始淡化这种知识的连接方式了，但是我觉得还是得去看的，因为知善知恶是<a href=""></a>[[良知]]，而怎么去<a href=""></a>[[致良知]]呢？警觉假我，怎么可以做到，就是有自己的一套良知，怎么做王阳明说每个人都有良知只是被假我<a href=""></a>[[fog]]了，那么怎么去接近自己的真我，那就是不断地警惕假我，怎么做我得有很多的心理学知识，这样我才能去时刻感知自己的假我。</p>
+<h3 id="三九的小说"><a href="#三九的小说" class="headerlink" title="三九的小说"></a><strong>三九的小说</strong></h3><p>今天的想法，我觉得吧，今天和昨天的最大收获在于我对于三九<a href=""></a>[[小说]]的研究。说一下我对三九的想法吧。</p>
+<p>第一点呢，小说一定不是先想完所有的结果，我要做的是根据主要的纲要去写就的，也就是说我的写作是有无限可能的，但是又不仅仅是可能还有的就是命运，当事件开始递增时必然会有命运的产生，当个人主观愿望和现实的强烈矛盾发生时，那么一切就会向着必然发生这就是<a href=""></a>[[命运]]。</p>
+<p>  对于三九的写作习惯，我可以学习到的是他对于宏大<a href=""></a>[[价值观]]的阐述，这一点他很强，看过他的两本小说，他在这方面的天赋就展现在我眼前了。他是怎么写的，第一就是危机，避难所，人民，守护，守护者，强烈的守护信念。还有就是主角的无畏牺牲，那么再细致地看，配角们要抒发他们的情感怎么办，牺牲，受伤，还有临死前的守护信念。还有人民的仰慕，就是人民的信念，最后就是主角救场。主角的守护怎么写，他的写法很重要，就是他对于封号的运用很nice，他对于人物的抒情时就会加这部分，那么还有什么呢？他们要有信念，任何的动作都包含着主角的强烈的<a href=""></a>[[信念]]。</p>
+<p>男主会说他代表什么出战，这就代表了男主会有强烈的信念，确实是这样，在一个宏大的叙事环境中如果，那么就是每个人都会被这种叙事环境所影响。而男主会加强这种叙述中的情感。当无数相同的信念集合，那么这种双重加强就会很吸引读者了。</p>
+<p>  这也是我喜欢三九的小说的原因，宏大的情感当无数人的<a href=""></a>[[生命]]在<a href=""></a>[[命运]]中飘转，每个人为统一的信念献身的时候，就会很感人，所以我去写小说的话我做的就是塑造每个人的故事，塑造命运的发生，而人物在这种命运的盲盒中抽出自己的命中注定。难道不是很有趣吗？</p>
+<h3 id="2024-10-28"><a href="#2024-10-28" class="headerlink" title="2024-10-28"></a><strong>2024-10-28</strong></h3><h4 id="对于二手物品和极简主义"><a href="#对于二手物品和极简主义" class="headerlink" title="对于二手物品和极简主义"></a>对于二手物品和极简主义</h4><p>1.其实二手物品的诞生是很合理的，&lt;&lt;&lt;</p>
+<p>2.极简主义不代表一定得使用旧的物品，这里的关键点是你失去一些东西，而不是你得到一些东西！！！</p>
+<p>3.也就是断舍离吧！</p>
+<p>4.这里的意思是你要减少你所做的一些不必要的选择！！！</p>
+<p>5.二手物品是一种很好的选择，但是其中的险恶可想而知，人类的贪婪，是兴奋剂，这里是无法避免的，甚至于在二手平台的购物历程要比正常购物更加难，浪费精力这和极简主义就是背道而行，但是转转的官方验机很明显是解决这个问题的一种很好的方法</p>
+<h4 id="对于记者学习哲学和桥梁冥想法"><a href="#对于记者学习哲学和桥梁冥想法" class="headerlink" title="对于记者学习哲学和桥梁冥想法"></a>对于记者学习哲学和桥梁冥想法</h4><p>也可以说桥梁学习法就是为了解决，记者学习法前期的特殊训练而产生的。&#x3D;&#x3D;我必须在一个固定的时间点去训练这一点&#x3D;&#x3D;</p>
+<h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><p>之前在前面定义过子类，子类和派生类有区别吗？</p>
+<p>这些就是一些对应的专业名词</p>
+<p>这里好像就是说的子类，这里的继承说的就是子类向父类继承public的public的变量吧！！！</p>
+<p>有很重要的一点是，在任何函数的结束之后对应的变量要结束，就是销毁掉！！！</p>
+<p>这里很想文凯老师说的那个时钟的父类和子类的关系，也许老师就是在说这一点呢！就是在跟我说父类和子类的差别，文凯老师说的那个是先产生俩个类，然后用另一个类来控制这俩个类的运转！！！</p>
+<h4 id="建筑的想象力"><a href="#建筑的想象力" class="headerlink" title="建筑的想象力"></a>建筑的想象力</h4><p>第一点是，透视是将主体客观化，就是把想像的世界用数学空间展示出来！</p>
+<p>透视其实就是数学，在数学中变量和函数的思想是很重要的，这里的透视也是可以用这里的变量来思考的。</p>
+<h4 id="cz运算符"><a href="#cz运算符" class="headerlink" title="cz运算符"></a>cz运算符</h4><p>cz运算符很像钙离子通道，这是对类特殊的运算方式</p>
+<p>其实就是对类的一种运算方式！！！</p>
+<h4 id="编码原理"><a href="#编码原理" class="headerlink" title="编码原理"></a>编码原理</h4><p>哈夫曼编码，二叉树</p>
+<p>这里就很难理解了！！！</p>
+<p>随机访问</p>
+<p>equally likely</p>
+<p>okl</p>
+<p>today is going,you are good !!!</p>
+<h3 id="INTP"><a href="#INTP" class="headerlink" title="INTP"></a><strong>INTP</strong></h3><p> 我现在知道我是[[我的日记&#x2F;INTP]]这种人格，但是我相信每个人都是不一样的，所以我来到这里的信念是什么，不就是为了自我的成长吗？一切基于对自我的的研究都是为了改变一些我自认为不好的一些些特性吗，我是intp，这是独属于我的，我很喜欢这一点，我很喜欢自己的特性。之所以我是我就是因为有这些特性的存在。去构建一个真理的世界吧，这才是你的归属。当落叶有了沃土，腐化就不再是他的宿命了。</p>
+<h3 id="2024-09-17"><a href="#2024-09-17" class="headerlink" title="2024-09-17"></a><strong>2024-09-17</strong></h3><p>.1对于爱情来看的话我觉的，只有两个人 是两个完整的圆才有可能诞生优雅的爱情故事！！！</p>
+<p>.2轻松的享受生活才是我最该做的事情</p>
+<p>.3尊敬命运的漩涡，体验在其中的自由也许才是正确的》</p>
+<p>人类的大多数生活都是我命由天不由我的。</p>
+<p>.4还有就是关于王阳明心学的新的解读，就是生活在过去会导致抑郁，生活在未来导致忧虑，只有生活在现在才能真正的体验生命。</p>
+<p>.5也许对于爱一个人来说，一见钟情固然是珍贵的，但是持久的爱下去才是值得称赞的，在现代的生活下人们其实很难的持久的去爱一个人，但是我们INTP追求的就是这样一种旷日持久的爱情！！！</p>
+<p>.6还有就是关于《霍乱时期的爱情故事》这本小说对我的影响了，孤独是人类最长久的伴侣，但是你得找到一个锚点，去锚定内心的虚无主义的延生和对自己生活的影响，我们可以预料的是，如果阿里萨没有长达半个世纪的爱，他用对于费尔明娜的爱去锚定自己的孤独和虚无。我想阿里萨是成功的，在某方面来讲的话，他一定不是一个善良 的偶像，甚至不能说是一个正面的角色，但是马尔克斯想对我说的当然不是说这一点，阿里萨对于孤独的对抗，以及对爱这个能力的保存才是这个角色的最大的魅力所在。神奇啊！马尔克斯你是怎么做到的，你的小说大概会和我走完我这渺小的一生，你是成功的，你的名字我会永远的记住！！！</p>
+<h3 id="2024-09-10"><a href="#2024-09-10" class="headerlink" title="2024-09-10"></a><strong>2024-09-10</strong></h3><p>写一个关于自己旅行的vlog</p>
+<p>济南</p>
+<p>青旅</p>
+<p>还有就是和姐夫出去吃饭</p>
+<p>青岛，青岛站的照片（出青岛站的时候的感觉真的太绝了）</p>
+<p>还有就是青岛的旅游</p>
+<p>去青岛栈桥</p>
+<p>去信号山</p>
+<p>去外国住的那个地方</p>
+<p>水土不服了</p>
+<p>青岛啤酒博物馆</p>
+<p>去烟台</p>
+<p>烟台的青旅（叫啥来着）</p>
+<p>青旅的前台小姐姐</p>
+<p>去烟台山</p>
+<p>去烟台栈桥</p>
+<p>月亮湾</p>
+<p>去蓬莱去找凯文</p>
+<p>去蓬莱阁</p>
+<h3 id="2024-08-22"><a href="#2024-08-22" class="headerlink" title="2024-08-22"></a><strong>2024-08-22</strong></h3><p>我承认的是低级的快乐是有害的，但是你会去做最低级的快乐吗？</p>
+<p>我承认的是没有什么比抖音快手更加低级的快乐了，但是。</p>
+<p>即使你在害怕一直在害怕，但你最后做了什么，</p>
+<p>根据《深度工作》《轻松学习》我们可以知道的是，学习要高效的完成，快乐我们要无忧无虑的去追求，你知道吗？</p>
+<p>最后得出结论，在高效学习的条件下，娱乐是必要的，任何时候请保持愉快的心情，去完成自己的生命，去追求你真正想要的，别被焦虑和害怕所迷惑，我是intp只属于我的intp，我对于INTP的缺陷的解决方法是，建立庞大的知识库，以逻辑的方式证明，以及绝不重复，坚定自己的证明。我要的是定期的证明，而不是快速的转变，任何的方法都是要实验过才行的，未知的方法不去实验也是不可行的。</p>
+<h3 id="2024-08-07"><a href="#2024-08-07" class="headerlink" title="2024-08-07"></a><strong>2024-08-07</strong></h3><h4 id="1-安y-1-安装-Python-和-VSCode"><a href="#1-安y-1-安装-Python-和-VSCode" class="headerlink" title="1. 安y### 1. 安装 Python 和 VSCode"></a>1. 安y### 1. 安装 Python 和 VSCode</h4><p>确保你已经安装了 Python 和 Visual Studio Code。</p>
+<h4 id="2-安装-Python-扩展"><a href="#2-安装-Python-扩展" class="headerlink" title="2. 安装 Python 扩展"></a>2. 安装 Python 扩展</h4><p>在 VSCode 中安装 Python 扩展（由 Microsoft 提供）。</p>
+<h4 id="3-创建并激活虚拟环境（可选但推荐）"><a href="#3-创建并激活虚拟环境（可选但推荐）" class="headerlink" title="3. 创建并激活虚拟环境（可选但推荐）"></a>3. 创建并激活虚拟环境（可选但推荐）</h4><p>虚拟环境可以帮助你管理项目的依赖。</p>
+<p>sh</p>
+<p>复制代码</p>
+<p><code># 创建虚拟环境 python -m venv env# Windows .\env\Scripts\activate  # MacOS/Linux source env/bin/activate</code></p>
+<h4 id="4-安装-sounddevice-和-wavio-包"><a href="#4-安装-sounddevice-和-wavio-包" class="headerlink" title="4. 安装 sounddevice 和 wavio 包"></a>4. 安装 <code>sounddevice</code> 和 <code>wavio</code> 包</h4><p>激活虚拟环境后，使用 <code>pip</code> 安装这两个包。</p>
+<p>sh</p>
+<p>复制代码</p>
+<p><code>pip install sounddevice wavio</code></p>
+<h4 id="5-配置-VSCode-的-Python-解释器"><a href="#5-配置-VSCode-的-Python-解释器" class="headerlink" title="5. 配置 VSCode 的 Python 解释器"></a>5. 配置 VSCode 的 Python 解释器</h4><p>确保 VSCode 使用的是你虚拟环境中的 Python 解释器。</p>
+<ul>
+<li>打开 VSCode，按 <code>Ctrl+Shift+P</code>（Windows&#x2F;Linux）或 <code>Cmd+Shift+P</code>（Mac）调出命令面板。</li>
+<li>输入 <code>Python: Select Interpreter</code> 并选择你的虚拟环境。</li>
+</ul>
+<h4 id="6-编写-Python-代码并导入-sounddevice-和-wavio"><a href="#6-编写-Python-代码并导入-sounddevice-和-wavio" class="headerlink" title="6. 编写 Python 代码并导入 sounddevice 和 wavio"></a>6. 编写 Python 代码并导入 <code>sounddevice</code> 和 <code>wavio</code></h4><p>创建一个新的 Python 文件（例如 <code>main.py</code>）并编写代码：</p>
+<p>python</p>
+<p>复制代码</p>
+<p>import sounddevice as sd import wavio  # 录制音频<br>duration &#x3D; 5  # 录制5秒<br>fs &#x3D; 44100  # 采样率<br>print(“Recording…”)<br>audio_data &#x3D; sd.rec(int(duration * fs), samplerate&#x3D;fs, channels&#x3D;2) sd.wait()  # 等待录音结<br>print(“Recording finished”)  # 保存为 WAV 文件 wavio.write(“output.wav”, audio_data, fs, sampwidth&#x3D;2)<br>print(“Audio saved to output.wav”)&#96;</p>
+<h4 id="7-运行代码"><a href="#7-运行代码" class="headerlink" title="7. 运行代码"></a>7. 运行代码</h4><p>在 VSCode 中打开 <code>main.py</code> 文件，按 <code>F5</code> 或在终端中运行：</p>
+<p>sh</p>
+<p>复制代码</p>
+<p><code>python main.py</code></p>
+<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h4><p>以下是完整的示例代码：</p>
+<p>python</p>
+<p>复制代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">```<span class="keyword">import</span> sounddevice <span class="keyword">as</span> sd <span class="keyword">import</span> wavio  <span class="comment"># 录制音频 duration = 5  # 录制5秒 fs = 44100  # 采样率  print(&quot;Recording...&quot;) audio_data = sd.rec(int(duration * fs), samplerate=fs, channels=2) sd.wait()  # 等待录音结束 print(&quot;Recording finished&quot;)  # 保存为 WAV 文件 wavio.write(&quot;output.wav&quot;, audio_data, fs, sampwidth=2) print(&quot;Audio saved to output.wav&quot;)kkkkkkk</span></span><br><span class="line"><span class="comment">#这里就是教我怎么去创建k&#x27;k&#x27;k&#x27;k&#x27;k&#x27;kpython的虚拟环境，以此来分离不同项目之间的环境影响！！！</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	这里基本了解一下怎么实现的虚拟环境的搭建：：：</span><br><span class="line">	在系统权限的加持之下，创建env文件：python -m venv evn实现</span><br><span class="line">	因为这是虚拟环境其实和docker很相似，还得要激活，这里激活的目的是为了pip一些你想要的包来装饰你的虚拟解释器</span><br><span class="line">	最后一点就是对于这些虚拟环境的管理了！！！就是ctrl+shift+p然后输入对应的Python:slect interpretion!!!中文来看的话就是选择Python的解释器哦</span><br><span class="line">e MAX_TREE_SIZE <span class="number">100</span></span><br><span class="line">kkkkkkktypek</span><br><span class="line">```ckkkkkkk_TREE_SIZE <span class="number">100</span></span><br><span class="line">k<span class="string">&#x27;k&#x27;</span>k<span class="string">&#x27;k&#x27;</span>k<span class="string">&#x27;ktypedef int TEemType</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">typedef struct PTNode</span></span><br><span class="line"><span class="string">&#123;</span></span><br><span class="line"><span class="string">	TEemType data;</span></span><br><span class="line"><span class="string">	int parent;</span></span><br><span class="line"><span class="string">&#125;PTNode;</span></span><br><span class="line"><span class="string">typedef struct</span></span><br><span class="line"><span class="string">&#123;</span></span><br><span class="line"><span class="string">	PTNode nodes[MAX_TREE_SIZE];</span></span><br><span class="line"><span class="string">	int r,n;</span></span><br><span class="line"><span class="string">&#125;PTree;</span></span><br></pre></td></tr></table></figure>
+
+<p>#这是一个构建了两个结构体，无非就是第一创建一个最小的单元，第二个无非就是以这个单元为基础链接各个单元，附上在整体的属性，就形成了一棵树！！！</p>
+<p>这是双亲表示法的应用，其实在tree的表示还是很简单的，无非就是最小单元的一次次的变动，以此来实现tree、的改变！！！</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MAX_TREE_SIZE 100</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">int</span> TEemType</span><br><span class="line">&#123;</span><br><span class="line">	TEemType data;</span><br><span class="line">	<span class="type">int</span> parent;</span><br><span class="line">&#125;PTNode;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	PTNode nodes[MAX_TREE_SIZE];</span><br><span class="line">	<span class="type">int</span> r,n;</span><br><span class="line">&#125;PTree;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2024-08-04"><a href="#2024-08-04" class="headerlink" title="2024-08-04"></a><strong>2024-08-04</strong></h3><p>&#x2F;**</p>
+<ul>
+<li>示例场景：用仓颉语言表达魔方置换群，并进行模拟验证</li>
+<li>本例体现了仓颉在代数&#x2F;符号演算方面的定制能力，以及语言的易用性和灵活性等</li>
+<li>涉及特性：enum&#x2F;构造器&#x2F;递归定义&#x2F;模式匹配，操作符重载，接口，类型别名，递归调用，</li>
+<li>class，tuple，Array，HashMap，for-in&#x2F;Range，if-let，lambda</li>
+<li>作者：仓颉编程语言布道师 刘俊杰 2024&#x2F;7&#x2F;25<br><em>&#x2F;<br>import std.collection.</em></li>
+</ul>
+<p>enum Rotation &lt;: ToString &amp; Hashable &amp; Equatable<Rotation> {<br>    &#x2F;&#x2F; 在魔方研究中，通常用 Front&#x2F;Back&#x2F;Left&#x2F;Right&#x2F;Up&#x2F;Down 表示六个面以及对应的原子操作，即正对此面顺时针旋转 90 度<br>    F | B | L | R | U | D<br>      | X(Rotation, Rotation) &#x2F;&#x2F; 仓颉支持 enum 构造器和递归定义，此处 X 用于组织复合旋转操作<br>      | I(Rotation) &#x2F;&#x2F; I(r) 用于表示 r 的逆变换，即正对 r 面逆时针旋转 90 度</p>
+<pre><code>// enum 中也可以定义成员函数，这里我们重载 * 运算符以实现旋转操作的组合，由此可生成一个置换群
+public operator func *(that: Rotation): Rotation &#123;
+    match (this) &#123;
+        case X(x1, x2) =&gt; X(x1, X(x2, that)) // 按此顺序分解重组，使得递归时按从左到右的顺序执行变换
+        case _ =&gt; X(this, that)
+    &#125;
+&#125;
+
+// 重载 ** 运算符实现幂运算，以便表示和验证高阶置换操作，如 (F*F*L*L*B*R)**90 会让魔方回归初态
+public operator func **(exp: UInt32): Rotation &#123;
+    var result = this
+    for (_ in 0..(exp - 1)) &#123;
+        result = result * this
+    &#125;
+    return result
+&#125;
+
+// 实现 ToString 接口以便打印和调试此代数系统
+private func text(inv: Bool): String &#123;
+    let exp = if (inv) &#123; &quot;⁻¹&quot; &#125; else &#123; &quot;&quot; &#125;
+    match (this) &#123;
+        case F =&gt; &quot;F$&#123;exp&#125;&quot; case B =&gt; &quot;B$&#123;exp&#125;&quot; case L =&gt; &quot;L$&#123;exp&#125;&quot;
+        case R =&gt; &quot;R$&#123;exp&#125;&quot; case U =&gt; &quot;U$&#123;exp&#125;&quot; case D =&gt; &quot;D$&#123;exp&#125;&quot;
+        case I(r) =&gt; r.text(!inv)
+        case X(x1, x2) =&gt;
+            if (inv) &#123; // 逆变换需要反序
+                x2.text(inv) + x1.text(inv)
+            &#125; else &#123;
+                x1.text(inv) + x2.text(inv)
+            &#125;
+    &#125;
+&#125;
+
+public func toString(): String &#123;
+    text(false)
+&#125;
+
+// 下面实现 Hashable 和 Equatable 接口，以便 Rotation 作为 HashMap 的 Key
+public func hashCode(): Int64 &#123;
+    this.toString().hashCode()
+&#125;
+
+public operator func ==(that: Rotation): Bool &#123;
+    this.toString() == that.toString()
+&#125;
+
+public operator func !=(that: Rotation): Bool &#123;
+    this.toString() != that.toString()
+&#125;
+</code></pre>
+<p>}</p>
+<p>type Face &#x3D; Rotation<br>type Vector &#x3D; Array&lt;(Face, Int64)&gt;<br>type Matrix &#x3D; Array<Vector><br>enum Index {<br>    Row(Int64) | Col(Int64) | Inv(Index)<br>    &#x2F;&#x2F; 用于标记向量倒置<br>    public operator func -(): Index {<br>        match (this) {<br>            case Inv(v) &#x3D;&gt; v<br>            case _ &#x3D;&gt; Inv(this)<br>        }<br>    }<br>    &#x2F;&#x2F; 去掉 Inv 符号<br>    public func value(): Index {<br>        match (this) {<br>            case Inv(v) &#x3D;&gt; v<br>            case _ &#x3D;&gt; this<br>        }<br>    }<br>}</p>
+<p>extend Matrix {<br>    &#x2F;&#x2F; 给指定的魔方面创建初始矩阵<br>    public static func create(face: Face) {<br>        Matrix(3, { i &#x3D;&gt;<br>            Vector(3, { j &#x3D;&gt; (face, 3 * i + j + 1)})<br>        })<br>    }</p>
+<pre><code>// 获取矩阵的行或列
+public operator func [](index: Index): Vector &#123;
+    match (index) &#123;
+        case Row(r) =&gt; this[r].clone()
+        case Col(c) =&gt; Vector(this.size, &#123; i =&gt; this[i][c] &#125;)
+        case Inv(i) =&gt; this[i] // 应用场景需要，取值时忽略符号、不做倒置
+    &#125;
+&#125;
+
+// 给矩阵的行或列赋值
+public func set(index: Index, value: Vector): Unit &#123;
+    match (index) &#123;
+        case Row(r) =&gt; this[r] = value
+        case Col(c) =&gt;
+            for (i in 0..value.size) &#123;
+                this[i][c] = value[i]
+            &#125;
+        case Inv(i) =&gt; // 赋值时根据 index 符号做倒置
+            value.reverse()
+            this.set(i, value)
+    &#125;
+&#125;
+
+// 打印矩阵的一行
+public func print(row: Int64) &#123;
+    for ((face, id) in this[row]) &#123;
+        print(&quot;$&#123;face&#125;$&#123;id&#125; &quot;)
+    &#125;
+&#125;
+
+// 打印整个矩阵
+public func print() &#123;
+    for (row in 0..this.size) &#123;
+        print(&quot;         &quot;)
+        print(row)
+        println()
+    &#125;
+&#125;
+</code></pre>
+<p>}</p>
+<p>&#x2F;&#x2F; 直接用以上 enum 表示行列索引还不够优雅，我们为整型扩展两个属性，让索引数值可以直接标记行列<br>extend Int64 {<br>    public prop r: Index {<br>        get() { Index.Row(this) }<br>    }<br>    public prop c: Index {<br>        get() { Index.Col(this) }<br>    }<br>}</p>
+<p>&#x2F;&#x2F; Permutation 可以表示一个置换序列<br>&#x2F;&#x2F; 如 [(L, 2.c), (U, -0.r)] 表示 L 面第三列和 U 面第一行之间的轮换，且前者在换到后者时需要倒置<br>type Permutation &#x3D; Array&lt;(Face, Index)&gt;<br>extend Permutation {<br>    &#x2F;&#x2F; 获取当前置换的逆变换<br>    public func inverse() {<br>        let perm &#x3D; this.clone()<br>        for (i in 0..perm.size) {<br>            let j &#x3D; (i + 1) % perm.size<br>            let (face, index) &#x3D; this[i] &#x2F;&#x2F; 解构元组<br>            if (let Inv(_) &lt;- this[j][1]) { &#x2F;&#x2F; if-let 模式匹配<br>                perm[i] &#x3D; (face, -(index.value()))<br>            } else {<br>                perm[i] &#x3D; (face, index.value())<br>            }<br>        }<br>        perm.reverse()<br>        return perm<br>    }<br>}</p>
+<p>class Cube {<br>    public let data &#x3D; HashMap&lt;Face, Matrix&gt;()<br>    private var history &#x3D; ArrayList<Rotation>()<br>    private static let permutation &#x3D; HashMap&lt;Face, Permutation&gt;()</p>
+<pre><code>public init() &#123;
+    reset()
+&#125;
+
+static init() &#123;
+    // 每个面顺时针转动 90 度时，相邻四面的置换关系
+    permutation[F] = [(L, 2.c), (U, -2.r), (R, 0.c), (D, -0.r)]
+    permutation[B] = [(L, -0.c), (D, 2.r), (R, -2.c), (U, 0.r)]
+    permutation[L] = [(U, 0.c), (F, 0.c), (D, 0.c), (B, 0.c)]
+    permutation[R] = [(B, 2.c), (D, 2.c), (F, 2.c), (U, 2.c)]
+    permutation[U] = [(L, 0.r), (B, -2.r), (R, -0.r), (F, 0.r)]
+    permutation[D] = [(R, 2.r), (B, -0.r), (L, -2.r), (F, 2.r)]
+&#125;
+
+public func reset() &#123;
+    history = ArrayList&lt;Rotation&gt;()
+    for (face in [F, B, L, R, U, D]) &#123;
+        data[face] = Matrix.create(face)
+    &#125;
+&#125;
+
+// 对指定面上的矩阵旋转 90 度，inverse = true 代表逆时针方向
+// 此操作不影响其他面，要配合邻边置换操作才能完成魔方的实际转动
+private func rotate(face: Face, inverse: Bool) &#123;
+    const N = 3
+    let matrix = Matrix.create(face)
+    let map = if (inverse) &#123;
+        &#123; i: Int64, j: Int64 =&gt; (N - 1 - j, i) &#125;
+    &#125; else &#123;
+        &#123; i: Int64, j: Int64 =&gt; (j, N - 1 - i) &#125;
+    &#125;
+    for (i in 0..N) &#123;
+        for (j in 0..N) &#123;
+            let (u, v) = map(i, j)
+            matrix[u][v] = data[face][i][j]
+        &#125;
+    &#125;
+    data[face] = matrix
+&#125;
+
+// 实现各面行/列之间的置换操作，输入是一个置换序列
+private func permute(perm: Permutation, inverse: Bool) &#123;
+    let p = if (inverse) &#123; perm.inverse() &#125; else &#123; perm.clone() &#125;
+    p.reverse()
+    var (lastFace, lastIndex) = p[0]
+    let vector = data[lastFace][lastIndex]
+    for (i in 1..p.size) &#123;
+        let (face, index) = p[i]
+        data[lastFace].set(lastIndex, data[face][index])
+        (lastFace, lastIndex) = (face, index)
+    &#125;
+    data[lastFace].set(lastIndex, vector)
+&#125;
+
+// 在魔方上按序执行 rotation 中定义的操作序列
+private func transform(rotation: Rotation, inverse: Bool): Unit &#123;
+    match (rotation) &#123;
+        case I(r) =&gt; transform(r, !inverse)
+        case X(r1, r2) =&gt; // 对复合操作进行递归分解
+            if (inverse) &#123; // 逆变换需要反序
+                transform(r2, inverse)
+                transform(r1, inverse)
+            &#125; else &#123;
+                transform(r1, inverse)
+                transform(r2, inverse)
+            &#125;
+        case _ =&gt; // 各原子操作对应面先旋转 90 度，然后对相邻四个面执行置换操作
+            rotate(rotation, inverse)
+            permute(permutation[rotation], inverse)
+    &#125;
+&#125;
+
+public func transform(rotation: Rotation) &#123;
+    transform(rotation, false)
+    history.append(rotation)
+    print()
+    return this
+&#125;
+
+public func print() &#123;
+    var prompt = &quot;&gt;&gt; &quot;
+    for (rotation in history) &#123;
+        prompt += rotation.toString()
+    &#125;
+    println(prompt)
+    data[U].print()
+    for (i in 0..3) &#123;
+        for (face in [L, F, R]) &#123;
+            data[face].print(i)
+        &#125;
+        println()
+    &#125;
+    data[D].print()
+    data[B].print()
+    println()
+&#125;
+</code></pre>
+<p>}</p>
+<p>main() {<br>    let cube &#x3D; Cube()<br>    cube.print()<br>    &#x2F;&#x2F; 1.基本操作<br>    for (r in [F, B, L, R, U, D]) {<br>        cube.transform(r) &#x2F;&#x2F; 原子操作<br>    }<br>    Cube().transform(F * R * I(F * R)) &#x2F;&#x2F; 复合操作</p>
+<pre><code>// 2.置换的阶数
+// FFRR 是 2,3 阶置换的组合，其最小公倍数是 6，重复 6 次两类置换都会还原
+Cube().transform((F * F * R * R) ** 6)
+// FULLR 是 3,4,6,9,18 阶置换的组合，同理可得其阶数为 36
+Cube().transform((F * U * L * L * R) ** 36)
+Cube().transform((F * F * L * L * B * R) ** 90)
+
+// 3.相似变换 UGU⁻¹
+// 已知 R⁻¹DRFDF⁻¹ 可以翻转 FUR 角块
+let G = I(R) * D * R * F * D * I(F)
+Cube().transform(G)
+// 为了翻转 BUR 角块，可以先执行 U 把 BUR 换到 FUR 位置，然后执行 G 翻转 FUR，最后执行 U⁻¹ 恢复 BUR 位置
+let H = U * G * I(U)
+Cube().transform(H)
+
+// 4.组合子变换 MU⁻¹M⁻¹U
+// 已知 RL⁻¹FFLR⁻¹D⁻¹RL⁻¹FLR⁻¹ 可以保持顶面其他方块不变、仅翻转 UF 棱块，但下面两层会被打乱
+let M = R * I(L) * F * F * L * I(R) * I(D) * R * I(L) * F * L * I(R)
+Cube().transform(M)
+// 为了同时翻转 UF 和 UL，可以先执行 M 翻转 UF，然后执行 U⁻¹ 把 UL 换到 UF 位置
+// 再执行 M⁻¹ 翻转 UL 并还原下面两层，最后执行 U 恢复 UF 和 UL 位置，这样整个魔方仅有 UF 和 UL 被翻转
+let N = M * I(U) * I(M) * U
+Cube().transform(N)
+// 在此基础上，如果我们想同时翻转 UL 和 UR，可以按组合子思想执行 NUN⁻¹U⁻¹
+let P = N * U * I(N) * I(U)
+Cube().transform(P)
+()
+</code></pre>
+<p>}</p>
+<h3 id="2024-05-07"><a href="#2024-05-07" class="headerlink" title="2024-05-07"></a><strong>2024-05-07</strong></h3><p>ok有一点是确定的那就是，高中那段的状态，还有就是我当时十分喜欢费曼和每个牛逼的物理学家。ok那么就是这样的也许但是，他们就是我的信念，那是一种很棒的感觉就像是工匠一样，他们热衷于锻造出与众不同的东西，一种探究自己极限的状态ok，这也是费曼的状态ok，费曼对于荣誉的背弃，他认为不是荣誉在促进他前进的而是他在探究的过程，就像是工匠一样，去探究，，自己的极限，这本身就是一种深度学习的经典案例，他们深度学习中达到心流的状态，什么是心流，那么心理学家叫什么来着，他实验证明，在平时没有任何挑战的时候人其实没有那么快乐，快乐的时候应该是在深度学习和工作的时候，为什么会在这个时候呢，因为心流，这是一个信仰缺失的时代，什么是我们的新信念呢？</p>
+<h3 id="2024-02-17"><a href="#2024-02-17" class="headerlink" title="2024-02-17"></a><strong>2024-02-17</strong></h3><p>今天真的很累，不只是没睡好的原因。</p>
+<p>无语，我还是没做到，道家，和阳明先生的心学。</p>
+<p>我只能说，阳明的心学我还是有点欠缺。</p>
+<h3 id="2024-02-16"><a href="#2024-02-16" class="headerlink" title="2024-02-16"></a><strong>2024-02-16</strong></h3><p>its ok</p>
+<p>you are perfect jinx</p>
+<p>享受这个过程吧，，我做什么事情都是我乐于这个过程，而不是为了某种结果。</p>
+<p>我会迷茫，每个人都会这样子，在独自的时候，在快乐的时候，在痛苦的时候。</p>
+<p>我们被裹挟在情绪的洪流中，我想到一点就是，以出世之智行入世之事。</p>
+<p>还有王阳明心学。</p>
+<p>我一直在成长，这是无可厚非的，而我的人生就是一部成长的史诗。</p>
+<p>releax </p>
+<h3 id="2024-02-08"><a href="#2024-02-08" class="headerlink" title="2024-02-08"></a><strong>2024-02-08</strong></h3><p>我写过两次日记了今天，但是我还得再写一次。</p>
+<p>第一点</p>
+<p><strong>每个人都只能陪你一段时间，</strong></p>
+<p><strong>你要做的是学会尊重你们的回忆，和命运的安排</strong></p>
+<p>仅此而以</p>
+<p>*或许我早就的到了关于面对虚无主义的方法</p>
+<p><strong>在此看来我是幸运的</strong></p>
+<p>我们都在走向世界</p>
+<p>我们都没有错</p>
+<h3 id="2024-02-07"><a href="#2024-02-07" class="headerlink" title="2024-02-07"></a><strong>2024-02-07</strong></h3><p>可能我会孤独，无聊，痛苦，</p>
+<p>但是我以我的方式活着。</p>
+<p>我以我的方式成长。</p>
+<h3 id="2023的跨年出行"><a href="#2023的跨年出行" class="headerlink" title="2023的跨年出行"></a><strong>2023的跨年出行</strong></h3><p>关于最近的见闻吧，第一就是<a href=""></a>[[intp]]和infp是可以互相转换的就是。占比百分之2哈哈哈，还是有很多人和我有着共同的理念和目标和困惑的。也就是我们并不是孤独的，他说的很对，我们这种人就应该去追求我们的真理，我们的自由。</p>
+<p>  他说的第二点就是我们不应该去歧视那些ti不高的人，就比如说<a href=""></a>[[东子]]。可以说是他们吧，对于他们出行不做任何计划和准备我也是很无解，还有就是对于现场的发现和处理都有很大的问题。</p>
+<p>  还有就是我今天去了<a href=""></a>[[酒吧]]和蹦迪现场，我无法体会他们的快乐，不经审视的人生是不值得过的。我实在是无法放下我的思考去沉沦，我认为音乐是令人愉快的，但却不是放纵。更不可能无脑的跃动。还有就是对于我的专业问题，现在觉得也无所谓了，你想要什么就去思考就去计划，根据实验室定理，任何目标本来就不是去计划得到的。不断不断的<a href=""></a>[[知行合一]]，[[格物致知致良知]]才能达到你的<a href=""></a>[[理想]]。这是我这一天的收获。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinder110.github.io/2025/08/04/25%E6%9A%91%E5%81%87%E4%B9%8B%E5%89%8D%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hinder110">
+      <meta itemprop="description" content="我喜欢使用电脑的过程，仅此而已。🐸">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宇宙纪元">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/08/04/25%E6%9A%91%E5%81%87%E4%B9%8B%E5%89%8D%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">25暑假之前的读书笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-08-04 16:13:11 / Modified: 16:17:04" itemprop="dateCreated datePublished" datetime="2025-08-04T16:13:11+08:00">2025-08-04</time>
             </span>
-            <span class="card-archive-list-count">8</span>
-          </a>
-        </li>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-    </ul>
-  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">21</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-05-01T08:32:36.035Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2026 By hinder110</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="Toggle Between Traditional and Simplified Chinese">繁</button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+          <h1 id="随便写一些内容吧"><a href="#随便写一些内容吧" class="headerlink" title="随便写一些内容吧"></a>随便写一些内容吧</h1><p>其实第一点想写的是我对于英语的感觉，英语是一个工具这一点必须明确。</p>
+<p>其次是什么呢？</p>
+<p>英语听力是十分的重要的，我想说的是，英语是给乐于交流的爱与说话的人准备的。</p>
+<p>我最近就在看Harry potter 的一些英文的原版的读书视频，我很喜欢一些人的口音，我很期待自己可以在未来的一段时间内到达他们的水平。</p>
+<p>还有就是我对我的编程的训练也是，又有一段时间没能好好的玩这些东西了。</p>
+<p>还有就是我买了一个二手的ThinkPad，我觉的这个电脑十分的好用，其实大部分的大学生其实这类型的电脑就完全可以胜任了，这一点是无可厚非的。</p>
+<p>这是怎么回事呢？我的vim在这个环境下居然不能使用了。</p>
+<h1 id="今天的学习内容"><a href="#今天的学习内容" class="headerlink" title="今天的学习内容"></a>今天的学习内容</h1><h2 id="关于唐宋文化对于中国古典园林的影响"><a href="#关于唐宋文化对于中国古典园林的影响" class="headerlink" title="关于唐宋文化对于中国古典园林的影响"></a>关于唐宋文化对于中国古典园林的影响</h2><pre><code>我觉的这里说的文化，主要是分为两部分，第一部分的话是，皇帝为主的皇权政治产生的文化，第二部分的话是以文人政治为主的，归隐山岭的文化，再者的话就是，道教和佛教，儒家的文化魅力，其实前两个是比较，趋同化的在唐宋时期，再者在这段时期，战乱太多了，这就产生了教会发展的温床，也确实在这段时期，这三大教会的发展很迅速，还有再者，他们的发展其实是受限于皇权的，这其实是中国政治的特点区别于世界政治的发展。这也出现了很大的问题其实，在后来的很多年以后，中国也确实深受其害，在现在这个时间段内，任然是如此。
+</code></pre>
+<h2 id="两宋时期–中国古典园林的成熟时期"><a href="#两宋时期–中国古典园林的成熟时期" class="headerlink" title="两宋时期–中国古典园林的成熟时期"></a>两宋时期–中国古典园林的成熟时期</h2><pre><code>其实仔细的读来，这本书也没有老师想象的那么不堪，我个人觉得这本书要告诉我的是，园林的发展是和历史的发展是紧密的结合的，当然我们得仔细的说说看，是什么样的历史，是唐宋时期的繁华，还是南宋偏安的悲情，是什么，这一切都是曾经发生的事实，每次读到这里我就有感而发，如果我是宋朝的国君，国家的发展一切都是世界顶级，却因为很多不知名的原因导致国家分裂，这一切都是那么虚无缥缈。我突然可以了解到苏轼的情感了，不得不说的是过去的在历史上留名的各位，都是每个时代的最高峰。
+
+还有就是东京-河南开封，临安-浙江杭州，平江-江苏苏州。
+
+尤其是江苏苏州，这个地方在古代呢，被称之为“姑苏”，我是什么时候了解到姑苏的呢？是在《魔道祖师》，那里面我记的有一幕是，姑苏被毁的那一幕。这大概也是呼应历史了吧。
+</code></pre>
+<p>五岳：分布于山东、陕西、湖南、山西、河南，代表帝王正统与山川崇拜。</p>
+<p>三山：神话版为蓬莱、方丈、瀛洲；地理版为黄山、庐山、雁荡山，象征自然与人文的完美结合。</p>
+<p>旅行建议：五岳适合历史文化爱好者，黄山、庐山等更适合自然风光与诗意体验。</p>
+<p>一、五岳（历代帝王封禅之地）</p>
+<pre><code>古代帝王封禅之地，为什么是封禅呢？禅让这个词就脱不开关系了！
+所谓的帝王封禅，就是在向世界上的人证明，我德以配位，这就很简单了，其实这在后来的发展中带来了很大的糟粕，我想到一句话，所有都是历史发展的必须结果，这是宿命论吗？我其实不觉得这么说就是所谓的宿命论，如果你真的赞同宿命论的话，宿命论就不可能成立的。
+</code></pre>
+<p>东岳泰山</p>
+<p>位置：山东省泰安市</p>
+<p>特点：五岳之首，被誉为“天下第一山”，是古代帝王封禅、祭天的圣地。主峰玉皇顶海拔1545米。</p>
+<p>文化意义：象征“权威”“稳重”，孔子“登泰山而小天下”。</p>
+<p>这里绝对是，古代帝王文化的集大成之地，所有的buff都叠满了，孔子，儒家文化，帝王文化。<br>这里是山东泰安市，是五岳之首，东岳泰山。</p>
+<p>西岳华山</p>
+<p>位置：陕西省渭南市华阴市</p>
+<p>特点：以险峻著称，有“奇险天下第一山”之称，著名景点如长空栈道、鹞子翻身。主峰南峰海拔2154.9米。</p>
+<p>文化意义：道教圣地，传说中“沉香劈山救母”的发生地。<br>道教的圣地不是终南山吗？难道终南山在这里的附近吗？<br>华山成为道教圣地的根本原因，在于它同时具备 神话权威（西岳神性）、修行象征（险峰通天）、政治背书（皇室祭祀）三重属性。终南山更偏向“隐修之地”，而华山则是“向天证道”的宗教图腾。两者在道教中各有角色，但华山的综合地位更为突出。<br>王重阳是全真道的创教祖师，其思想融合儒释道，强调内丹修炼和心性修养，对道教发展影响深远。虽然他与终南山关系更密切，但其弟子使华山成为全真道的重要分支，两者在道教史上各有地位。</p>
+<p>南岳衡山</p>
+<p>位置：湖南省衡阳市南岳区</p>
+<p>特点：以“秀美”闻名，有“五岳独秀”之称。主峰祝融峰海拔1300.2米。</p>
+<p>文化意义：佛教、道教并存，是南方宗教文化中心。<br>衡山不仅是五岳之一，更是神话（祝融、大禹）、宗教（道教洞天、佛教禅宗）、文化（李白、韩愈、朱熹）的交汇点。其故事涵盖上古传说、帝王祭祀、高僧修道、文人题咏，堪称“江南第一文化山”。</p>
+<p>江南第一山</p>
+<p>北岳恒山</p>
+<p>位置：山西省大同市浑源县</p>
+<p>特点：悬空寺为标志性建筑，主峰天峰岭海拔2016.1米。</p>
+<p>原来悬空寺是在恒山，北岳恒山，又是道教的发源地，我发现呢，在中国的历史中道教真的是产生着太多的影响了，其实我觉的中国人的文化，主要是受道教和儒家的文化影响巨大，但是儒家文化还是对普通人影响最大的，也是持续时间最久的，这一点无法不承认，即使是我其实比较讨厌儒家文化，但是我所喜欢的人，王阳明，于谦，他们很大程度上都是纯正的儒家代表，其实王阳明不是，儒家对于中国大多数人的影响确实要远远大于，道教的影响，道教是对于中国古代的社会上的传说，故事，也就是说，道教的文化形成了中国社会的文化内核，而儒家呢以更加有利于中国古代君王的统治的形态登上了，权力之巅，同时相伴君王走向灭亡。</p>
+<p>文化意义：古代军事要塞，道教发源地之一。</p>
+<p>中岳嵩山</p>
+<p>位置：河南省登封市</p>
+<p>特点：少林寺所在地，主峰峻极峰海拔1491.7米。</p>
+<p>文化意义：儒释道三教荟萃，少林武术发源地。</p>
+<p>总结：嵩山的核心地位<br>历史：华夏文明“天地之中”的象征，夏商周文化发祥地之一。</p>
+<p>宗教：佛教禅宗祖庭（少林寺）、道教圣地（中岳庙）、儒家理学中心（嵩阳书院）。</p>
+<p>武术：少林功夫的全球发源地。</p>
+<p>世界遗产：汇聚天文、建筑、宗教、武术等多元文化。</p>
+<p>嵩山不仅是五岳之一，更是中华文明的精神圣地，被誉为“华夏历史文化的缩影”。</p>
+<p>这里是武则天封禅的地方，还是少林寺起源之地，还是达摩观院的地方。</p>
+<p>三山五岳真是中国历史的缩影啊，其实我们这个学科伟大的地方就在于我们可以了解到园林艺术和各朝各代的人们的思想变化，在研究的过程中我们可以沉静在历史的洪流中去感受历史的厚重。其实我们的学科也没那么不堪，这个曾经的贵族学科，其实在现代很多学科都是这样子的，因为市场的需求，加之金钱的滤镜，这一切其实都在改变。其实我在过去的很长时间内都是极度的误解这门学科，</p>
+<h1 id="简单聊一下各个学科对于大学生的教育"><a href="#简单聊一下各个学科对于大学生的教育" class="headerlink" title="简单聊一下各个学科对于大学生的教育"></a>简单聊一下各个学科对于大学生的教育</h1><h2 id="对我的学科分析"><a href="#对我的学科分析" class="headerlink" title="对我的学科分析"></a>对我的学科分析</h2><p>我想对于现在的各类的学科分析一下，他们到底能带给我们什么东西呢？</p>
+<h2 id="对目前的现代教育分析"><a href="#对目前的现代教育分析" class="headerlink" title="对目前的现代教育分析"></a>对目前的现代教育分析</h2><p>首先呢就是理工科<br>这一类的学科呢，主要的意义就在于教会我们理想思考，和科学论证，像理查德费曼说的一样，质疑是科学的信仰。这就是这类学科教会我们的。<br>艺术类和文学类<br>这一类呢，主要的是在培育我们的理性思维和感性思考，请不要因为他们是文学类的或者说是什么艺术类的就说没有理性思考，记住作品是反映思想和思考的，一个人的作品很难超过本人思考的界限的，最大的就是哲学，经济学，还有比较重要的例子是，文艺复兴，这可都是一群艺术家在搞啊，我觉的呢，艺术本身在思考上就必须是超前性的，但是又必须有时代性。<br>其实只要你上了大学，那么你必然是接受了，现代教育的，这一点没有讨论的必要。</p>
+<h2 id="我还想讨论的是接受所谓的西式的现代教育后还能信教吗？"><a href="#我还想讨论的是接受所谓的西式的现代教育后还能信教吗？" class="headerlink" title="我还想讨论的是接受所谓的西式的现代教育后还能信教吗？"></a>我还想讨论的是接受所谓的西式的现代教育后还能信教吗？</h2><p>其实我感觉西方人早就给我们答案了，大概他们只是为了追求更加美好的生活而已，只是为了找到和自己或者是找到一个避风港，这里有着共同的理想，但是教廷呢现在已经改变很多了，已经很明显的去中心化了。教廷呢比政治和政府率先开始去中心化。</p>
+<h1 id="a-little-english-prevarb-says"><a href="#a-little-english-prevarb-says" class="headerlink" title="a little english prevarb says"></a>a little english prevarb says</h1><p>one shoud prepare for a ruin day</p>
+<p>and put it in anthor way </p>
+<p>one shoud prepare for a rainy day</p>
+<p>it is more chinese thoughts</p>
+<p>that write in english ,that read in english ,that think in english.</p>
+<p>the yong man joining in the army of moonlight clan</p>
+<p>one shoud prepare for a rainy day</p>
+<p>it is more chinese thoughts</p>
+<p>that write in english ,that read in english ,that think in english<br>the young man joining in the army of moonlight clan</p>
+<p>joining in the army of moonlight clan </p>
+<p>the army of moomlight clan</p>
+<p>wighting these two arguments, i prefer to the latter one . in my eyes,</p>
+<p>wighting these two arguments , i prefer to the latter one . in my eyes ,</p>
+<p>in the last few years ,quite number of young people have chosen quit their demanding but highly-paid jobs.</p>
+<p>in the last few years ,quite ubmber of young people have chosen quit their demanding but highly-paid jobs.</p>
+<p>although they may have their own respective reasons, i don t think their decisions are wise in reality.</p>
+<p>in recent years </p>
+<p>in the last few years </p>
+<h1 id="我一直觉的费曼的学习策略很牛逼"><a href="#我一直觉的费曼的学习策略很牛逼" class="headerlink" title="我一直觉的费曼的学习策略很牛逼"></a>我一直觉的费曼的学习策略很牛逼</h1><p>他的想法其实是比较基础的，但是是如此的高效，我已经在很多领域，见识到他的威力了，在很多的书中，无数次的引用着费曼的思想，我在很久之前就了解到费曼学习法了，我很喜欢费曼这个人，他是我在科学界最喜欢的人了，还有就是马尔克斯。刚刚在《怎么阅读一本书》中解释了，词，句，还有文法，推论，主要的句子，还有对应的论述。这些其实的话就是，费曼方法在读书中的具体体现。</p>
+<p>为什么我在过去的时间中很难实现费曼学习呢？</p>
+<p>其实很简单，就是对于大脑来说太困难了，其实费曼学习法，本质上是一种思考的方法，其实是一种可以训练的技能。</p>
+<p>那么我应该怎么去联系我的费曼学习的思路呢？</p>
+<p>现在来看的话就是读书这个窗口，这是我大学时期经常做的事情，就代表我会给很多的时间来做这件事，而且呢，读书的话是在学习其他的东西的一个过程，在这个过程中，锻炼我的费曼学习的思路。</p>
+<p>其实还是很怀念我的高中和初中的生活的，我其实还有一个问题，就是我在初中的时候，也是利用这种方法来学习，包括高中也是，但是为什么，高中和初中得到了不同的结果呢？</p>
+<p>可能是情绪变化，我觉的乐观也在其中得到了具体的体现。</p>
+<p>为什么这么说呢？</p>
+<p>我觉的费曼学习的思路不是表象，而是内在的对世界上的事情的感兴趣，对未知的探索，这才是内核。</p>
+<p>英语很像是模块化的语言。有一个主体结构其他的都是服务于主体的模块化的设计。</p>
+<p>never let go </p>
+<p>never give up</p>
+<h1 id="这里解释一下，并发和并行"><a href="#这里解释一下，并发和并行" class="headerlink" title="这里解释一下，并发和并行"></a>这里解释一下，并发和并行</h1><p>并行的话就是，计算机的系统比如32bit和64bit，这个的意思是，在同一时间内一台计算机是以32 位来计算的，另一台就是按照64 位来计算的。</p>
+<p>并发的话，世界是并发的，再次举一个计算机的例子，世界是并发的，就是世界是只有一个的，但是这个世界上却发生着不同的事件。可以是同时发生的也可以是不同时发生的。再次说道我们计算机的例子，我们只有一个计算机，就是只有一个cpu<br>我们其实只能在一个时间处理一件事情，这就像是我们的大脑，在一个时间内只能处理一件事情，但是，计算机不行啊，我们不能只让计算机思考一个问题，这显然是不高效的，所以呢并发就出现了，在计算机中的例子，可以是我要打开qq，还要打开deepseek或者谷歌服务，我可能需要同时使用这些服务。</p>
+<p>这其实就是并发做的事情，这个世界是并发的。</p>
+<p>那么世界上什么事情是并行的呢？</p>
+<p>我有五个水壶我要烧水，这时候就是并行了，这里的并行和并发的主要的区别就是，并行呢，一开始有很多的道具，但是并发的话一开始只有一个道具，我们要合理使用这个道具，就比如我有一个蒸锅我可以在一层蒸馒头，在第二层蒸菜肴。</p>
+<p>通俗来讲，并发并行其实就是这么简单的概念，他们的出现是为了解决现实的计算机的问题，就是为了让计算机更加高效的处理我们提出的问题。</p>
+<h1 id="关于线程和锁"><a href="#关于线程和锁" class="headerlink" title="关于线程和锁"></a>关于线程和锁</h1><p>线程是什么？ 这里其实还有一个概念是进程，其实是进程是比较常见的。</p>
+<p>先说说看什么是进程，进程是系统为app或者软件运行，提供的一个专属的通道，在系统中的一个通道。</p>
+<p>那么什么是线程，我想线程是对于cpu来看的，线程是为cpu设计的概念，主要在于设计分配cpu的性能。</p>
+<pre><code>线程就是对底层硬件的形式化。
+</code></pre>
+<p>互斥和内存模型，互斥是，两个线程同时调用一个地方的资源，这里的资源其实可以是硬盘，显卡，都是可以的，</p>
+<p>或者说是所有的硬件的调度，这里是软件和硬件的结合中出现的问题。</p>
+<p>这里得说一个概念，叫共享内存，这也是为死锁和竞争提供了理论上的支持</p>
+<p>这里的锁的概念是通行证吗？</p>
+<p>在一个时间段上只能有一个线程持有锁，这不就是通行证的意思吗？</p>
+<p>这里说的内存的可见性，其实就是语言的一种规范，就是，在创建线程的时候可以让线程可以互相共享他们对于某个资源的调用，这是很必要的，对于计算机中资源的调用。</p>
+<p>对于共享这里的概念是同步，但是这种同步太慢了</p>
+<p>哲学家进餐问题，五个筷子，五个人在未来的一段时间内是一定会出现死锁的。</p>
+<p>这里的五个哲学家只能是拿两边的筷子，就导致在未来的一段时间内，一定是有某一个时刻，五个人同时拿起左边的筷子（这里的条件是拿左边的筷子先），解决的方法是，给筷子编号，一旦一个人持有一个筷子，这个筷子就会上锁同时同步给附近所有的哲学家。</p>
+<h2 id="反脆弱"><a href="#反脆弱" class="headerlink" title="反脆弱"></a>反脆弱</h2><p>但是，功能失调是可以避免的。衰老在很大程度上源自对舒适生活的误解，是一种文明病：一心想越活越长寿，可是不知为什么却越来越多病。在自然的环境下，人们会死，但是不会衰老，或者衰老的时间很短。比如，现代人的血压指标一般会随着年龄的增长而恶化，但是在狩猎采集者的身上都看不到这个现象，除了他们终老前的一小段时间。</p>
+<p>​	这里的文明病是我第一次听说的，他的意思是人类在现在的环境中压力还是不够大。</p>
+<p>生命的反脆弱性，是现在人的生活条件太好了吗？</p>
+<p>其实也不是，在过去的时间中，人类必须每天努力的生存下去，比如说现在的一些，包括容貌焦虑，这一系列都是这样子的。现代生活和过去的差别太大了，很难不说的是，在过去和现在的人类，生活差距的巨大，也不是，主要是近代资本主义革命之后的时代中人类的生活真的是发生了巨大的变化。</p>
+<p>现在我可以肯定的是我是被基因和激素控制的玩偶而已。</p>
+<p>现代的人类真的太脆弱了。</p>
+<p>这样的压力源肯定比一个温和但连续不断的压力源有益，后者大多是让你在生活中感到压抑的东西，包括按揭贷款、税务问题、因拖欠报税而产生的内疚、考试压力、琐碎事务、电子邮件回复、填写表格、每天上下班通勤，等等。换句话说，这是文明带来的压力。事实上，神经生物学家表明，第一种类型的压力源是必要的，而第二种类型的压力源对人的健康却是有害的。要想知道不给人以恢复时间的低水平压力源的害处，只要看看所谓的中国水刑：水滴连续滴在你头上的同一位置，而不给你任何喘息的机会。</p>
+<p>这里解释到了两个压力源，这里拒绝的是第二种压力源，是文明类型的压力源，是文明社会关系之下的沟通交流类型的慢性的压力。这样子不是对于人类的人体适应性造成有利的影响。</p>
+<p>我们学习新单词并不需要死记硬背，而是利用另一种方式——与人沟通，不得不揣测他人心思，而暂时把害怕犯错误的心理放在一边。但是，成功、财富和科技却使得这种习得模式愈加难以推行。几年前，当我还籍籍无名时，国外的会议组织者根本不会给我分配能在脸谱（Facebook）上用英语讨好人的“旅行助理”，所以我被迫学会自己照顾自己，就这样，我靠着用手比画和不断的试错（就像孩子那样）学会了外国词汇——不靠设备，不靠字典，什么都没有。</p>
+<p>还可以这么来玩，他说的是旅行助理，那就是在Facebook上和人交流啦。有这么简单吗？</p>
+<p>其实看到这里我又想起，我们究竟是为什么活着，这里的反脆弱，回归到远古的人类，我其实在现在看来，在过去的时间中的人类不会有那么无聊的。但是现在的生活是不一样了，什么是具有反脆弱性的。在大自然中生存，在物竞天择的时代生存，其实就是有点是小说里的主角一样，世界的复杂度，给与了主角更多的机会走向上面。</p>
+<p>不得不做，这里的不得不做是面对生存问题而来的，而且还是必须是短快的刺激才行，而且强度还不能太低。</p>
+<p>我想说的是我虽然不知到什么是反脆弱的，但是我知道什么是脆弱的，比如说在宿舍躺着看视频这绝对是脆弱的。</p>
+<h2 id="人类简史"><a href="#人类简史" class="headerlink" title="人类简史"></a>人类简史</h2><p>这里思考使用到的书《人类简史》《反脆弱》</p>
+<p>事实上，进化最有趣的一面是，它是依赖反脆弱性实现的；它喜欢压力、随机性、不确定性和混乱——而个体生物则相对脆弱，基因库正是利用冲击来确保优胜劣汰，提高整体的适应力。</p>
+<p>我想说的呢是，就是关键词吧，压力，随机性，不确定性，混乱。</p>
+<p>这也是为什么过去很多人对于不确定性的害怕，这是刻在基因里的，基因是要求不确定性的出现的，但是又有一段基因雕刻了，人类在心理上是害怕不确定性的。</p>
+<p>举例来说，如果你每天摄入少量的有毒物质，那么根据当尚的理论，使你机体更健康的机制就是你的系统内部的进化，即坏的（弱的）蛋白细胞被更强壮，也更年轻的细胞所取代，而更强壮的细胞将会逃过一劫（或一些类似的运作）。当你禁食的时候，坏的蛋白质将首先被分解，并通过你自己的身体再生，这个过程被称为细胞自噬。这是一个纯粹的进化过程，自然选择、优胜劣汰。即使你不接受某些生物学理论（如蛋白质老化与细胞自噬），你也会相信，有机体内部的生存压力，在有机体遭受外部压力时，有助于其整体的改善。</p>
+<p>破坏和创生是一体两面的。</p>
+<p>这里也确实阐述了禁食的分子生物上的原理。</p>
+<p>如果你想做出改变，并且不关心未来结果的多种可能性，认为大多数结果都会对你有利，那么你就具有反脆弱性。</p>
+<p>果然有智慧和聪明是两个概念，其实大多的时候甚至是不相关的。</p>
+<p>也就是说我去搭讪，认为所有的结果对我来说没有什么不好的，或者说没有什么是让我付出代价的。</p>
+<p>这其实就是一种反脆弱性的体现。</p>
+<p>另外，如果能够理性地进行试错，将错误当作一种信息源，那么，试错过程中出现的随机要素其实并没有那么随机。如果每次试错都能让你了解到什么是行不通的，渐渐地，你就接近有效的解决方案了——这样，每一次努力都变得更有价值，更像是一笔支出而非一个错误。当然，在此过程中你将不断地有所发现。</p>
+<p>反脆弱真的是一个让人热血的概念，我学习这么久了，其实很少听到在生活和哲学中提出这么数学化的概念的。</p>
+<p>这句话：：：<strong>对具有反脆弱性的事物来说，错误带来的损伤应该小于收益</strong></p>
+<p>这句话应该就是这本书最主要想解释关于反脆弱的概念的一句话了。</p>
+<p>这么来看的话，那些和老师搞好关系的反而是具有很强的反脆弱的啦，应为他们付出的代价很小，但是得到的收益却是很大的。</p>
+<p>这让我想起一个复旦大学教授和那个文学学生的故事了，这其实也是一种反脆弱的体现尽管在中国的价值观体系下是不被赞同的，但是这其实很西式的思维方式。</p>
+<p>这其实挺好的，我觉的反脆弱这本书，其实就在某种程度上代表了，西方的思想，为什么中国人写不出这样的文字呢？</p>
+<p>一定不是说中国人的能力的问题，其实这就是中式思维和西式思维的本质上不同带来的区别。</p>
+<p><strong>反脆弱性具有很大的可迭代的性质</strong>，</p>
+<p>每一次飞机失事都让我们离安全更近一步，因为我们会改进系统，使下一次的飞行更安全——失事人员为其他人的总体安全做出了贡献</p>
+<p>确实是这和西方世界的资本主义的发展完全对上了，就是西方有自己的错误检测机制，以及可以用人命改变现有机制的机会或者是渠道，我觉的像是，一些公司错误的苛刻员工，那么社会上的所有人出来反抗，这件事情会被政府重视，而且这些人也是有力量的，这就是公民的含义，每个人都是公民，我很庆幸我可以在这个最需要知识和视野的年纪如此饥渴的获取真理，也不是真理吧，就是价值观和世界观。</p>
+<p>再次强调很重要的一点是，我们所谈论的是局部而非整体的错误，是微小的而非严重的和毁灭性的错误。这有助于我们将好的和坏的系统区分开来</p>
+<p>这其实和我的学习语言或者是系统也是一样的。慢慢解决局部的问题，最后到比较好的结果，不要求一次性的完成某件事情，这也是为什么学习语言是要求的是持续的事件而不是所谓的，快速的努力，其实学习什么内容都是这样子的。</p>
+<p>条件反射，这其实是人类的自我反馈的机制，这种自我反馈的机制让系统具有了反脆弱的特性，而不是所谓的，自我反馈机制本身是反脆弱性，其实反脆弱性的概念是比较复杂的。</p>
+<p>怪不得作家会有比较丰富的生活呢，作家对于生活的感悟就是对于生活的反脆弱。</p>
+<p>此外，我对失败者的特征描述就是，失败者往往在犯错后不内省、不探究，觉得难堪，听不得批评，试图解释自己的错误而不是用新的信息丰富自己，并开始新的历程。这些人往往视自己为“受害者”，受制于某个大阴谋、糟糕的老板或恶劣的天气。</p>
+<p>其实我的跳远经历就是这样子的，其实我也没自己相信中的厉害，只是在沉迷过去的辉煌不想接受现在的失败而已。</p>
+<p>人们很难认识到，真正的解决方案是建立一个系统，在这个系统中，没有一家公司的倒闭会连累其他公司，因为接二连三的失败正是为了维护整个系统的稳健。</p>
+<p>是啊西方和中国都在建立这样的系统，其实建立这样子的系统也是西式思考方式，如果说中国人的话是怎么想的呢？是中庸，用天朝的话来说就是，要用中国政府的无形之手来控制，其实<strong>无形之手</strong>也是出自西方世界。</p>
+<p><strong>杀不死我的，会杀死其他人</strong>这句话是什么意思呢？</p>
+<p>我其实可以简单一点，比如说呢，就是在球场攀谈嘛，哈哈哈，我很喜欢美国篮球场的传统。</p>
+<p>一开始可以这样，其实在大一的时候就是这样子了，那为什么现在的我又开始，有点像高中时期的样子了。</p>
+<p>其实可以大胆一点嘛，下次出去旅游我一定得交一个外地的盆友，哈哈哈。我现在的体型是否是不具有反脆弱性的？</p>
+<p>中国人居然没有晒太阳的习惯，我去我真觉得晒太阳真是太棒了，也许大家真的应该多多关注自己的生活了，获得更加健康的生活，更加幸福的生活。也许动漫里的生活我们也可以拥有，其实并不会付出很大的代价，这就是反脆弱性的体现。</p>
+<p>这种个体利益和集体利益之间明显的紧张关系在历史上算是新鲜事：在过去，个体几乎与这一问题无关。为了本集团的利益而牺牲的理念支撑着英雄主义：它使部落受益，但对于在战争中死亡的个人则是损失。英雄主义的本能以及为了集体利益牺牲个人利益的理念在自杀式炸弹袭击者身上得到极端的呈现。这些即将赴死的恐怖分子会陷入一种类似欣喜若狂的恍惚中，在这种情绪的驱动下，他们甚至对自己的死亡无动于衷。有人说自杀式炸弹袭击者之所以义无反顾，是因为他们认为死后能进入伊斯兰天堂，这简直是一个谬论。人类学家斯科特·阿特兰曾指出，黎凡特地区的第一个自杀式炸弹袭击者是一个希腊东正教背景的革命家——与我的背景相同——并非伊斯兰教信徒。</p>
+<p>说到这里，欸不多说了，所谓的集体利益和个人利益的争辩还是交给未来的哲学家吧。但是对于这里的教派的发言，我是完全认同的，这里的这个例子很明显是有利于个人利益的，我们也不能以偏概全。</p>
+<p>我们身体里就像有一个开关，每当我们参与集体舞蹈、大规模骚乱或战争，这个为了集体利益而扼杀个体的开关就自动开启了。你会产生从众心理，成为艾利亚斯·卡内蒂所称的“应和节拍悸动的人群”的一部分。在下一次的街头骚乱中，当你对政府部门的恐惧在团体的狂热情绪中烟消云散时，你就会感到一种不同的群体体验。</p>
+<p>这是完全正确的，我很认同他这方面的观点其实，</p>
+<p>在过去的第一次第二次世界大战的时候的所有所谓的参战国家都不断的印证这个观点。</p>
+<p>西方世界的游行示威其实也是这样子的，他们大概是为了集体利益而冲锋的，在这种群体情绪之下，他们会短暂的忘记所谓的政府的威压，或者是威胁。</p>
+<p>自然希望其本身作为整体能够生存下来，而不是每一个物种都能生存下来，每一个物种也希望其中的个体是脆弱的（特别是在繁衍之后），以便整个物种的进化和选择。我们看到，脆弱性从物种到个体的转移对其整体的生存是必要的：物种具有潜在的反脆弱性，因为脱氧核糖核酸（DNA）信息将永远延续，但各物种的成员却无法永生，它们随时准备着牺牲，在现实中，它们的牺牲就是为了成就集体的利益。</p>
+<p>我的细胞也是他们的死亡是为了我更好的生存。</p>
+<p>反脆弱性和伪反脆弱性。有些关于健身和自然选择的理念让我甚为反感，这让某些章节的写作过程变得相当痛苦——<strong>我讨厌自然选择的冷酷，讨厌大自然的无情和不忠。我讨厌以对他人的伤害为代价来换取进步的理念。作为一个人文主义者，我反对建立在个体牺牲基础上的反脆弱性系统，因为如果你遵循这些理论，那么个人就变得无关紧要了。</strong></p>
+<p>其实我在初中上政治课的时候就想说这些话了，确实是在中国人文主义精神很是淡薄啊。这不仅是在过去，在现在也是这样子的，越是了解的知识越多，越是觉得在这里的一切的不合理，或者说，一切都是中国的命中注定，虽然我不是所谓的宿命论者，但是这是我对中国近代发展的总结。</p>
+<p>这一切都是应该的，历史不会错付每一个人。</p>
+<p>就像罗马不是一天建成的，中国秩序也不是一天建立的，相同的西方也是，我们和西方正在走一天完全相反的道路。</p>
+<p>启蒙运动的一大贡献就是将个体置于更重要的位置，其权力、自由、独立、“对幸福的追求”（不论“幸福”具体指什么），以及最重要的隐私都得到了保护。尽管其拒绝反脆弱性，但启蒙运动以及在此基础上建立的政治体制（多少）将我们从长期主宰历史的社会、部落、家族的桎梏下解放出来。</p>
+<p>启蒙运动这么来看确实太伟大了，这是中国真正缺失的。中国的历史进程不允许发展先进的社会政治体制，这和俄国是完全相仿的，那么为什么日本却和中国走向了完全不同的道路呢？</p>
+<p>人们在宣扬其中一方利益的合理性而贬低另一方的利益时还需小心行事。</p>
+<p>在中国的宣传，也是符合这样子的规律的。人们急切的确定自己的合理性，甚至要用污蔑对方的合理性来确定自己的合理性。这其实是一个基本的条例，这不仅仅是在批评一个具体的国家还是什么民族，在世界多数国家中这样的例子有无数。</p>
+<p>幸亏收入的波动性，技术工人这类职业才带有一点儿反脆弱性：小的变动促使技术工人不断地从环境中学习，并在持续的压力下保持竞争力与适应力。请记住，压力就是信息：技术工人由于有持续的压力而不断获得调整的机会</p>
+<p>这其实很像，计算机工程这样子的技术，这类型的技术，或者说是一种技能，一种求生手段是很高效的，因为在社会中很具有反脆弱性。</p>
+<p>那我为什么总是间断的学习计算机的技术呢?</p>
+<p>其实我觉得这和我学习画画一样的，就是一种爱好的延申，就是说呢，我不以此为为生的手段，这就导致我的压力其实是比较少的，其实不得不说的是到大二之后的一段时间是我比较低迷的一段时间，我其实也不知到为什么，大概就是波动性吧。我学习的能力在波动性的变化，与其说是学习能力，不如说是，在一段时间学习知识，一段时间体验知识，获得智慧。</p>
+<p>以及自由选择的权力——这可是反脆弱性的一大标志</p>
+<p>自由选择的权力，说到权力总的来说我是比较悲观的，从小我的思维就被局限在，弱化权力的架构中。现在也还是，因为一个人是没办法脱离自身的环境的，所谓思想是环境的造物，其实一点都不假。这也是为什么数学物理，这样最基本的科学，在普通人甚至是科学家在过去的很长时间内，都是认为物理世界是有一个完善完整的规则存在。其实不然，人的思维能力太局限了，我们是基因和环境的造物。这一点很难改变，那么人类的未来到底在哪里呢？基因大概率是没办法改变的，所以我们能大规模改变自己目前状态的唯一就是环境，这也是为什么我们读书的原因，读书又是唯一一个可以暂时脱离现实环境的方法，其实这里的读书是广泛的读书，其实就是故事的延申。</p>
+<p>人类需要故事，人类需要环境，这是大自然给人类的唯一出路，其实我想说的是，在过去这么长的时间，其实可以分为两部分，奴隶制之前和奴隶制之后，而相对的奴隶制之后的时间其实是很短的，这段时间完全不够人类的基因的变化和选择的，那么是什么造就现在的人类和奴隶制的人类的呢？为什么西方的自由和民主，在中国人心中完全没有可以容纳的地方呢？</p>
+<p>此外，对自雇人士来说，一个小的（非致命的）错误可以传递出宝贵的信息，引导其采用更合适的方法；可是，对于约翰那样被他人雇用的职员来说，犯下的错误会被永久记录，提交人事部门存档。尤吉·贝拉曾经说过：“我们犯了错的错误。”——对约翰来说，所有的错误都是错的错误。自然偏爱小的错误（没有这些小错，遗传变异是不可能完成的），但人类却不喜欢错误，因此，当你依赖于人的判断时，你就只能任凭厌恶反脆弱性的心理偏见的摆布。</p>
+<p>自然系统喜欢小错误，但是人类基因不喜欢。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinder110.github.io/2025/04/25/%E8%BD%BB%E6%9D%BE%E4%B8%BB%E4%B9%89%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hinder110">
+      <meta itemprop="description" content="我喜欢使用电脑的过程，仅此而已。🐸">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宇宙纪元">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/04/25/%E8%BD%BB%E6%9D%BE%E4%B8%BB%E4%B9%89%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">轻松主义读书笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-04-25 10:32:30 / Modified: 16:35:14" itemprop="dateCreated datePublished" datetime="2025-04-25T10:32:30+08:00">2025-04-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/book/" itemprop="url" rel="index"><span itemprop="name">book</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="轻松主义"><a href="#轻松主义" class="headerlink" title="轻松主义"></a>轻松主义</h1><h4 id="设定行动上限，找到轻松的节奏"><a href="#设定行动上限，找到轻松的节奏" class="headerlink" title="设定行动上限，找到轻松的节奏"></a>设定行动上限，找到轻松的节奏</h4><p>为什么设定界限，就可以找到轻松的节奏呢？</p>
+<p>因为有了你要努力的界限了，你不是无头苍蝇了。这一点对于人类来所很</p>
+<p>重要。</p>
+<p>事实证明，她做得也很棒。她决定选出100首歌，讲述每首歌背后<br>的故事。她每星期写两个故事。“这样这件事就是可控的。”她解释<br>说。写完两个故事之后，即便她有精力并且愿意多写，她也会停止这<br>周的工作，因为每周两个故事就是她的上限。当我知道她的书在9个月<br>内写完并送到出版社时，我惊呆了。那时候，我还在断断续续写我的<br>书。<br><strong>当你仍然有精力的时候，用有所保留的方式去完成重要事项看上</strong><br><strong>去可能是反常识的。<strong>但事实上，这种</strong>克制</strong>是在效率方面实现突破的关<br>键。正如著有18部畅销小说的莉萨·朱厄尔（Lisa Jewell）所说：<br>“<strong>要调整自己的节奏。如果你写得太多、太快，你就会偏离主题，失</strong><br>**去方向，而如果你不经常写，你会失去势头。**每天写1 000字是一个不<br>错的量。”3</p>
+<p>这还真是呢….</p>
+<p>这一点对于所有人来说都很重要，不要走的太快，如果你走的太快的话，你其实是和效率向相反的方向走的。</p>
+<p>其实很久以来，我们习得的</p>
+<p>要达到轻松的节奏，没有比<strong>设定一个上限</strong>更好的方法了，不管是<br>“每天的千米数”，还是“每天的字数”，或是“每天的小时数”。<br>所有人都希望尽快实现自己的愿望，比如完成手稿、跑完5千米、推出<br>新产品。因此，我们都觉得进展越快越好。毕竟，生活中很少有什么<br>能比“完成”更令人满足。但是，我们过分热衷于完成某件事的时候<br>很可能就会犯一个错误，误以为所有进程都能按计划进行。但计划赶<br>不上变化。</p>
+<p><strong>“慢则稳，稳则快。”</strong></p>
+<p><strong>利用下面的规则：永远不要小于</strong><br><strong>X，永远不要多于Y。</strong></p>
+<p>1．用高开低走的方法完成重要事项总会付出过高的代价，最<br>好找到一种轻松的节奏。<br>2．要找到轻松的节奏，没有比设定一个上限更好的方法了。<br>3．慢则稳，稳则快。在做事的过程中要设置合理的进度范<br>围，并按照这个范围执行。</p>
+<p>为了在生活中反复取得轻松<br>成果，你只需要把产生线性成果的行为转变为产生复利成果的行<br>为。</p>
+<p>解决问题的方法有两种：困难的方法是付出低效的努力，容易<br>的方法是付出轻松的努力。我们可以借助杠杆来付出轻松的努力。<br>接下来的章节将展示如何利用这个强大的工具来产生优质成果。</p>
+<p>这有什么依据吗？</p>
+<p>为什么是空难对容易呢？</p>
+<p>为什么是低效对轻松呢？</p>
+<p>某些东西只需掌握一次就能使用无数次，这是很划算的。一次性<br>的前期投入，会随着时间推移，让你一次又一次获得轻松成果。</p>
+<p>是啊这是不公平的，比如说开车这个事情，就是学习一次就可以使用无数次的技术。</p>
+<p>芒格对待投资和生活的方式，就是追求他所谓的“市侩智慧”。9<br>他相信，把诸如心理学、历史学、数学、物理学、哲学、生物学以及<br>更多学科的知识结合起来，就可以创造出比各部分的总和还要伟大的<br>东西。芒格认为，独立的若干事实是无用的，除非它们“在理论框架<br>上相结合”。换句话说，整体要大于各部分之和。</p>
+<p>这一点呢，其实很重要比如说呢，你不了解<strong>牛顿第二定律</strong>是怎么来的，但是可以了解到这个<strong>单独的事实</strong>带来的帮助。</p>
+<p><strong>读书是世界上回报率最高的活动之一</strong>。聪明的人早已明白投入大<br>约一个工作日的时长外加几美元买书的钱可以获得什么。阅读，特别<br>是为了真正的理解而读，无论如何都会产生复利成果。不幸的是，很<br>少有人会利用这一点。</p>
+<p>是的，这其实对于📖这种知识的传播方式是有关的，这更加符合人类的<strong>主动学习</strong>。</p>
+<p>那为什么说读书是复利的呢？</p>
+<p>因为呢读书可以带来很多的技术型知识，简单来说的话，就是这个知识的<strong>传播方式很具有全面性</strong>。</p>
+<p>**林迪效应（Lindy Effect）。**这个定律指出，一本书的<br>预期寿命与它当前的书龄相等。也就是说，一本书存世越久，它留存<br>到未来的可能性越高。所以要先读那些存世已久的经典作品。换句话<br>说，读者需要读经典、读老书</p>
+<p><strong>理解而读</strong>，而不是仅仅为了“打卡”。一种情况是，有些<br>书我读过，但我没法告诉你关于它的任何事。另一种情况是，有些书<br>我可能没有从头读到尾，但我经常回想其中的某个章节或段落，它们<br>已经变成我的一部分。第二种情况可能不太像阅读，但我认为它更接<br>近阅读的真正意义。一本好书可以改变你，让你与作者产生共鸣。</p>
+<p><strong>提炼你的知识</strong>。当我读完一本书，我喜欢在一张纸上用自己<br>的话总结我学到的东西。如果你每本书都花10分钟来总结其中的关键<br>知识，你会理解得更深刻。总结是一种提炼思想本质的过程，帮助我<br>们把信息转化为认知，把认知转化为独有的知识。</p>
+<p><strong>把没人做的事情做好，其价值大于把别人都在做的事情做精；</strong><br><strong>而把没人做的事情做到极致，其价值将有指数级别的增长。</strong></p>
+<p>这有这么简单吗？这个世界被探索的已经很多了，我们的问题是怎么去看到这里的没人做的事情才是最难的。</p>
+<p><strong>获得知识可以打开一扇机遇之门，但创造知识可以带来源源不</strong><br><strong>断的机遇。你会获得信誉，人们会慕名而来，机遇会来找你。如果</strong><br><strong>你是唯一绝对专业的人，你会获得难以置信的“杠杆效应”。</strong></p>
+<p>1．具体方法只能产生线性成果。如果追求的是复利成果，我<br>们就必须究其原理。<br>2．学习别人已经掌握得最好的知识。<br>3．把传统事物变成新生事物往往是轻松创新的关键。<br>4．独立的各种想法代表线性知识。当它们相互关联时，这些<br>想法便形成了复利知识。<br>5．把没人做的事情做好，其价值大于把别人都在做的事情做精。</p>
+<p><strong>把最重要的事变成</strong><br><strong>最容易学的事。</strong></p>
+<p>就是机械化嘛，把自己的专业技能去程序化。</p>
+<p><strong>当我们想产生深远的影响时，把教学方法传授给别人，让别人</strong><br><strong>也成为老师是最高效的</strong></p>
+<p><strong>讲一个故事，将你的听众变成他人的老师</strong></p>
+<p>这实在是太像传销了哈哈哈😄</p>
+<p><strong>故事是连接过去和现在的桥梁，它们让历史生动</strong><br><strong>起来，它们扩展了我们的自我感知。</strong></p>
+<p>其实书籍也是一种故事呢，不要说知识类的书籍不是一种故事，科学在我看来也是一种故事，难道不是吗？</p>
+<h4 id="把最重要的事，变成最容易学的事"><a href="#把最重要的事，变成最容易学的事" class="headerlink" title="把最重要的事，变成最容易学的事"></a><strong>把最重要的事，变成最容易学的事</strong></h4><p>后来他想到一个新办法——“<strong>白板传授</strong>”（Whiteboard<br>Sketch）：他把这项策略简化为一个白板草图，它很简短，可以在10<br>分钟内讲解完。市场主管将它教给试点组，然后让试点组进行练习，<br>他们在屋子前面互相教授。随后把试点组的人送去教其他团队。每个<br>人都不只要学习这项策略，还要学会如何把它教给别人。任何人随时<br>都有可能被叫去教其他团队。仅仅过了几个星期，他们理解上的差异<br>消失了。</p>
+<p><strong>意思是不要使用过于复杂的信息，不要追求那种</strong><br><strong>让你听上去很专业的信息，而要选择那些易于理解和重复的直白信</strong><br><strong>息。要把最重要的事情变成最容易教，也最容易学的事情。</strong></p>
+<p>这就很费曼啦，费曼呢是我很喜欢的一个物理学家。</p>
+<p>他比在全世界比较出名的应该是<strong>费曼学习法</strong>。</p>
+<h4 id="为重要的事"><a href="#为重要的事" class="headerlink" title="为重要的事"></a><strong>为重要的事</strong></h4><h4 id="选择高技术含量的轻松路径"><a href="#选择高技术含量的轻松路径" class="headerlink" title="选择高技术含量的轻松路径"></a><strong>选择高技术含量的轻松路径</strong></h4><p>“文明的进步，来自不假思索即可执行的重要操作的增加。”换种方式来说<br>就是，我们应该尽可能多地<strong>让重要步骤和事项自动化</strong>。“</p>
+<p>这一点让我想到计算机编程，OK你能理解吗？因为在未来这一点是很重要的，这已经开始啦，就是编程已经开始程序化啦。</p>
+<h5 id="备忘单，让行动不假思索"><a href="#备忘单，让行动不假思索" class="headerlink" title="备忘单，让行动不假思索"></a>备忘单，让行动不假思索</h5><p>其实这一点我很想重点说说看，这个在《深度工作》中也出现过我相信这两本书中讲的不是相同的。</p>
+<p>极端的复杂性只会**增加认知负荷，**让我们更容易出错。所以我们<br>需要的不是积累更多的知识，而是新的技巧和策略，使我们能在不消<br>耗“工作存储器”的情况下运用知识。</p>
+<p>那应该怎么减少这样的认知负荷呢？</p>
+<p>“它建立在经验的基础上，<strong>借助</strong>我们已有的认知，<br>在某种程度上也弥补了我们**难以避免的人类局限性。**确实有一种这样<br>的策略，尽管它简单到可笑，对于我们这些花费数年时间认真开发更<br>先进的技术和科技的人来说，这甚至很疯狂”</p>
+<p><strong>清单</strong>的美妙之处在于，<strong>思考</strong>已经<strong>提前完成</strong>，这些列在清单上的事项已经从<br>大脑工作存储器流程中被剔除。</p>
+<p><strong>备忘单</strong>的概念就是把大脑中的一些<br>东西<strong>提取</strong>出来，这样你就可以自动完成它们，而<strong>不必依赖记忆。</strong></p>
+<h4 id="解放大脑，用技术提前完成思考"><a href="#解放大脑，用技术提前完成思考" class="headerlink" title="解放大脑，用技术提前完成思考"></a>解放大脑，用技术提前完成思考</h4><p>因此，要为重要事项选择高技术、低成本的路径，对于无关紧要的事情则要选择低技术、<br>高成本的路径。</p>
+<p>这里的技术在***《掌握习惯》***中也出现过。</p>
+<p>1．尽可能多地让重要步骤和事项<strong>自动化</strong>。<br>2．<strong>备忘单</strong>是我们手头上最有效的工具之一。<br>3．为重要的事选择高技术含量的轻松路径，为小事情选择低<br>技术含量的高成本路径。</p>
+<h4 id="把时间投入有长期效应的行动。"><a href="#把时间投入有长期效应的行动。" class="headerlink" title="把时间投入有长期效应的行动。"></a><strong>把时间投入有长期效应的行动。</strong></h4><p>当我们把时间投入有<strong>长期效应</strong>的行动时，我们会<br>在很长一段时间里<strong>持续获得好处</strong>。</p>
+<p>目标是，找出可以用最<strong>短时间解决掉</strong>的<strong>最烦恼的事</strong>（如图15-1所<br>示）。一旦问出这些问题，你会开始注意到你可以<strong>采取哪些小行动</strong>来<br>使未来的<strong>生活更容易</strong></p>
+<p>是啊，你不喜欢的事情，一直烦恼到你多糟糕呢，所以来一个小行动，来解决这件事情。</p>
+<p><em><strong>最短时间解决掉最烦恼的事</strong></em></p>
+<p>这个真的很cool。</p>
+<p>美国作家亨利·戴维·梭罗在**《瓦尔登湖》<strong>里曾经写道：“罪恶<br>之树，千人斩枝，而一人伐根。”当我们只是“应付”一个问题时，<br>我们就是在</strong>砍斫树枝**，如果想在问题出现之前就加以预防，我们应该<br>砍伐树根。如果你花了很多时间砍斫树枝，你可能会变得很擅长这么<br>做。但如果你只做这一件事，那么这个问题会一直<strong>缠着</strong>你。它只是被<br><strong>“应付”</strong>，从未被“<strong>解决”。<strong>你的生活或工作中有没有反复出现的问<br>题或挫折？与其</strong>简单地砍斫树枝，不如试着砍伐树根</strong></p>
+<p>这种思维方式是我一直以来的思考方式吧。</p>
+<h5 id="设计让生活不复杂的小行为"><a href="#设计让生活不复杂的小行为" class="headerlink" title="设计让生活不复杂的小行为"></a>设计让生活不复杂的小行为</h5><p>就像你可以通过一些<strong>小行动</strong>让你的未来生活更加轻松一样，你也<br>可以找到一些小行动来防止生活变得复杂。这个原理适用于所有领<br>域。</p>
+<p><strong>顺势而为，人生会更轻松</strong></p>
+<p>如果你的工作是让火焰在一段时间内保持燃烧，你不能一开始就把<br>所有燃料都丢进火焰中去。</p>
+<p>不论你在生活中遭遇了什么事情，不论它们多么艰苦、有多重<br>大，你都拥有**“现在怎么做”<strong>的选择权，在处理那些问题之前，你<br>必须先做出这个</strong>重要的选择**。</p>
+<p>每一个新的时刻都是一个重新开始的机会，一个重新选择的机会。</p>
+<p>掌控一切的时刻我们会说“我选择”“我决定”“我承诺”或者“从现在开始……”，<br>放下情感负担的时刻我们会说“我原谅你”“我很感激”“我愿意接<br>受”，改正错误的时刻我们会说“请原谅我”“让我们重新开始”<br>“我不会放弃你”或者“我爱你”。在每一个新的时刻，我们都应该<br>有能力去塑造后续的所有时刻。在每一个时刻，我们都有选择权，决<br>定走一条更艰难的道路还是更轻松的道路。</p>
+<p>**为了更容易地走完我们的旅程，尽力选一条更轻松的路吧。**如果<br>你从这本书中只能收获一个信息，我希望它是这样的：生活不一定是<br>艰难和复杂的。就像曾4次获得普利策奖的美国作家罗伯特·弗罗斯<br>特（Robert Frost）写的那样，<strong>我们每个人都要“信守诺言，走完</strong><br><strong>这段路才能长眠”。无论你面对什么样的挑战、阻碍和困难，你永</strong><br><strong>远都可以去寻找一条更轻松、更容易的道路。</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinder110.github.io/2025/04/23/prince/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hinder110">
+      <meta itemprop="description" content="我喜欢使用电脑的过程，仅此而已。🐸">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宇宙纪元">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/04/23/prince/" class="post-title-link" itemprop="url">prince</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2025-04-23 22:55:41" itemprop="dateCreated datePublished" datetime="2025-04-23T22:55:41+08:00">2025-04-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-04-29 16:42:13" itemprop="dateModified" datetime="2025-04-29T16:42:13+08:00">2025-04-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="a-little-prince"><a href="#a-little-prince" class="headerlink" title="a little prince"></a>a little prince</h1><h3 id="Chapter-6"><a href="#Chapter-6" class="headerlink" title="Chapter 6"></a>Chapter 6</h3><p>the little prince and the narrator talk about sunsets</p>
+<p>for the long time you had found your only entertainment <strong>in the quite</strong> pleasure of looking at the sunset.</p>
+<p>for the sunset .we must wait until <strong>it is time</strong>.</p>
+<p>everybody knows that when <strong>it is noon</strong> in the United States the sun is setting over France.</p>
+<p><strong>setting over France</strong></p>
+<p><strong>in one minute</strong></p>
+<p><strong>go straight into</strong></p>
+<p><strong>right from noon</strong></p>
+<p><strong>too far away</strong></p>
+<p>France is too far away for that</p>
+<p>but on your <strong>tiny planet</strong></p>
+<p><strong>all you need do</strong> is move your chair a few steps.</p>
+<p>you can see the day end and the <strong>twilight falling</strong> whenever you like….</p>
+<p>and a <strong>little later</strong> you added:</p>
+<p>one loves the sunset , when one is so sad…</p>
+<p><strong>one loves the sunset , when one is so sad</strong>…</p>
+<p><strong>on the day</strong> of the forty-four sunsets?</p>
+<p>but the little prince made <strong>no reply</strong>.</p>
+<h3 id="Chapter-7"><a href="#Chapter-7" class="headerlink" title="Chapter 7"></a>Chapter 7</h3><p>the <strong>narrator</strong> learns about <strong>the secret of</strong> the little prince’s life</p>
+<p><strong>as always</strong> , it was thanks to the sheep– the secret of the little prince’s life <strong>was revealed to me.</strong></p>
+<p>abruptly , without anything to lead up to me.</p>
+<p>eats anything it finds in its reach.</p>
+<p>even flowers that <strong>have thorns</strong>?</p>
+<p>yes, even flowers that have thorns</p>
+<p>then the thorns – <strong>what use are they</strong> ?</p>
+<p>what use are they ?</p>
+<p>i did not know . at that moment i was very busy trying to <strong>unscrew a bolt</strong> that had <strong>got stuck in my engine.</strong></p>
+<p>unscrew a bolt </p>
+<p>got stuck in my engine</p>
+<p>got stuck in my engine </p>
+<p>i was very much worried ,for it was becoming clear to me that the <strong>breakdown of my plane</strong> was extremely serious.</p>
+<p>breakdown of my plane was extremely serious </p>
+<p>for it was becoming clear to me </p>
+<p>and i had so little drinking-water left that i had to <strong>fear for the worst</strong></p>
+<p><strong>fear for the worst</strong></p>
+<p>fear for the worst </p>
+<p>the thorns– what use are they?</p>
+<p>the thorns are <strong>of no use at all</strong> . flowers have thorns <strong>just for spite</strong>!</p>
+<p>of no use at all</p>
+<p>of no use at all</p>
+<p>of no use at all </p>
+<p>just for spite </p>
+<p>just for spite </p>
+<p>just for spite</p>
+<p>there are moment <strong>of complete silence.</strong></p>
+<p>of complete silence</p>
+<p>of complete silence</p>
+<p>of complete silence</p>
+<p>then the little prince <strong>flashed back at me</strong> </p>
+<p>with a kind of resentfulness:</p>
+<p>with a kind of resentfulness</p>
+<p>a kind of resentfulness</p>
+<p>then the Jack is <strong>with a kind of resentfulness for me</strong> </p>
+<p>i don’t believe you !</p>
+<p>i don’t believe you !</p>
+<p>i don’t believe you !</p>
+<p>flowers are <strong>weak creatures .</strong></p>
+<p>weak <strong>creatures</strong></p>
+<p>creature</p>
+<p>They reassure themselves <strong>as best they can</strong></p>
+<p>as best we can </p>
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinder110.github.io/2025/04/19/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E9%A3%9F%E7%89%A9%E4%B8%AD%E6%AF%92/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hinder110">
+      <meta itemprop="description" content="我喜欢使用电脑的过程，仅此而已。🐸">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宇宙纪元">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/04/19/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E9%A3%9F%E7%89%A9%E4%B8%AD%E6%AF%92/" class="post-title-link" itemprop="url">第二次食物中毒</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-04-19 15:01:57 / Modified: 15:17:41" itemprop="dateCreated datePublished" datetime="2025-04-19T15:01:57+08:00">2025-04-19</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="第二次食物中毒"><a href="#第二次食物中毒" class="headerlink" title="第二次食物中毒"></a>第二次食物中毒</h1><p>先说说看经过吧，上午打完羽毛球，去吃了面皮，下午喝了佳得乐，也可能是因为我下午穿的太少了，据我分析来看应该是病毒性的食物中毒导致的病毒性的肠胃炎，应该也是急性的。</p>
+<p>在这个过程中我真实的感觉自己的生命可能就到这里了，这种感觉很奇妙，但是出奇的是我并不害怕。</p>
+<p>最主要的是第二天开始之后就开始了发烧，发烧持续了一天，我不知道我的温度是多少。</p>
+<p>到现在我还是感觉脑袋模糊</p>
+<p>这就是背景啦，</p>
+<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>人类的生命太脆弱了，对于普通人来说就是这样的。</p>
+<p>个人遭遇的黑天鹅实践是无法预测的。</p>
+<p>与其思考以后的每一天不如过好今天。</p>
+<p>脆弱性是人的本质，而反脆弱性则是人格的魅力。</p>
+<p>自己要学会照顾好自己，这比学习其他的知识重要的多。</p>
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinder110.github.io/2025/04/16/React%E7%9A%84%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hinder110">
+      <meta itemprop="description" content="我喜欢使用电脑的过程，仅此而已。🐸">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宇宙纪元">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/04/16/React%E7%9A%84%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">React的基础学习</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2025-04-16 18:14:57" itemprop="dateCreated datePublished" datetime="2025-04-16T18:14:57+08:00">2025-04-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-04-21 10:02:30" itemprop="dateModified" datetime="2025-04-21T10:02:30+08:00">2025-04-21</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="工具的介绍"><a href="#工具的介绍" class="headerlink" title="工具的介绍"></a>工具的介绍</h1><p>实现这一切的第一步是 node.js的实现这个是的下载的，可以在node.js官网去下载，最好的就是下载18 以后的版本，这个和后面的vite有关，vite可以去看vite的文档，是vue的作者写的。</p>
+<p>这里需要命令的实现我把命令列在下面。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm config set registry https://registry.npmmirror.com</span><br><span class="line"></span><br><span class="line">$ npm install -g cnpm --registry=https://registry.npmmirror.com</span><br></pre></td></tr></table></figure>
+<p>这个是npm的换<a target="_blank" rel="noopener" href="https://npmmirror.com/">国内的mirro</a>r。</p>
+<p>接下来是我们的<a target="_blank" rel="noopener" href="https://cn.vitejs.dev/guide/#manual-installation">Vite的工具</a>，这个工具是为了高效的创建react框架，这完全不需要自己来弄，因为这些机械的动作现在越来越复杂了，其实完全不需要人来做这些事情。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm create vite@latest my-vue-app -- --template vue</span><br></pre></td></tr></table></figure>
+
+<pre><code>查看 [create-vite](https://github.com/vitejs/vite/tree/main/packages/create-vite) 以获取每个模板的更多细节：`vanilla`，`vanilla-ts`，`vue`，`vue-ts`，`react`，`react-ts`，`react-swc`，`react-swc-ts`，`preact`，`preact-ts`，`lit`，`lit-ts`，`svelte`，`svelte-ts`，`solid`，`solid-ts`，`qwik`，`qwik-ts`。
+</code></pre>
+<p>接下来的就按照命令行提示的做就OK了。</p>
+<p>这里有个<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UwvnX2LMHM8&list=PLqnFkPONWkGclnolE98Ho9lwYFSR8ijpw&index=14">YouTuber</a>讲这个框架。虽然我不觉的视频学习很高效但是，对于复杂的环境的配置，尤其是Windows这一方面的配置，是很复杂的，也是很不高效的。所以在这里按照视频里来做也没什么不好的。</p>
+<p>当然最重要的还是<a target="_blank" rel="noopener" href="https://zh-hans.react.dev/learn">react的学习</a>这里附加啦react的网址。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Square</span>(<span class="params">&#123; value &#125;</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">className</span>=<span class="string">&quot;square&quot;</span>&gt;</span>&#123;value&#125;<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Board</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;board-row&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> <span class="attr">value</span>=<span class="string">&quot;1&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> <span class="attr">value</span>=<span class="string">&quot;2&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> <span class="attr">value</span>=<span class="string">&quot;3&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;board-row&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> <span class="attr">value</span>=<span class="string">&quot;4&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> <span class="attr">value</span>=<span class="string">&quot;5&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> <span class="attr">value</span>=<span class="string">&quot;6&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;board-row&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> <span class="attr">value</span>=<span class="string">&quot;7&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> <span class="attr">value</span>=<span class="string">&quot;8&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> <span class="attr">value</span>=<span class="string">&quot;9&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>props 中大概有的思想，一定是泛型编程了。是函数对函数的调用。</p>
+<p>当你单击它的时候，<code>Square</code> 组件需要显示“X”。在 <code>Square</code> 内部声明一个名为 <code>handleClick</code> 的函数。然后，将 <code>onClick</code> 添加到由 <code>Square</code> 返回的 JSX 元素的 button 的 props 中：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Square</span>(<span class="params">&#123; value &#125;</span>) &#123;  <span class="keyword">function</span> <span class="title function_">handleClick</span>(<span class="params"></span>) &#123;    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;clicked!&#x27;</span>);  &#125;  <span class="keyword">return</span> (    <span class="language-xml"><span class="tag">&lt;<span class="name">button</span>      <span class="attr">className</span>=<span class="string">&quot;square&quot;</span>      <span class="attr">onClick</span>=<span class="string">&#123;handleClick&#125;</span>    &gt;</span>      &#123;value&#125;    <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span>  );&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>function</em> handleClick() {    <em>console.log(‘clicked!’)</em>; and onClick&#x3D;{handleClick} </p>
+<p>下一步，我们希望 <strong>Square</strong> 组件能够“记住”它被单击过，并用“X”填充它。为了“记住”一些东西，组件使用 <em>state</em>。</p>
+<p><strong>state</strong> – <em>使用狀態</em></p>
+<p>让我们将 <code>Square</code> 的当前值存储在 state 中，并在单击 <code>Square</code> 时更改它。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Square</span>(<span class="params"></span>) &#123;  </span><br><span class="line">  <span class="keyword">const</span> [value, setValue] = <span class="title function_">useState</span>(<span class="literal">null</span>);  </span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">handleClick</span>(<span class="params"></span>) &#123;    <span class="comment">//...</span></span><br></pre></td></tr></table></figure>
+
+<p><code>value</code> 存储值，而 <code>setValue</code> 是可用于更改值的函数。</p>
+<p>传递给 <code>useState</code> 的 <code>null</code> 用作这个 state 变量的初始值，因此此处 <code>value</code> 的值开始时等于 <code>null</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Square</span>(<span class="params"></span>) &#123;  <span class="keyword">const</span> [value, setValue] = <span class="title function_">useState</span>(<span class="literal">null</span>);  <span class="keyword">function</span> <span class="title function_">handleClick</span>(<span class="params"></span>) &#123;    <span class="title function_">setValue</span>(<span class="string">&#x27;X&#x27;</span>);  &#125;  <span class="keyword">return</span> (    <span class="language-xml"><span class="tag">&lt;<span class="name">button</span>      <span class="attr">className</span>=<span class="string">&quot;square&quot;</span>      <span class="attr">onClick</span>=<span class="string">&#123;handleClick&#125;</span>    &gt;</span>      &#123;value&#125;    <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span>  );&#125;</span><br></pre></td></tr></table></figure>
+
+<p>每个 Square 都有自己的 state：存储在每个 Square 中的 <code>value</code> 完全独立于其他的 Square。当你在组件中调用 set 函数时，React 也会自动更新内部的子组件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Square</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [value, setValue] = <span class="title function_">useState</span>(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">handleClick</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">setValue</span>(<span class="string">&#x27;X&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">button</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">className</span>=<span class="string">&quot;square&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">onClick</span>=<span class="string">&#123;handleClick&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    &gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;value&#125;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Board</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;board-row&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;board-row&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;board-row&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinder110.github.io/2025/04/15/%E6%88%91%E5%92%8C%E5%A4%A7%E5%B0%8F%E5%A7%90%E7%9A%84%E6%95%85%E4%BA%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hinder110">
+      <meta itemprop="description" content="我喜欢使用电脑的过程，仅此而已。🐸">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宇宙纪元">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/04/15/%E6%88%91%E5%92%8C%E5%A4%A7%E5%B0%8F%E5%A7%90%E7%9A%84%E6%95%85%E4%BA%8B/" class="post-title-link" itemprop="url">我和大小姐的故事</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-04-15 19:45:11 / Modified: 20:32:04" itemprop="dateCreated datePublished" datetime="2025-04-15T19:45:11+08:00">2025-04-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/girl/" itemprop="url" rel="index"><span itemprop="name">girl</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="相识"><a href="#相识" class="headerlink" title="相识"></a>相识</h1><h2 id="第一次见面"><a href="#第一次见面" class="headerlink" title="第一次见面"></a>第一次见面</h2><p>嗯….其实我对她的记忆其实实在我高中的时候，我机缘巧合去到了，那个学校（就是我的高中）。</p>
+<p>第一次的印象是在一次周末的晚自习上，那次周末大家大部分人回家了，记得是另一个女生在问我一个数学题，（这里不得不说我在过去的大部分的学习时间中我的数学都是比较优秀的。）</p>
+<h2 id="我的特点"><a href="#我的特点" class="headerlink" title="我的特点"></a>我的特点</h2><p>我其实当时是比较害羞和害怕和女生交流的。所以其实我很艰难的回答她的问题。完成这所以的一切以后，有个女生，记得她当时还是长头发，和现在很像呢。不得不说她真的很显年轻，我对她的第一印象是害羞，是的是我在害羞，我对于好看的女生始终有种莫名的害羞存在，但是现在已经好了很多了。</p>
+<h2 id="大小姐的特点"><a href="#大小姐的特点" class="headerlink" title="大小姐的特点"></a>大小姐的特点</h2><p>哈哈哈哈😄，其实呢我就是在夸她很好看的。之后呢她坐在了我的座位旁片，（不许说我是恋爱脑，我想问问哪个高中生可以不想歪的。）是吧这很正常嘛，她真的皮肤很白，皮肤的状态也很好，搭配我们学校的校服（这里的校服是红色的🟥）这也就更加凸显出她的皮肤更加的白了。哦对，应该是白里透红反正在我的印象中是很完美的。反正我很喜欢就是了。当然呢，大家看到这里会好奇我和这个女生有发生什么故事吗？</p>
+<h2 id="未来的故事"><a href="#未来的故事" class="headerlink" title="未来的故事"></a>未来的故事</h2><p>这就不得不展开说说看了，这个故事的到来要很久很久，直到我度过我的糟糕的高中生活之后，在大学中摆渡，自我救赎一年之后才出现了故事的主体。这真的很奇妙。</p>
+<p>其实在高中的时候还有另外一个女生对我产生过好感，但是很糟糕的是我很难在那样的环境中回应她，其实我现在想起她（主要是她的笑容），这个世界真是很奇妙呢。说不定未来还会再见呢。</p>
+<p>那么继续说关于大小姐的故事吧。</p>
+<hr>
+<p>我在高中阶段其实和大小姐的交集不是很多，大概率是这样的，为什么说是大概率呢，这是因为我其实经常注意到大小姐的，但是她和我并没有什么关系。</p>
+<p>接下来就说说看认识吧</p>
+<hr>
+<h1 id="开始交流"><a href="#开始交流" class="headerlink" title="开始交流"></a>开始交流</h1><h2 id="一次奇妙的旅行✈️"><a href="#一次奇妙的旅行✈️" class="headerlink" title="一次奇妙的旅行✈️"></a>一次奇妙的旅行✈️</h2><p>我们上大学了，我们在不同的省份。</p>
+<p>其实按理来说我们大概率是不可能再见面的，事实呢就是见面了。</p>
+<p>是另一个高中同学邀请我和她还有另一个女生出去玩，具体是去哪玩，咱就不展开说了。</p>
+<p>我其实一开始是不愿意出去的，因为呢，高中对我带来很大的心里阴影。我在过去的很长的时间中都拒绝和高中任何有关的事情有关。其实现在看来还是很极端了，而且也是因为这一点我其实很难和我的高中同学做很好的最后的告别。好吧基本就是没有绝大多数的同学在那一刻以后就没有再见过面了。</p>
+<p>抱歉啊，有点跑题了，我总是喜欢补充故事的背景，这一点其实在这个快节奏的时代是不适合的。但是我喜欢这种慢节奏的说明方法。具体的原因请参考《深度工作》and《打开心智》and《反脆弱》。</p>
+<p>很幸运的是我去了，我参加了这次旅行，我很幸运，我真的很久没这么确定自己是幸运的了。</p>
+<h2 id="再次见面"><a href="#再次见面" class="headerlink" title="再次见面"></a>再次见面</h2><p>我们在陌生的城市相见了。我们第一次见面她都不认识我了，我当时其实是无感的，因为刚开始的我其实对这次旅行没抱有太大的期待。其实也许正是这种低的期待，才让这次旅行更加难以忘记。对我来说确实是这样的。</p>
+<p>我的兄弟出来解围了，说我长帅了，哈哈哈哈哈，他总是这么乐观和豁达，我同是也很喜欢我这位兄弟（正常的珍惜的感情）。他在在高中陪伴了我很久，也是为数不多我可以放松的不加任何伪装的交流的人。</p>
+<p>我们的第一站是建业小镇，我其实还是很害羞，哈哈哈哈哈，我是不是很无聊，一直在说我很害羞。</p>
+<p>我又一次见到了她们，我们的第一件最重要的事情呢就是拍一个合照。这一点很重要，我在未来的很长一段时间都是这么认为的。拍照对我来说有更加特殊的意义了。</p>
+<p>这次先说到这里怎么样哈哈哈</p>
+<hr>
+<p>2025&#x2F;4&#x2F;15&#x2F;20:27</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">hinder110</p>
+  <div class="site-description" itemprop="description">我喜欢使用电脑的过程，仅此而已。🐸</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hinder110</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
