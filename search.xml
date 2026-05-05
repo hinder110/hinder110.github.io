@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>配置Claude Code：使用CC Switch切换API提供商</title>
+      <link href="/2026/05/05/%E9%85%8D%E7%BD%AEClaude_code/"/>
+      <url>/2026/05/05/%E9%85%8D%E7%BD%AEClaude_code/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一、安装-CC-Switch"><a href="#一、安装-CC-Switch" class="headerlink" title="一、安装 CC Switch"></a>一、安装 CC Switch</h2><p><a href="https://github.com/farion1231/cc-switch/releases/latest">CC Switch</a> 是一款图形化管理工具，可以方便地在 Claude Code、Codex、Gemini CLI 等工具之间切换 API 提供商。</p><p>前往 <a href="https://github.com/farion1231/cc-switch/releases/latest">GitHub Releases</a>，拉到底部资源包部分，下载对应平台的安装包：</p><p><img src="https://www.runoob.com/wp-content/uploads/2026/03/31595d37-9f05-4d9d-90d9-c17c2b119da6.png" alt="下载CC Switch"></p><h2 id="二、快速上手-CC-Switch"><a href="#二、快速上手-CC-Switch" class="headerlink" title="二、快速上手 CC Switch"></a>二、快速上手 CC Switch</h2><h3 id="第一步：启动-CC-Switch"><a href="#第一步：启动-CC-Switch" class="headerlink" title="第一步：启动 CC Switch"></a>第一步：启动 CC Switch</h3><p>首次启动时，CC Switch 会自动检测已安装的 CLI 工具并尝试导入现有配置，系统托盘中会出现 CC Switch 图标。</p><h3 id="第二步：选择要管理的应用"><a href="#第二步：选择要管理的应用" class="headerlink" title="第二步：选择要管理的应用"></a>第二步：选择要管理的应用</h3><p>主界面顶部是应用切换栏，点击对应图标（Claude Code &#x2F; Codex &#x2F; Gemini CLI 等）即可切换当前管理的应用。你可以在设置中隐藏不需要的应用。</p><p><img src="https://www.runoob.com/wp-content/uploads/2026/03/3f634726-617d-43a7-9040-a4acaaca9433.png" alt="主界面"></p><h3 id="第三步：添加-Provider"><a href="#第三步：添加-Provider" class="headerlink" title="第三步：添加 Provider"></a>第三步：添加 Provider</h3><p>点击右上角的 <strong>+</strong>，从内置预设中选择（如官方 Anthropic API、DeepSeek、阿里百炼等），或手动填写以下信息：</p><p><img src="https://www.runoob.com/wp-content/uploads/2026/03/6e4e3a28-1f43-446a-a939-c08eb195ba43.png" alt="添加Provider"></p><ul><li><strong>名称</strong>：便于区分的备注名</li><li><strong>API Key</strong>：服务商提供的密钥</li><li><strong>Base URL</strong>（可选）：自定义代理地址</li><li><strong>模型</strong>：指定默认使用的模型名称</li><li><strong>API 格式</strong>：Anthropic Messages 原生格式 或 OpenAI Chat Completions 兼容格式</li></ul><p><img src="https://www.runoob.com/wp-content/uploads/2026/03/11305e0d-1ca7-46f6-83d6-cec24c4f46bd.png" alt="填写配置"></p><h3 id="第四步：切换-Provider"><a href="#第四步：切换-Provider" class="headerlink" title="第四步：切换 Provider"></a>第四步：切换 Provider</h3><p>在列表中点击目标 Provider，再点击「启用」，CC Switch 会自动将配置写入对应 CLI 工具的配置文件：</p><p><img src="https://www.runoob.com/wp-content/uploads/2026/03/0d05c29d-f2c4-4c42-8afc-88ed80937a30.png" alt="启用Provider"></p><p>之后在终端直接运行 <code>claude</code> 命令，即会使用新配置。</p><h3 id="第五步：验证配置（可选）"><a href="#第五步：验证配置（可选）" class="headerlink" title="第五步：验证配置（可选）"></a>第五步：验证配置（可选）</h3><p>点击 Provider 旁的「健康检查」按钮，发送一个测试请求验证 API Key 和网络连通性。</p><p><img src="https://www.runoob.com/wp-content/uploads/2026/03/a0a56b4b-ee98-42db-8e26-13a46b112455.png" alt="健康检查"></p><blockquote><p>💡 按 <code>Cmd/Ctrl + ,</code> 快速打开设置；按 <code>ESC</code> 关闭当前面板。</p></blockquote><h2 id="三、安装-Claude-Code"><a href="#三、安装-Claude-Code" class="headerlink" title="三、安装 Claude Code"></a>三、安装 Claude Code</h2><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">irm</span> https://claude.ai/install.ps1 | <span class="built_in">iex</span></span><br></pre></td></tr></table></figure><h3 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h3><p>请确保系统安装了 Node.js，版本需在 v18 或更高。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @anthropic-ai/claude-code</span><br></pre></td></tr></table></figure><h2 id="四、申请-DeepSeek-API-Key"><a href="#四、申请-DeepSeek-API-Key" class="headerlink" title="四、申请 DeepSeek API Key"></a>四、申请 DeepSeek API Key</h2><p>登录 <a href="https://platform.deepseek.com/">DeepSeek 平台</a> 后，先点击充值，充值一定金额。</p><p><img src="/../image/image-20260505215326077.png" alt="DeepSeek首页"></p><p>然后进入 API Keys 页面：</p><p><img src="/../image/image-20260505215411044.png" alt="API Keys"></p><p>点击「创建 Key」，<strong>记得复制保存自己的 Key</strong>：</p><p><img src="/../image/image-20260505215439315.png" alt="创建Key"></p><p><img src="/../image/image-20260505215457235.png" alt="复制Key"></p><h2 id="五、在-CC-Switch-中配置-DeepSeek"><a href="#五、在-CC-Switch-中配置-DeepSeek" class="headerlink" title="五、在 CC Switch 中配置 DeepSeek"></a>五、在 CC Switch 中配置 DeepSeek</h2><p>打开 CC Switch，在 Claude Code 应用下，点击右上角的 <strong>+</strong> 添加新 Provider：</p><p><img src="/../image/image-20260505215555858.png" alt="添加Provider"></p><p>选择 Anthropic Messages 格式，填写以下信息：</p><p><img src="/../image/image-20260505215633551.png" alt="填写配置"></p><p>关键配置如下：</p><p><img src="/../image/image-20260505215709962.png" alt="配置详情"></p><p>将刚才复制的 DeepSeek API Key 粘贴到 API Key 字段：</p><p><img src="/../image/image-20260505215728024.png" alt="粘贴Key"></p><h2 id="六、启动-Claude-Code"><a href="#六、启动-Claude-Code" class="headerlink" title="六、启动 Claude Code"></a>六、启动 Claude Code</h2><p>启用 DeepSeek 配置后，在项目文件夹中右键打开终端（CMD），输入 <code>claude</code> 即可唤起 Claude Code，开始使用。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Claude Code </tag>
+            
+            <tag> 配置 </tag>
+            
+            <tag> CC Switch </tag>
+            
+            <tag> DeepSeek </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>anki</title>
       <link href="/2026/05/01/anki/"/>
       <url>/2026/05/01/anki/</url>
@@ -31,33 +62,6 @@
     
     
     <entry>
-      <title>一、整体策略（日本造园思路）</title>
-      <link href="/2026/05/01/%E4%B8%80%E3%80%81%E6%95%B4%E4%BD%93%E7%AD%96%E7%95%A5%EF%BC%88%E6%97%A5%E6%9C%AC%E9%80%A0%E5%9B%AD%E6%80%9D%E8%B7%AF%EF%BC%89/"/>
-      <url>/2026/05/01/%E4%B8%80%E3%80%81%E6%95%B4%E4%BD%93%E7%AD%96%E7%95%A5%EF%BC%88%E6%97%A5%E6%9C%AC%E9%80%A0%E5%9B%AD%E6%80%9D%E8%B7%AF%EF%BC%89/</url>
-      
-        <content type="html"><![CDATA[<p><img src="/../image/Chat.png"></p><h1 id="一、整体策略（日本造园思路）"><a href="#一、整体策略（日本造园思路）" class="headerlink" title="一、整体策略（日本造园思路）"></a>一、整体策略（日本造园思路）</h1><p>如果我是日本造园师（偏“自然主义 + 枯山水逻辑”），我会这样改：</p><h3 id="1️⃣-核心原则"><a href="#1️⃣-核心原则" class="headerlink" title="1️⃣ 核心原则"></a>1️⃣ 核心原则</h3><ul><li>水边：<strong>像野生湿地</strong></li><li>中部：<strong>自然花境（不是整齐花坛）</strong></li><li>外围：<strong>草地+点景树（极少）</strong></li></ul><p>👉 关键词：<br> <strong>“看起来像自然长出来的，而不是人为种的”</strong></p><hr><h1 id="二、空间分区种植（对应你图里的-A–I-区）"><a href="#二、空间分区种植（对应你图里的-A–I-区）" class="headerlink" title="二、空间分区种植（对应你图里的 A–I 区）"></a>二、空间分区种植（对应你图里的 A–I 区）</h1><p>我帮你直接按你图来分：</p><hr><h2 id="🌊-D-F-区（雨水核心区-积水区）"><a href="#🌊-D-F-区（雨水核心区-积水区）" class="headerlink" title="🌊 D &#x2F; F 区（雨水核心区 &#x2F; 积水区）"></a>🌊 D &#x2F; F 区（雨水核心区 &#x2F; 积水区）</h2><p>👉 最关键（决定成败）</p><h3 id="功能："><a href="#功能：" class="headerlink" title="功能："></a>功能：</h3><ul><li>暴雨时积水</li><li>平时半湿润</li></ul><h3 id="植物（必须耐水-耐旱切换）："><a href="#植物（必须耐水-耐旱切换）：" class="headerlink" title="植物（必须耐水+耐旱切换）："></a>植物（必须耐水+耐旱切换）：</h3><ul><li>千屈菜（主景）👉 开花特别好看</li><li>黄菖蒲 &#x2F; 鸢尾（竖向线条）</li><li>香蒲（点缀，不要太多）</li><li>水葱 &#x2F; 灯心草（细节层次）</li></ul><p>👉 日本风格建议：</p><ul><li><strong>不要种太密，要留“水面呼吸感”</strong></li></ul><hr><h2 id="🌿-E-区（石缝过滤区-雨水净化）"><a href="#🌿-E-区（石缝过滤区-雨水净化）" class="headerlink" title="🌿 E 区（石缝过滤区 &#x2F; 雨水净化）"></a>🌿 E 区（石缝过滤区 &#x2F; 雨水净化）</h2><p>👉 这是你设计里很好的一个点，我保留并强化了</p><h3 id="植物："><a href="#植物：" class="headerlink" title="植物："></a>植物：</h3><ul><li>玉簪（耐阴+观叶）</li><li>紫露草（低矮填缝）</li><li>萱草（耐旱耐湿）</li></ul><p>👉 重点：</p><ul><li>植物要“从石头缝里长出来”的感觉</li></ul><hr><h2 id="🌾-G-区（浅滩-过渡区）"><a href="#🌾-G-区（浅滩-过渡区）" class="headerlink" title="🌾 G 区（浅滩&#x2F;过渡区）"></a>🌾 G 区（浅滩&#x2F;过渡区）</h2><p>👉 这个区非常关键，是“景观最自然的地方”</p><h3 id="植物（推荐组合）："><a href="#植物（推荐组合）：" class="headerlink" title="植物（推荐组合）："></a>植物（推荐组合）：</h3><ul><li>芒草（主景，日式感很强）</li><li>细叶芒 &#x2F; 狼尾草</li><li>小菊类（野花感）</li></ul><p>👉 日本风格关键：</p><ul><li><strong>草 &gt; 花（比例约7:3）</strong></li></ul><hr><h2 id="🌸-H-区（花境区-你设计的重点）"><a href="#🌸-H-区（花境区-你设计的重点）" class="headerlink" title="🌸 H 区（花境区 &#x2F; 你设计的重点）"></a>🌸 H 区（花境区 &#x2F; 你设计的重点）</h2><p>👉 这是你说“以花园为主”的核心</p><h3 id="我帮你优化后的配置（适合山西）："><a href="#我帮你优化后的配置（适合山西）：" class="headerlink" title="我帮你优化后的配置（适合山西）："></a>我帮你优化后的配置（适合山西）：</h3><p>主花（骨架）：</p><ul><li>马鞭草（高、通透）</li><li>金光菊（夏季主色）</li><li>松果菊（耐旱王者）</li></ul><p>中层：</p><ul><li>鼠尾草（紫色层次）</li><li>萱草（橙色点缀）</li></ul><p>地被：</p><ul><li>景天（抗旱）</li><li>石竹（边缘）</li></ul><p>👉 设计重点：</p><ul><li>不要对称种</li><li>做“漂浮式花块”</li></ul><hr><h2 id="🌳-C-区（乔木区，必须控制数量）"><a href="#🌳-C-区（乔木区，必须控制数量）" class="headerlink" title="🌳 C 区（乔木区，必须控制数量）"></a>🌳 C 区（乔木区，必须控制数量）</h2><p>你说“树要少”，这个是对的。</p><p>👉 我建议最多 <strong>3棵</strong></p><h3 id="推荐（山西可活）："><a href="#推荐（山西可活）：" class="headerlink" title="推荐（山西可活）："></a>推荐（山西可活）：</h3><ul><li>元宝枫（秋色）</li><li>山杏（春花）</li><li>黄栌（红叶）</li></ul><p>👉 日本式处理：</p><ul><li>树不要围一圈</li><li><strong>像“偶然长在那里”</strong></li></ul><hr><h2 id="🪨-I-区（圆形空间-停留点）"><a href="#🪨-I-区（圆形空间-停留点）" class="headerlink" title="🪨 I 区（圆形空间 &#x2F; 停留点）"></a>🪨 I 区（圆形空间 &#x2F; 停留点）</h2><p>👉 我帮你强化成“精神核心空间”</p><h3 id="配置："><a href="#配置：" class="headerlink" title="配置："></a>配置：</h3><ul><li>中间：置石（主石）</li><li>周围：矮草 + 少量花</li></ul><p>植物：</p><ul><li>薰衣草（可尝试）</li><li>景天</li><li>石竹</li></ul><p>👉 关键词：<br> <strong>“留白”比种花更重要</strong></p><hr><h2 id="🪵-A-B（入口平台）"><a href="#🪵-A-B（入口平台）" class="headerlink" title="🪵 A &#x2F; B（入口平台）"></a>🪵 A &#x2F; B（入口平台）</h2><p>👉 我帮你调整逻辑：</p><ul><li>不种复杂植物</li><li>用：<ul><li>苔草类（或替代草）</li><li>低矮花</li></ul></li></ul><p>👉 让人一进来就“干净、安静”</p><hr><h1 id="三、关键改动总结（你可以写进论文）"><a href="#三、关键改动总结（你可以写进论文）" class="headerlink" title="三、关键改动总结（你可以写进论文）"></a>三、关键改动总结（你可以写进论文）</h1><p>你原设计 👉 我优化后：</p><table><thead><tr><th>项目</th><th>原设计问题</th><th>优化</th></tr></thead><tbody><tr><td>植物分布</td><td>比较均匀</td><td>分湿区梯度</td></tr><tr><td>树</td><td>可能偏多</td><td>控制3棵以内</td></tr><tr><td>花</td><td>偏“装饰性”</td><td>改为自然花境</td></tr><tr><td>水边</td><td>边界生硬</td><td>改为湿地过渡</td></tr><tr><td>空间</td><td>有点满</td><td>增加留白</td></tr></tbody></table><hr><h1 id="四、一个很关键的专业建议（重点）"><a href="#四、一个很关键的专业建议（重点）" class="headerlink" title="四、一个很关键的专业建议（重点）"></a>四、一个很关键的专业建议（重点）</h1><p>你这个是雨水花园，老师很容易问你一句：</p><p>👉 <strong>“暴雨之后48小时内能不能排干？”</strong></p><p>所以你可以补一句（非常加分）：</p><ul><li>土壤采用：<ul><li>砂：40%</li><li>壤土：40%</li><li>有机质：20%</li></ul></li><li>底部设碎石层（排水）</li></ul><hr><h1 id="五、如果你想再升级（我可以帮你做）"><a href="#五、如果你想再升级（我可以帮你做）" class="headerlink" title="五、如果你想再升级（我可以帮你做）"></a>五、如果你想再升级（我可以帮你做）</h1><p>你这个项目其实已经可以冲“优秀毕业设计”了，如果你愿意，我可以帮你再往上推一层：</p><p>👉 我可以帮你做这些：</p><ul><li>✔ 正规CAD平面图（带尺寸）</li><li>✔ 植物配置表（论文用）</li><li>✔ 分区剖面图（老师最喜欢）</li><li>✔ 雨水分析图（专业加分项）</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> 设计 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 景观设计 </tag>
-            
-            <tag> 造园 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>关于意识的讨论以及意识维度论的证伪</title>
       <link href="/2026/05/01/%E5%85%B3%E4%BA%8E%E6%84%8F%E8%AF%86%E7%9A%84%E8%AE%A8%E8%AE%BA%E4%BB%A5%E5%8F%8A%E6%84%8F%E8%AF%86%E7%BB%B4%E5%BA%A6%E8%AE%BA%E7%9A%84%E8%AF%81%E4%BC%AA/"/>
       <url>/2026/05/01/%E5%85%B3%E4%BA%8E%E6%84%8F%E8%AF%86%E7%9A%84%E8%AE%A8%E8%AE%BA%E4%BB%A5%E5%8F%8A%E6%84%8F%E8%AF%86%E7%BB%B4%E5%BA%A6%E8%AE%BA%E7%9A%84%E8%AF%81%E4%BC%AA/</url>
@@ -77,6 +81,33 @@
             <tag> 意识 </tag>
             
             <tag> 哲学 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>一、整体策略（日本造园思路）</title>
+      <link href="/2026/05/01/%E4%B8%80%E3%80%81%E6%95%B4%E4%BD%93%E7%AD%96%E7%95%A5%EF%BC%88%E6%97%A5%E6%9C%AC%E9%80%A0%E5%9B%AD%E6%80%9D%E8%B7%AF%EF%BC%89/"/>
+      <url>/2026/05/01/%E4%B8%80%E3%80%81%E6%95%B4%E4%BD%93%E7%AD%96%E7%95%A5%EF%BC%88%E6%97%A5%E6%9C%AC%E9%80%A0%E5%9B%AD%E6%80%9D%E8%B7%AF%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<p><img src="/../image/Chat.png"></p><h1 id="一、整体策略（日本造园思路）"><a href="#一、整体策略（日本造园思路）" class="headerlink" title="一、整体策略（日本造园思路）"></a>一、整体策略（日本造园思路）</h1><p>如果我是日本造园师（偏“自然主义 + 枯山水逻辑”），我会这样改：</p><h3 id="1️⃣-核心原则"><a href="#1️⃣-核心原则" class="headerlink" title="1️⃣ 核心原则"></a>1️⃣ 核心原则</h3><ul><li>水边：<strong>像野生湿地</strong></li><li>中部：<strong>自然花境（不是整齐花坛）</strong></li><li>外围：<strong>草地+点景树（极少）</strong></li></ul><p>👉 关键词：<br> <strong>“看起来像自然长出来的，而不是人为种的”</strong></p><hr><h1 id="二、空间分区种植（对应你图里的-A–I-区）"><a href="#二、空间分区种植（对应你图里的-A–I-区）" class="headerlink" title="二、空间分区种植（对应你图里的 A–I 区）"></a>二、空间分区种植（对应你图里的 A–I 区）</h1><p>我帮你直接按你图来分：</p><hr><h2 id="🌊-D-F-区（雨水核心区-积水区）"><a href="#🌊-D-F-区（雨水核心区-积水区）" class="headerlink" title="🌊 D &#x2F; F 区（雨水核心区 &#x2F; 积水区）"></a>🌊 D &#x2F; F 区（雨水核心区 &#x2F; 积水区）</h2><p>👉 最关键（决定成败）</p><h3 id="功能："><a href="#功能：" class="headerlink" title="功能："></a>功能：</h3><ul><li>暴雨时积水</li><li>平时半湿润</li></ul><h3 id="植物（必须耐水-耐旱切换）："><a href="#植物（必须耐水-耐旱切换）：" class="headerlink" title="植物（必须耐水+耐旱切换）："></a>植物（必须耐水+耐旱切换）：</h3><ul><li>千屈菜（主景）👉 开花特别好看</li><li>黄菖蒲 &#x2F; 鸢尾（竖向线条）</li><li>香蒲（点缀，不要太多）</li><li>水葱 &#x2F; 灯心草（细节层次）</li></ul><p>👉 日本风格建议：</p><ul><li><strong>不要种太密，要留“水面呼吸感”</strong></li></ul><hr><h2 id="🌿-E-区（石缝过滤区-雨水净化）"><a href="#🌿-E-区（石缝过滤区-雨水净化）" class="headerlink" title="🌿 E 区（石缝过滤区 &#x2F; 雨水净化）"></a>🌿 E 区（石缝过滤区 &#x2F; 雨水净化）</h2><p>👉 这是你设计里很好的一个点，我保留并强化了</p><h3 id="植物："><a href="#植物：" class="headerlink" title="植物："></a>植物：</h3><ul><li>玉簪（耐阴+观叶）</li><li>紫露草（低矮填缝）</li><li>萱草（耐旱耐湿）</li></ul><p>👉 重点：</p><ul><li>植物要“从石头缝里长出来”的感觉</li></ul><hr><h2 id="🌾-G-区（浅滩-过渡区）"><a href="#🌾-G-区（浅滩-过渡区）" class="headerlink" title="🌾 G 区（浅滩&#x2F;过渡区）"></a>🌾 G 区（浅滩&#x2F;过渡区）</h2><p>👉 这个区非常关键，是“景观最自然的地方”</p><h3 id="植物（推荐组合）："><a href="#植物（推荐组合）：" class="headerlink" title="植物（推荐组合）："></a>植物（推荐组合）：</h3><ul><li>芒草（主景，日式感很强）</li><li>细叶芒 &#x2F; 狼尾草</li><li>小菊类（野花感）</li></ul><p>👉 日本风格关键：</p><ul><li><strong>草 &gt; 花（比例约7:3）</strong></li></ul><hr><h2 id="🌸-H-区（花境区-你设计的重点）"><a href="#🌸-H-区（花境区-你设计的重点）" class="headerlink" title="🌸 H 区（花境区 &#x2F; 你设计的重点）"></a>🌸 H 区（花境区 &#x2F; 你设计的重点）</h2><p>👉 这是你说“以花园为主”的核心</p><h3 id="我帮你优化后的配置（适合山西）："><a href="#我帮你优化后的配置（适合山西）：" class="headerlink" title="我帮你优化后的配置（适合山西）："></a>我帮你优化后的配置（适合山西）：</h3><p>主花（骨架）：</p><ul><li>马鞭草（高、通透）</li><li>金光菊（夏季主色）</li><li>松果菊（耐旱王者）</li></ul><p>中层：</p><ul><li>鼠尾草（紫色层次）</li><li>萱草（橙色点缀）</li></ul><p>地被：</p><ul><li>景天（抗旱）</li><li>石竹（边缘）</li></ul><p>👉 设计重点：</p><ul><li>不要对称种</li><li>做“漂浮式花块”</li></ul><hr><h2 id="🌳-C-区（乔木区，必须控制数量）"><a href="#🌳-C-区（乔木区，必须控制数量）" class="headerlink" title="🌳 C 区（乔木区，必须控制数量）"></a>🌳 C 区（乔木区，必须控制数量）</h2><p>你说“树要少”，这个是对的。</p><p>👉 我建议最多 <strong>3棵</strong></p><h3 id="推荐（山西可活）："><a href="#推荐（山西可活）：" class="headerlink" title="推荐（山西可活）："></a>推荐（山西可活）：</h3><ul><li>元宝枫（秋色）</li><li>山杏（春花）</li><li>黄栌（红叶）</li></ul><p>👉 日本式处理：</p><ul><li>树不要围一圈</li><li><strong>像“偶然长在那里”</strong></li></ul><hr><h2 id="🪨-I-区（圆形空间-停留点）"><a href="#🪨-I-区（圆形空间-停留点）" class="headerlink" title="🪨 I 区（圆形空间 &#x2F; 停留点）"></a>🪨 I 区（圆形空间 &#x2F; 停留点）</h2><p>👉 我帮你强化成“精神核心空间”</p><h3 id="配置："><a href="#配置：" class="headerlink" title="配置："></a>配置：</h3><ul><li>中间：置石（主石）</li><li>周围：矮草 + 少量花</li></ul><p>植物：</p><ul><li>薰衣草（可尝试）</li><li>景天</li><li>石竹</li></ul><p>👉 关键词：<br> <strong>“留白”比种花更重要</strong></p><hr><h2 id="🪵-A-B（入口平台）"><a href="#🪵-A-B（入口平台）" class="headerlink" title="🪵 A &#x2F; B（入口平台）"></a>🪵 A &#x2F; B（入口平台）</h2><p>👉 我帮你调整逻辑：</p><ul><li>不种复杂植物</li><li>用：<ul><li>苔草类（或替代草）</li><li>低矮花</li></ul></li></ul><p>👉 让人一进来就“干净、安静”</p><hr><h1 id="三、关键改动总结（你可以写进论文）"><a href="#三、关键改动总结（你可以写进论文）" class="headerlink" title="三、关键改动总结（你可以写进论文）"></a>三、关键改动总结（你可以写进论文）</h1><p>你原设计 👉 我优化后：</p><table><thead><tr><th>项目</th><th>原设计问题</th><th>优化</th></tr></thead><tbody><tr><td>植物分布</td><td>比较均匀</td><td>分湿区梯度</td></tr><tr><td>树</td><td>可能偏多</td><td>控制3棵以内</td></tr><tr><td>花</td><td>偏“装饰性”</td><td>改为自然花境</td></tr><tr><td>水边</td><td>边界生硬</td><td>改为湿地过渡</td></tr><tr><td>空间</td><td>有点满</td><td>增加留白</td></tr></tbody></table><hr><h1 id="四、一个很关键的专业建议（重点）"><a href="#四、一个很关键的专业建议（重点）" class="headerlink" title="四、一个很关键的专业建议（重点）"></a>四、一个很关键的专业建议（重点）</h1><p>你这个是雨水花园，老师很容易问你一句：</p><p>👉 <strong>“暴雨之后48小时内能不能排干？”</strong></p><p>所以你可以补一句（非常加分）：</p><ul><li>土壤采用：<ul><li>砂：40%</li><li>壤土：40%</li><li>有机质：20%</li></ul></li><li>底部设碎石层（排水）</li></ul><hr><h1 id="五、如果你想再升级（我可以帮你做）"><a href="#五、如果你想再升级（我可以帮你做）" class="headerlink" title="五、如果你想再升级（我可以帮你做）"></a>五、如果你想再升级（我可以帮你做）</h1><p>你这个项目其实已经可以冲“优秀毕业设计”了，如果你愿意，我可以帮你再往上推一层：</p><p>👉 我可以帮你做这些：</p><ul><li>✔ 正规CAD平面图（带尺寸）</li><li>✔ 植物配置表（论文用）</li><li>✔ 分区剖面图（老师最喜欢）</li><li>✔ 雨水分析图（专业加分项）</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 设计 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 景观设计 </tag>
+            
+            <tag> 造园 </tag>
             
         </tags>
       

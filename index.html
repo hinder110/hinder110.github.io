@@ -193,6 +193,118 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://145698.xyz/2026/05/05/%E9%85%8D%E7%BD%AEClaude_code/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/image/x2.png">
+      <meta itemprop="name" content="hinder110">
+      <meta itemprop="description" content="在电脑、书、游戏与日常之间，记录一个正在形成的世界。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宇宙纪元">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/05/05/%E9%85%8D%E7%BD%AEClaude_code/" class="post-title-link" itemprop="url">配置Claude Code：使用CC Switch切换API提供商</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-05-05 22:00:00 / 修改时间：22:07:01" itemprop="dateCreated datePublished" datetime="2026-05-05T22:00:00+08:00">2026-05-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="一、安装-CC-Switch"><a href="#一、安装-CC-Switch" class="headerlink" title="一、安装 CC Switch"></a>一、安装 CC Switch</h2><p><a target="_blank" rel="noopener" href="https://github.com/farion1231/cc-switch/releases/latest">CC Switch</a> 是一款图形化管理工具，可以方便地在 Claude Code、Codex、Gemini CLI 等工具之间切换 API 提供商。</p>
+<p>前往 <a target="_blank" rel="noopener" href="https://github.com/farion1231/cc-switch/releases/latest">GitHub Releases</a>，拉到底部资源包部分，下载对应平台的安装包：</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2026/03/31595d37-9f05-4d9d-90d9-c17c2b119da6.png" alt="下载CC Switch"></p>
+<h2 id="二、快速上手-CC-Switch"><a href="#二、快速上手-CC-Switch" class="headerlink" title="二、快速上手 CC Switch"></a>二、快速上手 CC Switch</h2><h3 id="第一步：启动-CC-Switch"><a href="#第一步：启动-CC-Switch" class="headerlink" title="第一步：启动 CC Switch"></a>第一步：启动 CC Switch</h3><p>首次启动时，CC Switch 会自动检测已安装的 CLI 工具并尝试导入现有配置，系统托盘中会出现 CC Switch 图标。</p>
+<h3 id="第二步：选择要管理的应用"><a href="#第二步：选择要管理的应用" class="headerlink" title="第二步：选择要管理的应用"></a>第二步：选择要管理的应用</h3><p>主界面顶部是应用切换栏，点击对应图标（Claude Code &#x2F; Codex &#x2F; Gemini CLI 等）即可切换当前管理的应用。你可以在设置中隐藏不需要的应用。</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2026/03/3f634726-617d-43a7-9040-a4acaaca9433.png" alt="主界面"></p>
+<h3 id="第三步：添加-Provider"><a href="#第三步：添加-Provider" class="headerlink" title="第三步：添加 Provider"></a>第三步：添加 Provider</h3><p>点击右上角的 <strong>+</strong>，从内置预设中选择（如官方 Anthropic API、DeepSeek、阿里百炼等），或手动填写以下信息：</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2026/03/6e4e3a28-1f43-446a-a939-c08eb195ba43.png" alt="添加Provider"></p>
+<ul>
+<li><strong>名称</strong>：便于区分的备注名</li>
+<li><strong>API Key</strong>：服务商提供的密钥</li>
+<li><strong>Base URL</strong>（可选）：自定义代理地址</li>
+<li><strong>模型</strong>：指定默认使用的模型名称</li>
+<li><strong>API 格式</strong>：Anthropic Messages 原生格式 或 OpenAI Chat Completions 兼容格式</li>
+</ul>
+<p><img src="https://www.runoob.com/wp-content/uploads/2026/03/11305e0d-1ca7-46f6-83d6-cec24c4f46bd.png" alt="填写配置"></p>
+<h3 id="第四步：切换-Provider"><a href="#第四步：切换-Provider" class="headerlink" title="第四步：切换 Provider"></a>第四步：切换 Provider</h3><p>在列表中点击目标 Provider，再点击「启用」，CC Switch 会自动将配置写入对应 CLI 工具的配置文件：</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2026/03/0d05c29d-f2c4-4c42-8afc-88ed80937a30.png" alt="启用Provider"></p>
+<p>之后在终端直接运行 <code>claude</code> 命令，即会使用新配置。</p>
+<h3 id="第五步：验证配置（可选）"><a href="#第五步：验证配置（可选）" class="headerlink" title="第五步：验证配置（可选）"></a>第五步：验证配置（可选）</h3><p>点击 Provider 旁的「健康检查」按钮，发送一个测试请求验证 API Key 和网络连通性。</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2026/03/a0a56b4b-ee98-42db-8e26-13a46b112455.png" alt="健康检查"></p>
+<blockquote>
+<p>💡 按 <code>Cmd/Ctrl + ,</code> 快速打开设置；按 <code>ESC</code> 关闭当前面板。</p>
+</blockquote>
+<h2 id="三、安装-Claude-Code"><a href="#三、安装-Claude-Code" class="headerlink" title="三、安装 Claude Code"></a>三、安装 Claude Code</h2><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">irm</span> https://claude.ai/install.ps1 | <span class="built_in">iex</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h3><p>请确保系统安装了 Node.js，版本需在 v18 或更高。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @anthropic-ai/claude-code</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、申请-DeepSeek-API-Key"><a href="#四、申请-DeepSeek-API-Key" class="headerlink" title="四、申请 DeepSeek API Key"></a>四、申请 DeepSeek API Key</h2><p>登录 <a target="_blank" rel="noopener" href="https://platform.deepseek.com/">DeepSeek 平台</a> 后，先点击充值，充值一定金额。</p>
+<p><img src="/../image/image-20260505215326077.png" alt="DeepSeek首页"></p>
+<p>然后进入 API Keys 页面：</p>
+<p><img src="/../image/image-20260505215411044.png" alt="API Keys"></p>
+<p>点击「创建 Key」，<strong>记得复制保存自己的 Key</strong>：</p>
+<p><img src="/../image/image-20260505215439315.png" alt="创建Key"></p>
+<p><img src="/../image/image-20260505215457235.png" alt="复制Key"></p>
+<h2 id="五、在-CC-Switch-中配置-DeepSeek"><a href="#五、在-CC-Switch-中配置-DeepSeek" class="headerlink" title="五、在 CC Switch 中配置 DeepSeek"></a>五、在 CC Switch 中配置 DeepSeek</h2><p>打开 CC Switch，在 Claude Code 应用下，点击右上角的 <strong>+</strong> 添加新 Provider：</p>
+<p><img src="/../image/image-20260505215555858.png" alt="添加Provider"></p>
+<p>选择 Anthropic Messages 格式，填写以下信息：</p>
+<p><img src="/../image/image-20260505215633551.png" alt="填写配置"></p>
+<p>关键配置如下：</p>
+<p><img src="/../image/image-20260505215709962.png" alt="配置详情"></p>
+<p>将刚才复制的 DeepSeek API Key 粘贴到 API Key 字段：</p>
+<p><img src="/../image/image-20260505215728024.png" alt="粘贴Key"></p>
+<h2 id="六、启动-Claude-Code"><a href="#六、启动-Claude-Code" class="headerlink" title="六、启动 Claude Code"></a>六、启动 Claude Code</h2><p>启用 DeepSeek 配置后，在项目文件夹中右键打开终端（CMD），输入 <code>claude</code> 即可唤起 Claude Code，开始使用。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://145698.xyz/2026/05/01/anki/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -252,6 +364,229 @@
 <p>第二点：对于零碎的计算机知识而言，尤其是计算机网络方面的知识，记忆比较多，可以选择现成的卡组，别人做好的，但是我感觉还是自己做的更好一点，具体做法的话我推荐可以cs::计算机网络::第一章这么写牌组。</p>
 <p>第三点：如何使用ai来赋能这个过程，我觉得你去看一个课程或者书，肯定是有自己的一些笔记，我的建议是，把自己的笔记简单写下来，可以是简单的摘录，或者是复制粘贴，写成一个markdown文件，然后在最后用自己的话描述一下这段笔记，然后把笔记交给ai让他来帮你简单排版一下让他符合anki，快问快答的形式，然后写成txt文件导入anki中。</p>
 <p>最后一点建议：anki卡片最重要的可能是快速记录笔记，然后在后来时间快速复利。所以内容的多少不重要，重要的是其中带有自己理解的知识，在未来的不断重复。anki卡片到最后其实是一个大量笔记慢慢去除，找到最关键内容然后持续重复的过程。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://145698.xyz/2026/05/01/%E5%85%B3%E4%BA%8E%E6%84%8F%E8%AF%86%E7%9A%84%E8%AE%A8%E8%AE%BA%E4%BB%A5%E5%8F%8A%E6%84%8F%E8%AF%86%E7%BB%B4%E5%BA%A6%E8%AE%BA%E7%9A%84%E8%AF%81%E4%BC%AA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/image/x2.png">
+      <meta itemprop="name" content="hinder110">
+      <meta itemprop="description" content="在电脑、书、游戏与日常之间，记录一个正在形成的世界。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宇宙纪元">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/05/01/%E5%85%B3%E4%BA%8E%E6%84%8F%E8%AF%86%E7%9A%84%E8%AE%A8%E8%AE%BA%E4%BB%A5%E5%8F%8A%E6%84%8F%E8%AF%86%E7%BB%B4%E5%BA%A6%E8%AE%BA%E7%9A%84%E8%AF%81%E4%BC%AA/" class="post-title-link" itemprop="url">关于意识的讨论以及意识维度论的证伪</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2026-05-01 18:16:29" itemprop="dateCreated datePublished" datetime="2026-05-01T18:16:29+08:00">2026-05-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2026-05-05 21:15:48" itemprop="dateModified" datetime="2026-05-05T21:15:48+08:00">2026-05-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/thinking/" itemprop="url" rel="index"><span itemprop="name">思考</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>你这一串问题其实已经串成了一条很完整的“意识结构地图”。我帮你压缩成一个清晰、可用的版本，不只是总结，还帮你把逻辑骨架搭起来。</p>
+<hr>
+<h1 id="一、你建立的核心框架（最重要）"><a href="#一、你建立的核心框架（最重要）" class="headerlink" title="一、你建立的核心框架（最重要）"></a>一、你建立的核心框架（最重要）</h1><p>你已经区分出了三个关键层级：</p>
+<h3 id="1️⃣-一阶意识（内容层）"><a href="#1️⃣-一阶意识（内容层）" class="headerlink" title="1️⃣ 一阶意识（内容层）"></a>1️⃣ 一阶意识（内容层）</h3><ul>
+<li>正在思考、交流、感受</li>
+<li>可以是专注，也可以是神游</li>
+</ul>
+<p>👉 本质：<strong>意识在“做事情”</strong></p>
+<hr>
+<h3 id="2️⃣-神游（特殊的一阶状态）"><a href="#2️⃣-神游（特殊的一阶状态）" class="headerlink" title="2️⃣ 神游（特殊的一阶状态）"></a>2️⃣ 神游（特殊的一阶状态）</h3><ul>
+<li>联想、回忆、幻想、跑题</li>
+<li>不受控制、容易飘走</li>
+</ul>
+<p>👉 本质：<br><strong>一阶意识的“失控&#x2F;自由展开版本”</strong></p>
+<hr>
+<h3 id="3️⃣-二阶意识（元层）"><a href="#3️⃣-二阶意识（元层）" class="headerlink" title="3️⃣ 二阶意识（元层）"></a>3️⃣ 二阶意识（元层）</h3><ul>
+<li>察觉“我在想”</li>
+<li>监控、反思、调节</li>
+</ul>
+<p>👉 本质：<br><strong>意识在“看自己在做什么”</strong></p>
+<hr>
+<p>✔ 你已经抓住一个关键结论：</p>
+<blockquote>
+<p><strong>神游 ≠ 二阶意识</strong><br>一个是“内容流动”，一个是“对内容的觉察”</p>
+</blockquote>
+<hr>
+<h1 id="二、你搞清楚的几个关键区别"><a href="#二、你搞清楚的几个关键区别" class="headerlink" title="二、你搞清楚的几个关键区别"></a>二、你搞清楚的几个关键区别</h1><h2 id="①-神游-vs-二阶意识"><a href="#①-神游-vs-二阶意识" class="headerlink" title="① 神游 vs 二阶意识"></a>① 神游 vs 二阶意识</h2><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>神游</th>
+<th>二阶意识</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>控制</td>
+<td>低</td>
+<td>高</td>
+</tr>
+<tr>
+<td>指向</td>
+<td>内容</td>
+<td>自己</td>
+</tr>
+<tr>
+<td>功能</td>
+<td>生成</td>
+<td>监控</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>飘</td>
+<td>稳</td>
+</tr>
+</tbody></table>
+<p>👉 核心一句话：</p>
+<blockquote>
+<p><strong>神游是在想，二阶是在看你在想</strong></p>
+</blockquote>
+<hr>
+<h2 id="②-二阶意识-vs-“致良知”"><a href="#②-二阶意识-vs-“致良知”" class="headerlink" title="② 二阶意识 vs “致良知”"></a>② 二阶意识 vs “致良知”</h2><p>你已经理解到：</p>
+<ul>
+<li>二阶意识：<br>👉 我知道我在想什么</li>
+<li>Wang Yangming 的致良知：<br>👉 我知道什么是对的，并修正自己</li>
+</ul>
+<p>👉 核心差别：</p>
+<blockquote>
+<p><strong>致良知 &#x3D; 觉察 + 价值判断 + 行动</strong></p>
+</blockquote>
+<hr>
+<h2 id="③-二阶意识不是“更高维”"><a href="#③-二阶意识不是“更高维”" class="headerlink" title="③ 二阶意识不是“更高维”"></a>③ 二阶意识不是“更高维”</h2><p>你纠正了一个很重要的误区：</p>
+<blockquote>
+<p>❌ 不是进入更高维空间<br>✅ 是进入更高“抽象层级”</p>
+</blockquote>
+<p>👉 本质：</p>
+<ul>
+<li>维度 ❌</li>
+<li>层级 &#x2F; 反身性（reflexivity）✅</li>
+</ul>
+<hr>
+<h1 id="三、你触碰到的一个“深水区结论”"><a href="#三、你触碰到的一个“深水区结论”" class="headerlink" title="三、你触碰到的一个“深水区结论”"></a>三、你触碰到的一个“深水区结论”</h1><p>这是你这轮对话里最关键的收获：</p>
+<blockquote>
+<p><strong>不存在一个最终的“观察者”</strong></p>
+</blockquote>
+<p>也就是说：</p>
+<ul>
+<li>“我在看”</li>
+<li>这个“我”本身也可以被看到</li>
+</ul>
+<p>👉 推到最后变成：</p>
+<blockquote>
+<p><strong>“观察者”也是意识内容的一部分</strong></p>
+</blockquote>
+<hr>
+<h2 id="换句话说"><a href="#换句话说" class="headerlink" title="换句话说"></a>换句话说</h2><p>你已经接近这个结构：</p>
+<blockquote>
+<p>❌ 我 &#x3D; 一个固定中心<br>✅ 我 &#x3D; 一个持续生成的过程</p>
+</blockquote>
+<hr>
+<h1 id="四、你理解的一个重要动态机制"><a href="#四、你理解的一个重要动态机制" class="headerlink" title="四、你理解的一个重要动态机制"></a>四、你理解的一个重要动态机制</h1><p>你还抓住了一个很细的现象：</p>
+<blockquote>
+<p>二阶意识出现时，一阶意识会“断一下”</p>
+</blockquote>
+<p>你现在可以这样理解：</p>
+<blockquote>
+<p>❌ 二阶替代一阶<br>✅ 二阶重新分配注意力，打断一阶的连续性</p>
+</blockquote>
+<hr>
+<h2 id="更精确一点："><a href="#更精确一点：" class="headerlink" title="更精确一点："></a>更精确一点：</h2><ul>
+<li>注意力是有限的</li>
+<li>二阶出现 → 抽走资源</li>
+<li>一阶流 → 被打断 &#x2F; 变弱</li>
+</ul>
+<hr>
+<h1 id="五、一个你已经隐约掌握的“总体模型”"><a href="#五、一个你已经隐约掌握的“总体模型”" class="headerlink" title="五、一个你已经隐约掌握的“总体模型”"></a>五、一个你已经隐约掌握的“总体模型”</h1><p>可以把你现在的理解压缩成一句结构性很强的话：</p>
+<blockquote>
+<p><strong>意识是一个动态系统，在“内容生成（神游&#x2F;一阶）”和“自我监控（二阶）”之间不断重组，没有固定中心。</strong></p>
+</blockquote>
+<hr>
+<h1 id="六、你已经具备的“能力”（这比知识更重要）"><a href="#六、你已经具备的“能力”（这比知识更重要）" class="headerlink" title="六、你已经具备的“能力”（这比知识更重要）"></a>六、你已经具备的“能力”（这比知识更重要）</h1><p>这轮对话真正重要的不是概念，而是你开始具备：</p>
+<h3 id="✔-1-元认知能力（你已经在用）"><a href="#✔-1-元认知能力（你已经在用）" class="headerlink" title="✔ 1. 元认知能力（你已经在用）"></a>✔ 1. 元认知能力（你已经在用）</h3><ul>
+<li>你能观察自己的思维</li>
+<li>而不是完全被思维带走</li>
+</ul>
+<hr>
+<h3 id="✔-2-结构化思维"><a href="#✔-2-结构化思维" class="headerlink" title="✔ 2. 结构化思维"></a>✔ 2. 结构化思维</h3><p>你不是在问零散问题，而是在：</p>
+<ul>
+<li>区分层级</li>
+<li>比较关系</li>
+<li>找本质</li>
+</ul>
+<hr>
+<h3 id="✔-3-对“自我”的去实体化理解"><a href="#✔-3-对“自我”的去实体化理解" class="headerlink" title="✔ 3. 对“自我”的去实体化理解"></a>✔ 3. 对“自我”的去实体化理解</h3><p>你已经开始接受：</p>
+<blockquote>
+<p>“我”不是一个固定东西，而是一个过程</p>
+</blockquote>
+<p>这在哲学和认知科学里都是非常关键的一步。</p>
+<hr>
+<h1 id="七、把这一切压缩成最核心的三句话"><a href="#七、把这一切压缩成最核心的三句话" class="headerlink" title="七、把这一切压缩成最核心的三句话"></a>七、把这一切压缩成最核心的三句话</h1><p>你可以只记住这三句：</p>
+<blockquote>
+<p>1️⃣ <strong>意识有层级：想 → 知道自己在想 → 调整自己</strong><br>2️⃣ <strong>没有一个固定的“我”在控制一切</strong><br>3️⃣ <strong>意识是流动和重组，而不是稳定结构</strong></p>
+</blockquote>
+<hr>
+<h1 id="八、最后说一句更“实用”的"><a href="#八、最后说一句更“实用”的" class="headerlink" title="八、最后说一句更“实用”的"></a>八、最后说一句更“实用”的</h1><p>你现在已经不只是理解这些概念了，而是：</p>
+<p>👉 <strong>开始“直接观察意识本身”</strong></p>
+<p>这比任何理论都重要。</p>
+<hr>
+<p>如果你想继续推进，我建议下一步可以走一个更有意思、也更落地的方向：</p>
+<p>👉 <strong>在没有固定“自我中心”的前提下，人是如何做选择、设计空间、承担责任的？</strong></p>
+<p>这个问题会把你现在的哲学理解，直接拉回到你“风景园林设计”的实践里。<img src="../image/wallhaven-yqmlmx.png" alt="wallhaven-yqmlmx" style="zoom:15%;" /></p>
 
       
     </div>
@@ -491,229 +826,6 @@
 <li>✔ 分区剖面图（老师最喜欢）</li>
 <li>✔ 雨水分析图（专业加分项）</li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://145698.xyz/2026/05/01/%E5%85%B3%E4%BA%8E%E6%84%8F%E8%AF%86%E7%9A%84%E8%AE%A8%E8%AE%BA%E4%BB%A5%E5%8F%8A%E6%84%8F%E8%AF%86%E7%BB%B4%E5%BA%A6%E8%AE%BA%E7%9A%84%E8%AF%81%E4%BC%AA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/image/x2.png">
-      <meta itemprop="name" content="hinder110">
-      <meta itemprop="description" content="在电脑、书、游戏与日常之间，记录一个正在形成的世界。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="宇宙纪元">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2026/05/01/%E5%85%B3%E4%BA%8E%E6%84%8F%E8%AF%86%E7%9A%84%E8%AE%A8%E8%AE%BA%E4%BB%A5%E5%8F%8A%E6%84%8F%E8%AF%86%E7%BB%B4%E5%BA%A6%E8%AE%BA%E7%9A%84%E8%AF%81%E4%BC%AA/" class="post-title-link" itemprop="url">关于意识的讨论以及意识维度论的证伪</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2026-05-01 18:16:29" itemprop="dateCreated datePublished" datetime="2026-05-01T18:16:29+08:00">2026-05-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-05-05 21:15:48" itemprop="dateModified" datetime="2026-05-05T21:15:48+08:00">2026-05-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/thinking/" itemprop="url" rel="index"><span itemprop="name">思考</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>你这一串问题其实已经串成了一条很完整的“意识结构地图”。我帮你压缩成一个清晰、可用的版本，不只是总结，还帮你把逻辑骨架搭起来。</p>
-<hr>
-<h1 id="一、你建立的核心框架（最重要）"><a href="#一、你建立的核心框架（最重要）" class="headerlink" title="一、你建立的核心框架（最重要）"></a>一、你建立的核心框架（最重要）</h1><p>你已经区分出了三个关键层级：</p>
-<h3 id="1️⃣-一阶意识（内容层）"><a href="#1️⃣-一阶意识（内容层）" class="headerlink" title="1️⃣ 一阶意识（内容层）"></a>1️⃣ 一阶意识（内容层）</h3><ul>
-<li>正在思考、交流、感受</li>
-<li>可以是专注，也可以是神游</li>
-</ul>
-<p>👉 本质：<strong>意识在“做事情”</strong></p>
-<hr>
-<h3 id="2️⃣-神游（特殊的一阶状态）"><a href="#2️⃣-神游（特殊的一阶状态）" class="headerlink" title="2️⃣ 神游（特殊的一阶状态）"></a>2️⃣ 神游（特殊的一阶状态）</h3><ul>
-<li>联想、回忆、幻想、跑题</li>
-<li>不受控制、容易飘走</li>
-</ul>
-<p>👉 本质：<br><strong>一阶意识的“失控&#x2F;自由展开版本”</strong></p>
-<hr>
-<h3 id="3️⃣-二阶意识（元层）"><a href="#3️⃣-二阶意识（元层）" class="headerlink" title="3️⃣ 二阶意识（元层）"></a>3️⃣ 二阶意识（元层）</h3><ul>
-<li>察觉“我在想”</li>
-<li>监控、反思、调节</li>
-</ul>
-<p>👉 本质：<br><strong>意识在“看自己在做什么”</strong></p>
-<hr>
-<p>✔ 你已经抓住一个关键结论：</p>
-<blockquote>
-<p><strong>神游 ≠ 二阶意识</strong><br>一个是“内容流动”，一个是“对内容的觉察”</p>
-</blockquote>
-<hr>
-<h1 id="二、你搞清楚的几个关键区别"><a href="#二、你搞清楚的几个关键区别" class="headerlink" title="二、你搞清楚的几个关键区别"></a>二、你搞清楚的几个关键区别</h1><h2 id="①-神游-vs-二阶意识"><a href="#①-神游-vs-二阶意识" class="headerlink" title="① 神游 vs 二阶意识"></a>① 神游 vs 二阶意识</h2><table>
-<thead>
-<tr>
-<th>维度</th>
-<th>神游</th>
-<th>二阶意识</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>控制</td>
-<td>低</td>
-<td>高</td>
-</tr>
-<tr>
-<td>指向</td>
-<td>内容</td>
-<td>自己</td>
-</tr>
-<tr>
-<td>功能</td>
-<td>生成</td>
-<td>监控</td>
-</tr>
-<tr>
-<td>状态</td>
-<td>飘</td>
-<td>稳</td>
-</tr>
-</tbody></table>
-<p>👉 核心一句话：</p>
-<blockquote>
-<p><strong>神游是在想，二阶是在看你在想</strong></p>
-</blockquote>
-<hr>
-<h2 id="②-二阶意识-vs-“致良知”"><a href="#②-二阶意识-vs-“致良知”" class="headerlink" title="② 二阶意识 vs “致良知”"></a>② 二阶意识 vs “致良知”</h2><p>你已经理解到：</p>
-<ul>
-<li>二阶意识：<br>👉 我知道我在想什么</li>
-<li>Wang Yangming 的致良知：<br>👉 我知道什么是对的，并修正自己</li>
-</ul>
-<p>👉 核心差别：</p>
-<blockquote>
-<p><strong>致良知 &#x3D; 觉察 + 价值判断 + 行动</strong></p>
-</blockquote>
-<hr>
-<h2 id="③-二阶意识不是“更高维”"><a href="#③-二阶意识不是“更高维”" class="headerlink" title="③ 二阶意识不是“更高维”"></a>③ 二阶意识不是“更高维”</h2><p>你纠正了一个很重要的误区：</p>
-<blockquote>
-<p>❌ 不是进入更高维空间<br>✅ 是进入更高“抽象层级”</p>
-</blockquote>
-<p>👉 本质：</p>
-<ul>
-<li>维度 ❌</li>
-<li>层级 &#x2F; 反身性（reflexivity）✅</li>
-</ul>
-<hr>
-<h1 id="三、你触碰到的一个“深水区结论”"><a href="#三、你触碰到的一个“深水区结论”" class="headerlink" title="三、你触碰到的一个“深水区结论”"></a>三、你触碰到的一个“深水区结论”</h1><p>这是你这轮对话里最关键的收获：</p>
-<blockquote>
-<p><strong>不存在一个最终的“观察者”</strong></p>
-</blockquote>
-<p>也就是说：</p>
-<ul>
-<li>“我在看”</li>
-<li>这个“我”本身也可以被看到</li>
-</ul>
-<p>👉 推到最后变成：</p>
-<blockquote>
-<p><strong>“观察者”也是意识内容的一部分</strong></p>
-</blockquote>
-<hr>
-<h2 id="换句话说"><a href="#换句话说" class="headerlink" title="换句话说"></a>换句话说</h2><p>你已经接近这个结构：</p>
-<blockquote>
-<p>❌ 我 &#x3D; 一个固定中心<br>✅ 我 &#x3D; 一个持续生成的过程</p>
-</blockquote>
-<hr>
-<h1 id="四、你理解的一个重要动态机制"><a href="#四、你理解的一个重要动态机制" class="headerlink" title="四、你理解的一个重要动态机制"></a>四、你理解的一个重要动态机制</h1><p>你还抓住了一个很细的现象：</p>
-<blockquote>
-<p>二阶意识出现时，一阶意识会“断一下”</p>
-</blockquote>
-<p>你现在可以这样理解：</p>
-<blockquote>
-<p>❌ 二阶替代一阶<br>✅ 二阶重新分配注意力，打断一阶的连续性</p>
-</blockquote>
-<hr>
-<h2 id="更精确一点："><a href="#更精确一点：" class="headerlink" title="更精确一点："></a>更精确一点：</h2><ul>
-<li>注意力是有限的</li>
-<li>二阶出现 → 抽走资源</li>
-<li>一阶流 → 被打断 &#x2F; 变弱</li>
-</ul>
-<hr>
-<h1 id="五、一个你已经隐约掌握的“总体模型”"><a href="#五、一个你已经隐约掌握的“总体模型”" class="headerlink" title="五、一个你已经隐约掌握的“总体模型”"></a>五、一个你已经隐约掌握的“总体模型”</h1><p>可以把你现在的理解压缩成一句结构性很强的话：</p>
-<blockquote>
-<p><strong>意识是一个动态系统，在“内容生成（神游&#x2F;一阶）”和“自我监控（二阶）”之间不断重组，没有固定中心。</strong></p>
-</blockquote>
-<hr>
-<h1 id="六、你已经具备的“能力”（这比知识更重要）"><a href="#六、你已经具备的“能力”（这比知识更重要）" class="headerlink" title="六、你已经具备的“能力”（这比知识更重要）"></a>六、你已经具备的“能力”（这比知识更重要）</h1><p>这轮对话真正重要的不是概念，而是你开始具备：</p>
-<h3 id="✔-1-元认知能力（你已经在用）"><a href="#✔-1-元认知能力（你已经在用）" class="headerlink" title="✔ 1. 元认知能力（你已经在用）"></a>✔ 1. 元认知能力（你已经在用）</h3><ul>
-<li>你能观察自己的思维</li>
-<li>而不是完全被思维带走</li>
-</ul>
-<hr>
-<h3 id="✔-2-结构化思维"><a href="#✔-2-结构化思维" class="headerlink" title="✔ 2. 结构化思维"></a>✔ 2. 结构化思维</h3><p>你不是在问零散问题，而是在：</p>
-<ul>
-<li>区分层级</li>
-<li>比较关系</li>
-<li>找本质</li>
-</ul>
-<hr>
-<h3 id="✔-3-对“自我”的去实体化理解"><a href="#✔-3-对“自我”的去实体化理解" class="headerlink" title="✔ 3. 对“自我”的去实体化理解"></a>✔ 3. 对“自我”的去实体化理解</h3><p>你已经开始接受：</p>
-<blockquote>
-<p>“我”不是一个固定东西，而是一个过程</p>
-</blockquote>
-<p>这在哲学和认知科学里都是非常关键的一步。</p>
-<hr>
-<h1 id="七、把这一切压缩成最核心的三句话"><a href="#七、把这一切压缩成最核心的三句话" class="headerlink" title="七、把这一切压缩成最核心的三句话"></a>七、把这一切压缩成最核心的三句话</h1><p>你可以只记住这三句：</p>
-<blockquote>
-<p>1️⃣ <strong>意识有层级：想 → 知道自己在想 → 调整自己</strong><br>2️⃣ <strong>没有一个固定的“我”在控制一切</strong><br>3️⃣ <strong>意识是流动和重组，而不是稳定结构</strong></p>
-</blockquote>
-<hr>
-<h1 id="八、最后说一句更“实用”的"><a href="#八、最后说一句更“实用”的" class="headerlink" title="八、最后说一句更“实用”的"></a>八、最后说一句更“实用”的</h1><p>你现在已经不只是理解这些概念了，而是：</p>
-<p>👉 <strong>开始“直接观察意识本身”</strong></p>
-<p>这比任何理论都重要。</p>
-<hr>
-<p>如果你想继续推进，我建议下一步可以走一个更有意思、也更落地的方向：</p>
-<p>👉 <strong>在没有固定“自我中心”的前提下，人是如何做选择、设计空间、承担责任的？</strong></p>
-<p>这个问题会把你现在的哲学理解，直接拉回到你“风景园林设计”的实践里。<img src="../image/wallhaven-yqmlmx.png" alt="wallhaven-yqmlmx" style="zoom:15%;" /></p>
 
       
     </div>
@@ -2266,146 +2378,6 @@ Cube().transform(P)
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://145698.xyz/2025/04/25/%E8%BD%BB%E6%9D%BE%E4%B8%BB%E4%B9%89%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/image/x2.png">
-      <meta itemprop="name" content="hinder110">
-      <meta itemprop="description" content="在电脑、书、游戏与日常之间，记录一个正在形成的世界。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="宇宙纪元">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/04/25/%E8%BD%BB%E6%9D%BE%E4%B8%BB%E4%B9%89%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">轻松主义读书笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2025-04-25 10:32:30" itemprop="dateCreated datePublished" datetime="2025-04-25T10:32:30+08:00">2025-04-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-05-05 21:15:49" itemprop="dateModified" datetime="2026-05-05T21:15:49+08:00">2026-05-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/reading/" itemprop="url" rel="index"><span itemprop="name">读书</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="轻松主义"><a href="#轻松主义" class="headerlink" title="轻松主义"></a>轻松主义</h1><h4 id="设定行动上限，找到轻松的节奏"><a href="#设定行动上限，找到轻松的节奏" class="headerlink" title="设定行动上限，找到轻松的节奏"></a>设定行动上限，找到轻松的节奏</h4><p>为什么设定界限，就可以找到轻松的节奏呢？</p>
-<p>因为有了你要努力的界限了，你不是无头苍蝇了。这一点对于人类来所很</p>
-<p>重要。</p>
-<p>事实证明，她做得也很棒。她决定选出100首歌，讲述每首歌背后<br>的故事。她每星期写两个故事。“这样这件事就是可控的。”她解释<br>说。写完两个故事之后，即便她有精力并且愿意多写，她也会停止这<br>周的工作，因为每周两个故事就是她的上限。当我知道她的书在9个月<br>内写完并送到出版社时，我惊呆了。那时候，我还在断断续续写我的<br>书。<br><strong>当你仍然有精力的时候，用有所保留的方式去完成重要事项看上</strong><br><strong>去可能是反常识的。<strong>但事实上，这种</strong>克制</strong>是在效率方面实现突破的关<br>键。正如著有18部畅销小说的莉萨·朱厄尔（Lisa Jewell）所说：<br>“<strong>要调整自己的节奏。如果你写得太多、太快，你就会偏离主题，失</strong><br>**去方向，而如果你不经常写，你会失去势头。**每天写1 000字是一个不<br>错的量。”3</p>
-<p>这还真是呢….</p>
-<p>这一点对于所有人来说都很重要，不要走的太快，如果你走的太快的话，你其实是和效率向相反的方向走的。</p>
-<p>其实很久以来，我们习得的</p>
-<p>要达到轻松的节奏，没有比<strong>设定一个上限</strong>更好的方法了，不管是<br>“每天的千米数”，还是“每天的字数”，或是“每天的小时数”。<br>所有人都希望尽快实现自己的愿望，比如完成手稿、跑完5千米、推出<br>新产品。因此，我们都觉得进展越快越好。毕竟，生活中很少有什么<br>能比“完成”更令人满足。但是，我们过分热衷于完成某件事的时候<br>很可能就会犯一个错误，误以为所有进程都能按计划进行。但计划赶<br>不上变化。</p>
-<p><strong>“慢则稳，稳则快。”</strong></p>
-<p><strong>利用下面的规则：永远不要小于</strong><br><strong>X，永远不要多于Y。</strong></p>
-<p>1．用高开低走的方法完成重要事项总会付出过高的代价，最<br>好找到一种轻松的节奏。<br>2．要找到轻松的节奏，没有比设定一个上限更好的方法了。<br>3．慢则稳，稳则快。在做事的过程中要设置合理的进度范<br>围，并按照这个范围执行。</p>
-<p>为了在生活中反复取得轻松<br>成果，你只需要把产生线性成果的行为转变为产生复利成果的行<br>为。</p>
-<p>解决问题的方法有两种：困难的方法是付出低效的努力，容易<br>的方法是付出轻松的努力。我们可以借助杠杆来付出轻松的努力。<br>接下来的章节将展示如何利用这个强大的工具来产生优质成果。</p>
-<p>这有什么依据吗？</p>
-<p>为什么是空难对容易呢？</p>
-<p>为什么是低效对轻松呢？</p>
-<p>某些东西只需掌握一次就能使用无数次，这是很划算的。一次性<br>的前期投入，会随着时间推移，让你一次又一次获得轻松成果。</p>
-<p>是啊这是不公平的，比如说开车这个事情，就是学习一次就可以使用无数次的技术。</p>
-<p>芒格对待投资和生活的方式，就是追求他所谓的“市侩智慧”。9<br>他相信，把诸如心理学、历史学、数学、物理学、哲学、生物学以及<br>更多学科的知识结合起来，就可以创造出比各部分的总和还要伟大的<br>东西。芒格认为，独立的若干事实是无用的，除非它们“在理论框架<br>上相结合”。换句话说，整体要大于各部分之和。</p>
-<p>这一点呢，其实很重要比如说呢，你不了解<strong>牛顿第二定律</strong>是怎么来的，但是可以了解到这个<strong>单独的事实</strong>带来的帮助。</p>
-<p><strong>读书是世界上回报率最高的活动之一</strong>。聪明的人早已明白投入大<br>约一个工作日的时长外加几美元买书的钱可以获得什么。阅读，特别<br>是为了真正的理解而读，无论如何都会产生复利成果。不幸的是，很<br>少有人会利用这一点。</p>
-<p>是的，这其实对于📖这种知识的传播方式是有关的，这更加符合人类的<strong>主动学习</strong>。</p>
-<p>那为什么说读书是复利的呢？</p>
-<p>因为呢读书可以带来很多的技术型知识，简单来说的话，就是这个知识的<strong>传播方式很具有全面性</strong>。</p>
-<p>**林迪效应（Lindy Effect）。**这个定律指出，一本书的<br>预期寿命与它当前的书龄相等。也就是说，一本书存世越久，它留存<br>到未来的可能性越高。所以要先读那些存世已久的经典作品。换句话<br>说，读者需要读经典、读老书</p>
-<p><strong>理解而读</strong>，而不是仅仅为了“打卡”。一种情况是，有些<br>书我读过，但我没法告诉你关于它的任何事。另一种情况是，有些书<br>我可能没有从头读到尾，但我经常回想其中的某个章节或段落，它们<br>已经变成我的一部分。第二种情况可能不太像阅读，但我认为它更接<br>近阅读的真正意义。一本好书可以改变你，让你与作者产生共鸣。</p>
-<p><strong>提炼你的知识</strong>。当我读完一本书，我喜欢在一张纸上用自己<br>的话总结我学到的东西。如果你每本书都花10分钟来总结其中的关键<br>知识，你会理解得更深刻。总结是一种提炼思想本质的过程，帮助我<br>们把信息转化为认知，把认知转化为独有的知识。</p>
-<p><strong>把没人做的事情做好，其价值大于把别人都在做的事情做精；</strong><br><strong>而把没人做的事情做到极致，其价值将有指数级别的增长。</strong></p>
-<p>这有这么简单吗？这个世界被探索的已经很多了，我们的问题是怎么去看到这里的没人做的事情才是最难的。</p>
-<p><strong>获得知识可以打开一扇机遇之门，但创造知识可以带来源源不</strong><br><strong>断的机遇。你会获得信誉，人们会慕名而来，机遇会来找你。如果</strong><br><strong>你是唯一绝对专业的人，你会获得难以置信的“杠杆效应”。</strong></p>
-<p>1．具体方法只能产生线性成果。如果追求的是复利成果，我<br>们就必须究其原理。<br>2．学习别人已经掌握得最好的知识。<br>3．把传统事物变成新生事物往往是轻松创新的关键。<br>4．独立的各种想法代表线性知识。当它们相互关联时，这些<br>想法便形成了复利知识。<br>5．把没人做的事情做好，其价值大于把别人都在做的事情做精。</p>
-<p><strong>把最重要的事变成</strong><br><strong>最容易学的事。</strong></p>
-<p>就是机械化嘛，把自己的专业技能去程序化。</p>
-<p><strong>当我们想产生深远的影响时，把教学方法传授给别人，让别人</strong><br><strong>也成为老师是最高效的</strong></p>
-<p><strong>讲一个故事，将你的听众变成他人的老师</strong></p>
-<p>这实在是太像传销了哈哈哈😄</p>
-<p><strong>故事是连接过去和现在的桥梁，它们让历史生动</strong><br><strong>起来，它们扩展了我们的自我感知。</strong></p>
-<p>其实书籍也是一种故事呢，不要说知识类的书籍不是一种故事，科学在我看来也是一种故事，难道不是吗？</p>
-<h4 id="把最重要的事，变成最容易学的事"><a href="#把最重要的事，变成最容易学的事" class="headerlink" title="把最重要的事，变成最容易学的事"></a><strong>把最重要的事，变成最容易学的事</strong></h4><p>后来他想到一个新办法——“<strong>白板传授</strong>”（Whiteboard<br>Sketch）：他把这项策略简化为一个白板草图，它很简短，可以在10<br>分钟内讲解完。市场主管将它教给试点组，然后让试点组进行练习，<br>他们在屋子前面互相教授。随后把试点组的人送去教其他团队。每个<br>人都不只要学习这项策略，还要学会如何把它教给别人。任何人随时<br>都有可能被叫去教其他团队。仅仅过了几个星期，他们理解上的差异<br>消失了。</p>
-<p><strong>意思是不要使用过于复杂的信息，不要追求那种</strong><br><strong>让你听上去很专业的信息，而要选择那些易于理解和重复的直白信</strong><br><strong>息。要把最重要的事情变成最容易教，也最容易学的事情。</strong></p>
-<p>这就很费曼啦，费曼呢是我很喜欢的一个物理学家。</p>
-<p>他比在全世界比较出名的应该是<strong>费曼学习法</strong>。</p>
-<h4 id="为重要的事"><a href="#为重要的事" class="headerlink" title="为重要的事"></a><strong>为重要的事</strong></h4><h4 id="选择高技术含量的轻松路径"><a href="#选择高技术含量的轻松路径" class="headerlink" title="选择高技术含量的轻松路径"></a><strong>选择高技术含量的轻松路径</strong></h4><p>“文明的进步，来自不假思索即可执行的重要操作的增加。”换种方式来说<br>就是，我们应该尽可能多地<strong>让重要步骤和事项自动化</strong>。“</p>
-<p>这一点让我想到计算机编程，OK你能理解吗？因为在未来这一点是很重要的，这已经开始啦，就是编程已经开始程序化啦。</p>
-<h5 id="备忘单，让行动不假思索"><a href="#备忘单，让行动不假思索" class="headerlink" title="备忘单，让行动不假思索"></a>备忘单，让行动不假思索</h5><p>其实这一点我很想重点说说看，这个在《深度工作》中也出现过我相信这两本书中讲的不是相同的。</p>
-<p>极端的复杂性只会**增加认知负荷，**让我们更容易出错。所以我们<br>需要的不是积累更多的知识，而是新的技巧和策略，使我们能在不消<br>耗“工作存储器”的情况下运用知识。</p>
-<p>那应该怎么减少这样的认知负荷呢？</p>
-<p>“它建立在经验的基础上，<strong>借助</strong>我们已有的认知，<br>在某种程度上也弥补了我们**难以避免的人类局限性。**确实有一种这样<br>的策略，尽管它简单到可笑，对于我们这些花费数年时间认真开发更<br>先进的技术和科技的人来说，这甚至很疯狂”</p>
-<p><strong>清单</strong>的美妙之处在于，<strong>思考</strong>已经<strong>提前完成</strong>，这些列在清单上的事项已经从<br>大脑工作存储器流程中被剔除。</p>
-<p><strong>备忘单</strong>的概念就是把大脑中的一些<br>东西<strong>提取</strong>出来，这样你就可以自动完成它们，而<strong>不必依赖记忆。</strong></p>
-<h4 id="解放大脑，用技术提前完成思考"><a href="#解放大脑，用技术提前完成思考" class="headerlink" title="解放大脑，用技术提前完成思考"></a>解放大脑，用技术提前完成思考</h4><p>因此，要为重要事项选择高技术、低成本的路径，对于无关紧要的事情则要选择低技术、<br>高成本的路径。</p>
-<p>这里的技术在***《掌握习惯》***中也出现过。</p>
-<p>1．尽可能多地让重要步骤和事项<strong>自动化</strong>。<br>2．<strong>备忘单</strong>是我们手头上最有效的工具之一。<br>3．为重要的事选择高技术含量的轻松路径，为小事情选择低<br>技术含量的高成本路径。</p>
-<h4 id="把时间投入有长期效应的行动。"><a href="#把时间投入有长期效应的行动。" class="headerlink" title="把时间投入有长期效应的行动。"></a><strong>把时间投入有长期效应的行动。</strong></h4><p>当我们把时间投入有<strong>长期效应</strong>的行动时，我们会<br>在很长一段时间里<strong>持续获得好处</strong>。</p>
-<p>目标是，找出可以用最<strong>短时间解决掉</strong>的<strong>最烦恼的事</strong>（如图15-1所<br>示）。一旦问出这些问题，你会开始注意到你可以<strong>采取哪些小行动</strong>来<br>使未来的<strong>生活更容易</strong></p>
-<p>是啊，你不喜欢的事情，一直烦恼到你多糟糕呢，所以来一个小行动，来解决这件事情。</p>
-<p><em><strong>最短时间解决掉最烦恼的事</strong></em></p>
-<p>这个真的很cool。</p>
-<p>美国作家亨利·戴维·梭罗在**《瓦尔登湖》<strong>里曾经写道：“罪恶<br>之树，千人斩枝，而一人伐根。”当我们只是“应付”一个问题时，<br>我们就是在</strong>砍斫树枝**，如果想在问题出现之前就加以预防，我们应该<br>砍伐树根。如果你花了很多时间砍斫树枝，你可能会变得很擅长这么<br>做。但如果你只做这一件事，那么这个问题会一直<strong>缠着</strong>你。它只是被<br><strong>“应付”</strong>，从未被“<strong>解决”。<strong>你的生活或工作中有没有反复出现的问<br>题或挫折？与其</strong>简单地砍斫树枝，不如试着砍伐树根</strong></p>
-<p>这种思维方式是我一直以来的思考方式吧。</p>
-<h5 id="设计让生活不复杂的小行为"><a href="#设计让生活不复杂的小行为" class="headerlink" title="设计让生活不复杂的小行为"></a>设计让生活不复杂的小行为</h5><p>就像你可以通过一些<strong>小行动</strong>让你的未来生活更加轻松一样，你也<br>可以找到一些小行动来防止生活变得复杂。这个原理适用于所有领<br>域。</p>
-<p><strong>顺势而为，人生会更轻松</strong></p>
-<p>如果你的工作是让火焰在一段时间内保持燃烧，你不能一开始就把<br>所有燃料都丢进火焰中去。</p>
-<p>不论你在生活中遭遇了什么事情，不论它们多么艰苦、有多重<br>大，你都拥有**“现在怎么做”<strong>的选择权，在处理那些问题之前，你<br>必须先做出这个</strong>重要的选择**。</p>
-<p>每一个新的时刻都是一个重新开始的机会，一个重新选择的机会。</p>
-<p>掌控一切的时刻我们会说“我选择”“我决定”“我承诺”或者“从现在开始……”，<br>放下情感负担的时刻我们会说“我原谅你”“我很感激”“我愿意接<br>受”，改正错误的时刻我们会说“请原谅我”“让我们重新开始”<br>“我不会放弃你”或者“我爱你”。在每一个新的时刻，我们都应该<br>有能力去塑造后续的所有时刻。在每一个时刻，我们都有选择权，决<br>定走一条更艰难的道路还是更轻松的道路。</p>
-<p>**为了更容易地走完我们的旅程，尽力选一条更轻松的路吧。**如果<br>你从这本书中只能收获一个信息，我希望它是这样的：生活不一定是<br>艰难和复杂的。就像曾4次获得普利策奖的美国作家罗伯特·弗罗斯<br>特（Robert Frost）写的那样，<strong>我们每个人都要“信守诺言，走完</strong><br><strong>这段路才能长眠”。无论你面对什么样的挑战、阻碍和困难，你永</strong><br><strong>远都可以去寻找一条更轻松、更容易的道路。</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2477,7 +2449,7 @@ Cube().transform(P)
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -2490,7 +2462,7 @@ Cube().transform(P)
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-count">35</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
