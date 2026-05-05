@@ -208,7 +208,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const fetchData = () => {
     fetch(CONFIG.root + searchPath)
-      .then(response => response.text())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to fetch search data: ' + response.status);
+        }
+        return response.text();
+      })
       .then(res => {
         // Get the contents from search data
         isfetched = true;
@@ -229,6 +234,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // Remove loading animation
         document.getElementById('no-result').innerHTML = '<i class="fa fa-search fa-5x"></i>';
         inputEventFunction();
+      })
+      .catch(() => {
+        isfetched = true;
+        datas = [];
+        document.getElementById('no-result').innerHTML = '<i class="fa fa-search fa-5x"></i>';
       });
   };
 
