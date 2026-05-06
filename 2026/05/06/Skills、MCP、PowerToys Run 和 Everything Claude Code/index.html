@@ -20,17 +20,24 @@
     var CONFIG = {"hostname":"145698.xyz","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":16,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#d8794a","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":true,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"fadeIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="在电脑、书、游戏与日常之间，记录一个正在形成的世界。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="宇宙纪元">
-<meta property="og:url" content="https://145698.xyz/archives/2026/05/index.html">
+  <meta name="description" content="今天主要了解了几个和效率、自动化、AI 编程相关的东西：Skills、MCP、PowerToys Run，以及 GitHub 上的 Everything Claude Code 项目。整体感觉是，它们虽然属于不同层面的工具，但目标都很相似：让人和工具之间的协作更顺畅。 SkillsSkills 可以理解为把某类固定工作流程”封装”起来。比如写文档、分析文件、生成报告、处理表格等，如果每次都要重新描">
+<meta property="og:type" content="article">
+<meta property="og:title" content="今天学到的几个工具：Skills、MCP、PowerToys Run 和 Everything Claude Code">
+<meta property="og:url" content="https://145698.xyz/2026/05/06/Skills%E3%80%81MCP%E3%80%81PowerToys%20Run%20%E5%92%8C%20Everything%20Claude%20Code/index.html">
 <meta property="og:site_name" content="宇宙纪元">
-<meta property="og:description" content="在电脑、书、游戏与日常之间，记录一个正在形成的世界。">
+<meta property="og:description" content="今天主要了解了几个和效率、自动化、AI 编程相关的东西：Skills、MCP、PowerToys Run，以及 GitHub 上的 Everything Claude Code 项目。整体感觉是，它们虽然属于不同层面的工具，但目标都很相似：让人和工具之间的协作更顺畅。 SkillsSkills 可以理解为把某类固定工作流程”封装”起来。比如写文档、分析文件、生成报告、处理表格等，如果每次都要重新描">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-06T13:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-06T14:26:29.628Z">
 <meta property="article:author" content="hinder110">
+<meta property="article:tag" content="Claude Code">
+<meta property="article:tag" content="Skills">
+<meta property="article:tag" content="MCP">
+<meta property="article:tag" content="PowerToys">
+<meta property="article:tag" content="效率工具">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://145698.xyz/archives/2026/05/">
+<link rel="canonical" href="https://145698.xyz/2026/05/06/Skills%E3%80%81MCP%E3%80%81PowerToys%20Run%20%E5%92%8C%20Everything%20Claude%20Code/">
 
 
 <script id="page-configurations">
@@ -38,12 +45,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | 宇宙纪元</title>
+  <title>今天学到的几个工具：Skills、MCP、PowerToys Run 和 Everything Claude Code | 宇宙纪元</title>
   
 
 
@@ -187,170 +194,97 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 27 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://145698.xyz/2026/05/06/Skills%E3%80%81MCP%E3%80%81PowerToys%20Run%20%E5%92%8C%20Everything%20Claude%20Code/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/image/x2.png">
+      <meta itemprop="name" content="hinder110">
+      <meta itemprop="description" content="在电脑、书、游戏与日常之间，记录一个正在形成的世界。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宇宙纪元">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          今天学到的几个工具：Skills、MCP、PowerToys Run 和 Everything Claude Code
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-05-06 21:00:00 / 修改时间：22:26:29" itemprop="dateCreated datePublished" datetime="2026-05-06T21:00:00+08:00">2026-05-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2026</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2026-05-06T21:00:00+08:00"
-              content="2026-05-06">
-          05-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2026/05/06/Skills%E3%80%81MCP%E3%80%81PowerToys%20Run%20%E5%92%8C%20Everything%20Claude%20Code/" itemprop="url">
-            <span itemprop="name">今天学到的几个工具：Skills、MCP、PowerToys Run 和 Everything Claude Code</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2026-05-05T22:00:00+08:00"
-              content="2026-05-05">
-          05-05
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2026/05/05/%E9%85%8D%E7%BD%AEClaude_code/" itemprop="url">
-            <span itemprop="name">配置Claude Code：使用CC Switch切换API提供商</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2026-05-01T18:16:29+08:00"
-              content="2026-05-01">
-          05-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2026/05/01/anki/" itemprop="url">
-            <span itemprop="name">anki</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2026-05-01T18:16:29+08:00"
-              content="2026-05-01">
-          05-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2026/05/01/%E4%B8%80%E3%80%81%E6%95%B4%E4%BD%93%E7%AD%96%E7%95%A5%EF%BC%88%E6%97%A5%E6%9C%AC%E9%80%A0%E5%9B%AD%E6%80%9D%E8%B7%AF%EF%BC%89/" itemprop="url">
-            <span itemprop="name">一、整体策略（日本造园思路）</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2026-05-01T18:16:29+08:00"
-              content="2026-05-01">
-          05-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2026/05/01/%E5%85%B3%E4%BA%8E%E6%84%8F%E8%AF%86%E7%9A%84%E8%AE%A8%E8%AE%BA%E4%BB%A5%E5%8F%8A%E6%84%8F%E8%AF%86%E7%BB%B4%E5%BA%A6%E8%AE%BA%E7%9A%84%E8%AF%81%E4%BC%AA/" itemprop="url">
-            <span itemprop="name">关于意识的讨论以及意识维度论的证伪</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2026-05-01T18:16:29+08:00"
-              content="2026-05-01">
-          05-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2026/05/01/%E9%80%BB%E8%BE%91%E5%AD%A6%EF%BC%88%E4%BA%BA%E7%B1%BB%E7%90%86%E6%80%A7%EF%BC%89%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E6%9C%894%E4%B8%AA%E3%80%82%E5%9C%A8%E6%AD%A4%EF%BC%8C%E6%88%91%E4%BB%AC%E6%9C%80%E5%85%B3%E5%BF%83%E7%9A%84%E6%98%AF%E7%9F%9B%E7%9B%BE%E5%BE%8B%EF%BC%8C%E4%BD%86%E6%98%AF%E4%B8%BA%E4%BA%86%E8%A1%8C%E6%96%87%E6%96%B9%E4%BE%BF%EF%BC%8C%E8%BF%98%E6%98%AF%E5%85%88%E6%9D%A5%E7%9C%8B%E7%9C%8B%E5%85%B6%E4%BB%963%E4%B8%AA%E5%8E%9F%E7%90%86%E5%90%A7%E3%80%82/" itemprop="url">
-            <span itemprop="name">逻辑学（人类理性）的基本原理有4个。在此，我们最关心的是矛盾律，但是为了行文方便，还是先来看看其他3个原理吧。</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2026-05-01T15:41:03+08:00"
-              content="2026-05-01">
-          05-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2026/05/01/%E7%AC%AC%E4%BA%8C%E7%AB%A0/" itemprop="url">
-            <span itemprop="name">第二章</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        <p>今天主要了解了几个和效率、自动化、AI 编程相关的东西：<strong>Skills、MCP、PowerToys Run</strong>，以及 GitHub 上的 <strong>Everything Claude Code</strong> 项目。整体感觉是，它们虽然属于不同层面的工具，但目标都很相似：让人和工具之间的协作更顺畅。</p>
+<h2 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h2><p><strong>Skills</strong> 可以理解为把某类固定工作流程”封装”起来。比如写文档、分析文件、生成报告、处理表格等，如果每次都要重新描述规则和步骤会很麻烦，而 Skills 的价值就在于把这些经验沉淀成可复用的能力。它更像是给 AI 配了一套专门的工作手册，让 AI 在特定任务上表现得更稳定。</p>
+<h2 id="MCP"><a href="#MCP" class="headerlink" title="MCP"></a>MCP</h2><p><strong>MCP</strong>（Model Context Protocol）则更偏向连接能力。它让 AI 不只是停留在聊天窗口里，而是可以和外部工具、数据源、服务进行交互。简单来说，Skills 更像是”怎么做事的方法”，MCP 更像是”能连接哪些工具和资源”。两者结合起来，AI 才更接近真正的工作助手。</p>
+<h2 id="PowerToys-Run"><a href="#PowerToys-Run" class="headerlink" title="PowerToys Run"></a>PowerToys Run</h2><p><strong>PowerToys Run</strong> 是一个很实用的效率工具。它类似一个快速启动器，可以用快捷键 <code>Alt + Space</code> 快速打开应用、搜索文件、执行命令。它的价值不在于复杂，而在于减少日常操作中的切换成本。对经常在 Windows 上工作的人来说，这种工具能明显提升流畅度。</p>
+<h2 id="Everything-Claude-Code"><a href="#Everything-Claude-Code" class="headerlink" title="Everything Claude Code"></a>Everything Claude Code</h2><p>最后还看到了 GitHub 上的 <strong>Everything Claude Code</strong> 项目。它是一个围绕 Claude Code 的配置和实践集合，包含技能、记忆优化、安全扫描、多代理框架支持等内容，目标是提升 AI 编程代理的使用效率和稳定性。项目介绍里也提到，它不只是单纯的 Claude Code 配置，而是更完整的代理性能优化系统。</p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Claude-Code/" rel="tag"># Claude Code</a>
+              <a href="/tags/Skills/" rel="tag"># Skills</a>
+              <a href="/tags/MCP/" rel="tag"># MCP</a>
+              <a href="/tags/PowerToys/" rel="tag"># PowerToys</a>
+              <a href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" rel="tag"># 效率工具</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2026/05/05/%E9%85%8D%E7%BD%AEClaude_code/" rel="prev" title="配置Claude Code：使用CC Switch切换API提供商">
+      <i class="fa fa-chevron-left"></i> 配置Claude Code：使用CC Switch切换API提供商
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
@@ -403,6 +337,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Skills"><span class="nav-text">Skills</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MCP"><span class="nav-text">MCP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PowerToys-Run"><span class="nav-text">PowerToys Run</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Everything-Claude-Code"><span class="nav-text">Everything Claude Code</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
