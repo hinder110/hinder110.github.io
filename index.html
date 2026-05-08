@@ -193,6 +193,125 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://145698.xyz/2026/05/09/%E9%98%85%E8%AF%BB%E5%99%A8Tauri%E5%BC%80%E5%8F%91%E5%BF%83%E5%BE%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/image/x2.png">
+      <meta itemprop="name" content="hinder110">
+      <meta itemprop="description" content="在电脑、书、游戏与日常之间，记录一个正在形成的世界。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宇宙纪元">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/05/09/%E9%98%85%E8%AF%BB%E5%99%A8Tauri%E5%BC%80%E5%8F%91%E5%BF%83%E5%BE%97/" class="post-title-link" itemprop="url">阅读器 Tauri 桌面版开发心得</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-05-09 01:35:00 / 修改时间：01:43:23" itemprop="dateCreated datePublished" datetime="2026-05-09T01:35:00+08:00">2026-05-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>上次写完阅读器的设计思路之后，我第二天就开始动手做桌面版了。</p>
+<p>为什么一定要做桌面版？原因特别简单——我想让同学双击 exe 就能用。</p>
+<p>我原来的 web 版是这样的：后端 Express + Axios + Cheerio，前端 React，整套跑在浏览器里，我还顺手配了 Docker 部署。自己用完全没问题，但要是发给不写代码的同学，我得先教他们装 Node.js，或者教他们装 Docker，然后还得打开终端敲命令。</p>
+<p>这不现实。我一个舍友连压缩包都不会解。</p>
+<p>所以必须打包成 exe。双击运行，别的什么都不用管。</p>
+<p>Electron 和 Tauri 之间怎么选</p>
+<p>能做桌面端 exe 的框架，我第一个想到的肯定是 Electron。但 Electron 有个让我没法接受的问题——体积太大。一个什么都没写的 hello world 打包出来就上百 MB。</p>
+<p>为什么？因为 Electron 给每个应用都塞了一个完整的 Chromium 浏览器进去。</p>
+<p>Tauri v2 不一样。它不塞浏览器，而是直接调用 Windows 系统自带的 WebView2。前端还是用 React 写，但后端从 Node.js 换成了 Rust。最终打包出来的 exe 只有 14MB，不到 Electron 的十分之一。</p>
+<p>14MB 什么概念？QQ 安装包快 200MB 了。一个带三个书源的桌面阅读器，体积只有 QQ 的百分之七。</p>
+<p>但 Tauri 有个门槛：后端要用 Rust 重写。</p>
+<p>从零开始写 Rust</p>
+<p>我之前完全没碰过 Rust。只说听说过，知道它是”系统级语言”、”安全”、”难学”。</p>
+<p>书源的逻辑全在后端——搜索、抓取目录、解析章节内容。原来在 Node.js 里用 Axios 发 HTTP 请求，用 Cheerio 解析 HTML，用 iconv-lite 处理 GBK 编码。</p>
+<p>到了 Rust 这边，每一个东西都得找对应的库：Axios 换成 reqwest，Cheerio 换成 scraper，iconv-lite 换成 encoding_rs。连 URL 编码都得单独装一个叫 urlencoding 的包。</p>
+<p>Rust 的语法倒不是最难的。所有权、借用、生命周期确实需要适应，但编译器报错极其友好，不仅告诉你怎么错了，还会建议怎么改。很多时候顺着编译器的提示就能把代码改对。</p>
+<p>真正折磨人的是 Windows 工具链。</p>
+<p>Win11 预览版上的地狱体验</p>
+<p>我先装了 Rust 的 GNU 工具链。代码编译通过，生成了 exe。双击运行——</p>
+<p>没反应。</p>
+<p>不是报错，是双击之后什么都没发生。用命令行看了一下，提示 os error 193，意思是”不是有效的 Win32 应用程序”。文件格式明明是对的，但 Windows 就是不认。</p>
+<p>只能换成 MSVC 工具链。然后问题又来了：Git 自带的 link.exe 和 MSVC 的链接器重名了，系统优先找到了 Git 的那个。link.exe 是 Unix 下创建符号链接的工具，根本不是用来链接程序的。链接的时候报错”extra operand”，我盯着看了五分钟才反应过来——它用的不是微软的链接器。</p>
+<p>把 Visual Studio 的 C++ 构建工具装上之后，终于能正常编译了。</p>
+<p>这些跟写代码一点关系都没有。但就是这些不相干的东西，占了我差不多一半的开发时间。</p>
+<p>三个书源的 Rust 实现</p>
+<p>书源本身的设计和 web 版完全一样，每个书源实现三个方法：search_books、get_chapters、get_chapter_content。由一个路由器（mod.rs）根据用户选择的书源来分发调用。</p>
+<p>光遇 API 最省心。它是 JSON 接口，数据格式规整，reqwest 拿到响应直接反序列化就完了。但它有个毛病：API 服务器不稳定，经常某个域名挂了。我设了七个域名做 fallback，一个超时自动切下一个。用了一个宏来减少重复代码，但宏在 Rust 里跟函数不一样，变量的生命周期问题调了好久。</p>
+<p>笔趣阁最折腾。它用的是 GBK 编码的 HTML，搜索还是 POST 表单。Node.js 里一套 fetch + iconv-lite 就能搞定的事，Rust 这边要先把中文关键词编码成 GBK 字节，拼到表单里发 POST，收到响应再把 GBK 字节解码回来。而且正则的处理也比 Node.js 严格——Rust 的 regex 不支持反向引用，之前用来匹配成对 HTML 标签的正则 <code>&lt;(script).*?&lt;/\1&gt;</code> 直接报错，得改成显式的标签名。</p>
+<p>七星阁和笔趣阁整体逻辑差不多，但它是 UTF-8 编码，省了编解码这一步。不过章节内容里的脏数据很多，什么”本章未完”、”第(1&#x2F;3)页”、分类标签，全得用正则一层一层清。正则写多了之后发现，清理数据比抓取数据写的代码还多。</p>
+<p>前后端通信的变化</p>
+<p>web 版的前后端通信就是 fetch(‘&#x2F;api&#x2F;…’)，标准 HTTP 请求。</p>
+<p>Tauri 版变成了 invoke(‘search_books’, { keyword, source })，走的是 Tauri 的 IPC。前端用 TypeScript 封装了 invoke 调用，接口签名基本没变，但底层从 HTTP 变成了进程间通信。</p>
+<p>这个改动对前端来说几乎是透明的。除了把 fetch 换成 invoke，其他逻辑一行没改。这也是 Tauri 设计得好的地方——它让前端开发者几乎感知不到后端的切换。</p>
+<p>最大的感受：最难的不是写代码</p>
+<p>整个项目做完，我最大的感受不是”Rust 真难”也不是”Tauri 真香”——而是”把软件交到别人手里，比写软件本身难多了”。</p>
+<p>功能我在 web 版就已经写好了。搜索、目录、阅读器、日夜间模式，web 版全都有。</p>
+<p>但为了让别人能双击运行，我做的事情包括：把后端从 Node.js 迁移到 Rust、折腾 Windows 工具链、处理三个不同书源的各种编码和格式、配置 GitHub Actions 自动构建、写面向小白用户的图文 README、在 GitHub Releases 上发布 exe。</p>
+<p>这些全都不是”功能开发”，但每一项都不可或缺。没有它们，软件就只是我电脑上的一个 localhost:3000，别人根本看不见。</p>
+<p>我以前觉得软件工程最难的是写代码。现在发现，代码只是冰山在水面上的那一角。水面之下是分发、部署、文档、兼容性——这些才是决定一个软件能不能真正”存在”的东西。</p>
+<p>现在的状态和后面要做的事</p>
+<p>目前 v0.1.0 已经发在 GitHub Releases 上了，14MB 的单 exe，下载双击就能用。三个书源都能正常搜索和阅读。</p>
+<p>但说实话，离”好用”还有距离。接下来几天我会集中做几件事：</p>
+<ol>
+<li><p>书源扩展。现有的三个书源覆盖率太低了，搜一些冷门书基本搜不到。得再加几个源，至少要覆盖到常见的网文。</p>
+</li>
+<li><p>书架和历史记录。现在每次打开软件都要重新搜索，没有任何持久化。下一步会用 SQLite 把用户的阅读进度、书架收藏存到本地。</p>
+</li>
+<li><p>阅读体验优化。现在的字号只有三档，翻页也没有动画。至少要加上自定义字号、行距、翻页动画。</p>
+</li>
+</ol>
+<p>等这些做完，v1.0 才算真的能用。</p>
+<p>仓库地址：<a target="_blank" rel="noopener" href="https://github.com/hinder110/yueduqi-tauri">https://github.com/hinder110/yueduqi-tauri</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://145698.xyz/2026/05/08/%E5%89%83%E9%A1%BB%E5%88%80%E4%B8%8E%E7%97%98%E7%97%98-%E4%B8%80%E4%BB%B6%E6%97%A5%E5%B8%B8%E5%B0%8F%E7%83%A6%E6%81%BC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -269,162 +388,6 @@
 <p>剃须冒痘这件事让我意识到，有些问题不是”麻烦”，只是从未认真对待过。查清楚原因，动手改掉，效果立竿见影。</p>
 <hr>
 <p><em>写于 2026 年 5 月，剃须刀清理整顿之后。</em></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://145698.xyz/2026/05/08/blog-%E8%AF%BB%E6%87%82%E4%B8%80%E4%B8%AA186%E8%A1%8CPython-CLI%E5%B7%A5%E5%85%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/image/x2.png">
-      <meta itemprop="name" content="hinder110">
-      <meta itemprop="description" content="在电脑、书、游戏与日常之间，记录一个正在形成的世界。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="宇宙纪元">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2026/05/08/blog-%E8%AF%BB%E6%87%82%E4%B8%80%E4%B8%AA186%E8%A1%8CPython-CLI%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">读懂一个186行Python CLI工具</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2026-05-08 00:30:00 / 修改时间：00:35:00" itemprop="dateCreated datePublished" datetime="2026-05-08T00:30:00+08:00">2026-05-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="读懂一个-186-行-Python-CLI-工具：从敲命令到理解每一行"><a href="#读懂一个-186-行-Python-CLI-工具：从敲命令到理解每一行" class="headerlink" title="读懂一个 186 行 Python CLI 工具：从敲命令到理解每一行"></a>读懂一个 186 行 Python CLI 工具：从敲命令到理解每一行</h1><h2 id="开篇"><a href="#开篇" class="headerlink" title="开篇"></a>开篇</h2><p>我最近写了一个 workspace manager，一个命令就能打开某个任务需要的全部软件。比如做 CAD 设计，<code>python workspace.py design</code> 一键同时启动 AutoCAD 和 Photoshop，不用一个个手动开。</p>
-<p>186 行代码，纯 Python 标准库，跑通了。但我不想停在”能用就行”，而是想彻底搞懂<strong>每一行为什么这么写</strong>。这篇文章记录我学到的 6 个知识点。</p>
-<h2 id="这脚本是干嘛的"><a href="#这脚本是干嘛的" class="headerlink" title="这脚本是干嘛的"></a>这脚本是干嘛的</h2><p>做设计的日常：开机 → 打开 AutoCAD → 打开 Photoshop → 开始干活。每天重复。能不能一句话搞定？</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python workspace.py design</span><br></pre></td></tr></table></figure>
-
-<p>AutoCAD 和 Photoshop 同时启动，像 IDE 保存项目标签页一样，只不过是在操作系统层级。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建工作空间</span></span><br><span class="line">python workspace.py create dev <span class="string">&quot;开发环境&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 往里面加软件</span></span><br><span class="line">python workspace.py add dev vscode code</span><br><span class="line">python workspace.py add dev chrome <span class="string">&quot;C:\Program Files\Google\Chrome\Application\chrome.exe&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 一键全开</span></span><br><span class="line">python workspace.py dev</span><br></pre></td></tr></table></figure>
-
-<p>配置存在 <code>~/.workspaces.json</code>，长这样：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;design&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;CAD设计&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;apps&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span><span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;autocad&quot;</span><span class="punctuation">,</span>   <span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="string">&quot;C:\\Program Files\\Autodesk\\AutoCAD 2021\\acad.exe&quot;</span><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span><span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;photoshop&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="string">&quot;F:\\Program Files\\...\\Photoshop.exe&quot;</span><span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="整体架构：一眼看到底"><a href="#整体架构：一眼看到底" class="headerlink" title="整体架构：一眼看到底"></a>整体架构：一眼看到底</h2><p>整个程序的骨架就一句话：<strong>CLI 工具 &#x3D; 命令分发器</strong>。用户敲命令 → 解析 → 分发给对应函数执行。</p>
-<p>看主函数最后这 7 行：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;create&quot;</span>: cmd_create,</span><br><span class="line">    <span class="string">&quot;delete&quot;</span>: cmd_delete,</span><br><span class="line">    <span class="string">&quot;list&quot;</span>:   cmd_list,</span><br><span class="line">    <span class="string">&quot;show&quot;</span>:   cmd_show,</span><br><span class="line">    <span class="string">&quot;add&quot;</span>:    cmd_add,</span><br><span class="line">    <span class="string">&quot;remove&quot;</span>: cmd_remove,</span><br><span class="line">    <span class="string">&quot;launch&quot;</span>: cmd_launch,</span><br><span class="line">&#125;[args.command](args)</span><br></pre></td></tr></table></figure>
-
-<p>字典的 key 是命令名，value 是函数对象。取出来，后面加 <code>(args)</code> 直接调用。这就是 Python 版的 switch-case —— C 里得写一长串 <code>if-else if</code>，Java 得更啰嗦，Python 一个字典搞定，干净利落。</p>
-<h2 id="命令行参数解析：argparse-怎么把字符串变成结构体"><a href="#命令行参数解析：argparse-怎么把字符串变成结构体" class="headerlink" title="命令行参数解析：argparse 怎么把字符串变成结构体"></a>命令行参数解析：argparse 怎么把字符串变成结构体</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python workspace.py create dev <span class="string">&quot;开发环境&quot;</span></span><br><span class="line"><span class="comment">#                  ^^^^   ^^^ ^^^^^^^^^</span></span><br><span class="line"><span class="comment">#                  位置0   位置1  位置2</span></span><br></pre></td></tr></table></figure>
-
-<p>args 是 argparse 自动构造的 Namespace 对象，跟 C 的 struct 一个概念——把命令行字符串变成有名字的字段：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// C 里你会这样</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Args</span> &#123;</span></span><br><span class="line">    <span class="type">char</span> *command;</span><br><span class="line">    <span class="type">char</span> *key;</span><br><span class="line">    <span class="type">char</span> *name;</span><br><span class="line">&#125;;</span><br><span class="line">Args args = &#123;<span class="string">&quot;create&quot;</span>, <span class="string">&quot;dev&quot;</span>, <span class="string">&quot;开发环境&quot;</span>&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>Python 里 <code>add_argument</code> 就是声明字段，argparse 帮你填值：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">subparsers = parser.add_subparsers(dest=<span class="string">&quot;command&quot;</span>)   <span class="comment"># → args.command</span></span><br><span class="line">p_create.add_argument(<span class="string">&quot;key&quot;</span>)                          <span class="comment"># → args.key</span></span><br><span class="line">p_create.add_argument(<span class="string">&quot;name&quot;</span>)                         <span class="comment"># → args.name</span></span><br></pre></td></tr></table></figure>
-
-<p>参数多了你不用手写解析逻辑，库全包了。</p>
-<h2 id="程序的记忆：JSON-持久化"><a href="#程序的记忆：JSON-持久化" class="headerlink" title="程序的记忆：JSON 持久化"></a>程序的记忆：JSON 持久化</h2><p>没有 JSON 文件，程序一关，你建的 workspace 全丢了。每次运行都得重新 <code>add</code> 一遍软件——那还不如手动开。</p>
-<p>JSON 是这个程序的”记忆”。启动时读记忆，结束时存记忆：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CONFIG_PATH = Path.home() / <span class="string">&quot;.workspaces.json&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">load_config</span>():          <span class="comment"># 程序醒来 → 读记忆</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(CONFIG_PATH, <span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">return</span> json.load(f)     <span class="comment"># JSON文本 → Python字典</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">save_config</span>(<span class="params">config</span>):    <span class="comment"># 程序睡去 → 存记忆</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(CONFIG_PATH, <span class="string">&quot;w&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        json.dump(config, f, indent=<span class="number">2</span>, ensure_ascii=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
-
-<p>所有操作都是 <strong>读文件 → 改字典 → 写文件</strong> 三步：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户敲命令 → load_config() → 在内存字典里增/删/改 → save_config() → 程序退出</span><br></pre></td></tr></table></figure>
-
-<p><code>Path.home()</code> 跨平台取用户目录，Windows 是 <code>C:\Users\你的用户名</code>，macOS 是 <code>/Users/你的用户名</code>。配置文件放这里不会被 git 跟踪到，也不会跟项目代码混在一起。</p>
-<h2 id="启动软件的两种姿势"><a href="#启动软件的两种姿势" class="headerlink" title="启动软件的两种姿势"></a>启动软件的两种姿势</h2><p>Windows 上打开东西分两种情况：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ext = os.path.splitext(path)[<span class="number">1</span>].lower()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ext <span class="keyword">in</span> (<span class="string">&quot;.docx&quot;</span>, <span class="string">&quot;.pdf&quot;</span>, <span class="string">&quot;.png&quot;</span>, ...):</span><br><span class="line">    os.startfile(path)           <span class="comment"># 文档：让Windows用默认程序打开</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    subprocess.Popen(cmd, shell=<span class="literal">True</span>)  <span class="comment"># 可执行文件：直接运行</span></span><br></pre></td></tr></table></figure>
-
-<p><strong><code>.exe</code> 程序文件</strong> → 自己跑起来，所以用 <code>subprocess.Popen</code>，新开一个进程执行。</p>
-<p><strong><code>.docx</code> &#x2F; <code>.pdf</code> 文档文件</strong> → 自己不运行，是让关联程序打开它。<code>os.startfile</code> 等价于你在资源管理器里双击文件，Windows 自动找 Word 或 PDF 阅读器代开。</p>
-<p><code>subprocess.Popen(cmd, shell=True)</code> 怎么理解？<code>shell=True</code> 就是交给 Windows 的 cmd 去解释命令字符串。跟 C 语言里 <code>system(&quot;notepad.exe&quot;)</code> 干的是一模一样的事——调操作系统帮你启动程序。区别是 <code>Popen</code> 可以拿到进程对象，不阻塞当前脚本，更灵活。</p>
-<h2 id="最巧妙的技巧：偷偷帮你补全命令"><a href="#最巧妙的技巧：偷偷帮你补全命令" class="headerlink" title="最巧妙的技巧：偷偷帮你补全命令"></a>最巧妙的技巧：偷偷帮你补全命令</h2><p>这是 186 行里我最喜欢的设计。看这段：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">COMMANDS = &#123;<span class="string">&quot;create&quot;</span>, <span class="string">&quot;delete&quot;</span>, <span class="string">&quot;list&quot;</span>, <span class="string">&quot;show&quot;</span>, <span class="string">&quot;add&quot;</span>, <span class="string">&quot;remove&quot;</span>, <span class="string">&quot;launch&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(sys.argv) &gt; <span class="number">1</span> <span class="keyword">and</span> sys.argv[<span class="number">1</span>] <span class="keyword">not</span> <span class="keyword">in</span> COMMANDS \</span><br><span class="line">        <span class="keyword">and</span> <span class="keyword">not</span> sys.argv[<span class="number">1</span>].startswith(<span class="string">&quot;-&quot;</span>):</span><br><span class="line">    sys.argv.insert(<span class="number">1</span>, <span class="string">&quot;launch&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>思路：如果用户敲的第一个词不是已知命令，就当他是在说 workspace 名字，自动在前面塞一个 <code>&quot;launch&quot;</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">用户输入:  python workspace.py design</span><br><span class="line">                       ↓ 检测 &quot;design&quot; 不在命令列表里</span><br><span class="line">实际变成:  python workspace.py launch design</span><br></pre></td></tr></table></figure>
-
-<p>少打 <code>launch</code> 六个字符，体验直接起飞。这是在 argparse 解析之前偷偷改了 <code>sys.argv</code>，把输入”骗”成合法格式。</p>
-<h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2><p>186 行代码，吃透后学到 6 样东西：</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>知识点</th>
-<th>关键</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>命令分发</td>
-<td>字典映射函数 &#x3D; Python 的 switch</td>
-</tr>
-<tr>
-<td>2</td>
-<td>argparse</td>
-<td>命令行 → 结构体，字段即参数</td>
-</tr>
-<tr>
-<td>3</td>
-<td>JSON 持久化</td>
-<td>程序的”记忆”，读-改-写三步</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Popen + startfile</td>
-<td>程序自己跑，文档找人代开</td>
-</tr>
-<tr>
-<td>5</td>
-<td>shell&#x3D;True</td>
-<td>跟 C 的 system() 一回事</td>
-</tr>
-<tr>
-<td>6</td>
-<td>argv 前置注入</td>
-<td>解析前动手脚，省用户打字</td>
-</tr>
-</tbody></table>
-<p>最重要的领悟是：<strong>代码不是跑起来就行，读懂设计意图才算真的掌握。</strong> 你多学到的每一点，下次自己写代码时都会冒出来帮你。</p>
-<hr>
-<p>源码地址：<a target="_blank" rel="noopener" href="https://github.com/hinder110/workspace-manager">github.com&#x2F;hinder110&#x2F;workspace-manager</a></p>
 
       
     </div>
@@ -1670,7 +1633,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
