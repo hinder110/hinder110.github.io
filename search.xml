@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Harness思考</title>
+      <link href="/2026/05/11/harners%E6%80%9D%E8%80%83/"/>
+      <url>/2026/05/11/harners%E6%80%9D%E8%80%83/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1️⃣-概念对比"><a href="#1️⃣-概念对比" class="headerlink" title="1️⃣ 概念对比"></a>1️⃣ 概念对比</h2><p>什么是MCP</p><p>MCP是Model Context Protocol，他的意思是，可以让ai大模型，通过这个MCP服务器参与自身LangChain以外的一种信息获取渠道</p><p>什么是LangChain呢？</p><p>我的理解是langchain是一个镶嵌在ai大模型的外部框架。他将把你的问题经由ai大模型分析拆解，然后交给langchain去分单元去处理。</p><p>![ChatGPT Image 2026年5月11日 17_41_01](..&#x2F;image&#x2F;ChatGPT Image 2026年5月11日 17_41_01.png)</p><h2 id="2️⃣-联系理解"><a href="#2️⃣-联系理解" class="headerlink" title="2️⃣ 联系理解"></a>2️⃣ 联系理解</h2><ol><li>Harness 是目标<ul><li>“把大模型变成可靠可控的 agent”，是抽象的设计理念</li><li>它强调 <strong>可控性、安全、跨工具整合</strong></li></ul></li><li>LangChain 是实现手段之一<ul><li>它提供模块化工具（Chains、Agents、Memory、工具接入）</li><li>你可以用 LangChain 搭建一个 <strong>小型的 Harness</strong></li><li>例如，把文档检索、工具调用、状态管理统一封装，就形成了一个 <strong>可控 agent</strong></li></ul></li><li>MCP 是外部能力接入方式<ul><li>MCP 提供统一接口，让模型调用外部服务</li><li>LangChain &#x2F; Harness 可以直接把 MCP 作为工具接入</li><li>举例：你用 Claude Code + DeepSeek MCP → LangChain 里的 Agent 调用 MCP → 完成搜索任务</li></ul></li></ol><h2 id="3️⃣-可视化类比"><a href="#3️⃣-可视化类比" class="headerlink" title="3️⃣ 可视化类比"></a>3️⃣ 可视化类比</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">              ┌─────────────┐</span><br><span class="line">              │   Harness   │  &lt;- 目标：可靠、可控执行</span><br><span class="line">              └─────────────┘</span><br><span class="line">                     │</span><br><span class="line">      ┌──────────────┼──────────────┐</span><br><span class="line">      │              │              │</span><br><span class="line">  LangChain        MCP Server     其他工具</span><br><span class="line">(Chains/Agents/Memory) (搜索/数据库/文档) ...</span><br><span class="line">      │</span><br><span class="line">  执行任务 / 管理上下文</span><br></pre></td></tr></table></figure><blockquote><p>简单来说：</p><ul><li><strong>Harness</strong> &#x3D; 架构理念 + 工程实践</li><li><strong>LangChain</strong> &#x3D; 实现这个理念的框架</li><li><strong>MCP</strong> &#x3D; 执行中调用外部服务的接口</li></ul></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 思考 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AI </tag>
+            
+            <tag> LangChain </tag>
+            
+            <tag> MCP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>从 Web Demo 到 Tauri v2 桌面应用：一个小说阅读器的重生</title>
       <link href="/2026/05/11/2026-05-11-tauri-yueduqi/"/>
       <url>/2026/05/11/2026-05-11-tauri-yueduqi/</url>
@@ -105,11 +134,11 @@
       
         <tags>
             
+            <tag> MCP </tag>
+            
             <tag> Claude Code </tag>
             
             <tag> Skills </tag>
-            
-            <tag> MCP </tag>
             
             <tag> PowerToys </tag>
             

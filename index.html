@@ -193,6 +193,107 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://145698.xyz/2026/05/11/harners%E6%80%9D%E8%80%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/image/x2.png">
+      <meta itemprop="name" content="hinder110">
+      <meta itemprop="description" content="在电脑、书、游戏与日常之间，记录一个正在形成的世界。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宇宙纪元">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/05/11/harners%E6%80%9D%E8%80%83/" class="post-title-link" itemprop="url">Harness思考</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-05-11 18:35:43 / 修改时间：18:36:29" itemprop="dateCreated datePublished" datetime="2026-05-11T18:35:43+08:00">2026-05-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/thinking/" itemprop="url" rel="index"><span itemprop="name">思考</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1️⃣-概念对比"><a href="#1️⃣-概念对比" class="headerlink" title="1️⃣ 概念对比"></a>1️⃣ 概念对比</h2><p>什么是MCP</p>
+<p>MCP是Model Context Protocol，他的意思是，可以让ai大模型，通过这个MCP服务器参与自身LangChain以外的一种信息获取渠道</p>
+<p>什么是LangChain呢？</p>
+<p>我的理解是langchain是一个镶嵌在ai大模型的外部框架。他将把你的问题经由ai大模型分析拆解，然后交给langchain去分单元去处理。</p>
+<p>![ChatGPT Image 2026年5月11日 17_41_01](..&#x2F;image&#x2F;ChatGPT Image 2026年5月11日 17_41_01.png)</p>
+<h2 id="2️⃣-联系理解"><a href="#2️⃣-联系理解" class="headerlink" title="2️⃣ 联系理解"></a>2️⃣ 联系理解</h2><ol>
+<li>Harness 是目标<ul>
+<li>“把大模型变成可靠可控的 agent”，是抽象的设计理念</li>
+<li>它强调 <strong>可控性、安全、跨工具整合</strong></li>
+</ul>
+</li>
+<li>LangChain 是实现手段之一<ul>
+<li>它提供模块化工具（Chains、Agents、Memory、工具接入）</li>
+<li>你可以用 LangChain 搭建一个 <strong>小型的 Harness</strong></li>
+<li>例如，把文档检索、工具调用、状态管理统一封装，就形成了一个 <strong>可控 agent</strong></li>
+</ul>
+</li>
+<li>MCP 是外部能力接入方式<ul>
+<li>MCP 提供统一接口，让模型调用外部服务</li>
+<li>LangChain &#x2F; Harness 可以直接把 MCP 作为工具接入</li>
+<li>举例：你用 Claude Code + DeepSeek MCP → LangChain 里的 Agent 调用 MCP → 完成搜索任务</li>
+</ul>
+</li>
+</ol>
+<h2 id="3️⃣-可视化类比"><a href="#3️⃣-可视化类比" class="headerlink" title="3️⃣ 可视化类比"></a>3️⃣ 可视化类比</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">              ┌─────────────┐</span><br><span class="line">              │   Harness   │  &lt;- 目标：可靠、可控执行</span><br><span class="line">              └─────────────┘</span><br><span class="line">                     │</span><br><span class="line">      ┌──────────────┼──────────────┐</span><br><span class="line">      │              │              │</span><br><span class="line">  LangChain        MCP Server     其他工具</span><br><span class="line">(Chains/Agents/Memory) (搜索/数据库/文档) ...</span><br><span class="line">      │</span><br><span class="line">  执行任务 / 管理上下文</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>简单来说：</p>
+<ul>
+<li><strong>Harness</strong> &#x3D; 架构理念 + 工程实践</li>
+<li><strong>LangChain</strong> &#x3D; 实现这个理念的框架</li>
+<li><strong>MCP</strong> &#x3D; 执行中调用外部服务的接口</li>
+</ul>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://145698.xyz/2026/05/11/2026-05-11-tauri-yueduqi/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1595,106 +1696,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://145698.xyz/2026/05/01/%E7%AC%AC%E4%BA%8C%E7%AB%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/image/x2.png">
-      <meta itemprop="name" content="hinder110">
-      <meta itemprop="description" content="在电脑、书、游戏与日常之间，记录一个正在形成的世界。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="宇宙纪元">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2026/05/01/%E7%AC%AC%E4%BA%8C%E7%AB%A0/" class="post-title-link" itemprop="url">第二章</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2026-05-01 15:41:03" itemprop="dateCreated datePublished" datetime="2026-05-01T15:41:03+08:00">2026-05-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-05-05 21:15:49" itemprop="dateModified" datetime="2026-05-05T21:15:49+08:00">2026-05-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/writing/" itemprop="url" rel="index"><span itemprop="name">写作</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <pre><code>我们继续开始苏明的故事
-</code></pre>
-<p>在苏娜的生日的第二天，一切都好像回归到了平静，没有太多的激动，也没有太多的悲伤，一切都会到了，正轨，这天苏明正在接苏娜回家的路上遇见了，领居米彩，这个邻居是最近才搬到苏明家周围的。</p>
-<p>苏娜对于这个新邻居抱有很大的兴趣，怎么说呢，因为国家补贴的五十万的资金，再加上苏明的经商头脑，在这个时期，苏明和苏娜都有很轻松和舒适的生活。而米彩的到来也为苏明和苏娜的生活带来了一抹特殊<br>的色彩。</p>
-<p>苏娜露出虎牙开心的对着米彩说到:“米彩姐，今天也好美啊!”一个大概二十五岁左右的一个性感的女性出现在苏明面前。</p>
-<p>“苏娜今天有好好学习吗？上次姐姐借你的书还喜欢吗。没有给你哥哥添麻烦吧。”米彩的身材很好，但是她的脸长得很显小，如果说以地区划分世界上的美女的话，米彩应该属于日本那类的女生。</p>
-<p>“当然有好好看呀，要不是哥哥非得让我熄灯睡觉，我一定昨天晚上就看完那本书了。”苏娜吐吐舌头，旁边的苏明一脸正色好像两人讨论的不是自己一般。</p>
-<p>“谁叫你白天的时候不看，非得晚上看的，还怪我说你。”苏明边说边拿起左手给了苏娜一巴掌。</p>
-<p>苏娜偷偷的用左手掐了苏明的腰，眼睛贼兮兮的看着苏明。苏明突然接受到暴击，小跳了一步。旁边的米彩看着嬉闹的两人，捂着嘴笑了起来。</p>
-<p>“看来你们兄妹的关系是真的好啊，真羡慕呢，羡慕苏娜有你这样温柔的哥哥呢。”米彩明媚的眼神看向苏明。</p>
-<p>苏明察觉到了这样的眼神中有一种看似喜欢的情绪存在，但是苏明还不确定这种情绪是不是爱情。</p>
-<p>“谁要跟这个傻大粗当好兄妹啊，但是如果他认真的祈求我这个大美女的话，也不是不可以勉勉强强，哈哈哈哈哈哈。”苏娜还没有说完的时候苏明一只手捂着苏娜的嘴。强制打断了，苏娜的魔法攻击。</p>
-<p>“米彩姐姐吃饭了吗，要一起去吃饭吗？”苏明看向捂嘴偷笑的米彩，“如果苏明弟弟认真邀请我的话，我也不是不可以去。”苏明也被米彩皎洁的笑容感染了，顺利的被气笑了。</p>
-<p>“苏娜，你快去家里写作业，我给你带回来。”苏明用命令式的语气和苏娜说到。</p>
-<p>“不要嘛，我也要去嘛，米彩姐姐你快看苏明。”苏娜可怜兮兮的看向米彩，米彩小姐，眼睛中泛着妩媚，和苏娜说道“刚刚还说要好好学习的，姐姐一会儿给你带礼物回来。”</p>
-<p>苏娜的可怜兮兮的独自回家了，像一只失去归家方向的蚂蚁。</p>
-<p>看着苏娜远去，苏明看向米彩，经过刚刚的确认苏明确定，米彩对自己的情感是一种爱慕或者说是羡慕，还有对自己的渴望。</p>
-<p>在这个世界，得到一个人的身体是很简单的，你只需要有一个能力就是有一个可以了解到一个人内心空虚的眼睛，而苏明刚刚好有这样的能力，而米彩确实对苏明有一种喜欢。</p>
-<p>“去吃烤肉怎么样，米彩小姐。”米彩眉头先是紧促又展开，“当然可以，好久没吃烤肉啦。再说有苏明这样的小帅哥，我相信没有哪个女生可以拒绝，是吧苏明帅哥，”米彩嘴角上扬，以一种调戏的口吻对苏明说到。</p>
-<p>苏明没有回答什么，回答米彩的是苏明含情脉脉的眼神，在苏明的注视下，米彩心里痒痒的，在米彩还沉浸在苏明的富含盛情的眼神中时，苏明的右手悄悄的伸向了米彩的左手。轻轻的抚摸着四根手指，用中指轻轻的摩擦米彩的手心，米彩的脸瞬间红了一大片。</p>
-<p>这一刻仿佛时间都开始停止流动了，时间像是护士纤细的手指轻轻的触摸苏明和米彩的脸颊，一颗深蓝色的瞳孔中，是米彩羞红的脸颊。</p>
-<p>米彩愣了片刻，手像是触电了一样麻麻的，她想要把自己的手伸回来，但是她逐渐沉迷于，苏明纤细的手指的触摸的感觉中，这很奇怪，米彩在大学毕业以后很久很久没有这种感觉了。</p>
-<p>米彩在大学的时候，为了追一个男生，或者说是她沉迷于对于男生的追求。她在大学之前一直是一个中国式的好学生，几乎没有任何的和异性相处的经历。这也几乎可以预见的使她无法的正确的在亲密关系中做出对的选择。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1762,7 +1767,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1775,7 +1780,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
