@@ -20,21 +20,23 @@
     var CONFIG = {"hostname":"145698.xyz","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":16,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#d8794a","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":true,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"fadeIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="所谓的编程就是一个创造的过程程序员是将自己的构思用计算机表达的一种人  程序员大多是乐观主义者  程序实现其实是有物理上的难题的  但是乐观主义不应该理所当然的怪罪物理上的难题  Brooks法则：     向进度落后的项目派人手，只会让进度更加慢。">
+  <meta name="description" content="从 Windows 到 Linux：我的 CachyOS 折腾记录为什么选 CachyOSWindows 开机 70 度的发热让我烦了很久。之前在虚拟机里试过几次 Linux，觉得还行，这次直接双系统装了 CachyOS（一个基于 Arch 的优化发行版）。选它是因为：预编译内核针对桌面做了优化，pacman 包管理干净，AUR 包源几乎无所不有。 笔记本是华硕 TUF A15，AMD 核显 +">
 <meta property="og:type" content="article">
-<meta property="og:title" content="人月神话—阅读笔记">
-<meta property="og:url" content="https://145698.xyz/2025/04/12/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D%E2%80%94%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="从 Windows 到 Linux：我的 CachyOS 折腾记录">
+<meta property="og:url" content="https://145698.xyz/2026/05/15/2026-05-15-linux-cachyos-setup/index.html">
 <meta property="og:site_name" content="宇宙纪元">
-<meta property="og:description" content="所谓的编程就是一个创造的过程程序员是将自己的构思用计算机表达的一种人  程序员大多是乐观主义者  程序实现其实是有物理上的难题的  但是乐观主义不应该理所当然的怪罪物理上的难题  Brooks法则：     向进度落后的项目派人手，只会让进度更加慢。">
+<meta property="og:description" content="从 Windows 到 Linux：我的 CachyOS 折腾记录为什么选 CachyOSWindows 开机 70 度的发热让我烦了很久。之前在虚拟机里试过几次 Linux，觉得还行，这次直接双系统装了 CachyOS（一个基于 Arch 的优化发行版）。选它是因为：预编译内核针对桌面做了优化，pacman 包管理干净，AUR 包源几乎无所不有。 笔记本是华硕 TUF A15，AMD 核显 +">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-04-12T06:57:46.000Z">
-<meta property="article:modified_time" content="2026-05-05T13:15:48.023Z">
+<meta property="article:published_time" content="2026-05-15T05:30:00.000Z">
+<meta property="article:modified_time" content="2026-05-15T05:56:56.919Z">
 <meta property="article:author" content="hinder110">
-<meta property="article:tag" content="读书笔记">
-<meta property="article:tag" content="软件工程">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="配置">
+<meta property="article:tag" content="生活方式">
+<meta property="article:tag" content="Arch">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://145698.xyz/2025/04/12/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D%E2%80%94%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
+<link rel="canonical" href="https://145698.xyz/2026/05/15/2026-05-15-linux-cachyos-setup/">
 
 
 <script id="page-configurations">
@@ -47,7 +49,7 @@
   };
 </script>
 
-  <title>人月神话—阅读笔记 | 宇宙纪元</title>
+  <title>从 Windows 到 Linux：我的 CachyOS 折腾记录 | 宇宙纪元</title>
   
 
 
@@ -198,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://145698.xyz/2025/04/12/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D%E2%80%94%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="https://145698.xyz/2026/05/15/2026-05-15-linux-cachyos-setup/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/image/x2.png">
@@ -211,7 +213,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          人月神话—阅读笔记
+          从 Windows 到 Linux：我的 CachyOS 折腾记录
         </h1>
 
         <div class="post-meta">
@@ -220,23 +222,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2025-04-12 14:57:46" itemprop="dateCreated datePublished" datetime="2025-04-12T14:57:46+08:00">2025-04-12</time>
+              <time title="创建时间：2026-05-15 13:30:00 / 修改时间：13:56:56" itemprop="dateCreated datePublished" datetime="2026-05-15T13:30:00+08:00">2026-05-15</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-05-05 21:15:48" itemprop="dateModified" datetime="2026-05-05T21:15:48+08:00">2026-05-05</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/reading/" itemprop="url" rel="index"><span itemprop="name">读书</span></a>
+                  <a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">tech</span></a>
                 </span>
             </span>
 
@@ -251,17 +247,67 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="所谓的编程就是一个创造的过程"><a href="#所谓的编程就是一个创造的过程" class="headerlink" title="所谓的编程就是一个创造的过程"></a>所谓的编程就是一个创造的过程</h1><pre><code>程序员是将自己的构思用计算机表达的一种人
+        <h1 id="从-Windows-到-Linux：我的-CachyOS-折腾记录"><a href="#从-Windows-到-Linux：我的-CachyOS-折腾记录" class="headerlink" title="从 Windows 到 Linux：我的 CachyOS 折腾记录"></a>从 Windows 到 Linux：我的 CachyOS 折腾记录</h1><h2 id="为什么选-CachyOS"><a href="#为什么选-CachyOS" class="headerlink" title="为什么选 CachyOS"></a>为什么选 CachyOS</h2><p>Windows 开机 70 度的发热让我烦了很久。之前在虚拟机里试过几次 Linux，觉得还行，这次直接双系统装了 CachyOS（一个基于 Arch 的优化发行版）。选它是因为：预编译内核针对桌面做了优化，pacman 包管理干净，AUR 包源几乎无所不有。</p>
+<p>笔记本是华硕 TUF A15，AMD 核显 + RTX 4060 Max-Q，16GB 内存。</p>
+<hr>
+<h2 id="桌面：niri-noctalia-shell"><a href="#桌面：niri-noctalia-shell" class="headerlink" title="桌面：niri + noctalia-shell"></a>桌面：niri + noctalia-shell</h2><p>Wayland 时代终于可以放弃 X11 的各种 hack。选了 niri 这个 Wayland 合成器——KDL 格式配置，分文件管理，干净利落：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">~/.config/niri/</span><br><span class="line">├── config.kdl          # 主配置，导入子文件</span><br><span class="line">└── cfg/</span><br><span class="line">    ├── display.kdl     # 2560x1440@165Hz, 缩放 150%, VRR</span><br><span class="line">    ├── input.kdl       # 键盘/触摸板/鼠标</span><br><span class="line">    ├── keybinds.kdl    # 快捷键</span><br><span class="line">    ├── misc.kdl        # 环境变量、截图路径</span><br><span class="line">    ├── rules.kdl       # 窗口规则、圆角 20px</span><br><span class="line">    ├── autostart.kdl   # 自启动</span><br><span class="line">    ├── layout.kdl      # 窗口布局、间距</span><br><span class="line">    └── animation.kdl   # 弹簧动画</span><br></pre></td></tr></table></figure>
 
-程序员大多是乐观主义者
+<p>桌面壳用的是 <strong>noctalia-shell</strong>——Qt Quick 写的，动画流畅，自带 bar、launcher、通知中心、壁纸管理。和 niri 配合得很好。</p>
+<p>缩放 150% 在 Wayland 下原生支持，比 Windows 的高 DPI 处理舒服太多。Firefox 和 GTK 应用也不用再折腾缩放。</p>
+<hr>
+<h2 id="中文输入"><a href="#中文输入" class="headerlink" title="中文输入"></a>中文输入</h2><p>fcitx5 在 Wayland 下比 Windows 的微软拼音差不了多少，关键是不会弹广告。安装后在 niri 环境变量里加上 <code>GTK_IM_MODULE=fcitx</code> 和 <code>QT_IM_MODULE=fcitx</code> 就行。</p>
+<hr>
+<h2 id="终端：Alacritty-pywal"><a href="#终端：Alacritty-pywal" class="headerlink" title="终端：Alacritty + pywal"></a>终端：Alacritty + pywal</h2><p>终端是我最在意的工具。Alacritty 是 Rust 写的 GPU 加速终端模拟器，比 Windows Terminal 还快。配置 TOML 格式：</p>
+<ul>
+<li>JetBrains Mono，字号 11</li>
+<li>透明度 0.85，padding 适中</li>
+<li>颜色由 <strong>pywal</strong> 自动从壁纸提取——每次换壁纸后自动更新终端配色</li>
+</ul>
+<p>pywal 配合 noctalia 的 hooks 自动工作：换壁纸 → 触发脚本 → 提取颜色 → 写入 Alacritty 配色文件。全程无感。</p>
+<hr>
+<h2 id="软件生态"><a href="#软件生态" class="headerlink" title="软件生态"></a>软件生态</h2><table>
+<thead>
+<tr>
+<th>用途</th>
+<th>方案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>聊天</td>
+<td>QQ（官方 Linux 版）+ 微信</td>
+</tr>
+<tr>
+<td>办公</td>
+<td>WPS Office（AUR），缩放用环境变量设 1.5 倍</td>
+</tr>
+<tr>
+<td>笔记</td>
+<td>Typora-free 0.11.18 — 最后一个免费版</td>
+</tr>
+<tr>
+<td>浏览器</td>
+<td>Firefox + FF Ultima 主题 + Catppuccin 配色</td>
+</tr>
+<tr>
+<td>终端</td>
+<td>Alacritty + JetBrains Mono + pywal 配色</td>
+</tr>
+<tr>
+<td>包管理</td>
+<td>pacman + paru（AUR 助手）</td>
+</tr>
+</tbody></table>
+<p>AUR 上的包名带 <code>-bin</code> 后缀是预编译版，下载即用；<code>-git</code> 是源码编译版，更折腾但版本最新。日常用 <code>-bin</code> 就行。</p>
+<hr>
+<h2 id="博客迁移"><a href="#博客迁移" class="headerlink" title="博客迁移"></a>博客迁移</h2><p>之前的 Hexo 博客在 Windows F 盘上，Linux 直接挂载 NTFS 分区复制过来：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> mount -t ntfs3 /dev/nvme1n1p1 /mnt/windows-f</span><br><span class="line">rsync -av --exclude=<span class="string">&#x27;node_modules&#x27;</span> /mnt/windows-f/Hexo-Blog/blog-demo/ ~/hexo-blog/</span><br><span class="line"><span class="built_in">cd</span> ~/hexo-blog &amp;&amp; npm install</span><br></pre></td></tr></table></figure>
 
-程序实现其实是有物理上的难题的
-
-但是乐观主义不应该理所当然的怪罪物理上的难题
-
-Brooks法则：
-    向进度落后的项目派人手，只会让进度更加慢。
-</code></pre>
+<p>SSH 密钥重新生成，加到 GitHub，部署命令不变：<code>npx hexo generate -d</code>。</p>
+<hr>
+<h2 id="感受"><a href="#感受" class="headerlink" title="感受"></a>感受</h2><p>同样的硬件，Linux 下日常使用 CPU 温度 40-50 度，风扇安静。没有 Windows Update 后台偷跑，没有杀毒软件扫来扫去，没有厂商预装的各类服务。</p>
+<p>包管理器的体验也确实比 Windows 的 exe 安装包 + 手动更新强一个维度。一条命令更新全系统——包括内核、驱动、所有软件和 AUR 包。</p>
+<p>有些东西 Linux 确实不行（微信的视频通话、QQ 小程序、某些国内软件），但大部分日常开发和学习场景完全够用，甚至更舒服。</p>
 
     </div>
 
@@ -271,8 +317,10 @@ Brooks法则：
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag"># 读书笔记</a>
-              <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" rel="tag"># 软件工程</a>
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/%E9%85%8D%E7%BD%AE/" rel="tag"># 配置</a>
+              <a href="/tags/%E7%94%9F%E6%B4%BB%E6%96%B9%E5%BC%8F/" rel="tag"># 生活方式</a>
+              <a href="/tags/Arch/" rel="tag"># Arch</a>
           </div>
 
         
@@ -281,13 +329,10 @@ Brooks法则：
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2025/04/07/study/" rel="prev" title="study">
-      <i class="fa fa-chevron-left"></i> study
+    <a href="/2026/05/11/%E5%B8%AE%E5%88%AB%E4%BA%BA%20vs%20%E4%B8%8D%E5%B8%AE/" rel="prev" title="帮别人 vs 不帮">
+      <i class="fa fa-chevron-left"></i> 帮别人 vs 不帮
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2025/04/15/%E5%A5%B3%E7%A5%9E%E5%BC%82%E9%97%BB%E5%BD%955/" rel="next" title="女神异闻录5">
-      女神异闻录5 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -346,7 +391,7 @@ Brooks法则：
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%80%E8%B0%93%E7%9A%84%E7%BC%96%E7%A8%8B%E5%B0%B1%E6%98%AF%E4%B8%80%E4%B8%AA%E5%88%9B%E9%80%A0%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="nav-text">所谓的编程就是一个创造的过程</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%8E-Windows-%E5%88%B0-Linux%EF%BC%9A%E6%88%91%E7%9A%84-CachyOS-%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95"><span class="nav-text">从 Windows 到 Linux：我的 CachyOS 折腾记录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89-CachyOS"><span class="nav-text">为什么选 CachyOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A1%8C%E9%9D%A2%EF%BC%9Aniri-noctalia-shell"><span class="nav-text">桌面：niri + noctalia-shell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5"><span class="nav-text">中文输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%88%E7%AB%AF%EF%BC%9AAlacritty-pywal"><span class="nav-text">终端：Alacritty + pywal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E7%94%9F%E6%80%81"><span class="nav-text">软件生态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB"><span class="nav-text">博客迁移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%84%9F%E5%8F%97"><span class="nav-text">感受</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

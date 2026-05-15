@@ -193,6 +193,108 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://145698.xyz/2025/04/16/React%E7%9A%84%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/image/x2.png">
+      <meta itemprop="name" content="hinder110">
+      <meta itemprop="description" content="在电脑、书、游戏与日常之间，记录一个正在形成的世界。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宇宙纪元">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/04/16/React%E7%9A%84%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">React的基础学习</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-04-16 18:14:57" itemprop="dateCreated datePublished" datetime="2025-04-16T18:14:57+08:00">2025-04-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2026-05-05 21:15:47" itemprop="dateModified" datetime="2026-05-05T21:15:47+08:00">2026-05-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="工具的介绍"><a href="#工具的介绍" class="headerlink" title="工具的介绍"></a>工具的介绍</h1><p>实现这一切的第一步是 node.js的实现这个是的下载的，可以在node.js官网去下载，最好的就是下载18 以后的版本，这个和后面的vite有关，vite可以去看vite的文档，是vue的作者写的。</p>
+<p>这里需要命令的实现我把命令列在下面。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm config set registry https://registry.npmmirror.com</span><br><span class="line"></span><br><span class="line">$ npm install -g cnpm --registry=https://registry.npmmirror.com</span><br></pre></td></tr></table></figure>
+<p>这个是npm的换<a target="_blank" rel="noopener" href="https://npmmirror.com/">国内的mirro</a>r。</p>
+<p>接下来是我们的<a target="_blank" rel="noopener" href="https://cn.vitejs.dev/guide/#manual-installation">Vite的工具</a>，这个工具是为了高效的创建react框架，这完全不需要自己来弄，因为这些机械的动作现在越来越复杂了，其实完全不需要人来做这些事情。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm create vite@latest my-vue-app -- --template vue</span><br></pre></td></tr></table></figure>
+
+<pre><code>查看 [create-vite](https://github.com/vitejs/vite/tree/main/packages/create-vite) 以获取每个模板的更多细节：`vanilla`，`vanilla-ts`，`vue`，`vue-ts`，`react`，`react-ts`，`react-swc`，`react-swc-ts`，`preact`，`preact-ts`，`lit`，`lit-ts`，`svelte`，`svelte-ts`，`solid`，`solid-ts`，`qwik`，`qwik-ts`。
+</code></pre>
+<p>接下来的就按照命令行提示的做就OK了。</p>
+<p>这里有个<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UwvnX2LMHM8&list=PLqnFkPONWkGclnolE98Ho9lwYFSR8ijpw&index=14">YouTuber</a>讲这个框架。虽然我不觉的视频学习很高效但是，对于复杂的环境的配置，尤其是Windows这一方面的配置，是很复杂的，也是很不高效的。所以在这里按照视频里来做也没什么不好的。</p>
+<p>当然最重要的还是<a target="_blank" rel="noopener" href="https://zh-hans.react.dev/learn">react的学习</a>这里附加啦react的网址。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Square</span>(<span class="params">&#123; value &#125;</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">className</span>=<span class="string">&quot;square&quot;</span>&gt;</span>&#123;value&#125;<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Board</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;board-row&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> <span class="attr">value</span>=<span class="string">&quot;1&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> <span class="attr">value</span>=<span class="string">&quot;2&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> <span class="attr">value</span>=<span class="string">&quot;3&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;board-row&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> <span class="attr">value</span>=<span class="string">&quot;4&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> <span class="attr">value</span>=<span class="string">&quot;5&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> <span class="attr">value</span>=<span class="string">&quot;6&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;board-row&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> <span class="attr">value</span>=<span class="string">&quot;7&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> <span class="attr">value</span>=<span class="string">&quot;8&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> <span class="attr">value</span>=<span class="string">&quot;9&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>props 中大概有的思想，一定是泛型编程了。是函数对函数的调用。</p>
+<p>当你单击它的时候，<code>Square</code> 组件需要显示“X”。在 <code>Square</code> 内部声明一个名为 <code>handleClick</code> 的函数。然后，将 <code>onClick</code> 添加到由 <code>Square</code> 返回的 JSX 元素的 button 的 props 中：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Square</span>(<span class="params">&#123; value &#125;</span>) &#123;  <span class="keyword">function</span> <span class="title function_">handleClick</span>(<span class="params"></span>) &#123;    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;clicked!&#x27;</span>);  &#125;  <span class="keyword">return</span> (    <span class="language-xml"><span class="tag">&lt;<span class="name">button</span>      <span class="attr">className</span>=<span class="string">&quot;square&quot;</span>      <span class="attr">onClick</span>=<span class="string">&#123;handleClick&#125;</span>    &gt;</span>      &#123;value&#125;    <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span>  );&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>function</em> handleClick() {    <em>console.log(‘clicked!’)</em>; and onClick&#x3D;{handleClick} </p>
+<p>下一步，我们希望 <strong>Square</strong> 组件能够“记住”它被单击过，并用“X”填充它。为了“记住”一些东西，组件使用 <em>state</em>。</p>
+<p><strong>state</strong> – <em>使用狀態</em></p>
+<p>让我们将 <code>Square</code> 的当前值存储在 state 中，并在单击 <code>Square</code> 时更改它。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Square</span>(<span class="params"></span>) &#123;  </span><br><span class="line">  <span class="keyword">const</span> [value, setValue] = <span class="title function_">useState</span>(<span class="literal">null</span>);  </span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">handleClick</span>(<span class="params"></span>) &#123;    <span class="comment">//...</span></span><br></pre></td></tr></table></figure>
+
+<p><code>value</code> 存储值，而 <code>setValue</code> 是可用于更改值的函数。</p>
+<p>传递给 <code>useState</code> 的 <code>null</code> 用作这个 state 变量的初始值，因此此处 <code>value</code> 的值开始时等于 <code>null</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Square</span>(<span class="params"></span>) &#123;  <span class="keyword">const</span> [value, setValue] = <span class="title function_">useState</span>(<span class="literal">null</span>);  <span class="keyword">function</span> <span class="title function_">handleClick</span>(<span class="params"></span>) &#123;    <span class="title function_">setValue</span>(<span class="string">&#x27;X&#x27;</span>);  &#125;  <span class="keyword">return</span> (    <span class="language-xml"><span class="tag">&lt;<span class="name">button</span>      <span class="attr">className</span>=<span class="string">&quot;square&quot;</span>      <span class="attr">onClick</span>=<span class="string">&#123;handleClick&#125;</span>    &gt;</span>      &#123;value&#125;    <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span>  );&#125;</span><br></pre></td></tr></table></figure>
+
+<p>每个 Square 都有自己的 state：存储在每个 Square 中的 <code>value</code> 完全独立于其他的 Square。当你在组件中调用 set 函数时，React 也会自动更新内部的子组件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Square</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [value, setValue] = <span class="title function_">useState</span>(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">handleClick</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">setValue</span>(<span class="string">&#x27;X&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">button</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">className</span>=<span class="string">&quot;square&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">onClick</span>=<span class="string">&#123;handleClick&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    &gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;value&#125;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Board</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;board-row&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;board-row&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;board-row&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Square</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://145698.xyz/2025/04/15/%E6%88%91%E5%92%8C%E5%A4%A7%E5%B0%8F%E5%A7%90%E7%9A%84%E6%95%85%E4%BA%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1099,116 +1201,6 @@ Brooks法则：
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://145698.xyz/2025/03/02/21%E5%B2%81%E7%94%9F%E6%97%A5%E6%97%A5%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/image/x2.png">
-      <meta itemprop="name" content="hinder110">
-      <meta itemprop="description" content="在电脑、书、游戏与日常之间，记录一个正在形成的世界。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="宇宙纪元">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/03/02/21%E5%B2%81%E7%94%9F%E6%97%A5%E6%97%A5%E8%AE%B0/" class="post-title-link" itemprop="url">21岁生日日记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2025-03-02 17:39:56" itemprop="dateCreated datePublished" datetime="2025-03-02T17:39:56+08:00">2025-03-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-05-05 21:15:47" itemprop="dateModified" datetime="2026-05-05T21:15:47+08:00">2026-05-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/diary/" itemprop="url" rel="index"><span itemprop="name">日记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="今天的博客"><a href="#今天的博客" class="headerlink" title="今天的博客"></a>今天的博客</h1><p>今天是我的生日哈哈哈，相信世界上还有很多人和我一样来庆祝这天。</p>
-<p>祝你们生日快乐，我未知的朋友们，虽然我们几乎永远不能相见。</p>
-<p><img src="https://th.bing.com/th/id/OIP.fpgWQiafg-Zgo1OaXfTFKgHaJN?rs=1&pid=ImgDetMain"></p>
-<p>其实我想在这一天一个人自娱自乐的，可惜我的英语挂科了。</p>
-<p>其实我在高中时期就开始不那么关注生日啦，但是最近我仔细思考，我想我们的生日，大概率就只有父母和自己才最清楚。我其实大概不太记得我的父母的生日。</p>
-<p>我很庆幸我的父母记得我的生日，我很感谢他们。我之前读过太多关于原生家庭的书，我开始追求摆脱一切有关原生家庭的糟粕。</p>
-<p>但糟粕和蜜糖在我们的相处中是难以区分的。</p>
-<p>我为我可以独立的完成某种神秘的仪式来度过我的二十一岁而高兴。</p>
-<p>我相信我在取悦自己，😄😄😄我喜欢这种感觉，像极了我小时候自己一个人玩乐高的时候，感谢乐高，哈哈哈哈哈哈。没有他们真的会给我造成很大麻烦的，我恐怕会无聊死。</p>
-<p>今天有人给我买蛋糕，但我拒绝啦。我可能害怕破坏我自己创造的神秘仪式。也就是我自娱自乐的情趣，如果有人来参与这个过程我恐怕会觉得我的秘密活动被人猜透了，哈哈哈在这方面我还真的很有趣呢。</p>
-<p>送我蛋糕，<br>我说不要，<br>和我说我送你啦，你不拿是你的事情。<br>她应该知道我不会浪费，哈哈哈哈哈。<br>看来我的秘密计划被人识破了，好难受啊。<br>她可真是拿准我了，我无所谓啦，但是我讨厌，我要说我不喜欢。<br>讨厌自己的计划被人无情的打破🐸</p>
-<p>贴一张我最喜欢的动漫Eva的图片!!!</p>
-<p><img src="https://th.bing.com/th/id/OIP.vkTZCatpyqtka8THV8ZDNwHaIs?w=158&h=185&c=7&r=0&o=5&dpr=2&pid=1.7"></p>
-<hr>
-<h1 id="故事"><a href="#故事" class="headerlink" title="故事"></a>故事</h1><p>小故事:在一个很偏远的村庄,故事发生在这个村庄的坡上。</p>
-<p>灰色和红色的流沙，铺满了这个世界，太阳是红色的，黑色的颗粒，在这里飞舞。</p>
-<p>在这个村庄中的四个方向和天空还有地里世界中存在六个可怕的存在。</p>
-<p>他们是这个世界规则，错乱之后的存在，也许是世界诞生之前就存在的。</p>
-<p>这里有哥特式的尖顶琼楼，还有英国基督教的教堂，当然还有道观还有寺庙。</p>
-<p>他们赫然独立于黑纱之中，这些建筑将黑纱撑开，开辟了红色的光。</p>
-<p>一个穿着僧人衣着的青年光头从寺庙里走了出来，与此同时在小光头走出来后，道观里的道士也走了出来。</p>
-<p>这个道士留着长长的胡子，拿着像是小型拖把一样的法器。</p>
-<p>小和尚对道士说，听说你们的天师把西边那个奇异生物杀死了？</p>
-<p>小和尚一边说一边挑着眉似乎是在试探着这个道士。</p>
-<p>道士可不吃这一套，道士撇眼看向小和尚，心里估计嘀咕着这小光头，也太不了解道士了吧。</p>
-<p>嗤笑到，你们家的菩萨可不比我们的天师弱啊，相传菩萨摆渡众生。</p>
-<p>在这个可怕的世界，人们开始在宗教中获得力量。来对抗六只奇异带来的破坏。</p>
-<p>小和尚沉默不语，深沉地看着道士，看着道士那一脸鄙夷，最讨人厌的是他的右手中指在抠鼻子。</p>
-<p>小和尚快破防了，如果他们的世界有破防二字。</p>
-<p>一个穿着破烂衣服的农民来到小和尚和道士身边，小和尚很明显有点嫌弃这个农民。他长得很黑，估计这小和尚会觉得他从出生就开始这么黑。</p>
-<p>农民憋着令人不适的微笑，讨好地向小和尚和道士说道，多亏了你们我们才可以无忧地耕地。</p>
-<p>小和尚率先回道:”都是我们菩萨心善，来消灭苦难，鼓励大家努力工作，追求下一世的富足和安宁，而我们的菩萨会摆渡你们。”</p>
-<p>道士笑而不语</p>
-<p>突然间，东南西北地里天上，黑色的力量，形成浓郁的黑色液体包裹着这个世界的天空，连红色的太阳也消失了</p>
-<p>一切开始消散，变成碎片粉末，连同小和尚和道士神秘的笑容，以及农民奇怪的笑容。</p>
-<p>突然我的梦醒了哈哈哈哈哈哈哈</p>
-<p>(以上都是昨天晚上做的梦，切勿当真😄)</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1280,20 +1272,20 @@ Brooks法则：
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-count">47</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

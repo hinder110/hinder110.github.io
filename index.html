@@ -193,6 +193,134 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://145698.xyz/2026/05/15/2026-05-15-linux-cachyos-setup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/image/x2.png">
+      <meta itemprop="name" content="hinder110">
+      <meta itemprop="description" content="在电脑、书、游戏与日常之间，记录一个正在形成的世界。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宇宙纪元">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/05/15/2026-05-15-linux-cachyos-setup/" class="post-title-link" itemprop="url">从 Windows 到 Linux：我的 CachyOS 折腾记录</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-05-15 13:30:00 / 修改时间：13:56:56" itemprop="dateCreated datePublished" datetime="2026-05-15T13:30:00+08:00">2026-05-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">tech</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="从-Windows-到-Linux：我的-CachyOS-折腾记录"><a href="#从-Windows-到-Linux：我的-CachyOS-折腾记录" class="headerlink" title="从 Windows 到 Linux：我的 CachyOS 折腾记录"></a>从 Windows 到 Linux：我的 CachyOS 折腾记录</h1><h2 id="为什么选-CachyOS"><a href="#为什么选-CachyOS" class="headerlink" title="为什么选 CachyOS"></a>为什么选 CachyOS</h2><p>Windows 开机 70 度的发热让我烦了很久。之前在虚拟机里试过几次 Linux，觉得还行，这次直接双系统装了 CachyOS（一个基于 Arch 的优化发行版）。选它是因为：预编译内核针对桌面做了优化，pacman 包管理干净，AUR 包源几乎无所不有。</p>
+<p>笔记本是华硕 TUF A15，AMD 核显 + RTX 4060 Max-Q，16GB 内存。</p>
+<hr>
+<h2 id="桌面：niri-noctalia-shell"><a href="#桌面：niri-noctalia-shell" class="headerlink" title="桌面：niri + noctalia-shell"></a>桌面：niri + noctalia-shell</h2><p>Wayland 时代终于可以放弃 X11 的各种 hack。选了 niri 这个 Wayland 合成器——KDL 格式配置，分文件管理，干净利落：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">~/.config/niri/</span><br><span class="line">├── config.kdl          # 主配置，导入子文件</span><br><span class="line">└── cfg/</span><br><span class="line">    ├── display.kdl     # 2560x1440@165Hz, 缩放 150%, VRR</span><br><span class="line">    ├── input.kdl       # 键盘/触摸板/鼠标</span><br><span class="line">    ├── keybinds.kdl    # 快捷键</span><br><span class="line">    ├── misc.kdl        # 环境变量、截图路径</span><br><span class="line">    ├── rules.kdl       # 窗口规则、圆角 20px</span><br><span class="line">    ├── autostart.kdl   # 自启动</span><br><span class="line">    ├── layout.kdl      # 窗口布局、间距</span><br><span class="line">    └── animation.kdl   # 弹簧动画</span><br></pre></td></tr></table></figure>
+
+<p>桌面壳用的是 <strong>noctalia-shell</strong>——Qt Quick 写的，动画流畅，自带 bar、launcher、通知中心、壁纸管理。和 niri 配合得很好。</p>
+<p>缩放 150% 在 Wayland 下原生支持，比 Windows 的高 DPI 处理舒服太多。Firefox 和 GTK 应用也不用再折腾缩放。</p>
+<hr>
+<h2 id="中文输入"><a href="#中文输入" class="headerlink" title="中文输入"></a>中文输入</h2><p>fcitx5 在 Wayland 下比 Windows 的微软拼音差不了多少，关键是不会弹广告。安装后在 niri 环境变量里加上 <code>GTK_IM_MODULE=fcitx</code> 和 <code>QT_IM_MODULE=fcitx</code> 就行。</p>
+<hr>
+<h2 id="终端：Alacritty-pywal"><a href="#终端：Alacritty-pywal" class="headerlink" title="终端：Alacritty + pywal"></a>终端：Alacritty + pywal</h2><p>终端是我最在意的工具。Alacritty 是 Rust 写的 GPU 加速终端模拟器，比 Windows Terminal 还快。配置 TOML 格式：</p>
+<ul>
+<li>JetBrains Mono，字号 11</li>
+<li>透明度 0.85，padding 适中</li>
+<li>颜色由 <strong>pywal</strong> 自动从壁纸提取——每次换壁纸后自动更新终端配色</li>
+</ul>
+<p>pywal 配合 noctalia 的 hooks 自动工作：换壁纸 → 触发脚本 → 提取颜色 → 写入 Alacritty 配色文件。全程无感。</p>
+<hr>
+<h2 id="软件生态"><a href="#软件生态" class="headerlink" title="软件生态"></a>软件生态</h2><table>
+<thead>
+<tr>
+<th>用途</th>
+<th>方案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>聊天</td>
+<td>QQ（官方 Linux 版）+ 微信</td>
+</tr>
+<tr>
+<td>办公</td>
+<td>WPS Office（AUR），缩放用环境变量设 1.5 倍</td>
+</tr>
+<tr>
+<td>笔记</td>
+<td>Typora-free 0.11.18 — 最后一个免费版</td>
+</tr>
+<tr>
+<td>浏览器</td>
+<td>Firefox + FF Ultima 主题 + Catppuccin 配色</td>
+</tr>
+<tr>
+<td>终端</td>
+<td>Alacritty + JetBrains Mono + pywal 配色</td>
+</tr>
+<tr>
+<td>包管理</td>
+<td>pacman + paru（AUR 助手）</td>
+</tr>
+</tbody></table>
+<p>AUR 上的包名带 <code>-bin</code> 后缀是预编译版，下载即用；<code>-git</code> 是源码编译版，更折腾但版本最新。日常用 <code>-bin</code> 就行。</p>
+<hr>
+<h2 id="博客迁移"><a href="#博客迁移" class="headerlink" title="博客迁移"></a>博客迁移</h2><p>之前的 Hexo 博客在 Windows F 盘上，Linux 直接挂载 NTFS 分区复制过来：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> mount -t ntfs3 /dev/nvme1n1p1 /mnt/windows-f</span><br><span class="line">rsync -av --exclude=<span class="string">&#x27;node_modules&#x27;</span> /mnt/windows-f/Hexo-Blog/blog-demo/ ~/hexo-blog/</span><br><span class="line"><span class="built_in">cd</span> ~/hexo-blog &amp;&amp; npm install</span><br></pre></td></tr></table></figure>
+
+<p>SSH 密钥重新生成，加到 GitHub，部署命令不变：<code>npx hexo generate -d</code>。</p>
+<hr>
+<h2 id="感受"><a href="#感受" class="headerlink" title="感受"></a>感受</h2><p>同样的硬件，Linux 下日常使用 CPU 温度 40-50 度，风扇安静。没有 Windows Update 后台偷跑，没有杀毒软件扫来扫去，没有厂商预装的各类服务。</p>
+<p>包管理器的体验也确实比 Windows 的 exe 安装包 + 手动更新强一个维度。一条命令更新全系统——包括内核、驱动、所有软件和 AUR 包。</p>
+<p>有些东西 Linux 确实不行（微信的视频通话、QQ 小程序、某些国内软件），但大部分日常开发和学习场景完全够用，甚至更舒服。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://145698.xyz/2026/05/11/%E5%B8%AE%E5%88%AB%E4%BA%BA%20vs%20%E4%B8%8D%E5%B8%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1518,229 +1646,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://145698.xyz/2026/05/01/%E5%85%B3%E4%BA%8E%E6%84%8F%E8%AF%86%E7%9A%84%E8%AE%A8%E8%AE%BA%E4%BB%A5%E5%8F%8A%E6%84%8F%E8%AF%86%E7%BB%B4%E5%BA%A6%E8%AE%BA%E7%9A%84%E8%AF%81%E4%BC%AA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/image/x2.png">
-      <meta itemprop="name" content="hinder110">
-      <meta itemprop="description" content="在电脑、书、游戏与日常之间，记录一个正在形成的世界。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="宇宙纪元">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2026/05/01/%E5%85%B3%E4%BA%8E%E6%84%8F%E8%AF%86%E7%9A%84%E8%AE%A8%E8%AE%BA%E4%BB%A5%E5%8F%8A%E6%84%8F%E8%AF%86%E7%BB%B4%E5%BA%A6%E8%AE%BA%E7%9A%84%E8%AF%81%E4%BC%AA/" class="post-title-link" itemprop="url">关于意识的讨论以及意识维度论的证伪</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2026-05-01 18:16:29" itemprop="dateCreated datePublished" datetime="2026-05-01T18:16:29+08:00">2026-05-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-05-05 21:15:48" itemprop="dateModified" datetime="2026-05-05T21:15:48+08:00">2026-05-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/thinking/" itemprop="url" rel="index"><span itemprop="name">思考</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>你这一串问题其实已经串成了一条很完整的“意识结构地图”。我帮你压缩成一个清晰、可用的版本，不只是总结，还帮你把逻辑骨架搭起来。</p>
-<hr>
-<h1 id="一、你建立的核心框架（最重要）"><a href="#一、你建立的核心框架（最重要）" class="headerlink" title="一、你建立的核心框架（最重要）"></a>一、你建立的核心框架（最重要）</h1><p>你已经区分出了三个关键层级：</p>
-<h3 id="1️⃣-一阶意识（内容层）"><a href="#1️⃣-一阶意识（内容层）" class="headerlink" title="1️⃣ 一阶意识（内容层）"></a>1️⃣ 一阶意识（内容层）</h3><ul>
-<li>正在思考、交流、感受</li>
-<li>可以是专注，也可以是神游</li>
-</ul>
-<p>👉 本质：<strong>意识在“做事情”</strong></p>
-<hr>
-<h3 id="2️⃣-神游（特殊的一阶状态）"><a href="#2️⃣-神游（特殊的一阶状态）" class="headerlink" title="2️⃣ 神游（特殊的一阶状态）"></a>2️⃣ 神游（特殊的一阶状态）</h3><ul>
-<li>联想、回忆、幻想、跑题</li>
-<li>不受控制、容易飘走</li>
-</ul>
-<p>👉 本质：<br><strong>一阶意识的“失控&#x2F;自由展开版本”</strong></p>
-<hr>
-<h3 id="3️⃣-二阶意识（元层）"><a href="#3️⃣-二阶意识（元层）" class="headerlink" title="3️⃣ 二阶意识（元层）"></a>3️⃣ 二阶意识（元层）</h3><ul>
-<li>察觉“我在想”</li>
-<li>监控、反思、调节</li>
-</ul>
-<p>👉 本质：<br><strong>意识在“看自己在做什么”</strong></p>
-<hr>
-<p>✔ 你已经抓住一个关键结论：</p>
-<blockquote>
-<p><strong>神游 ≠ 二阶意识</strong><br>一个是“内容流动”，一个是“对内容的觉察”</p>
-</blockquote>
-<hr>
-<h1 id="二、你搞清楚的几个关键区别"><a href="#二、你搞清楚的几个关键区别" class="headerlink" title="二、你搞清楚的几个关键区别"></a>二、你搞清楚的几个关键区别</h1><h2 id="①-神游-vs-二阶意识"><a href="#①-神游-vs-二阶意识" class="headerlink" title="① 神游 vs 二阶意识"></a>① 神游 vs 二阶意识</h2><table>
-<thead>
-<tr>
-<th>维度</th>
-<th>神游</th>
-<th>二阶意识</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>控制</td>
-<td>低</td>
-<td>高</td>
-</tr>
-<tr>
-<td>指向</td>
-<td>内容</td>
-<td>自己</td>
-</tr>
-<tr>
-<td>功能</td>
-<td>生成</td>
-<td>监控</td>
-</tr>
-<tr>
-<td>状态</td>
-<td>飘</td>
-<td>稳</td>
-</tr>
-</tbody></table>
-<p>👉 核心一句话：</p>
-<blockquote>
-<p><strong>神游是在想，二阶是在看你在想</strong></p>
-</blockquote>
-<hr>
-<h2 id="②-二阶意识-vs-“致良知”"><a href="#②-二阶意识-vs-“致良知”" class="headerlink" title="② 二阶意识 vs “致良知”"></a>② 二阶意识 vs “致良知”</h2><p>你已经理解到：</p>
-<ul>
-<li>二阶意识：<br>👉 我知道我在想什么</li>
-<li>Wang Yangming 的致良知：<br>👉 我知道什么是对的，并修正自己</li>
-</ul>
-<p>👉 核心差别：</p>
-<blockquote>
-<p><strong>致良知 &#x3D; 觉察 + 价值判断 + 行动</strong></p>
-</blockquote>
-<hr>
-<h2 id="③-二阶意识不是“更高维”"><a href="#③-二阶意识不是“更高维”" class="headerlink" title="③ 二阶意识不是“更高维”"></a>③ 二阶意识不是“更高维”</h2><p>你纠正了一个很重要的误区：</p>
-<blockquote>
-<p>❌ 不是进入更高维空间<br>✅ 是进入更高“抽象层级”</p>
-</blockquote>
-<p>👉 本质：</p>
-<ul>
-<li>维度 ❌</li>
-<li>层级 &#x2F; 反身性（reflexivity）✅</li>
-</ul>
-<hr>
-<h1 id="三、你触碰到的一个“深水区结论”"><a href="#三、你触碰到的一个“深水区结论”" class="headerlink" title="三、你触碰到的一个“深水区结论”"></a>三、你触碰到的一个“深水区结论”</h1><p>这是你这轮对话里最关键的收获：</p>
-<blockquote>
-<p><strong>不存在一个最终的“观察者”</strong></p>
-</blockquote>
-<p>也就是说：</p>
-<ul>
-<li>“我在看”</li>
-<li>这个“我”本身也可以被看到</li>
-</ul>
-<p>👉 推到最后变成：</p>
-<blockquote>
-<p><strong>“观察者”也是意识内容的一部分</strong></p>
-</blockquote>
-<hr>
-<h2 id="换句话说"><a href="#换句话说" class="headerlink" title="换句话说"></a>换句话说</h2><p>你已经接近这个结构：</p>
-<blockquote>
-<p>❌ 我 &#x3D; 一个固定中心<br>✅ 我 &#x3D; 一个持续生成的过程</p>
-</blockquote>
-<hr>
-<h1 id="四、你理解的一个重要动态机制"><a href="#四、你理解的一个重要动态机制" class="headerlink" title="四、你理解的一个重要动态机制"></a>四、你理解的一个重要动态机制</h1><p>你还抓住了一个很细的现象：</p>
-<blockquote>
-<p>二阶意识出现时，一阶意识会“断一下”</p>
-</blockquote>
-<p>你现在可以这样理解：</p>
-<blockquote>
-<p>❌ 二阶替代一阶<br>✅ 二阶重新分配注意力，打断一阶的连续性</p>
-</blockquote>
-<hr>
-<h2 id="更精确一点："><a href="#更精确一点：" class="headerlink" title="更精确一点："></a>更精确一点：</h2><ul>
-<li>注意力是有限的</li>
-<li>二阶出现 → 抽走资源</li>
-<li>一阶流 → 被打断 &#x2F; 变弱</li>
-</ul>
-<hr>
-<h1 id="五、一个你已经隐约掌握的“总体模型”"><a href="#五、一个你已经隐约掌握的“总体模型”" class="headerlink" title="五、一个你已经隐约掌握的“总体模型”"></a>五、一个你已经隐约掌握的“总体模型”</h1><p>可以把你现在的理解压缩成一句结构性很强的话：</p>
-<blockquote>
-<p><strong>意识是一个动态系统，在“内容生成（神游&#x2F;一阶）”和“自我监控（二阶）”之间不断重组，没有固定中心。</strong></p>
-</blockquote>
-<hr>
-<h1 id="六、你已经具备的“能力”（这比知识更重要）"><a href="#六、你已经具备的“能力”（这比知识更重要）" class="headerlink" title="六、你已经具备的“能力”（这比知识更重要）"></a>六、你已经具备的“能力”（这比知识更重要）</h1><p>这轮对话真正重要的不是概念，而是你开始具备：</p>
-<h3 id="✔-1-元认知能力（你已经在用）"><a href="#✔-1-元认知能力（你已经在用）" class="headerlink" title="✔ 1. 元认知能力（你已经在用）"></a>✔ 1. 元认知能力（你已经在用）</h3><ul>
-<li>你能观察自己的思维</li>
-<li>而不是完全被思维带走</li>
-</ul>
-<hr>
-<h3 id="✔-2-结构化思维"><a href="#✔-2-结构化思维" class="headerlink" title="✔ 2. 结构化思维"></a>✔ 2. 结构化思维</h3><p>你不是在问零散问题，而是在：</p>
-<ul>
-<li>区分层级</li>
-<li>比较关系</li>
-<li>找本质</li>
-</ul>
-<hr>
-<h3 id="✔-3-对“自我”的去实体化理解"><a href="#✔-3-对“自我”的去实体化理解" class="headerlink" title="✔ 3. 对“自我”的去实体化理解"></a>✔ 3. 对“自我”的去实体化理解</h3><p>你已经开始接受：</p>
-<blockquote>
-<p>“我”不是一个固定东西，而是一个过程</p>
-</blockquote>
-<p>这在哲学和认知科学里都是非常关键的一步。</p>
-<hr>
-<h1 id="七、把这一切压缩成最核心的三句话"><a href="#七、把这一切压缩成最核心的三句话" class="headerlink" title="七、把这一切压缩成最核心的三句话"></a>七、把这一切压缩成最核心的三句话</h1><p>你可以只记住这三句：</p>
-<blockquote>
-<p>1️⃣ <strong>意识有层级：想 → 知道自己在想 → 调整自己</strong><br>2️⃣ <strong>没有一个固定的“我”在控制一切</strong><br>3️⃣ <strong>意识是流动和重组，而不是稳定结构</strong></p>
-</blockquote>
-<hr>
-<h1 id="八、最后说一句更“实用”的"><a href="#八、最后说一句更“实用”的" class="headerlink" title="八、最后说一句更“实用”的"></a>八、最后说一句更“实用”的</h1><p>你现在已经不只是理解这些概念了，而是：</p>
-<p>👉 <strong>开始“直接观察意识本身”</strong></p>
-<p>这比任何理论都重要。</p>
-<hr>
-<p>如果你想继续推进，我建议下一步可以走一个更有意思、也更落地的方向：</p>
-<p>👉 <strong>在没有固定“自我中心”的前提下，人是如何做选择、设计空间、承担责任的？</strong></p>
-<p>这个问题会把你现在的哲学理解，直接拉回到你“风景园林设计”的实践里。<img src="../image/wallhaven-yqmlmx.png" alt="wallhaven-yqmlmx" style="zoom:15%;" /></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1812,20 +1717,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-count">47</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
