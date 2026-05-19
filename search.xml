@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>给 yueduqi 写后端的收获</title>
+      <link href="/2026/05/19/2026-05-19-backend-learning/"/>
+      <url>/2026/05/19/2026-05-19-backend-learning/</url>
+      
+        <content type="html"><![CDATA[<h2 id="JWT-认证"><a href="#JWT-认证" class="headerlink" title="JWT 认证"></a>JWT 认证</h2><p>登录时用 bcrypt 比密码——这是一次性的。登录后每次请求带 token，后端用 <code>JWT_SECRET</code> 验签名判断真伪。</p><p>和密码哈希的区别：bcrypt 需要查数据库比对；JWT 验签不需要，纯数学计算，快。</p><h2 id="数据建模两层思维"><a href="#数据建模两层思维" class="headerlink" title="数据建模两层思维"></a>数据建模两层思维</h2><p>第一层：实体建表——users、books。</p><p>第二层：交互过程也建表——bookshelf 不是书，是”收藏这个动作”的记录；reading_progress 不是用户属性，是”读到哪了”这个状态的记录。</p><h2 id="upsert-原子操作"><a href="#upsert-原子操作" class="headerlink" title="upsert 原子操作"></a>upsert 原子操作</h2><p><code>INSERT ... ON CONFLICT DO UPDATE</code> 是一条不可打断的 SQL。</p><p>先 SELECT 再 UPDATE 的问题：两个请求同时查，都认为”没有记录”，同时 INSERT，第二个就报错。upsert 把判断和执行合成原子操作，数据库内部排队处理，冲突自动变更新。</p><h2 id="统一响应格式"><a href="#统一响应格式" class="headerlink" title="统一响应格式"></a>统一响应格式</h2><p>前后端约定 <code>&#123; success, data, error &#125;</code> 格式。前端不用处理 HTTP 状态码，所有异常在 request 函数内部统一转化。调用方只关心 success 是 true 还是 false。</p><p>好处：TypeScript 类型安全，不用每次都处理低级的异常分支。</p><h2 id="输入白名单"><a href="#输入白名单" class="headerlink" title="输入白名单"></a>输入白名单</h2><p>用户传的 source 参数只允许三个值，其余全给默认值。不信任任何用户输入，只放行明确安全的。</p><p>原则：与其判断什么是危险的，不如只允许那些确认安全的。</p><h2 id="token-存-localStorage"><a href="#token-存-localStorage" class="headerlink" title="token 存 localStorage"></a>token 存 localStorage</h2><p>localStorage 是浏览器端的简单持久化键值存储，刷新页面不丢。和 PostgreSQL 的区别——localStorage 是客户端个人状态，数据库是服务端全体数据。</p><h2 id="前后端完整数据流"><a href="#前后端完整数据流" class="headerlink" title="前后端完整数据流"></a>前后端完整数据流</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户操作 → api.ts 发 fetch → Express 路由 → 数据库读写 → JSON 返回 → React state → UI 刷新</span><br></pre></td></tr></table></figure><p>带认证的请求：authRequest() 自动从 localStorage 取 token 加到 Authorization header，后端 requireAuth 中间件拦截验证。</p><h2 id="记住"><a href="#记住" class="headerlink" title="记住"></a>记住</h2><ul><li>类型约束比记性好</li><li>原子操作比先查后改安全</li><li>白名单比黑名单可靠</li><li>约定统一格式比每次处理异常省代码</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 后端 </tag>
+            
+            <tag> 数据库 </tag>
+            
+            <tag> 认证 </tag>
+            
+            <tag> 学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>不要让昨天占用今天太多的时间</title>
       <link href="/2026/05/18/2026-05-18-recent-thoughts/"/>
       <url>/2026/05/18/2026-05-18-recent-thoughts/</url>
@@ -24,9 +55,9 @@
             
             <tag> 成长 </tag>
             
-            <tag> 生活 </tag>
-            
             <tag> 思考 </tag>
+            
+            <tag> 生活 </tag>
             
         </tags>
       
