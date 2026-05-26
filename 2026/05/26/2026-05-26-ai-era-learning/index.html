@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"145698.xyz","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":16,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#d8794a","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":true,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"fadeIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="![](&#x2F;image&#x2F;b417f359-bcec-486b-8c6d-343203ba0ee1 1.png) 我是怎么开始学 Go 的说出来好笑，我学 Go 不是因为想看什么教程，而是因为我有一个 TypeScript 写的阅读器项目。放着好好的代码不满足，我想把它打包成 Windows 上的 .exe，双击就能跑。这么做当然是为了我的同学可以使用呀哈哈哈。我之前也用 rust">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI 时代的学习笔记">
+<meta property="og:url" content="https://145698.xyz/2026/05/26/2026-05-26-ai-era-learning/index.html">
+<meta property="og:site_name" content="宇宙纪元">
+<meta property="og:description" content="![](&#x2F;image&#x2F;b417f359-bcec-486b-8c6d-343203ba0ee1 1.png) 我是怎么开始学 Go 的说出来好笑，我学 Go 不是因为想看什么教程，而是因为我有一个 TypeScript 写的阅读器项目。放着好好的代码不满足，我想把它打包成 Windows 上的 .exe，双击就能跑。这么做当然是为了我的同学可以使用呀哈哈哈。我之前也用 rust">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-26T05:30:00.000Z">
+<meta property="article:modified_time" content="2026-05-26T06:18:45.099Z">
+<meta property="article:author" content="hinder110">
+<meta property="article:tag" content="学习方法">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="Go">
+<meta property="article:tag" content="vibe-coding">
+<meta property="article:tag" content="桌面应用">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://145698.xyz/2026/05/26/2026-05-26-ai-era-learning/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>AI 时代的学习笔记 | 宇宙纪元</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">宇宙纪元</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">hinder110 的思考、读书与代码札记。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://145698.xyz/2026/05/26/2026-05-26-ai-era-learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/image/x2.png">
+      <meta itemprop="name" content="hinder110">
+      <meta itemprop="description" content="在电脑、书、游戏与日常之间，记录一个正在形成的世界。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宇宙纪元">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          AI 时代的学习笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-05-26 13:30:00 / 修改时间：14:18:45" itemprop="dateCreated datePublished" datetime="2026-05-26T13:30:00+08:00">2026-05-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">tech</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>![](&#x2F;image&#x2F;b417f359-bcec-486b-8c6d-343203ba0ee1 1.png)</p>
+<h2 id="我是怎么开始学-Go-的"><a href="#我是怎么开始学-Go-的" class="headerlink" title="我是怎么开始学 Go 的"></a>我是怎么开始学 Go 的</h2><p>说出来好笑，我学 Go 不是因为想看什么教程，而是因为我有一个 TypeScript 写的阅读器项目。放着好好的代码不满足，我想把它打包成 Windows 上的 .exe，双击就能跑。这么做当然是为了我的同学可以使用呀哈哈哈。我之前也用 rust 的框架进行打包，但是目前为止 ai 对于 rust 语言的训练量不够大，导致这个语言的代码的出错率比较高。</p>
+<p>找了一圈，发现 Wails 这个框架能做这件事。Wails 用 Go 写后端，前端还是原来的 React。于是就这样，为了打包桌面应用，我开始写 Go 了。</p>
+<p>没有看教程，没有系统学习。打开项目目录，开始”翻译”——把 TypeScript 的代码一行行搬成 Go。</p>
+<p>然后发现，翻译根本行不通。</p>
+<h2 id="翻译是陷阱"><a href="#翻译是陷阱" class="headerlink" title="翻译是陷阱"></a>翻译是陷阱</h2><p>TypeScript 有 class、继承、装饰器。Go 没有。</p>
+<p>TypeScript 用 try&#x2F;catch 抓异常。Go 里 error 就是普通返回值，写完就必须检查。</p>
+<p>TypeScript 用 Promise.any 同时发 7 个请求谁快用谁。Go 里起 7 个 goroutine，谁先回来通过 channel 传结果，再 cancel 掉慢的。</p>
+<p>goroutine 就是干并发的，channel 就是传数据的，不用 promise chain，不用 async&#x2F;await 嵌套。</p>
+<h2 id="vibe-coding-教会我的事"><a href="#vibe-coding-教会我的事" class="headerlink" title="vibe coding 教会我的事"></a>vibe coding 教会我的事</h2><p>跟 AI 写代码有一个巨大的陷阱：<strong>看起来都在做，实际什么也没学。</strong></p>
+<p>每次 AI 写完一段，我挑一行我没见过的，问一句”这是什么？”</p>
+<p>这些东西不是背的，是用的。用多了就记住了。其实有点像我学习 cad ps su 时候的场景。</p>
+<h2 id="最重要的是什么"><a href="#最重要的是什么" class="headerlink" title="最重要的是什么"></a>最重要的是什么</h2><p>AI 时代，代码谁都能生成。那什么值钱？</p>
+<p>我自己的体会是三样：</p>
+<p><strong>判断力。</strong> 去判断需求这么实现是不是一种优雅的举动。</p>
+<p><strong>把模糊变清晰。</strong> 这一点很重要了，你在做 vibe coding 的时候必须完整的学习整个项目的构成，反正就是你得先和 ai 一起学习这个项目的实现细节，反而最后才是代码实现，代码反而是最不重要的。这里的代码实现同样在 Claude code 中也必须，符合工程血的基本要求。你写一个优秀的代码仓库的基本能力。</p>
+<p><strong>领域知识。</strong> 笑死了，简单来说就是你要知道你做的这个东西是干什么的，怎么实现的。你在用类似的工具的时候是怎么被解决你的问题的。你的需求的？</p>
+<h2 id="接下来"><a href="#接下来" class="headerlink" title="接下来"></a>接下来</h2><p>我还在学。Go 只摸了皮毛，前端也才勉强能改。但这个项目从一行代码到 GitHub Release，从一个想法到一个能双击运行的 exe——我走通了一遍。</p>
+<p>下一个项目，我还会用 AI。但我的目标是：<strong>每做一个项目，就比上次多懂一层。</strong></p>
+<p>这是 AI 时代，我们的想法可以简单的通过几句话来实现，但是重复造轮子的事情毫无意义，目前来看，AI 是可以取代程序员的。但是我们在这个变化的中间，未来什么都不好说，我不觉得，我现在学习的技术，到了未来会毫无意义，这个是不可能的。未来会有新的窗口等着我们。</p>
+<hr>
+<p><em>一个热爱技术的大学生，写于 2026 年夏天</em></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" rel="tag"># 学习方法</a>
+              <a href="/tags/AI/" rel="tag"># AI</a>
+              <a href="/tags/Go/" rel="tag"># Go</a>
+              <a href="/tags/vibe-coding/" rel="tag"># vibe-coding</a>
+              <a href="/tags/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8/" rel="tag"># 桌面应用</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2026/05/19/2026-05-19-backend-learning/" rel="prev" title="给 yueduqi 写后端的收获">
+      <i class="fa fa-chevron-left"></i> 给 yueduqi 写后端的收获
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E6%98%AF%E6%80%8E%E4%B9%88%E5%BC%80%E5%A7%8B%E5%AD%A6-Go-%E7%9A%84"><span class="nav-text">我是怎么开始学 Go 的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BF%BB%E8%AF%91%E6%98%AF%E9%99%B7%E9%98%B1"><span class="nav-text">翻译是陷阱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vibe-coding-%E6%95%99%E4%BC%9A%E6%88%91%E7%9A%84%E4%BA%8B"><span class="nav-text">vibe coding 教会我的事</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-text">最重要的是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E4%B8%8B%E6%9D%A5"><span class="nav-text">接下来</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="hinder110"
+      src="/image/x2.png">
+  <p class="site-author-name" itemprop="name">hinder110</p>
+  <div class="site-description" itemprop="description">在电脑、书、游戏与日常之间，记录一个正在形成的世界。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/hinder110" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hinder110" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://145698.xyz/" title="Blog → https:&#x2F;&#x2F;145698.xyz"><i class="fa fa-globe fa-fw"></i>Blog</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-star"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hinder110</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

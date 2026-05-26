@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>AI 时代的学习笔记</title>
+      <link href="/2026/05/26/2026-05-26-ai-era-learning/"/>
+      <url>/2026/05/26/2026-05-26-ai-era-learning/</url>
+      
+        <content type="html"><![CDATA[<p>![](&#x2F;image&#x2F;b417f359-bcec-486b-8c6d-343203ba0ee1 1.png)</p><h2 id="我是怎么开始学-Go-的"><a href="#我是怎么开始学-Go-的" class="headerlink" title="我是怎么开始学 Go 的"></a>我是怎么开始学 Go 的</h2><p>说出来好笑，我学 Go 不是因为想看什么教程，而是因为我有一个 TypeScript 写的阅读器项目。放着好好的代码不满足，我想把它打包成 Windows 上的 .exe，双击就能跑。这么做当然是为了我的同学可以使用呀哈哈哈。我之前也用 rust 的框架进行打包，但是目前为止 ai 对于 rust 语言的训练量不够大，导致这个语言的代码的出错率比较高。</p><p>找了一圈，发现 Wails 这个框架能做这件事。Wails 用 Go 写后端，前端还是原来的 React。于是就这样，为了打包桌面应用，我开始写 Go 了。</p><p>没有看教程，没有系统学习。打开项目目录，开始”翻译”——把 TypeScript 的代码一行行搬成 Go。</p><p>然后发现，翻译根本行不通。</p><h2 id="翻译是陷阱"><a href="#翻译是陷阱" class="headerlink" title="翻译是陷阱"></a>翻译是陷阱</h2><p>TypeScript 有 class、继承、装饰器。Go 没有。</p><p>TypeScript 用 try&#x2F;catch 抓异常。Go 里 error 就是普通返回值，写完就必须检查。</p><p>TypeScript 用 Promise.any 同时发 7 个请求谁快用谁。Go 里起 7 个 goroutine，谁先回来通过 channel 传结果，再 cancel 掉慢的。</p><p>goroutine 就是干并发的，channel 就是传数据的，不用 promise chain，不用 async&#x2F;await 嵌套。</p><h2 id="vibe-coding-教会我的事"><a href="#vibe-coding-教会我的事" class="headerlink" title="vibe coding 教会我的事"></a>vibe coding 教会我的事</h2><p>跟 AI 写代码有一个巨大的陷阱：<strong>看起来都在做，实际什么也没学。</strong></p><p>每次 AI 写完一段，我挑一行我没见过的，问一句”这是什么？”</p><p>这些东西不是背的，是用的。用多了就记住了。其实有点像我学习 cad ps su 时候的场景。</p><h2 id="最重要的是什么"><a href="#最重要的是什么" class="headerlink" title="最重要的是什么"></a>最重要的是什么</h2><p>AI 时代，代码谁都能生成。那什么值钱？</p><p>我自己的体会是三样：</p><p><strong>判断力。</strong> 去判断需求这么实现是不是一种优雅的举动。</p><p><strong>把模糊变清晰。</strong> 这一点很重要了，你在做 vibe coding 的时候必须完整的学习整个项目的构成，反正就是你得先和 ai 一起学习这个项目的实现细节，反而最后才是代码实现，代码反而是最不重要的。这里的代码实现同样在 Claude code 中也必须，符合工程血的基本要求。你写一个优秀的代码仓库的基本能力。</p><p><strong>领域知识。</strong> 笑死了，简单来说就是你要知道你做的这个东西是干什么的，怎么实现的。你在用类似的工具的时候是怎么被解决你的问题的。你的需求的？</p><h2 id="接下来"><a href="#接下来" class="headerlink" title="接下来"></a>接下来</h2><p>我还在学。Go 只摸了皮毛，前端也才勉强能改。但这个项目从一行代码到 GitHub Release，从一个想法到一个能双击运行的 exe——我走通了一遍。</p><p>下一个项目，我还会用 AI。但我的目标是：<strong>每做一个项目，就比上次多懂一层。</strong></p><p>这是 AI 时代，我们的想法可以简单的通过几句话来实现，但是重复造轮子的事情毫无意义，目前来看，AI 是可以取代程序员的。但是我们在这个变化的中间，未来什么都不好说，我不觉得，我现在学习的技术，到了未来会毫无意义，这个是不可能的。未来会有新的窗口等着我们。</p><hr><p><em>一个热爱技术的大学生，写于 2026 年夏天</em></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习方法 </tag>
+            
+            <tag> AI </tag>
+            
+            <tag> Go </tag>
+            
+            <tag> vibe-coding </tag>
+            
+            <tag> 桌面应用 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>给 yueduqi 写后端的收获</title>
       <link href="/2026/05/19/2026-05-19-backend-learning/"/>
       <url>/2026/05/19/2026-05-19-backend-learning/</url>
