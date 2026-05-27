@@ -193,6 +193,286 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://145698.xyz/2026/05/27/Claude-Code-Skills-Hooks/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/image/x2.png">
+      <meta itemprop="name" content="hinder110">
+      <meta itemprop="description" content="在电脑、书、游戏与日常之间，记录一个正在形成的世界。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宇宙纪元">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/05/27/Claude-Code-Skills-Hooks/" class="post-title-link" itemprop="url">Claude Code Skills 与 Hooks 使用指南</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-05-27 20:00:00 / 修改时间：20:47:59" itemprop="dateCreated datePublished" datetime="2026-05-27T20:00:00+08:00">2026-05-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Skills 和 Hooks 是 Claude Code 最核心的两个扩展机制。用了一段时间后，把理解和配置总结一下。</p>
+<h2 id="Skills-的理解"><a href="#Skills-的理解" class="headerlink" title="Skills 的理解"></a>Skills 的理解</h2><p><strong>Skills 是什么？</strong></p>
+<p>Skill 是 Claude Code 的专业化指令集。每个 skill 定义了一套工作流程——不是告诉 Claude “做什么”，而是告诉 Claude “怎么做”。比如 TDD skill 定义了 “先写测试→看到失败→写最少代码→看到通过→重构” 的循环，而不是简单说 “写测试”。</p>
+<p><strong>Skill 的两种类型：</strong></p>
+<ul>
+<li><strong>Rigid（刚性）</strong>：必须严格遵循。如 TDD、systematic-debugging。违反流程 &#x3D; 违反 skill 精神。</li>
+<li><strong>Flexible（柔性）</strong>：提供原则，按场景适配。如 frontend-design、brainstorming。</li>
+</ul>
+<p><strong>我的 Skills 清单：</strong></p>
+<h3 id="流程类-Skills（来自-superpowers-插件）"><a href="#流程类-Skills（来自-superpowers-插件）" class="headerlink" title="流程类 Skills（来自 superpowers 插件）"></a>流程类 Skills（来自 superpowers 插件）</h3><table>
+<thead>
+<tr>
+<th>Skill</th>
+<th>用途</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>brainstorming</code></td>
+<td>新功能&#x2F;改动前：探索项目 → 问问题 → 出方案 → 写设计文档</td>
+<td>Rigid</td>
+</tr>
+<tr>
+<td><code>writing-plans</code></td>
+<td>设计文档通过后：拆实现步骤 → 创任务列表</td>
+<td>Rigid</td>
+</tr>
+<tr>
+<td><code>executing-plans</code></td>
+<td>按计划逐步实现</td>
+<td>Rigid</td>
+</tr>
+<tr>
+<td><code>test-driven-development</code></td>
+<td>强制 TDD：先写失败测试，再写代码</td>
+<td>Rigid</td>
+</tr>
+<tr>
+<td><code>verification-before-completion</code></td>
+<td>每个步骤完成后验证：测试、typecheck、跑起来看</td>
+<td>Rigid</td>
+</tr>
+<tr>
+<td><code>subagent-driven-development</code></td>
+<td>并行任务分派给子 agent</td>
+<td>Flexible</td>
+</tr>
+<tr>
+<td><code>systematic-debugging</code></td>
+<td>结构化调试流程</td>
+<td>Rigid</td>
+</tr>
+<tr>
+<td><code>requesting-code-review</code></td>
+<td>提交前请求代码审查</td>
+<td>Flexible</td>
+</tr>
+<tr>
+<td><code>finishing-a-development-branch</code></td>
+<td>分支完成后的收尾流程</td>
+<td>Rigid</td>
+</tr>
+</tbody></table>
+<h3 id="设计类-Skills"><a href="#设计类-Skills" class="headerlink" title="设计类 Skills"></a>设计类 Skills</h3><table>
+<thead>
+<tr>
+<th>Skill</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>frontend-design</code></td>
+<td>8 种设计锚点（Swiss&#x2F;Industrial&#x2F;Brutalist&#x2F;Aurora&#x2F;Chaotic&#x2F;Retro-Futuristic&#x2F;Organic&#x2F;Lo-Fi），每种锁定特定 CSS token</td>
+</tr>
+</tbody></table>
+<h3 id="工具类-Skills"><a href="#工具类-Skills" class="headerlink" title="工具类 Skills"></a>工具类 Skills</h3><table>
+<thead>
+<tr>
+<th>Skill</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>karpathy-guidelines</code></td>
+<td>Karpathy 的编码准则：先想再写、简单优先、手术刀式修改、目标驱动</td>
+</tr>
+<tr>
+<td><code>caveman:caveman</code></td>
+<td>极简压缩输出模式，减少 ~75% token 消耗</td>
+</tr>
+<tr>
+<td><code>using-superpowers</code></td>
+<td>Superpowers 引导程序，决定何时触发哪个 skill</td>
+</tr>
+<tr>
+<td><code>fewer-permission-prompts</code></td>
+<td>自动添加常用工具到 allowlist</td>
+</tr>
+<tr>
+<td><code>update-config</code></td>
+<td>管理 settings.json 配置</td>
+</tr>
+</tbody></table>
+<h2 id="Hooks-的理解"><a href="#Hooks-的理解" class="headerlink" title="Hooks 的理解"></a>Hooks 的理解</h2><p><strong>Hooks 是什么？</strong></p>
+<p>Hooks 是 Claude Code 的自动化触发器系统。在特定生命周期事件发生时，自动执行脚本。不同于 skills（由模型主动调用），hooks 是系统强制执行——模型无法跳过。</p>
+<p><strong>Hook 的生命周期事件：</strong></p>
+<table>
+<thead>
+<tr>
+<th>事件</th>
+<th>触发时机</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>SessionStart</code></td>
+<td>会话启动时</td>
+</tr>
+<tr>
+<td><code>UserPromptSubmit</code></td>
+<td>用户发送消息后、模型处理前</td>
+</tr>
+<tr>
+<td><code>PreToolUse</code></td>
+<td>工具调用前（可拦截阻止）</td>
+</tr>
+<tr>
+<td><code>PostToolUse</code></td>
+<td>工具调用成功后</td>
+</tr>
+<tr>
+<td><code>PostToolUseFailure</code></td>
+<td>工具调用失败后</td>
+</tr>
+<tr>
+<td><code>Stop</code></td>
+<td>会话结束时</td>
+</tr>
+<tr>
+<td><code>PreCompact</code></td>
+<td>上下文压缩前</td>
+</tr>
+<tr>
+<td><code>Notification</code></td>
+<td>系统通知时</td>
+</tr>
+</tbody></table>
+<p><strong>Hook 能做：</strong></p>
+<ul>
+<li>注入上下文提醒（<code>additionalContext</code>）</li>
+<li>拦截危险操作（<code>PreToolUse</code> 返回 <code>decision: &quot;block&quot;</code>）</li>
+<li>自动格式化代码（<code>PostToolUse</code> + Write&#x2F;Edit → prettier）</li>
+<li>记录日志</li>
+<li>启动自动任务</li>
+</ul>
+<p><strong>Hooks vs Skills 的本质区别：</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Skills</th>
+<th>Hooks</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>触发方式</td>
+<td>模型主动调用 Skill tool</td>
+<td>系统自动执行</td>
+</tr>
+<tr>
+<td>模型能否跳过</td>
+<td>理论上能（但 superpowers 要求调用）</td>
+<td>完全不能</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>工作流程指导</td>
+<td>兜底规则 + 自动化</td>
+</tr>
+<tr>
+<td>执行时机</td>
+<td>模型决定</td>
+<td>事件驱动</td>
+</tr>
+</tbody></table>
+<h2 id="我的-Hook-配置"><a href="#我的-Hook-配置" class="headerlink" title="我的 Hook 配置"></a>我的 Hook 配置</h2><h3 id="1-SessionStart-—-自动初始化-CodeGraph"><a href="#1-SessionStart-—-自动初始化-CodeGraph" class="headerlink" title="1. SessionStart — 自动初始化 CodeGraph"></a>1. SessionStart — 自动初始化 CodeGraph</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">当会话启动时，检测当前目录：</span><br><span class="line">→ 没有 .codegraph/ + 是项目目录（有 .git/package.json/go.mod 等）</span><br><span class="line">→ 自动运行 codegraph init + codegraph index</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-UserPromptSubmit-—-兜底规则提醒"><a href="#2-UserPromptSubmit-—-兜底规则提醒" class="headerlink" title="2. UserPromptSubmit — 兜底规则提醒"></a>2. UserPromptSubmit — 兜底规则提醒</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">每次用户消息前注入（当前 2 条）：</span><br><span class="line">1. CodeGraph first: use codegraph_* tools, not grep</span><br><span class="line">2. Git branch before any code change</span><br></pre></td></tr></table></figure>
+
+<h2 id="我的使用方法"><a href="#我的使用方法" class="headerlink" title="我的使用方法"></a>我的使用方法</h2><h3 id="开发新功能的流程"><a href="#开发新功能的流程" class="headerlink" title="开发新功能的流程"></a>开发新功能的流程</h3><ol>
+<li>打开项目 → SessionStart 自动初始化 CodeGraph（如果需要）</li>
+<li>说出需求 → UserPromptSubmit 注入规则提醒</li>
+<li>调用 <code>brainstorming</code> skill → 探索 + 提问 + 设计方案</li>
+<li>设计确认后 → <code>writing-plans</code> skill 拆任务</li>
+<li>实现时 → 根据情况调用 TDD skill（写代码）&#x2F; verification skill（验证）</li>
+<li>功能完成 → <code>finishing-a-development-branch</code> skill 收尾</li>
+</ol>
+<h3 id="改前端样式时"><a href="#改前端样式时" class="headerlink" title="改前端样式时"></a>改前端样式时</h3><ol>
+<li>调用 <code>frontend-design</code> skill</li>
+<li>选择设计锚点（如之前用过的 Organic）</li>
+<li>按锚点 token 规范写 CSS</li>
+<li>验证：跑 dev server 看效果</li>
+</ol>
+<h3 id="日常操作时"><a href="#日常操作时" class="headerlink" title="日常操作时"></a>日常操作时</h3><ul>
+<li>CodeGraph 自动就绪 → 用 <code>codegraph_context</code>&#x2F;<code>codegraph_search</code> 探索代码</li>
+<li>改代码前切分支 → CLI 规则兜底</li>
+<li>遇到 bug → <code>systematic-debugging</code> skill</li>
+</ul>
+<h3 id="保持配置干净"><a href="#保持配置干净" class="headerlink" title="保持配置干净"></a>保持配置干净</h3><ul>
+<li>Hook 只放”系统强制的兜底规则”（如 CodeGraph + Git）</li>
+<li>workflow 规则交给 skills（brainstorm&#x2F;plan&#x2F;verify 由 superpowers bootstrap 处理）</li>
+<li>TDD 按需用 skill，不作为全局 hook——CSS&#x2F;配置&#x2F;脚本不需要 TDD</li>
+<li>避免指令疲劳：少而精，多了就视而不见</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://145698.xyz/2026/05/26/2026-05-26-ai-era-learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1394,101 +1674,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://145698.xyz/2026/05/08/%E5%89%83%E9%A1%BB%E5%88%80%E4%B8%8E%E7%97%98%E7%97%98-%E4%B8%80%E4%BB%B6%E6%97%A5%E5%B8%B8%E5%B0%8F%E7%83%A6%E6%81%BC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/image/x2.png">
-      <meta itemprop="name" content="hinder110">
-      <meta itemprop="description" content="在电脑、书、游戏与日常之间，记录一个正在形成的世界。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="宇宙纪元">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2026/05/08/%E5%89%83%E9%A1%BB%E5%88%80%E4%B8%8E%E7%97%98%E7%97%98-%E4%B8%80%E4%BB%B6%E6%97%A5%E5%B8%B8%E5%B0%8F%E7%83%A6%E6%81%BC/" class="post-title-link" itemprop="url">剃须刀与痘痘：一件日常小烦恼</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2026-05-08 12:00:00 / 修改时间：14:01:17" itemprop="dateCreated datePublished" datetime="2026-05-08T12:00:00+08:00">2026-05-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="剃须刀与痘痘：一件日常小烦恼"><a href="#剃须刀与痘痘：一件日常小烦恼" class="headerlink" title="剃须刀与痘痘：一件日常小烦恼"></a>剃须刀与痘痘：一件日常小烦恼</h1><blockquote>
-<p>每天面对镜子时那张干净不干净的脸，其实挺影响心情的。</p>
-</blockquote>
-<hr>
-<p>最近因为剃须的事，脸上时不时冒出几颗痘，甚是烦恼。</p>
-<p>我平时花很多时间在学习和各种事情上，但转过头来发现，有些生活里的小事——比如刮胡子——一直没认真对待过。于是坐下来仔细研究了一下，发现还挺有意思的。</p>
-<h2 id="我的工具"><a href="#我的工具" class="headerlink" title="我的工具"></a>我的工具</h2><p>我用的是飞科 FS901，一款旋转式双环电动剃须刀。用了挺久，期间从没换过刀头，也没正经洗过。每天早上拿起来干刮两下就出门了。</p>
-<h2 id="为什么会冒痘"><a href="#为什么会冒痘" class="headerlink" title="为什么会冒痘"></a>为什么会冒痘</h2><p>电动剃须刀看着简单，按下去就转，但其实藏着几个卫生上的坑。</p>
-<p><strong>刀头里面积了几个月的东西。</strong> 拆开来看，刀网背面附着一层灰白色的干结物——那是之前的油脂、死皮、胡渣混在一起，被高速旋转压实的。每一次剃须，这些东西都在高速摩擦皮肤表面，细菌直接进毛囊。</p>
-<p><strong>刀网早就钝了。</strong> 网孔的边缘不再锋利，刀片也不是在”切断”胡须而是在”扯断”。毛囊被拉扯后红肿发炎，就成了痘痘。</p>
-<p><strong>干脸直接上。</strong> 脸没洗，表皮带着细菌和油脂，刀网推过去的时候直接把这些东西压进毛孔里。</p>
-<h2 id="手动-vs-电动：方向其实不重要"><a href="#手动-vs-电动：方向其实不重要" class="headerlink" title="手动 vs 电动：方向其实不重要"></a>手动 vs 电动：方向其实不重要</h2><p>问了一圈才知道一个有趣的冷知识。</p>
-<p>手动剃须刀（吉列那种）的刀刃直接贴皮肤，逆着毛发生长方向刮会把胡须拉起来再切断，断口形成一个斜面缩进毛囊里，刺到毛囊壁就发炎。所以手动刀<strong>必须顺着刮</strong>。</p>
-<p>但旋转式电动剃须刀不一样。刀片藏在刀网里面，刀网隔开了皮肤。胡须钻进网孔后被里面的旋转刀片切断，不存在”拉扯—回缩—刺毛囊”这个链条。所以方向无所谓，打圈都行。</p>
-<p>痘痘的根源不在刮法，在卫生。</p>
-<h2 id="解决方子"><a href="#解决方子" class="headerlink" title="解决方子"></a>解决方子</h2><p>三步，简单到我现在觉得早该做了：</p>
-<ol>
-<li><p><strong>清洗刀头。</strong> 每次用完把刀头拆下来，用附赠的小刷子把刀网内侧和刀片刷一遍。隔一两周用酒精棉片擦一擦消毒。不洗的话，那里就是细菌培养皿。</p>
-</li>
-<li><p><strong>换刀头。</strong> 飞科 FS901 的替换刀头大概 30-40 块，淘宝搜型号就有。刀头属于耗材，6-12 个月该换。我那个用了快两年没动过，想想也真是。</p>
-</li>
-<li><p><strong>先洗脸再剃。</strong> 清水冲一下，把表面油脂洗掉再刮。或者洗澡后剃，蒸汽已经把胡须软化了。须后不用什么复杂的东西，清水拍一下，拍点收敛毛孔的须后水就行。</p>
-</li>
-</ol>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>这些小破事花了我好多年才注意到。我们总是忙着学习、忙着各种目标，但生活中那些每天重复的小操作——剃须、坐姿、喝水——其实一直在悄悄累积影响力。</p>
-<p>剃须冒痘这件事让我意识到，有些问题不是”麻烦”，只是从未认真对待过。查清楚原因，动手改掉，效果立竿见影。</p>
-<hr>
-<p><em>写于 2026 年 5 月，剃须刀清理整顿之后。</em></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1560,7 +1745,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1573,7 +1758,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
