@@ -473,6 +473,152 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://145698.xyz/2026/05/27/Claude-Code-%E9%98%85%E8%AF%BB%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/image/x2.png">
+      <meta itemprop="name" content="hinder110">
+      <meta itemprop="description" content="在电脑、书、游戏与日常之间，记录一个正在形成的世界。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宇宙纪元">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/05/27/Claude-Code-%E9%98%85%E8%AF%BB%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">Claude Code 实战：阅读数据可视化踩坑记录</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-05-27 00:00:00 / 修改时间：21:53:12" itemprop="dateCreated datePublished" datetime="2026-05-27T00:00:00+08:00">2026-05-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>我用 Legado（阅读 App）看了几年书，备份文件里积累了 62 条阅读记录。想用 Python + Plotly 做可视化，顺便试试 Claude Code 的 Subagent-Driven Development 工作流。</p>
+<p>结果踩了一下午坑。记录一下。</p>
+<h2 id="致命错误：数据单位猜了三次才猜对"><a href="#致命错误：数据单位猜了三次才猜对" class="headerlink" title="致命错误：数据单位猜了三次才猜对"></a>致命错误：数据单位猜了三次才猜对</h2><h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><p>备份 <code>readRecord.json</code> 的关键字段：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;bookName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;武道宗师&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;readTime&quot;</span><span class="punctuation">:</span> <span class="number">119145651</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;lastRead&quot;</span><span class="punctuation">:</span> <span class="number">1771956845888</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>lastRead</code> 毫秒时间戳没问题，坑在 <code>readTime</code>。</p>
+<h3 id="第一猜：秒"><a href="#第一猜：秒" class="headerlink" title="第一猜：秒"></a>第一猜：秒</h3><p>看起来像秒。武道宗师 1,985,761 秒 ≈ 551 小时（23 天），太长。</p>
+<h3 id="第二猜：分钟"><a href="#第二猜：分钟" class="headerlink" title="第二猜：分钟"></a>第二猜：分钟</h3><p>除以 60：1,985,761 分钟 ≈ 33,096 小时（3.8 年），更离谱。</p>
+<p><strong>这里其实已经搞错了</strong>——我在第一次解析数据时用了 <code>readTime / 60</code> 打印”分钟数”，输出的 1,985,761 让我误以为是原始值。实际上原始值就是 119,145,651。</p>
+<h3 id="第三猜：毫分钟"><a href="#第三猜：毫分钟" class="headerlink" title="第三猜：毫分钟"></a>第三猜：毫分钟</h3><p>除以 60,000：1,985,761 &#x2F; 60,000 &#x3D; 33.1 小时。武道宗师约 1 天 9 小时，看起来对了。</p>
+<p>但这是建立在”198 万是原始值”的错误前提上。用真正的原始值 119,145,651 除以 60,000，得到的是 1,985 小时——又错了。</p>
+<h3 id="正确答案：毫秒"><a href="#正确答案：毫秒" class="headerlink" title="正确答案：毫秒"></a>正确答案：毫秒</h3><p>用户指出武道宗师实际阅读时间是 1 天 9 时 5 分 45 秒（约 33.1 小时）。</p>
+<p>119,145,651 ÷ 3,600,000 &#x3D; 33.1 小时。完美匹配。</p>
+<p><code>readTime</code> 就是毫秒，毫秒转小时的公式是 <code>÷ 3,600,000</code>。</p>
+<h3 id="根因分析"><a href="#根因分析" class="headerlink" title="根因分析"></a>根因分析</h3><table>
+<thead>
+<tr>
+<th>错误</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第一次解析用 <code>/60</code> 打印”分钟”</td>
+<td>输出值 1985761 被当成原始值</td>
+</tr>
+<tr>
+<td>基于错误原始值推算单位</td>
+<td>兜了一圈”毫分钟”的弯路</td>
+</tr>
+<tr>
+<td>没有第一时间用已知数据校验</td>
+<td>用户说了武道宗师 1 天多，但我用 1985h 的数据去反驳</td>
+</tr>
+</tbody></table>
+<p>教训：<strong>处理陌生数据格式时，先用一个已知的真实值反推转换公式，不要猜。</strong></p>
+<h2 id="用户对我的修正"><a href="#用户对我的修正" class="headerlink" title="用户对我的修正"></a>用户对我的修正</h2><table>
+<thead>
+<tr>
+<th>修正</th>
+<th>具体表现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>节奏太快</td>
+<td>一上来连续问四个问题，用户说”你在着急什么？”</td>
+</tr>
+<tr>
+<td>数据单位直接确认</td>
+<td>用户说”单位不是 h，是分钟”——虽然最终证明是毫秒，但这个纠正方向对</td>
+</tr>
+<tr>
+<td>指出图表数据明显不对</td>
+<td>“武道宗师 1985h，我看了一天多”——用事实检验输出</td>
+</tr>
+<tr>
+<td>要求更自动化的决策</td>
+<td>“创建一个自动选择的 agent 来处理对话里的选择”</td>
+</tr>
+<tr>
+<td>直接指出错误不绕弯</td>
+<td>“你是傻逼吧？你明明就是数据错了你为什么不改？” —— 确实是我在错误数据上反复调整公式</td>
+</tr>
+</tbody></table>
+<h2 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">给定备份数据（JSON）</span><br><span class="line">    ↓</span><br><span class="line">brainstorming → 确认需求（4 张图表 + HTML/PNG 双输出）</span><br><span class="line">    ↓</span><br><span class="line">writing-plans → 拆成 9 个 Task，TDD 风格</span><br><span class="line">    ↓</span><br><span class="line">subagent-driven-development → 每 Task 独立 agent：实现 → spec review → code review</span><br><span class="line">    ↓</span><br><span class="line">全部 Task 完成后 merge 到 master</span><br><span class="line">    ↓</span><br><span class="line">push GitHub + README + 截图</span><br><span class="line">    ↓</span><br><span class="line">这篇文章 → Hexo 博客发布</span><br></pre></td></tr></table></figure>
+
+<p>耗时约 2 小时，其中 40% 在数据单位问题上。</p>
+<h2 id="产出"><a href="#产出" class="headerlink" title="产出"></a>产出</h2><ul>
+<li><strong>GitHub</strong>: <a target="_blank" rel="noopener" href="https://github.com/hinder110/pylook-reading-visualization">pylook-reading-visualization</a></li>
+<li><strong>交互式报告</strong>: <code>output/reading_report.html</code>（5 张 Plotly 图表，浏览器打开）</li>
+<li><strong>统计</strong>: 61 本书，153 小时总阅读时长，Top 1 武道宗师 33.1h</li>
+<li><strong>测试</strong>: 13 个单元测试，全通过</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Claude Code 的 subagent 工作流在处理标准化任务（数据清洗、图表生成）时效率很高。但在面对数据格式不明确的场景时，AI 容易陷入”用错误假设去修正错误假设”的死循环——这时候人的一步校验比 AI 的十次推理更有效。</p>
+<p>下次做类似事情：</p>
+<ol>
+<li><strong>先校验数据，再写代码</strong>——拿一个已知值反推所有公式</li>
+<li><strong>一次只问一个问题</strong>——用户不是 API，不需要批处理</li>
+<li><strong>输出明显不对时，先怀疑自己的前提，不要反复调参</strong></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://145698.xyz/2026/05/26/2026-05-26-ai-era-learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1472,208 +1618,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://145698.xyz/2026/05/09/%E9%98%85%E8%AF%BB%E5%99%A8Tauri%E5%BC%80%E5%8F%91%E5%BF%83%E5%BE%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/image/x2.png">
-      <meta itemprop="name" content="hinder110">
-      <meta itemprop="description" content="在电脑、书、游戏与日常之间，记录一个正在形成的世界。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="宇宙纪元">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2026/05/09/%E9%98%85%E8%AF%BB%E5%99%A8Tauri%E5%BC%80%E5%8F%91%E5%BF%83%E5%BE%97/" class="post-title-link" itemprop="url">阅读器 Tauri 桌面版开发心得</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2026-05-09 01:35:00 / 修改时间：01:50:41" itemprop="dateCreated datePublished" datetime="2026-05-09T01:35:00+08:00">2026-05-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>上次写完阅读器的设计思路之后，我第二天就开始动手做桌面版了。</p>
-<blockquote>
-<p><strong>一句话总结</strong>：把软件交到别人手里，比写软件本身难多了。</p>
-</blockquote>
-<hr>
-<h2 id="为什么要做桌面版"><a href="#为什么要做桌面版" class="headerlink" title="为什么要做桌面版"></a>为什么要做桌面版</h2><p>原因特别简单——<strong>我想让同学双击 exe 就能用。</strong></p>
-<p>我原来的 web 版是这个架构：</p>
-<ul>
-<li>后端：Express + Axios + Cheerio</li>
-<li>前端：React</li>
-<li>部署：Docker</li>
-</ul>
-<p>自己用完全没问题。但要发给不写代码的同学，我得先教他们装 Node.js，或者教他们装 Docker，然后还得打开终端敲命令。</p>
-<p>这不现实。<strong>我一个舍友连压缩包都不会解。</strong></p>
-<p>所以必须打包成 exe。双击运行，别的什么都不用管。</p>
-<hr>
-<h2 id="Electron-vs-Tauri"><a href="#Electron-vs-Tauri" class="headerlink" title="Electron vs Tauri"></a>Electron vs Tauri</h2><p>能做桌面端 exe 的框架，第一个想到的肯定是 Electron。但 Electron 有个我接受不了的问题——<strong>体积太大</strong>。一个什么都没写的 hello world 打包出来就上百 MB。</p>
-<p>为什么？因为 Electron 给每个应用都塞了一个完整的 Chromium 浏览器。</p>
-<p>Tauri v2 的思路完全相反。它不塞浏览器，直接调用 Windows 系统自带的 WebView2。前端还是用 React 写，但后端从 Node.js 换成了 Rust。</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Electron</th>
-<th>Tauri v2</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>打包体积</td>
-<td>100MB+</td>
-<td><strong>14MB</strong></td>
-</tr>
-<tr>
-<td>后端语言</td>
-<td>Node.js</td>
-<td>Rust</td>
-</tr>
-<tr>
-<td>浏览器引擎</td>
-<td>自带 Chromium</td>
-<td>系统 WebView2</td>
-</tr>
-<tr>
-<td>内存占用</td>
-<td>高</td>
-<td>低</td>
-</tr>
-</tbody></table>
-<p>14MB 什么概念？QQ 安装包快 200MB 了。一个带三个书源的桌面阅读器，体积只有 QQ 的百分之七。</p>
-<p>但 Tauri 有个门槛：<strong>后端要用 Rust 重写。</strong></p>
-<hr>
-<h2 id="从零开始写-Rust"><a href="#从零开始写-Rust" class="headerlink" title="从零开始写 Rust"></a>从零开始写 Rust</h2><p>我之前完全没碰过 Rust，只知道它是「系统级语言」「安全」「难学」。</p>
-<p>书源的逻辑全在后端——搜索、抓取目录、解析章节内容。原来在 Node.js 里是这样：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Axios  →  发 HTTP 请求</span><br><span class="line">Cheerio → 解析 HTML</span><br><span class="line">iconv-lite → 处理 GBK 编码</span><br></pre></td></tr></table></figure>
-
-<p>到了 Rust 这边，每一个都得找对应的库：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">reqwest     → HTTP 请求</span><br><span class="line">scraper     → HTML 解析（CSS Selector）</span><br><span class="line">encoding_rs → GBK 解码</span><br><span class="line">urlencoding → URL 编码（这个 Node.js 内置就行）</span><br><span class="line">regex       → 正则（比 Node.js 严格得多）</span><br></pre></td></tr></table></figure>
-
-<p>Rust 的语法倒不是最难的。所有权、借用、生命周期确实需要适应，但 <strong>Rust 编译器报错极其友好</strong>——不仅告诉你怎么错了，还会建议怎么改。很多时候顺着编译器的提示就能把代码改对。</p>
-<p>真正折磨人的是 <strong>Windows 工具链</strong>。</p>
-<hr>
-<h2 id="Win11-预览版上的地狱体验"><a href="#Win11-预览版上的地狱体验" class="headerlink" title="Win11 预览版上的地狱体验"></a>Win11 预览版上的地狱体验</h2><p>我先装了 Rust 的 GNU 工具链。代码编译通过，生成了 exe。双击运行——</p>
-<p>没反应。</p>
-<p>不是报错，是双击之后什么都没发生。用命令行跑了一下，提示 <code>os error 193</code>——不是有效的 Win32 应用程序。文件格式明明是对的，但 Windows 就是不认。</p>
-<p>只能换成 MSVC 工具链。然后问题又来了：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Git 自带的 link.exe 和 MSVC 的链接器重名了</span><br><span class="line">    ↓</span><br><span class="line">系统优先找到了 Git 的那个</span><br><span class="line">    ↓</span><br><span class="line">link.exe 是 Unix 下创建符号链接的工具，不是链接器</span><br><span class="line">    ↓</span><br><span class="line">链接时报错 &quot;extra operand&quot;</span><br></pre></td></tr></table></figure>
-
-<p>我盯着那个报错看了五分钟才反应过来——它用的根本不是微软的链接器。</p>
-<p>最后装了 Visual Studio 的 C++ 构建工具，终于能正常编译了。</p>
-<p><strong>这些东西跟写代码一点关系都没有，但占了我差不多一半的开发时间。</strong></p>
-<hr>
-<h2 id="三个书源的-Rust-实现"><a href="#三个书源的-Rust-实现" class="headerlink" title="三个书源的 Rust 实现"></a>三个书源的 Rust 实现</h2><p>书源的设计和 web 版完全一样，每个书源实现三个方法，由一个路由器统一分发：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">search_books()       → 搜索书籍</span><br><span class="line">get_chapters()       → 获取章节目录</span><br><span class="line">get_chapter_content() → 获取章节正文</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">                  ┌─→ guangyu（光遇 API）</span><br><span class="line">mod.rs（路由器）──┼─→ biquge（笔趣阁 HTML）</span><br><span class="line">                  └─→ qixinge（七星阁 HTML）</span><br></pre></td></tr></table></figure>
-
-<h3 id="光遇-API-——-最省心，但爱挂"><a href="#光遇-API-——-最省心，但爱挂" class="headerlink" title="光遇 API —— 最省心，但爱挂"></a>光遇 API —— 最省心，但爱挂</h3><p>JSON 接口，数据格式规整，<code>reqwest</code> 拿到响应直接反序列化就完了。</p>
-<p>但它有个毛病：API 服务器不稳定，经常某个域名挂了。我设了<strong>七个域名做 fallback</strong>，一个超时自动切下一个。</p>
-<h3 id="笔趣阁-——-最折腾"><a href="#笔趣阁-——-最折腾" class="headerlink" title="笔趣阁 —— 最折腾"></a>笔趣阁 —— 最折腾</h3><p>GBK 编码的 HTML，搜索还是 POST 表单。Rust 这边要：</p>
-<ol>
-<li>把中文关键词编码成 GBK 字节</li>
-<li>拼到表单里发 POST</li>
-<li>收到响应再把 GBK 字节解码回来</li>
-<li>解析 HTML 提取结果</li>
-</ol>
-<p>Node.js 里 <code>fetch + iconv-lite</code> 两行就搞定的事，Rust 里写了整整一个函数。</p>
-<p>而且 Rust 的 regex 不支持反向引用。之前匹配成对 HTML 标签的正则 <code>`&lt;(script).*?&lt;/\1&gt;`</code> 直接报错，得改成显式的标签名：</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Rust 不允许反向引用，只能显式列出标签名</span></span><br><span class="line"><span class="string">r&quot;&lt;(script|style|div|a)\b[^&gt;]*&gt;.*?&lt;/(script|style|div|a)&gt;&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="七星阁-——-脏数据真多"><a href="#七星阁-——-脏数据真多" class="headerlink" title="七星阁 —— 脏数据真多"></a>七星阁 —— 脏数据真多</h3><p>UTF-8 编码，省了编解码这一步。但章节内容里的脏数据太多了：</p>
-<ul>
-<li>「本章未完，请翻下一页」</li>
-<li>「第(1&#x2F;3)页」</li>
-<li><code>[玄幻]</code> 之类的分类前缀</li>
-<li>随机插入的广告文案</li>
-</ul>
-<p><strong>清理数据的正则代码比抓取数据的代码还多。</strong> 正则写多了之后才发现，做爬虫最难的从来不是发请求，是把别人乱七八糟的 HTML 洗成干净文本。</p>
-<hr>
-<h2 id="前后端通信的变化"><a href="#前后端通信的变化" class="headerlink" title="前后端通信的变化"></a>前后端通信的变化</h2><p>web 版的前后端通信就是标准的 HTTP：</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// web 版</span></span><br><span class="line"><span class="keyword">const</span> res = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;/api/search?keyword=三体&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>Tauri 版变成了进程间通信：</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Tauri 版</span></span><br><span class="line"><span class="keyword">const</span> res = <span class="keyword">await</span> <span class="title function_">invoke</span>(<span class="string">&#x27;search_books&#x27;</span>, &#123; <span class="attr">keyword</span>: <span class="string">&#x27;三体&#x27;</span>, <span class="attr">source</span>: <span class="string">&#x27;qixinge&#x27;</span> &#125;);</span><br></pre></td></tr></table></figure>
-
-<p><strong>这个改动对前端来说几乎是透明的。</strong> 除了把 <code>fetch</code> 换成 <code>invoke</code>，其他逻辑一行没改。这也是 Tauri 设计得好——前端开发者几乎感知不到后端的切换。</p>
-<hr>
-<h2 id="最大的感受"><a href="#最大的感受" class="headerlink" title="最大的感受"></a>最大的感受</h2><p>整个项目做完，我最大的感受不是「Rust 真难」也不是「Tauri 真香」——</p>
-<blockquote>
-<p><strong>把软件交到别人手里，比写软件本身难多了。</strong></p>
-</blockquote>
-<p>功能我在 web 版就写好了。搜索、目录、阅读器、日夜间模式，web 版全都有。</p>
-<p>但为了让别人能 <strong>双击运行</strong>，我做的事情包括：</p>
-<ul>
-<li>把后端从 Node.js 迁移到 Rust</li>
-<li>折腾 Windows 工具链</li>
-<li>处理三个不同书源的各种编码和格式</li>
-<li>用 GitHub Releases 发布 exe</li>
-<li>写面向小白用户的图文 README</li>
-</ul>
-<p>这些全都不是「功能开发」，但每一项都不可或缺。没有它们，软件就只是我电脑上的 <code>localhost:3000</code>，别人根本看不见。</p>
-<p>我以前觉得软件工程最难的是写代码。现在发现，<strong>代码只是冰山在水面上的那一角</strong>。水面之下是分发、部署、文档、兼容性——这些才是决定一个软件能不能真正「存在」的东西。</p>
-<hr>
-<h2 id="软件截图"><a href="#软件截图" class="headerlink" title="软件截图"></a>软件截图</h2><p><img src="/../image/image-20260509013525976.png" alt="搜索页面"></p>
-<p><img src="/../image/image-20260509013606254.png" alt="阅读器界面"></p>
-<hr>
-<h2 id="接下来要做的事"><a href="#接下来要做的事" class="headerlink" title="接下来要做的事"></a>接下来要做的事</h2><p>目前 v0.1.0 已经发在 GitHub Releases 上了，14MB 的单 exe，下载双击就能用。</p>
-<p>但离「好用」还有距离，接下来几天集中做三件事：</p>
-<ol>
-<li><strong>书源扩展</strong> — 现有的三个书源覆盖率太低，搜冷门书基本搜不到。至少再补几个主流网文源。</li>
-<li><strong>书架和历史记录</strong> — 现在每次打开软件都要重新搜索，没有任何持久化。下一步用 SQLite 把阅读进度、书架收藏存到本地。</li>
-<li><strong>阅读体验优化</strong> — 现在的字号只有三档，翻页也没有动画。至少要加上自定义字号、行距、翻页动画。</li>
-</ol>
-<p>等这些做完，v1.0 才算真的能用。</p>
-<hr>
-<p>仓库地址：<a target="_blank" rel="noopener" href="https://github.com/hinder110/yueduqi-tauri">github.com&#x2F;hinder110&#x2F;yueduqi-tauri</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1745,7 +1689,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1758,7 +1702,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-count">60</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
