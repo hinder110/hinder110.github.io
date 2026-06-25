@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>Steam Linux Proton 游戏配置指南</title>
+      <link href="/2026/06/26/Steam-Linux-Proton-%E6%B8%B8%E6%88%8F%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/"/>
+      <url>/2026/06/26/Steam-Linux-Proton-%E6%B8%B8%E6%88%8F%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</url>
+      
+        <content type="html"><![CDATA[<h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>作为一个双系统用户，Windows 上装了不少游戏，但每次想玩游戏都得重启切换系统，体验实在割裂。最近决定在 Linux（CachyOS）上把 Steam 游戏环境搭起来，过程意外的顺利，记录下来供自己备忘，也分享给有同样需求的人。</p><h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><p>在 Linux 上玩 Windows 游戏，不需要虚拟机，靠的是 <strong>Proton</strong>。</p><p>Proton 是 Valve 开发的兼容层，本质是 Wine + DXVK（DirectX → Vulkan 翻译层）的整合包。Steam Deck 用的就是这套东西。目前 ProtonDB 的数据显示大约 90% 的 Windows 游戏在 Linux 上可玩，主要例外是带内核级反作弊的网游（Valorant、Faceit 等）。</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>CachyOS（Arch 系）安装极其简单。不需要装那个 3GB 的 <code>cachyos-gaming-meta</code> 全家桶，精简方案就够：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S steam proton-cachyos gamemode mangohud lib32-mangohud protontricks</span><br></pre></td></tr></table></figure><table><thead><tr><th>包名</th><th>作用</th></tr></thead><tbody><tr><td><code>steam</code></td><td>Steam 客户端</td></tr><tr><td><code>proton-cachyos</code></td><td>CachyOS 定制的 Proton，带额外补丁和优化</td></tr><tr><td><code>gamemode</code></td><td>启动游戏时自动切换 CPU 到性能模式，退出后恢复</td></tr><tr><td><code>mangohud</code></td><td>屏幕浮层，显示帧率、CPU&#x2F;GPU 占用、温度</td></tr><tr><td><code>protontricks</code></td><td>给特定游戏安装 VC++ 运行库、.NET 等 Windows 组件</td></tr></tbody></table><p>总量约 330 MiB 下载，比我一开始看到的 680 MiB 少了一半。</p><h2 id="启用-Proton"><a href="#启用-Proton" class="headerlink" title="启用 Proton"></a>启用 Proton</h2><p>打开 Steam → <strong>Settings</strong> → <strong>Compatibility</strong>：</p><ol><li>✅ <strong>Enable Steam Play for supported titles</strong></li><li>✅ <strong>Enable Steam Play for all other titles</strong>（这个必须勾，否则大量未认证游戏不会让你运行）</li><li>下拉选择 <strong>Proton-CachyOS</strong>（或者最新的 Proton Experimental）</li><li>重启 Steam</li></ol><h2 id="转移-Windows-上的游戏"><a href="#转移-Windows-上的游戏" class="headerlink" title="转移 Windows 上的游戏"></a>转移 Windows 上的游戏</h2><p>这是最关键的步骤。查了一圈资料，有三种方案：</p><h3 id="方案一：复制文件-Steam-验证（推荐-✅）"><a href="#方案一：复制文件-Steam-验证（推荐-✅）" class="headerlink" title="方案一：复制文件 + Steam 验证（推荐 ✅）"></a>方案一：复制文件 + Steam 验证（推荐 ✅）</h3><p>最稳妥，零副作用。原理：Windows 游戏的安装文件和 Linux 下的完全一样，Proton 只在运行时创建 Wine 前缀。</p><ol><li>在 Linux 上挂载 Windows 的 NTFS 分区</li><li>把 <code>Steam/steamapps/common/游戏名</code> 文件夹复制到 <code>~/.steam/steam/steamapps/common/</code></li><li>在 Steam 里点 “安装”，选择同一个路径</li><li>Steam 会自动检测已有文件，从 “下载” 变成 “验证”，只拉取少量元数据</li><li>第一次启动时 Proton 自动创建 Wine 环境，启动稍慢几秒</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果 common 目录还不存在</span></span><br><span class="line"><span class="built_in">mkdir</span> -p ~/.steam/steam/steamapps/common</span><br></pre></td></tr></table></figure><h3 id="方案二：Btrfs-分区共享"><a href="#方案二：Btrfs-分区共享" class="headerlink" title="方案二：Btrfs 分区共享"></a>方案二：Btrfs 分区共享</h3><p>如果你的游戏数据在单独的 Btrfs 分区，Windows 装 WinBtrfs 驱动后两边都能读写。但已知问题不少：Windows 索引会碰文件、有原生 Linux 版的游戏会在切换系统时重复下载。维护成本 &gt; 方案一的一次性复制。</p><h3 id="方案三：NTFS-直接共享（不推荐-⚠️）"><a href="#方案三：NTFS-直接共享（不推荐-⚠️）" class="headerlink" title="方案三：NTFS 直接共享（不推荐 ⚠️）"></a>方案三：NTFS 直接共享（不推荐 ⚠️）</h3><p>Valve 官方劝退。NTFS 不支持符号链接（Proton 必需），必须把 <code>compatdata</code> 目录软链到 Linux 原生文件系统。还得关 Windows 快速启动否则可能损坏数据。不值得折腾。</p><p><strong>结论：方案一最佳，复制一次，一劳永逸。</strong></p><h2 id="Steam-游戏目录在哪里"><a href="#Steam-游戏目录在哪里" class="headerlink" title="Steam 游戏目录在哪里"></a>Steam 游戏目录在哪里</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~/.steam/steam/steamapps/common/        # 游戏文件</span><br><span class="line">~/.steam/steam/steamapps/compatdata/    # Proton 为每个游戏创建的 Wine 前缀</span><br></pre></td></tr></table></figure><p><code>~/.steam/steam/</code> 实际是 <code>~/.local/share/Steam/</code> 的软链接。</p><h2 id="性能工具：GameMode-和-MangoHud"><a href="#性能工具：GameMode-和-MangoHud" class="headerlink" title="性能工具：GameMode 和 MangoHud"></a>性能工具：GameMode 和 MangoHud</h2><p>这两个工具通过 Steam 启动选项来用：</p><p>右键游戏 → <strong>属性 (Properties)</strong> → <strong>启动选项 (Launch Options)</strong>：</p><table><thead><tr><th>启动选项</th><th>效果</th></tr></thead><tbody><tr><td><code>gamemoderun %command%</code></td><td>自动切换 CPU 性能调度</td></tr><tr><td><code>mangohud %command%</code></td><td>屏幕浮层显示帧率、温度等</td></tr><tr><td><code>gamemoderun mangohud %command%</code></td><td>两者同时启用</td></tr></tbody></table><p><strong>注意：</strong> GameMode 不是所有游戏都需要开。视觉小说、像素游戏这种不吃性能的开了纯属浪费电。留给 3A 大作和射击游戏就够了。</p><p>手动验证 GameMode 是否在工作：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gamemoded -s</span><br></pre></td></tr></table></figure><h2 id="游戏兼容性查询"><a href="#游戏兼容性查询" class="headerlink" title="游戏兼容性查询"></a>游戏兼容性查询</h2><p>在买游戏或折腾之前，先去 <a href="https://www.protondb.com/">ProtonDB</a> 查一下：</p><table><thead><tr><th>评级</th><th>含义</th></tr></thead><tbody><tr><td>Platinum</td><td>开箱即用</td></tr><tr><td>Gold</td><td>需要小幅调整</td></tr><tr><td>Silver</td><td>能玩但有明显问题</td></tr><tr><td>Bronze</td><td>勉强能跑</td></tr><tr><td>Borked</td><td>完全不能玩</td></tr></tbody></table><p>网站上还有用户提交的具体 Proton 版本选择和启动参数，很有参考价值。</p><h2 id="我的第一个-Linux-游戏"><a href="#我的第一个-Linux-游戏" class="headerlink" title="我的第一个 Linux 游戏"></a>我的第一个 Linux 游戏</h2><p>装好之后第一个跑的是《命运石之门》（Steins;Gate），这种视觉小说对 Proton 毫无压力，开箱即用。看着熟悉的画面出现在 KDE 桌面上，确实有一种 “这玩意儿真的能跑” 的新奇感。</p><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>整个过程比预期的顺利很多。从安装到跑起第一个游戏，总共就几条命令加 Steam 里勾两个选项。Steam Deck 的生态反哺让 Linux 桌面游戏从 “能跑但折腾” 变成了 “大概率开箱即用”。</p><p>接下来打算把 Windows 上的游戏一个个搬过来试试，看看哪些能完美运行，哪些需要调参数。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> 游戏 </tag>
+            
+            <tag> Steam </tag>
+            
+            <tag> Proton </tag>
+            
+            <tag> CachyOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Claude Code Skills 与 Hooks 使用指南</title>
       <link href="/2026/05/27/Claude-Code-Skills-Hooks/"/>
       <url>/2026/05/27/Claude-Code-Skills-Hooks/</url>
