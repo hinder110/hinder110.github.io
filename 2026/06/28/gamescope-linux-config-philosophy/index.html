@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"145698.xyz","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":16,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#d8794a","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":true,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"fadeIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="起点：gamescope 怎么用？无意间知道了 Gamescope——Valve 为 Steam Deck 做的 Wayland 微合成器。装好了，怎么用？ 答案不复杂： 1gamescope -W 1920 -H 1080 -r 60 -f -- %command%  Steam 游戏属性 → 启动选项，把上面这行粘进去，60 帧全屏跑。想降分辨率提性能就加 -w 1600 -h 900 -F">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从 gamescope 到 Linux 哲学——一次顺藤摸瓜的学习">
+<meta property="og:url" content="https://145698.xyz/2026/06/28/gamescope-linux-config-philosophy/index.html">
+<meta property="og:site_name" content="宇宙纪元">
+<meta property="og:description" content="起点：gamescope 怎么用？无意间知道了 Gamescope——Valve 为 Steam Deck 做的 Wayland 微合成器。装好了，怎么用？ 答案不复杂： 1gamescope -W 1920 -H 1080 -r 60 -f -- %command%  Steam 游戏属性 → 启动选项，把上面这行粘进去，60 帧全屏跑。想降分辨率提性能就加 -w 1600 -h 900 -F">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-06-28T12:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-28T07:50:54.493Z">
+<meta property="article:author" content="hinder110">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="配置文件">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://145698.xyz/2026/06/28/gamescope-linux-config-philosophy/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>从 gamescope 到 Linux 哲学——一次顺藤摸瓜的学习 | 宇宙纪元</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">宇宙纪元</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">hinder110 的思考、读书与代码札记。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://145698.xyz/2026/06/28/gamescope-linux-config-philosophy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/image/x2.png">
+      <meta itemprop="name" content="hinder110">
+      <meta itemprop="description" content="在电脑、书、游戏与日常之间，记录一个正在形成的世界。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宇宙纪元">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          从 gamescope 到 Linux 哲学——一次顺藤摸瓜的学习
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-06-28 20:00:00 / 修改时间：15:50:54" itemprop="dateCreated datePublished" datetime="2026-06-28T20:00:00+08:00">2026-06-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="起点：gamescope-怎么用？"><a href="#起点：gamescope-怎么用？" class="headerlink" title="起点：gamescope 怎么用？"></a>起点：gamescope 怎么用？</h2><p>无意间知道了 Gamescope——Valve 为 Steam Deck 做的 Wayland 微合成器。装好了，怎么用？</p>
+<p>答案不复杂：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gamescope -W 1920 -H 1080 -r 60 -f -- %command%</span><br></pre></td></tr></table></figure>
+
+<p>Steam 游戏属性 → 启动选项，把上面这行粘进去，60 帧全屏跑。想降分辨率提性能就加 <code>-w 1600 -h 900 -F fsr</code>，开 FSR 超分。游戏里 Super+F 切全屏，Super+U 切 FSR 开关。</p>
+<p>不复杂。但接下来发生了更有意思的事。</p>
+<h2 id="第一问：配置文件在哪里？"><a href="#第一问：配置文件在哪里？" class="headerlink" title="第一问：配置文件在哪里？"></a>第一问：配置文件在哪里？</h2><p>如果我想看 gamescope 的配置文件呢？pacman 装的程序，配置放哪了？</p>
+<p>两条规则：</p>
+<ul>
+<li><strong><code>/etc/</code></strong> — 系统级默认配置，pacman 装的，所有用户共享</li>
+<li><strong><code>~/.config/</code></strong> — 用户自己改的配置，程序第一次运行时自动生成，pacman 不碰</li>
+</ul>
+<p>查一个包放了什么配置：<code>pacman -Ql &lt;包名&gt; | grep /etc/</code>。</p>
+<h2 id="第二问：为什么这样设计？"><a href="#第二问：为什么这样设计？" class="headerlink" title="第二问：为什么这样设计？"></a>第二问：为什么这样设计？</h2><p>因为 Linux 从一开始就是<strong>多用户系统</strong>。哪怕现在 PC 就你一个人，系统里还跑着 <code>root</code>、<code>nobody</code>、<code>http</code> 等几十个虚拟用户。</p>
+<p>如果配置只有一个地方放：装个 vim，服务器上 50 个用户都得等管理员改全局配置才能换主题——疯了。反过来，一个人改了全局 vimrc，其余 49 个人的编辑器突然变了——更疯了。</p>
+<p>解决方案：分层覆盖。</p>
+<table>
+<thead>
+<tr>
+<th>层级</th>
+<th>谁设</th>
+<th>优先级</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>程序默认值</td>
+<td>开发者</td>
+<td>最低</td>
+</tr>
+<tr>
+<td><code>/etc/</code> 全局</td>
+<td>root</td>
+<td>中</td>
+</tr>
+<tr>
+<td><code>~/.config/</code> 个人</td>
+<td>你自己</td>
+<td>最高</td>
+</tr>
+</tbody></table>
+<p>你的个人配置盖过全局，全局盖过默认。每个人只管自己一块，root 管底线。</p>
+<h2 id="不是注册表，是纯文本"><a href="#不是注册表，是纯文本" class="headerlink" title="不是注册表，是纯文本"></a>不是注册表，是纯文本</h2><p>Windows 用了注册表，一个大二进制数据库。Linux 选了纯文本文件。故意的：</p>
+<ul>
+<li>任何编辑器都能改，不需要 regedit</li>
+<li><code>git diff</code> 看改了哪，<code>cp</code> 就是备份</li>
+<li>换机器复制 <code>~/.config/</code> 就恢复</li>
+<li>脚本能直接读写配置</li>
+</ul>
+<p>代价是每个程序可能用不同格式（INI&#x2F;YAML&#x2F;JSON&#x2F;TOML）。换来的是透明和可控。</p>
+<p><code>/etc/</code>、<code>/usr/</code>、<code>/var/</code>、<code>~/.local/share/</code> 分离也是同样的逻辑——可执行文件、静态数据、运行时日志、用户数据各自归位，备份的时候你只要管 <code>/etc/</code> 和 <code>~/</code>。</p>
+<p>不是 Linux 选了「难用」，而是选了「每个人只管自己一亩三分地」。你是多用户系统里的一个用户，root 不是你，系统服务的虚拟用户也不是你。分层就是为了让这个边界清晰。</p>
+<h2 id="第三问：加密是干什么的？"><a href="#第三问：加密是干什么的？" class="headerlink" title="第三问：加密是干什么的？"></a>第三问：加密是干什么的？</h2><p>聊到 GPG（打错成 gbg），接着是文件加密。</p>
+<p>说实话，我过去多少年也从没手动加解密过文件。最多压缩包设个密码。但仔细一想，我其实一直在用加密，只是它藏在底层：</p>
+<ul>
+<li>打开 <code>https://</code> 网站 → TLS</li>
+<li>连 WiFi → WPA2&#x2F;WPA3</li>
+<li>SSH 连服务器 → 加密通道</li>
+<li>Steam 输密码 → 加密传输</li>
+</ul>
+<p>软件替你做了。手动加密只在数据要离开你可控边界时才有意义——发给别人、上传云盘、U 盘带走。</p>
+<p>然后查了一下自己的硬盘——<code>lsblk</code> 没看到 <code>crypt</code> 层，<code>/etc/crypttab</code> 不存在，<code>dm-crypt</code> 模块没加载。裸奔。但因为我这台机器不带着到处跑、盘上也没什么见不得人的内容，不需要就是不需要。Linux 给你的是选择，不是强制。</p>
+<h2 id="顺藤摸瓜的学习"><a href="#顺藤摸瓜的学习" class="headerlink" title="顺藤摸瓜的学习"></a>顺藤摸瓜的学习</h2><p>回头看这串问题的路径：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gamescope 怎么用</span><br><span class="line">  → 配置文件在哪</span><br><span class="line">    → 为什么这样设计</span><br><span class="line">      → 加密是什么</span><br><span class="line">        → 我需要加密吗</span><br><span class="line">          → 我的盘加密了吗</span><br></pre></td></tr></table></figure>
+
+<p>这不是按教材目录学的。每一个问题都是上一个自然引出来的。从一条启动参数开始，摸到了 FHS 标准、多用户设计哲学、文本配置 vs 注册表、以及对自身系统的实际验证。</p>
+<p>每个知识点都踩在上一步的实际操作上，不是背的，不会忘。</p>
+<blockquote>
+<p>学习不是先有地图再走，是走到哪画到哪。今天画了一小段，但它连着真实的路。</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
+              <a href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag"># 配置文件</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2026/06/26/Steam-Linux-Proton-%E6%B8%B8%E6%88%8F%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/" rel="prev" title="Steam Linux Proton 游戏配置指南">
+      <i class="fa fa-chevron-left"></i> Steam Linux Proton 游戏配置指南
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%B7%E7%82%B9%EF%BC%9Agamescope-%E6%80%8E%E4%B9%88%E7%94%A8%EF%BC%9F"><span class="nav-text">起点：gamescope 怎么用？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%97%AE%EF%BC%9A%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%9F"><span class="nav-text">第一问：配置文件在哪里？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%97%AE%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%99%E6%A0%B7%E8%AE%BE%E8%AE%A1%EF%BC%9F"><span class="nav-text">第二问：为什么这样设计？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E6%98%AF%E6%B3%A8%E5%86%8C%E8%A1%A8%EF%BC%8C%E6%98%AF%E7%BA%AF%E6%96%87%E6%9C%AC"><span class="nav-text">不是注册表，是纯文本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E9%97%AE%EF%BC%9A%E5%8A%A0%E5%AF%86%E6%98%AF%E5%B9%B2%E4%BB%80%E4%B9%88%E7%9A%84%EF%BC%9F"><span class="nav-text">第三问：加密是干什么的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%BA%E8%97%A4%E6%91%B8%E7%93%9C%E7%9A%84%E5%AD%A6%E4%B9%A0"><span class="nav-text">顺藤摸瓜的学习</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="hinder110"
+      src="/image/x2.png">
+  <p class="site-author-name" itemprop="name">hinder110</p>
+  <div class="site-description" itemprop="description">在电脑、书、游戏与日常之间，记录一个正在形成的世界。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/hinder110" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hinder110" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://145698.xyz/" title="Blog → https:&#x2F;&#x2F;145698.xyz"><i class="fa fa-globe fa-fw"></i>Blog</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-star"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hinder110</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

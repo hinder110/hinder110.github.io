@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>从 gamescope 到 Linux 哲学——一次顺藤摸瓜的学习</title>
+      <link href="/2026/06/28/gamescope-linux-config-philosophy/"/>
+      <url>/2026/06/28/gamescope-linux-config-philosophy/</url>
+      
+        <content type="html"><![CDATA[<h2 id="起点：gamescope-怎么用？"><a href="#起点：gamescope-怎么用？" class="headerlink" title="起点：gamescope 怎么用？"></a>起点：gamescope 怎么用？</h2><p>无意间知道了 Gamescope——Valve 为 Steam Deck 做的 Wayland 微合成器。装好了，怎么用？</p><p>答案不复杂：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gamescope -W 1920 -H 1080 -r 60 -f -- %command%</span><br></pre></td></tr></table></figure><p>Steam 游戏属性 → 启动选项，把上面这行粘进去，60 帧全屏跑。想降分辨率提性能就加 <code>-w 1600 -h 900 -F fsr</code>，开 FSR 超分。游戏里 Super+F 切全屏，Super+U 切 FSR 开关。</p><p>不复杂。但接下来发生了更有意思的事。</p><h2 id="第一问：配置文件在哪里？"><a href="#第一问：配置文件在哪里？" class="headerlink" title="第一问：配置文件在哪里？"></a>第一问：配置文件在哪里？</h2><p>如果我想看 gamescope 的配置文件呢？pacman 装的程序，配置放哪了？</p><p>两条规则：</p><ul><li><strong><code>/etc/</code></strong> — 系统级默认配置，pacman 装的，所有用户共享</li><li><strong><code>~/.config/</code></strong> — 用户自己改的配置，程序第一次运行时自动生成，pacman 不碰</li></ul><p>查一个包放了什么配置：<code>pacman -Ql &lt;包名&gt; | grep /etc/</code>。</p><h2 id="第二问：为什么这样设计？"><a href="#第二问：为什么这样设计？" class="headerlink" title="第二问：为什么这样设计？"></a>第二问：为什么这样设计？</h2><p>因为 Linux 从一开始就是<strong>多用户系统</strong>。哪怕现在 PC 就你一个人，系统里还跑着 <code>root</code>、<code>nobody</code>、<code>http</code> 等几十个虚拟用户。</p><p>如果配置只有一个地方放：装个 vim，服务器上 50 个用户都得等管理员改全局配置才能换主题——疯了。反过来，一个人改了全局 vimrc，其余 49 个人的编辑器突然变了——更疯了。</p><p>解决方案：分层覆盖。</p><table><thead><tr><th>层级</th><th>谁设</th><th>优先级</th></tr></thead><tbody><tr><td>程序默认值</td><td>开发者</td><td>最低</td></tr><tr><td><code>/etc/</code> 全局</td><td>root</td><td>中</td></tr><tr><td><code>~/.config/</code> 个人</td><td>你自己</td><td>最高</td></tr></tbody></table><p>你的个人配置盖过全局，全局盖过默认。每个人只管自己一块，root 管底线。</p><h2 id="不是注册表，是纯文本"><a href="#不是注册表，是纯文本" class="headerlink" title="不是注册表，是纯文本"></a>不是注册表，是纯文本</h2><p>Windows 用了注册表，一个大二进制数据库。Linux 选了纯文本文件。故意的：</p><ul><li>任何编辑器都能改，不需要 regedit</li><li><code>git diff</code> 看改了哪，<code>cp</code> 就是备份</li><li>换机器复制 <code>~/.config/</code> 就恢复</li><li>脚本能直接读写配置</li></ul><p>代价是每个程序可能用不同格式（INI&#x2F;YAML&#x2F;JSON&#x2F;TOML）。换来的是透明和可控。</p><p><code>/etc/</code>、<code>/usr/</code>、<code>/var/</code>、<code>~/.local/share/</code> 分离也是同样的逻辑——可执行文件、静态数据、运行时日志、用户数据各自归位，备份的时候你只要管 <code>/etc/</code> 和 <code>~/</code>。</p><p>不是 Linux 选了「难用」，而是选了「每个人只管自己一亩三分地」。你是多用户系统里的一个用户，root 不是你，系统服务的虚拟用户也不是你。分层就是为了让这个边界清晰。</p><h2 id="第三问：加密是干什么的？"><a href="#第三问：加密是干什么的？" class="headerlink" title="第三问：加密是干什么的？"></a>第三问：加密是干什么的？</h2><p>聊到 GPG（打错成 gbg），接着是文件加密。</p><p>说实话，我过去多少年也从没手动加解密过文件。最多压缩包设个密码。但仔细一想，我其实一直在用加密，只是它藏在底层：</p><ul><li>打开 <code>https://</code> 网站 → TLS</li><li>连 WiFi → WPA2&#x2F;WPA3</li><li>SSH 连服务器 → 加密通道</li><li>Steam 输密码 → 加密传输</li></ul><p>软件替你做了。手动加密只在数据要离开你可控边界时才有意义——发给别人、上传云盘、U 盘带走。</p><p>然后查了一下自己的硬盘——<code>lsblk</code> 没看到 <code>crypt</code> 层，<code>/etc/crypttab</code> 不存在，<code>dm-crypt</code> 模块没加载。裸奔。但因为我这台机器不带着到处跑、盘上也没什么见不得人的内容，不需要就是不需要。Linux 给你的是选择，不是强制。</p><h2 id="顺藤摸瓜的学习"><a href="#顺藤摸瓜的学习" class="headerlink" title="顺藤摸瓜的学习"></a>顺藤摸瓜的学习</h2><p>回头看这串问题的路径：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gamescope 怎么用</span><br><span class="line">  → 配置文件在哪</span><br><span class="line">    → 为什么这样设计</span><br><span class="line">      → 加密是什么</span><br><span class="line">        → 我需要加密吗</span><br><span class="line">          → 我的盘加密了吗</span><br></pre></td></tr></table></figure><p>这不是按教材目录学的。每一个问题都是上一个自然引出来的。从一条启动参数开始，摸到了 FHS 标准、多用户设计哲学、文本配置 vs 注册表、以及对自身系统的实际验证。</p><p>每个知识点都踩在上一步的实际操作上，不是背的，不会忘。</p><blockquote><p>学习不是先有地图再走，是走到哪画到哪。今天画了一小段，但它连着真实的路。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> 学习 </tag>
+            
+            <tag> 配置文件 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Steam Linux Proton 游戏配置指南</title>
       <link href="/2026/06/26/Steam-Linux-Proton-%E6%B8%B8%E6%88%8F%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/"/>
       <url>/2026/06/26/Steam-Linux-Proton-%E6%B8%B8%E6%88%8F%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</url>
