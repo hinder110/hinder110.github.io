@@ -193,6 +193,186 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://145698.xyz/2026/06/30/yueduqi-desktop-optimization/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/image/x2.png">
+      <meta itemprop="name" content="hinder110">
+      <meta itemprop="description" content="在电脑、书、游戏与日常之间，记录一个正在形成的世界。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宇宙纪元">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/06/30/yueduqi-desktop-optimization/" class="post-title-link" itemprop="url">yueduqi-desktop 全面优化实录 — 缓存、SQLite、Workflow 踩坑与收获</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-06-30 21:30:00 / 修改时间：21:24:46" itemprop="dateCreated datePublished" datetime="2026-06-30T21:30:00+08:00">2026-06-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BB%A3%E7%A0%81/" itemprop="url" rel="index"><span itemprop="name">代码</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p><a target="_blank" rel="noopener" href="https://github.com/hinder110/yueduqi-desktop">yueduqi-desktop</a> 是一个用 Go + Wails v2 构建的桌面阅读器。后端解析多个书源的网页&#x2F;API 返回搜索结果和章节内容，前端用 React + TypeScript 渲染界面。</p>
+<p>优化前的状态：能跑，但有很多”差不多就行”的妥协——</p>
+<ul>
+<li>HTTP Client 没有连接池复用</li>
+<li>零缓存，每次请求都打到上游</li>
+<li>日志路径硬编码 <code>/tmp</code>，无级别控制</li>
+<li>书架和阅读进度全是 stub（返回假数据）</li>
+<li>Parser 注册靠 switch-case，加新书源要改核心文件</li>
+<li>错误处理有一堆 <code>_</code> 吞错的写法</li>
+</ul>
+<h2 id="优化内容"><a href="#优化内容" class="headerlink" title="优化内容"></a>优化内容</h2><h3 id="1-缓存层：cache-cache-go"><a href="#1-缓存层：cache-cache-go" class="headerlink" title="1. 缓存层：cache/cache.go"></a>1. 缓存层：<code>cache/cache.go</code></h3><p>用 Go 泛型实现了一个带 TTL 的内存缓存：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Cache[T any] <span class="keyword">struct</span> &#123;</span><br><span class="line">    mu       sync.RWMutex</span><br><span class="line">    entries  <span class="keyword">map</span>[<span class="type">string</span>]Entry[T]</span><br><span class="line">    ttl      time.Duration</span><br><span class="line">    hits     atomic.Int64</span><br><span class="line">    misses   atomic.Int64</span><br><span class="line">    disabled atomic.Bool</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>热榜（5min TTL）、搜索（3min TTL）、章节列表（10min TTL）各自独立实例。支持运行时开关、统计命中率。</p>
+<h3 id="2-持久化存储：storage-storage-go"><a href="#2-持久化存储：storage-storage-go" class="headerlink" title="2. 持久化存储：storage/storage.go"></a>2. 持久化存储：<code>storage/storage.go</code></h3><p>用 <code>modernc.org/sqlite</code>（纯 Go，无 CGO）实现了完整的本地数据库：</p>
+<ul>
+<li><code>bookshelf</code> 表：书架数据，<code>INSERT OR IGNORE</code> 去重</li>
+<li><code>reading_progress</code> 表：阅读进度，<code>ON CONFLICT DO UPDATE</code> upsert</li>
+<li><code>settings</code> 表：用户偏好键值存储</li>
+<li><code>memStore</code> 兜底：SQLite 不可用时自动切换内存模式</li>
+</ul>
+<p>Wails 绑定的 Go 方法（<code>AddToBookshelf</code>、<code>GetBookshelf</code>、<code>UpdateProgress</code> 等）从前端 <code>api.ts</code> 直接调用，不再走 HTTP 层。</p>
+<h3 id="3-配置系统：config-config-go"><a href="#3-配置系统：config-config-go" class="headerlink" title="3. 配置系统：config/config.go"></a>3. 配置系统：<code>config/config.go</code></h3><p>用 <code>gopkg.in/yaml.v3</code> 加载 <code>~/.config/yueduqi/config.yaml</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">hosts:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://v1.gyks.cf</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://v2.gyks.cf</span></span><br><span class="line"><span class="attr">timeout:</span> <span class="number">15</span></span><br><span class="line"><span class="attr">log_level:</span> <span class="string">info</span></span><br><span class="line"><span class="attr">log_path:</span> <span class="string">/home/user/.config/yueduqi/yueduqi.log</span></span><br></pre></td></tr></table></figure>
+
+<p>文件不存在时用 <code>Default()</code> 返回合理默认值，不报错。</p>
+<h3 id="4-日志：从-log-Logger-到-log-slog"><a href="#4-日志：从-log-Logger-到-log-slog" class="headerlink" title="4. 日志：从 log.Logger 到 log/slog"></a>4. 日志：从 <code>log.Logger</code> 到 <code>log/slog</code></h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 之前</span></span><br><span class="line">logger = log.New(f, <span class="string">&quot;[yueduqi] &quot;</span>, log.LstdFlags|log.Lmsgprefix)</span><br><span class="line">logger.Printf(<span class="string">&quot;SearchBooks called: keyword=%q&quot;</span>, keyword)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 之后</span></span><br><span class="line">slog.Info(<span class="string">&quot;SearchBooks called&quot;</span>, <span class="string">&quot;keyword&quot;</span>, keyword, <span class="string">&quot;source&quot;</span>, source)</span><br></pre></td></tr></table></figure>
+
+<p>结构化日志，支持 debug&#x2F;info&#x2F;warn&#x2F;error 级别，路径从配置读取。</p>
+<h3 id="5-Parser-重构"><a href="#5-Parser-重构" class="headerlink" title="5. Parser 重构"></a>5. Parser 重构</h3><p><strong>Registry 模式取代 switch-case：</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// parser.go</span></span><br><span class="line"><span class="keyword">var</span> registry = <span class="keyword">map</span>[<span class="type">string</span>]Parser&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Register</span><span class="params">(name <span class="type">string</span>, p Parser)</span></span> &#123;</span><br><span class="line">    registry[name] = p</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// guangyu.go</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span> &#123;</span><br><span class="line">    Register(<span class="string">&quot;guangyu&quot;</span>, &amp;GuangyuParser&#123;&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>类型安全：</strong> <code>mapItem</code>（<code>map[string]any</code>）替换为具体 struct：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> searchBookItem <span class="keyword">struct</span> &#123;</span><br><span class="line">    BookName <span class="type">string</span> <span class="string">`json:&quot;book_name&quot;`</span></span><br><span class="line">    Author   <span class="type">string</span> <span class="string">`json:&quot;author&quot;`</span></span><br><span class="line">    <span class="comment">// ... 每个字段编译时检查</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>HTTP 连接池：</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> httpClient = &amp;http.Client&#123;</span><br><span class="line">    Timeout: <span class="number">15</span> * time.Second,</span><br><span class="line">    Transport: &amp;http.Transport&#123;</span><br><span class="line">        MaxIdleConns:    <span class="number">10</span>,</span><br><span class="line">        IdleConnTimeout: <span class="number">90</span> * time.Second,</span><br><span class="line">        MaxConnsPerHost: <span class="number">5</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>错误处理修复：</strong> 所有 <code>req, _ := http.NewRequestWithContext(...)</code> 改为显式处理 error。</p>
+<p><strong>广告过滤合并正则：</strong> 18 个独立 <code>regexp.MatchString</code> 合并为单个 <code>adRe</code>，从 O(n×m) 降到 O(n)。</p>
+<h3 id="6-前端改动"><a href="#6-前端改动" class="headerlink" title="6. 前端改动"></a>6. 前端改动</h3><p><code>api.ts</code> 中书架和进度相关的 stub 全部替换为真实调用：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 之前</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">addToBookshelf</span>(<span class="params"><span class="attr">_book</span>?: <span class="built_in">any</span></span>): <span class="title class_">Promise</span>&lt;<span class="built_in">any</span>&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">ok</span>(&#123; <span class="attr">message</span>: <span class="string">&#x27;已加入书架&#x27;</span> &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 之后</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">addToBookshelf</span>(<span class="params"><span class="attr">book</span>?: <span class="built_in">any</span></span>): <span class="title class_">Promise</span>&lt;<span class="built_in">any</span>&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> id = <span class="keyword">await</span> <span class="title class_">AddToBookshelf</span>(&#123;</span><br><span class="line">    <span class="attr">bookId</span>: book?.<span class="property">bookId</span> || <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    <span class="attr">title</span>: book?.<span class="property">title</span> || <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    <span class="comment">// ... 真实持久化</span></span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">ok</span>(id);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="问题-1：Workflow-跑错了项目"><a href="#问题-1：Workflow-跑错了项目" class="headerlink" title="问题 1：Workflow 跑错了项目"></a>问题 1：Workflow 跑错了项目</h3><p>一开始用 Claude Code 的 Workflow（多 agent 编排）做优化，但 Workflow 里 agent 的文件搜索先命中了 <code>yueduqi-desktop</code>（字母序靠前），而我真正想优化的是 <code>yueduqi-go</code>。整轮 18 个 agent、66 万 token 全打在了 desktop 上。</p>
+<p><strong>解决：</strong> 发现后确认 desktop 本身也确实需要优化，就顺势做下去了。教训是给 Workflow 指定目标时要明确绝对路径。</p>
+<h3 id="问题-2：Workflow-太重"><a href="#问题-2：Workflow-太重" class="headerlink" title="问题 2：Workflow 太重"></a>问题 2：Workflow 太重</h3><p>对于 6 个 Go 文件的小项目，Workflow 的 18 个 agent 每个都要加载完整的系统提示和工具定义（~7K tokens&#x2F;个），还要各自读一遍代码。66 万 token 里大半是重复的上下文传输。如果是自己直接在主线改，2-3 万 token 就够。</p>
+<p><strong>解决：</strong> 认识到 Workflow 适合 50+ 文件的大规模审查、跨仓库迁移等场景。小项目应该直接动手改。</p>
+<h3 id="问题-3：过度优化-→-删光-→-恢复"><a href="#问题-3：过度优化-→-删光-→-恢复" class="headerlink" title="问题 3：过度优化 → 删光 → 恢复"></a>问题 3：过度优化 → 删光 → 恢复</h3><p>Workflow 跑完后我一看 token 消耗，觉得太浪费，冲动之下把所有改动回滚、分支删除。冷静下来才意识到——代码本身是好的，编译通过，质量不错。浪费的是 token，不是代码。</p>
+<p><strong>解决：</strong> 用 <code>git reflog</code> 找回 commit，用 <code>git stash pop</code> 恢复未提交改动，手动重建了被 <code>rm</code> 掉的 <code>config/</code> 和 <code>storage/</code> 目录。</p>
+<h3 id="问题-4：超时打架"><a href="#问题-4：超时打架" class="headerlink" title="问题 4：超时打架"></a>问题 4：超时打架</h3><p>Workflow 自动生成的代码里，<code>httpClient.Timeout = 15s</code> 是全局上限，但 <code>contentTimeout = 20s</code> 想给内容请求更宽裕的时间。结果 20s 永远用不到——还没到就被 client 层 15s 截胡了。</p>
+<p><strong>解决：</strong> 把 <code>contentTimeout</code> 降到 15s，和全局超时保持一致。各操作实际生效超时：搜索 8s，章节列表 15s（全局兜底），内容获取 15s。</p>
+<hr>
+<h2 id="最终成果"><a href="#最终成果" class="headerlink" title="最终成果"></a>最终成果</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">17 files changed, 853 insertions(+), 48 deletions(-)</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>模块</th>
+<th>文件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>缓存</td>
+<td><code>cache/cache.go</code></td>
+<td>泛型 TTL 内存缓存，统计命中率</td>
+</tr>
+<tr>
+<td>配置</td>
+<td><code>config/config.go</code></td>
+<td>YAML 加载，默认值优雅降级</td>
+</tr>
+<tr>
+<td>存储</td>
+<td><code>storage/storage.go</code></td>
+<td>SQLite + 内存双后端，书架&#x2F;进度&#x2F;设置 CRUD</td>
+</tr>
+<tr>
+<td>解析</td>
+<td><code>parser/*.go</code></td>
+<td>Registry 模式、类型安全、连接池、错误处理</td>
+</tr>
+<tr>
+<td>应用</td>
+<td><code>app.go</code></td>
+<td>slog 结构化日志、Store 接口</td>
+</tr>
+<tr>
+<td>入口</td>
+<td><code>main.go</code></td>
+<td>XDG 数据目录、SQLite 初始化</td>
+</tr>
+<tr>
+<td>前端</td>
+<td><code>api.ts</code> 等</td>
+<td>书架&#x2F;进度真实 API 调用</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="几点收获"><a href="#几点收获" class="headerlink" title="几点收获"></a>几点收获</h2><ol>
+<li><p><strong>Workflow 要对项目规模有判断。</strong> 不是什么任务都值得上多 agent 编排。文件数 &lt; 20 的项目，直接改更快更省。</p>
+</li>
+<li><p><strong>删代码前先看一眼。</strong> 不要被 token 数字吓到——消耗已经发生了，成果是实在的。删掉再恢复只会浪费更多。</p>
+</li>
+<li><p><strong>超时配置要全局一致。</strong> 多层超时（context + client）容易互相截胡。要么都走 context，要么都走 client，别混用。</p>
+</li>
+<li><p><strong>纯 Go SQLite 真香。</strong> <code>modernc.org/sqlite</code> 不需要 CGO，编译出来的二进制照样是单文件。桌面应用持久化的最佳选择。</p>
+</li>
+<li><p><strong>先跑通，再优化。</strong> 这次改动的 17 个文件全部编译通过、Wails dev 模式正常运行。没有引入回归是最大的胜利。</p>
+</li>
+</ol>
+<p>项目的完整代码在 <a target="_blank" rel="noopener" href="https://github.com/hinder110/yueduqi-desktop">GitHub</a> 上。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://145698.xyz/2026/06/28/linux-fontconfig-guide/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1432,134 +1612,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://145698.xyz/2026/05/15/2026-05-15-linux-cachyos-setup/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/image/x2.png">
-      <meta itemprop="name" content="hinder110">
-      <meta itemprop="description" content="在电脑、书、游戏与日常之间，记录一个正在形成的世界。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="宇宙纪元">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2026/05/15/2026-05-15-linux-cachyos-setup/" class="post-title-link" itemprop="url">从 Windows 到 Linux：我的 CachyOS 折腾记录</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2026-05-15 13:30:00 / 修改时间：13:56:56" itemprop="dateCreated datePublished" datetime="2026-05-15T13:30:00+08:00">2026-05-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">tech</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="从-Windows-到-Linux：我的-CachyOS-折腾记录"><a href="#从-Windows-到-Linux：我的-CachyOS-折腾记录" class="headerlink" title="从 Windows 到 Linux：我的 CachyOS 折腾记录"></a>从 Windows 到 Linux：我的 CachyOS 折腾记录</h1><h2 id="为什么选-CachyOS"><a href="#为什么选-CachyOS" class="headerlink" title="为什么选 CachyOS"></a>为什么选 CachyOS</h2><p>Windows 开机 70 度的发热让我烦了很久。之前在虚拟机里试过几次 Linux，觉得还行，这次直接双系统装了 CachyOS（一个基于 Arch 的优化发行版）。选它是因为：预编译内核针对桌面做了优化，pacman 包管理干净，AUR 包源几乎无所不有。</p>
-<p>笔记本是华硕 TUF A15，AMD 核显 + RTX 4060 Max-Q，16GB 内存。</p>
-<hr>
-<h2 id="桌面：niri-noctalia-shell"><a href="#桌面：niri-noctalia-shell" class="headerlink" title="桌面：niri + noctalia-shell"></a>桌面：niri + noctalia-shell</h2><p>Wayland 时代终于可以放弃 X11 的各种 hack。选了 niri 这个 Wayland 合成器——KDL 格式配置，分文件管理，干净利落：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">~/.config/niri/</span><br><span class="line">├── config.kdl          # 主配置，导入子文件</span><br><span class="line">└── cfg/</span><br><span class="line">    ├── display.kdl     # 2560x1440@165Hz, 缩放 150%, VRR</span><br><span class="line">    ├── input.kdl       # 键盘/触摸板/鼠标</span><br><span class="line">    ├── keybinds.kdl    # 快捷键</span><br><span class="line">    ├── misc.kdl        # 环境变量、截图路径</span><br><span class="line">    ├── rules.kdl       # 窗口规则、圆角 20px</span><br><span class="line">    ├── autostart.kdl   # 自启动</span><br><span class="line">    ├── layout.kdl      # 窗口布局、间距</span><br><span class="line">    └── animation.kdl   # 弹簧动画</span><br></pre></td></tr></table></figure>
-
-<p>桌面壳用的是 <strong>noctalia-shell</strong>——Qt Quick 写的，动画流畅，自带 bar、launcher、通知中心、壁纸管理。和 niri 配合得很好。</p>
-<p>缩放 150% 在 Wayland 下原生支持，比 Windows 的高 DPI 处理舒服太多。Firefox 和 GTK 应用也不用再折腾缩放。</p>
-<hr>
-<h2 id="中文输入"><a href="#中文输入" class="headerlink" title="中文输入"></a>中文输入</h2><p>fcitx5 在 Wayland 下比 Windows 的微软拼音差不了多少，关键是不会弹广告。安装后在 niri 环境变量里加上 <code>GTK_IM_MODULE=fcitx</code> 和 <code>QT_IM_MODULE=fcitx</code> 就行。</p>
-<hr>
-<h2 id="终端：Alacritty-pywal"><a href="#终端：Alacritty-pywal" class="headerlink" title="终端：Alacritty + pywal"></a>终端：Alacritty + pywal</h2><p>终端是我最在意的工具。Alacritty 是 Rust 写的 GPU 加速终端模拟器，比 Windows Terminal 还快。配置 TOML 格式：</p>
-<ul>
-<li>JetBrains Mono，字号 11</li>
-<li>透明度 0.85，padding 适中</li>
-<li>颜色由 <strong>pywal</strong> 自动从壁纸提取——每次换壁纸后自动更新终端配色</li>
-</ul>
-<p>pywal 配合 noctalia 的 hooks 自动工作：换壁纸 → 触发脚本 → 提取颜色 → 写入 Alacritty 配色文件。全程无感。</p>
-<hr>
-<h2 id="软件生态"><a href="#软件生态" class="headerlink" title="软件生态"></a>软件生态</h2><table>
-<thead>
-<tr>
-<th>用途</th>
-<th>方案</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>聊天</td>
-<td>QQ（官方 Linux 版）+ 微信</td>
-</tr>
-<tr>
-<td>办公</td>
-<td>WPS Office（AUR），缩放用环境变量设 1.5 倍</td>
-</tr>
-<tr>
-<td>笔记</td>
-<td>Typora-free 0.11.18 — 最后一个免费版</td>
-</tr>
-<tr>
-<td>浏览器</td>
-<td>Firefox + FF Ultima 主题 + Catppuccin 配色</td>
-</tr>
-<tr>
-<td>终端</td>
-<td>Alacritty + JetBrains Mono + pywal 配色</td>
-</tr>
-<tr>
-<td>包管理</td>
-<td>pacman + paru（AUR 助手）</td>
-</tr>
-</tbody></table>
-<p>AUR 上的包名带 <code>-bin</code> 后缀是预编译版，下载即用；<code>-git</code> 是源码编译版，更折腾但版本最新。日常用 <code>-bin</code> 就行。</p>
-<hr>
-<h2 id="博客迁移"><a href="#博客迁移" class="headerlink" title="博客迁移"></a>博客迁移</h2><p>之前的 Hexo 博客在 Windows F 盘上，Linux 直接挂载 NTFS 分区复制过来：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> mount -t ntfs3 /dev/nvme1n1p1 /mnt/windows-f</span><br><span class="line">rsync -av --exclude=<span class="string">&#x27;node_modules&#x27;</span> /mnt/windows-f/Hexo-Blog/blog-demo/ ~/hexo-blog/</span><br><span class="line"><span class="built_in">cd</span> ~/hexo-blog &amp;&amp; npm install</span><br></pre></td></tr></table></figure>
-
-<p>SSH 密钥重新生成，加到 GitHub，部署命令不变：<code>npx hexo generate -d</code>。</p>
-<hr>
-<h2 id="感受"><a href="#感受" class="headerlink" title="感受"></a>感受</h2><p>同样的硬件，Linux 下日常使用 CPU 温度 40-50 度，风扇安静。没有 Windows Update 后台偷跑，没有杀毒软件扫来扫去，没有厂商预装的各类服务。</p>
-<p>包管理器的体验也确实比 Windows 的 exe 安装包 + 手动更新强一个维度。一条命令更新全系统——包括内核、驱动、所有软件和 AUR 包。</p>
-<p>有些东西 Linux 确实不行（微信的视频通话、QQ 小程序、某些国内软件），但大部分日常开发和学习场景完全够用，甚至更舒服。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1631,20 +1683,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-count">71</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
